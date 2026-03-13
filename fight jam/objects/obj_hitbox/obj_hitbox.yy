@@ -1,13 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_fighter",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_hitbox",
+  "eventList":[],
   "managed":true,
-  "name":"obj_fighter",
+  "name":"obj_hitbox",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -32,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_fighter_idle",
-    "path":"sprites/spr_fighter_idle/spr_fighter_idle.yy",
+    "name":"spr_fighter_light_hb",
+    "path":"sprites/spr_fighter_light_hb/spr_fighter_light_hb.yy",
   },
   "spriteMaskId":null,
   "visible":true,
