@@ -301,11 +301,17 @@ arr_state_functions[STATES.air] = function(){
 	if(is_grounded())
 		change_state(STATES.idle);
 	
-	//air light
+	//light
+	if(input.is_pressed(INPUT.light))
+		change_state(STATES.air_light);
 	
-	//air heavy
-	
-	//air special
+	//heavy
+	if(input.is_pressed(INPUT.light))
+		change_state(STATES.air_light);
+		
+	//special
+	if(input.is_pressed(INPUT.light))
+		change_state(STATES.air_light);
 	
 	//air dodge
 }
@@ -429,18 +435,24 @@ arr_state_functions[STATES.teleport] = function()
 {
 	if(state_changed){
 		x = tp_x;
-		yadd = -jumpforce_y/2
+		yadd = -jumpforce_y/2;
 	}
 	
 	yadd = approach(yadd,grav/2,0);
 	xadd = 0;
 	
 	//light
+	if(input.is_pressed(INPUT.light))
+		change_state(STATES.air_light);
 	
 	//heavy
-	
+	if(input.is_pressed(INPUT.light))
+		change_state(STATES.air_light);
+		
 	//special
-	
+	if(input.is_pressed(INPUT.light))
+		change_state(STATES.air_light);
+		
 	if(anim_done)
 		change_state(STATES.air);
 		

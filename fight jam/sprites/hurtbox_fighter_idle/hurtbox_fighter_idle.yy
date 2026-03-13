@@ -3,7 +3,7 @@
   "%Name":"hurtbox_fighter_idle",
   "bboxMode":0,
   "bbox_bottom":127,
-  "bbox_left":37,
+  "bbox_left":36,
   "bbox_right":89,
   "bbox_top":38,
   "collisionKind":4,
@@ -20,7 +20,7 @@
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"1a643c1f-975d-4970-b9b8-4dfc0ca37b16","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"1a643c1f-975d-4970-b9b8-4dfc0ca37b16","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"b83efe61-6021-4772-b910-43f1eadff998","blendMode":0,"displayName":"default","isLocked":false,"name":"b83efe61-6021-4772-b910-43f1eadff998","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
+    {"$GMImageLayer":"","%Name":"b83efe61-6021-4772-b910-43f1eadff998","blendMode":0,"displayName":"default","isLocked":false,"name":"b83efe61-6021-4772-b910-43f1eadff998","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"hurtbox_fighter_idle",
   "nineSlice":null,
