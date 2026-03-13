@@ -28,7 +28,7 @@ if(!is_parry)
 				
 				if(!parent.is_grounded()){
 					parent.yadd = min(0,parent.yadd)
-					parent.yadd -= parent.jumpforce_y * 0.2
+					parent.yadd -= parent.jumpforce_y * 0.1;
 				}
 			}
 		

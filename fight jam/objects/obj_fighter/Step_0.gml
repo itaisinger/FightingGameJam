@@ -52,9 +52,10 @@ y += yadd;
 
 //move hitbox
 with(inst_hitbox){
-	x += other.xadd;
-	y += other.yadd;
+	x = other.x;
+	y = other.y;
 }
 
 mask_index = hurtbox;
+
 

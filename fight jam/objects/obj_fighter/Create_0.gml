@@ -94,6 +94,8 @@ function change_state(new_state){
 	image_speed_prev = 1;
 	hurtbox = states_hurtboxes[new_state];
 	
+	with(inst_hitbox) instance_destroy();
+	
 	if(hitbox_data[new_state] != -1)
 		create_hitbox(hitbox_data[new_state]);
 }
@@ -153,6 +155,7 @@ states_sprites[STATES.teleport]		= spr_fighter_tp;
 states_sprites[STATES.special]		= spr_fighter_special;
 states_sprites[STATES.land]			= spr_fighter_land;
 states_sprites[STATES.air_light]	= spr_fighter_air_light;
+states_sprites[STATES.air_heavy]	= spr_fighter_air_heavy;
 
 hurtbox = hurtbox_fighter_idle;
 states_hurtboxes = [];
@@ -172,6 +175,7 @@ states_hurtboxes[STATES.teleport]	= hurtbox_fighter_tp;
 states_hurtboxes[STATES.special]	= hurtbox_fighter_special;
 states_hurtboxes[STATES.land]		= hurtbox_fighter_land;
 states_hurtboxes[STATES.air_light]	= hurtbox_fighter_air_light;
+states_hurtboxes[STATES.air_heavy]	= hurtbox_fighter_air_heavy;
 
 mask_index = spr_fighter_idle
 
@@ -181,8 +185,8 @@ hitbox_data = array_create(STATES.max,-1)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,80,15,6,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,40,10,7,5,1,1,false);
-hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,5,25,5,3,7,0,0,false);
-hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,25,5,3,7,0,0,false);
+hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,40,10,3,5,0,0,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,160,20,3,5,0,0,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
@@ -617,6 +621,27 @@ arr_state_functions[STATES.air_light] = function(){
 	//link to heavy
 	if(image_index >= 2 and input.is_pressed(INPUT.heavy))
 		change_state(STATES.air_heavy);
+	
+	if(anim_done)
+		change_state(STATES.air)
+	
+	//land lag
+	if(is_grounded())
+		change_state(STATES.land);
+}
+arr_state_functions[STATES.air_heavy] = function(){
+	
+	if(state_changed)
+	{
+		yadd -= jumpforce_y/2;
+	}
+	
+	xadd = approach(xadd,air_fric,0);
+	yadd += grav;
+	
+	//trans to special
+	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
+		change_state(STATES.air_special)
 	
 	if(anim_done)
 		change_state(STATES.air)
