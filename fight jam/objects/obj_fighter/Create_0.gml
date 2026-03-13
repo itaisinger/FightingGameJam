@@ -142,12 +142,13 @@ mask_index = spr_fighter_idle
 
 
 /// ATTACKS DATA (overrided in different characters)
-hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,80,15,6,9,0,1);
-hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
-hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
-hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
-hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
+hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,80,15,6,9,0,1,false);
+hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,160,20,3,5,0,0,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
 //state functions
@@ -182,7 +183,8 @@ arr_state_functions[STATES.idle] = function(){
 	if(input.is_pressed(INPUT.heavy)) change_state(STATES.heavy);
 
 	//parry
-	
+	if(input.is_pressed(INPUT.dodge)) change_state(STATES.parry);
+
 	//dodge right
 	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.right)){
 		dir = 1;
@@ -196,12 +198,11 @@ arr_state_functions[STATES.idle] = function(){
 	}
 	
 	//capture echo
-	//if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.down) and echo_charges_remain > 0 and echo_saved == -1)
-	if(input.is_pressed(INPUT.dodge) and echo_charges_remain > 0 and echo_saved == -1)
+	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.down) and echo_charges_remain > 0 and echo_saved == -1)
 		change_state(STATES.echo);
 	
 	//play echo
-	if(input.is_pressed(INPUT.dodge) and echo_saved != -1)
+	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.down) and echo_saved != -1)
 		create_echo()
 }
 arr_state_functions[STATES.jump_squat] = function(){
@@ -271,6 +272,7 @@ arr_state_functions[STATES.walk] = function(){
 	//echo
 	
 	//parry
+	if(input.is_pressed(INPUT.dodge)) change_state(STATES.parry);
 }
 arr_state_functions[STATES.air] = function(){
 	yadd += grav;
@@ -389,6 +391,23 @@ arr_state_functions[STATES.heavy] = function(){
 	
 	if(anim_done)
 		change_state(STATES.idle)
+}
+arr_state_functions[STATES.parry] = function()
+{
+	if(state_changed)
+	{
+		create_hitbox(hitbox_data[STATES.parry]);
+	}
+	
+	xadd = approach(xadd,ground_fric,0);
+	yadd = 0;
+	
+	if(anim_done)
+	{
+		change_state(STATES.idle);
+	}
+	
+	
 }
 
 //methods

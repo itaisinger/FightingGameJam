@@ -24,7 +24,7 @@ function FrameInput(P1) constructor{
 	arr[INPUT.left]	 =  obj_input2.arr[INPUT.left];
 	arr[INPUT.right] = obj_input2.arr[INPUT.right];
 	arr[INPUT.down]	 =  obj_input2.arr[INPUT.down];
-	arr[INPUT.up]	 =    obj_input2.arr[INPUT.up];
+	arr[INPUT.up]	 = obj_input2.arr[INPUT.up];
 	arr[INPUT.light] = obj_input2.arr[INPUT.light];
 	arr[INPUT.heavy] = obj_input2.arr[INPUT.heavy];
 	arr[INPUT.dodge] = obj_input2.arr[INPUT.dodge];
