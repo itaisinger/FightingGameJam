@@ -79,7 +79,8 @@ function change_state(new_state){
 	state = new_state;
 	sprite_index = states_sprites[new_state];
 	image_index = 0;
-	
+	image_speed = 1;
+	image_speed_prev = 1;
 	hurtbox = states_hurtboxes[new_state];
 }
 
@@ -89,7 +90,7 @@ input = -1;		//holds the input object for the current frame.
 /// ECHO
 echo_record_arr = [];	//constantly updating last inputs. for echo saves the inputs to play.
 echo_saved = -1;		//hold the saved sequence. returns to -1 after use.
-echo_size = room_speed * 3;
+echo_size = room_speed * 5;
 frames_lived = 0;		//used by echos to count their current step
 
 function create_echo(){
@@ -106,12 +107,14 @@ function make_echo(input_arr){
 
 /// ANIMATION AND VISUALS
 anim_done = false;
+image_speed_prev = 1;
 
 states_sprites = [];
 states_sprites[STATES.idle]			= spr_fighter_idle;
 states_sprites[STATES.jump_squat]	= spr_fighter_jump_squat;
 states_sprites[STATES.walk]			= spr_fighter_walk;
 states_sprites[STATES.light]		= spr_fighter_light;
+states_sprites[STATES.heavy]		= spr_fighter_heavy;
 states_sprites[STATES.air]			= spr_fighter_air;
 states_sprites[STATES.echo]			= spr_fighter_echo;
 states_sprites[STATES.dodge]		= spr_fighter_dodge;
@@ -125,6 +128,7 @@ states_hurtboxes[STATES.idle]		= hurtbox_fighter_idle;
 states_hurtboxes[STATES.jump_squat]	= hurtbox_fighter_jump_squat;
 states_hurtboxes[STATES.walk]		= hurtbox_fighter_walk;
 states_hurtboxes[STATES.light]		= hurtbox_fighter_light;
+states_hurtboxes[STATES.heavy]		= hurtbox_fighter_heavy;
 states_hurtboxes[STATES.air]		= hurtbox_fighter_air;
 states_hurtboxes[STATES.echo]		= hurtbox_fighter_echo;
 states_hurtboxes[STATES.dodge]		= hurtbox_fighter_dodge;
@@ -137,7 +141,7 @@ mask_index = spr_fighter_idle
 
 /// ATTACKS DATA (overrided in different characters)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_light,8,80,15,6,9,0,1);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,80,15,6,9,0,1);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
@@ -173,7 +177,8 @@ arr_state_functions[STATES.idle] = function(){
 	if(input.is_pressed(INPUT.light)) change_state(STATES.light);
 
 	//heavy
-	
+	if(input.is_pressed(INPUT.heavy)) change_state(STATES.heavy);
+
 	//parry
 	
 	//dodge right
@@ -189,11 +194,12 @@ arr_state_functions[STATES.idle] = function(){
 	}
 	
 	//capture echo
-	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.down) and echo_charges_remain > 0 and echo_saved == -1)
+	//if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.down) and echo_charges_remain > 0 and echo_saved == -1)
+	if(input.is_pressed(INPUT.dodge) and echo_charges_remain > 0 and echo_saved == -1)
 		change_state(STATES.echo);
 	
 	//play echo
-	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.down) and echo_saved != -1)
+	if(input.is_pressed(INPUT.dodge) and echo_saved != -1)
 		create_echo()
 }
 arr_state_functions[STATES.jump_squat] = function(){
@@ -258,7 +264,8 @@ arr_state_functions[STATES.walk] = function(){
 	if(input.is_pressed(INPUT.light)) change_state(STATES.light);
 	
 	//heavy
-	
+	if(input.is_pressed(INPUT.heavy)) change_state(STATES.heavy);
+
 	//echo
 	
 	//parry
@@ -359,10 +366,23 @@ arr_state_functions[STATES.light] = function(){
 	
 	if(state_changed){
 		create_hitbox(hitbox_data[STATES.light])
-		xadd += dir * 3
+		xadd += dir * 2
 	}
 	
 	xadd = approach(xadd,ground_fric,0);
+	yadd = 0;
+	
+	if(anim_done)
+		change_state(STATES.idle)
+}
+arr_state_functions[STATES.heavy] = function(){
+	
+	if(state_changed){
+		create_hitbox(hitbox_data[STATES.heavy])
+		xadd += dir * 2
+	}
+	
+	xadd = approach(xadd,slide_fric,0);
 	yadd = 0;
 	
 	if(anim_done)

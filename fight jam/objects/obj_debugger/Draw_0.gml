@@ -18,7 +18,7 @@ try{
 	"charges: " + string(obj_fighter.echo_charges_remain),
 	"hitpause: " + string(obj_fighter.hitpause_remain),
 	"pos: " + string(obj_fighter.x) + "," + string(obj_fighter.y),
-	"count: " + string(instance_number(obj_fighter))
+	"image: " + string(obj_fighter.image_speed) + ": " + string(obj_fighter.image_index)
 	]
 }
 catch(a){vars=[];}

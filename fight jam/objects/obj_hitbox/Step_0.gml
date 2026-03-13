@@ -15,9 +15,13 @@ for(var i=0; i < _num; i++){
 		array_insert(arr_hits,0,_col);
 		
 		//give echo charge
-		if(array_length(arr_hits) == 1 and give_echo_charge){
-			parent.give_echo();
-			parent.image_speed = 1.5;
+		if(array_length(arr_hits) == 1){
+			
+			if(give_echo_charge)
+				parent.give_echo();
+			
+			parent.image_speed = hit_speedup;
+			image_speed = hit_speedup;
 		}
 		
 		//hitpause parent
@@ -26,8 +30,6 @@ for(var i=0; i < _num; i++){
 		//sfx
 		audio_play_sound(sfx_hit,0,0,1.5)
 	}
-		
-		
 }
 
 ds_list_destroy(_cols)

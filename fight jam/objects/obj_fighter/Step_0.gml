@@ -20,11 +20,12 @@ else {
 
 //hitpause
 if(hitpause_remain > 0){
+	image_speed_prev = max(image_speed_prev,image_speed);
 	image_speed = 0;
 	hitpause_remain--;
 	exit;
 }
-else image_speed = 1;
+else image_speed = image_speed_prev;
 
 //STATE
 state_changed = state != state_prev;
