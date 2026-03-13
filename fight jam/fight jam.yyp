@@ -394,6 +394,7 @@
     {"id":{"name":"InputXYNewest","path":"scripts/InputXYNewest/InputXYNewest.yy",},},
     {"id":{"name":"InputXYOldest","path":"scripts/InputXYOldest/InputXYOldest.yy",},},
     {"id":{"name":"InputY","path":"scripts/InputY/InputY.yy",},},
+    {"id":{"name":"scc_hitbox","path":"scripts/scc_hitbox/scc_hitbox.yy",},},
     {"id":{"name":"scr_frame_input","path":"scripts/scr_frame_input/scr_frame_input.yy",},},
     {"id":{"name":"spr_fighter_idle","path":"sprites/spr_fighter_idle/spr_fighter_idle.yy",},},
     {"id":{"name":"spr_fighter_light_hb","path":"sprites/spr_fighter_light_hb/spr_fighter_light_hb.yy",},},
