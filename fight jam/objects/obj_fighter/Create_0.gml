@@ -73,6 +73,8 @@ enum STATES{
 	dodge,
 	parry,
 	teleport,
+	
+	max,
 }
 function change_state(new_state){
 	state_count = 0;
@@ -81,8 +83,12 @@ function change_state(new_state){
 	sprite_index = states_sprites[new_state];
 	image_index = 0;
 	image_speed = 1;
+	image_index_prev = 0;
 	image_speed_prev = 1;
 	hurtbox = states_hurtboxes[new_state];
+	
+	if(hitbox_data[new_state] != -1)
+		create_hitbox(hitbox_data[new_state]);
 }
 
 /// INPUT
@@ -113,6 +119,8 @@ echo_tp_cost = 2;
 /// ANIMATION AND VISUALS
 anim_done = false;
 image_speed_prev = 1;
+image_index_prev = 0;
+special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
 
 states_sprites = [];
 states_sprites[STATES.idle]			= spr_fighter_idle;
@@ -128,6 +136,7 @@ states_sprites[STATES.air_stun]		= spr_fighter_hurt;
 states_sprites[STATES.dead]			= spr_fighter_dead;
 states_sprites[STATES.parry]		= spr_fighter_parry;
 states_sprites[STATES.teleport]		= spr_fighter_tp;
+states_sprites[STATES.special]		= spr_fighter_special;
 
 hurtbox = hurtbox_fighter_idle;
 states_hurtboxes = [];
@@ -144,14 +153,16 @@ states_hurtboxes[STATES.air_stun]	= hurtbox_fighter_hurt;
 states_hurtboxes[STATES.dead]		= hurtbox_fighter_hurt;
 states_hurtboxes[STATES.parry]		= hurtbox_fighter_parry;
 states_hurtboxes[STATES.teleport]	= hurtbox_fighter_tp;
+states_hurtboxes[STATES.special]	= hurtbox_fighter_special;
 
 mask_index = spr_fighter_idle
 
 
 /// ATTACKS DATA (overrided in different characters)
+hitbox_data = array_create(STATES.max,-1)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,80,15,6,9,0,1,false);
-hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
+hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,40,10,7,5,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
@@ -242,6 +253,12 @@ arr_state_functions[STATES.walk] = function(){
 	if(abs(xadd) < abs(xadd_dest)) xadd = xadd_dest;
 	else xadd = approach(xadd,ground_fric,xadd_dest);
 	
+	//failsafe
+	if(!is_grounded()){
+		change_state(STATES.air);
+		return;
+	}
+	
 	//turn
 	if(input.is_pressed(INPUT.left) and dir == 1)
 	{
@@ -286,6 +303,9 @@ arr_state_functions[STATES.walk] = function(){
 	//heavy
 	if(input.is_pressed(INPUT.heavy)) change_state(STATES.heavy);
 
+	//special
+	if(input.is_pressed(INPUT.special)) change_state(STATES.special);
+
 	//echo
 	
 }
@@ -306,12 +326,12 @@ arr_state_functions[STATES.air] = function(){
 		change_state(STATES.air_light);
 	
 	//heavy
-	if(input.is_pressed(INPUT.light))
-		change_state(STATES.air_light);
+	if(input.is_pressed(INPUT.heavy))
+		change_state(STATES.air_heavy);
 		
 	//special
-	if(input.is_pressed(INPUT.light))
-		change_state(STATES.air_light);
+	if(input.is_pressed(INPUT.special))
+		change_state(STATES.air_special);
 	
 	//air dodge
 }
@@ -391,12 +411,14 @@ arr_state_functions[STATES.dead] = function(){
 arr_state_functions[STATES.light] = function(){
 	
 	if(state_changed){
-		create_hitbox(hitbox_data[STATES.light])
 		xadd += dir * 2
 	}
 	
 	xadd = approach(xadd,ground_fric,0);
 	yadd = 0;
+	
+	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
+		change_state(STATES.special)
 	
 	if(anim_done)
 		change_state(STATES.idle)
@@ -404,9 +426,11 @@ arr_state_functions[STATES.light] = function(){
 arr_state_functions[STATES.heavy] = function(){
 	
 	if(state_changed){
-		create_hitbox(hitbox_data[STATES.heavy])
 		xadd += dir * 2
 	}
+	
+	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
+		change_state(STATES.special)
 	
 	xadd = approach(xadd,slide_fric,0);
 	yadd = 0;
@@ -416,11 +440,6 @@ arr_state_functions[STATES.heavy] = function(){
 }
 arr_state_functions[STATES.parry] = function()
 {
-	if(state_changed)
-	{
-		create_hitbox(hitbox_data[STATES.parry]);
-	}
-	
 	xadd = approach(xadd,ground_fric,0);
 	yadd = 0;
 	
@@ -435,30 +454,55 @@ arr_state_functions[STATES.teleport] = function()
 {
 	if(state_changed){
 		x = tp_x;
+		__grav_mult = 0;
+		__done = false;
+	}
+	
+	if(reached_frame(4))
+	{
+		__done = true;
+		__grav_mult = 0.5;
 		yadd = -jumpforce_y/2;
 	}
 	
-	yadd = approach(yadd,grav/2,0);
+	yadd = approach(yadd,grav * __grav_mult,0);
 	xadd = 0;
 	
-	//light
-	if(input.is_pressed(INPUT.light))
-		change_state(STATES.air_light);
+	if(__done)
+	{
+		//light
+		if(input.is_pressed(INPUT.light))
+			change_state(STATES.air_light);
 	
-	//heavy
-	if(input.is_pressed(INPUT.light))
-		change_state(STATES.air_light);
+		//heavy
+		if(input.is_pressed(INPUT.light))
+			change_state(STATES.air_light);
 		
-	//special
-	if(input.is_pressed(INPUT.light))
-		change_state(STATES.air_light);
+		//special
+		if(input.is_pressed(INPUT.light))
+			change_state(STATES.air_light);
 		
-	if(anim_done)
-		change_state(STATES.air);
+		if(anim_done)
+			change_state(STATES.air);
 		
-	//land
-	if(is_grounded())
-		change_state(STATES.idle)
+		//land
+		if(is_grounded())
+			change_state(STATES.idle)
+	}
+}
+arr_state_functions[STATES.special] = function()
+{
+		
+	xadd = approach(xadd,ground_fric*1.2,0);
+	yadd = 0;
+	
+	if(reached_frame(4)){
+		xadd = 30 * dir;
+	}
+	
+	if(anim_done){
+		change_state(STATES.idle);
+	}
 }
 
 //methods
@@ -510,7 +554,7 @@ function is_grounded()
 function create_hitbox(_hitbox_data){
 	
 	if(inst_hitbox != noone)
-		log("multipile hitboxes!")
+		instance_destroy(inst_hitbox)
 	
 	inst_hitbox = instance_create_depth(x,y,depth,obj_hitbox,_hitbox_data);
 	inst_hitbox.dir = dir;
@@ -520,4 +564,8 @@ function create_hitbox(_hitbox_data){
 }
 function give_echo(){
 	echo_charges_remain++;
+}
+function reached_frame(index) //return true if this is the first frame that we reached this sub image.
+{
+	return (floor(image_index) == index and floor(image_index_prev) < index)
 }

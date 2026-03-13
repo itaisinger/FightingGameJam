@@ -43,6 +43,7 @@ if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges
 }
 
 anim_done = false;
+image_index_prev = image_index;
 
 //MOVEMENT
 collision();
