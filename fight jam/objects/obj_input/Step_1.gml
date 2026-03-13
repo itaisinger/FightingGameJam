@@ -6,10 +6,13 @@ keybinds[INPUT.light]	= [ord("J"),vk_numpad4]
 keybinds[INPUT.heavy]	= [ord("K"),vk_numpad5]
 keybinds[INPUT.dodge]	= [ord("L"),vk_numpad6]
 
-arr[INPUT.left]	 = keyboard_check(keybinds[INPUT.left][P1]);
-arr[INPUT.right] = keyboard_check(keybinds[INPUT.right][P1]);
-arr[INPUT.up]	 = max(5*keyboard_check_pressed(keybinds[INPUT.up][P1]),keyboard_check_pressed(keybinds[INPUT.up][P1])-1);
-arr[INPUT.down]	 = keyboard_check_pressed(keybinds[INPUT.down][P1]);
-arr[INPUT.light] = keyboard_check_pressed(keybinds[INPUT.light][P1]);
-arr[INPUT.heavy] = keyboard_check_pressed(keybinds[INPUT.heavy][P1]);
-arr[INPUT.dodge] = keyboard_check_pressed(keybinds[INPUT.dodge][P1]);
+arr[INPUT.left]	 = max(5* keyboard_check(keybinds[INPUT.left][true])         ,arr[INPUT.left]-1);
+arr[INPUT.right] = max(5* keyboard_check(keybinds[INPUT.right][true])        ,arr[INPUT.right]-1);
+arr[INPUT.up]	 = max(5* keyboard_check_pressed(keybinds[INPUT.up][true])   ,arr[INPUT.up]-1);
+arr[INPUT.down]	 = max(5* keyboard_check_pressed(keybinds[INPUT.down][true]) ,arr[INPUT.down]-1);
+arr[INPUT.light] = max(5* keyboard_check_pressed(keybinds[INPUT.light][true]),arr[INPUT.light]-1);
+arr[INPUT.heavy] = max(5* keyboard_check_pressed(keybinds[INPUT.heavy][true]),arr[INPUT.heavy]-1);
+arr[INPUT.dodge] = max(5* keyboard_check_pressed(keybinds[INPUT.dodge][true]),arr[INPUT.dodge]-1);
+if(arr[INPUT.left] >arr[INPUT.right]  )arr[INPUT.right]=0;
+else{if(arr[INPUT.left]<arr[INPUT.right])arr[INPUT.left]=0;
+	else {arr[INPUT.left]=0; arr[INPUT.right]=0;}}
