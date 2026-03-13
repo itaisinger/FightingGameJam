@@ -8,20 +8,26 @@ echo_charges_remain = echo_charges_max;
 hitpause_remain = 0;
 is_p1 = true;
 
+
+
 /// MOVEMENT
 xadd = 0;
 yadd = 0;
 walkspd = 7;
 grav = 0.7;
 stun_grav = grav * 0.7;
-air_drift_spd = walkspd*0.05;
+air_drift_spd = walkspd*0.03;
 max_air_spd = walkspd * 1.5;
 air_fric = 0.05;
 stun_air_fric = 0.4;
 ground_fric = 1;
 slide_fric = ground_fric * 0.4;	//used to slide when entering states that slide
+
 jumpforce_y = 12;
-jumpforce_x = 6;
+jumpforce_x = walkspd * 0.8;
+jump_traj_x = 0; //base xadd set when jumping. cant stray away from this too much.
+max_stray = walkspd * 0.6;
+max_stray_back = walkspd*0.4;
 
 dodge_step_remain = 0;
 dodge_step_max = 9;
@@ -60,6 +66,7 @@ enum STATES{
 	walk,
 	jump_squat,
 	air,
+	land,
 	light,
 	heavy,
 	special,
@@ -120,7 +127,10 @@ echo_tp_cost = 2;
 anim_done = false;
 image_speed_prev = 1;
 image_index_prev = 0;
+
+//animation stats
 special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
+landing_lag = 10;
 
 states_sprites = [];
 states_sprites[STATES.idle]			= spr_fighter_idle;
@@ -137,6 +147,7 @@ states_sprites[STATES.dead]			= spr_fighter_dead;
 states_sprites[STATES.parry]		= spr_fighter_parry;
 states_sprites[STATES.teleport]		= spr_fighter_tp;
 states_sprites[STATES.special]		= spr_fighter_special;
+states_sprites[STATES.land]			= spr_fighter_land;
 
 hurtbox = hurtbox_fighter_idle;
 states_hurtboxes = [];
@@ -154,6 +165,7 @@ states_hurtboxes[STATES.dead]		= hurtbox_fighter_hurt;
 states_hurtboxes[STATES.parry]		= hurtbox_fighter_parry;
 states_hurtboxes[STATES.teleport]	= hurtbox_fighter_tp;
 states_hurtboxes[STATES.special]	= hurtbox_fighter_special;
+states_hurtboxes[STATES.land]		= hurtbox_fighter_land;
 
 mask_index = spr_fighter_idle
 
@@ -190,6 +202,7 @@ arr_state_functions[STATES.idle] = function(){
 		dir = 1;
 		change_state(STATES.walk);
 	}
+		
 	//jump
 	if(input.is_pressed(INPUT.up)) change_state(STATES.jump_squat);
 	
@@ -235,8 +248,9 @@ arr_state_functions[STATES.jump_squat] = function(){
 	
 	if(anim_done)
 	{
-		xadd = jumpforce_x * (input.is_pressed(INPUT.right) -  input.is_pressed(INPUT.left))
+		xadd = jumpforce_x * sign(input.is_pressed(INPUT.right) -  input.is_pressed(INPUT.left))
 		yadd = -jumpforce_y;
+		jump_traj_x = xadd;
 		
 		//nuetral jump is higher
 		if(xadd == 0) yadd *= 1.25;
@@ -309,10 +323,78 @@ arr_state_functions[STATES.walk] = function(){
 	//echo
 	
 }
+arr_state_functions[STATES.land] = function(){
+	
+	yadd = 0;
+	xadd = approach(xadd,ground_fric,0);
+	
+	if(state_count >= landing_lag){
+		//left
+		if(input.is_pressed(INPUT.left) and !input.is_pressed(INPUT.right)){
+			dir = -1;
+			change_state(STATES.walk);
+		}
+		//right
+		if(input.is_pressed(INPUT.right) and !input.is_pressed(INPUT.left)){
+			dir = 1;
+			change_state(STATES.walk);
+		}
+	}
+	
+	//jump
+	if(input.is_pressed(INPUT.up)) change_state(STATES.jump_squat);
+	
+	//dodge
+	if(input.is_pressed(INPUT.dodge))
+	{	
+		//dodge right
+		if(input.is_pressed(INPUT.right)){
+			dir = 1;
+			change_state(STATES.dodge);
+		}
+		
+		//dodge left
+		else if(input.is_pressed(INPUT.left)){
+			dir = -1;
+			change_state(STATES.dodge);
+		}
+		
+		//parry
+		else change_state(STATES.parry);	
+	}
+	
+	//light
+	if(input.is_pressed(INPUT.light)) change_state(STATES.light);
+	
+	//heavy
+	if(input.is_pressed(INPUT.heavy)) change_state(STATES.heavy);
+
+	//special
+	if(input.is_pressed(INPUT.special)) change_state(STATES.special);
+	
+	
+	//done
+	if(anim_done)
+		change_state(STATES.idle);
+	
+}
 arr_state_functions[STATES.air] = function(){
+	
 	yadd += grav;
 	xadd = approach(xadd,air_fric,0);
 	xadd += air_drift_spd * ( input.is_pressed(INPUT.right) -  input.is_pressed(INPUT.left) );
+	
+	//clamp for max stray from original traj
+	if(dir == 1)
+	{
+		xadd = clamp(xadd,jump_traj_x-max_stray_back,jump_traj_x+max_stray);
+	}
+	else
+	{
+		xadd = clamp(xadd,jump_traj_x-max_stray,jump_traj_x+max_stray_back);
+	}
+	
+	//clamp for max movement
 	xadd = clamp(xadd,-max_air_spd,max_air_spd)
 	
 	image_index = yadd > 0;
