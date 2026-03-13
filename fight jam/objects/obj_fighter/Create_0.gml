@@ -124,7 +124,7 @@ states_sprites[STATES.dead]			= spr_fighter_dead;
 
 hurtbox = hurtbox_fighter_idle;
 states_hurtboxes = [];
-states_hurtboxes[STATES.idle]		= hurtbox_fighter_idle;
+states_hurtboxes[STATES.idle]		= hurtbox_empty;
 states_hurtboxes[STATES.jump_squat]	= hurtbox_fighter_jump_squat;
 states_hurtboxes[STATES.walk]		= hurtbox_fighter_walk;
 states_hurtboxes[STATES.light]		= hurtbox_fighter_light;
@@ -428,8 +428,12 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 	hitpause_remain = hitpause;
 }
 function is_grounded()
-{
-	return place_meeting(x,y+1,obj_floor) and yadd >= 0
+{	
+	var _mask_prev = mask_index
+	mask_index = mask_fighter_col;
+	var _ret = place_meeting(x,y+1,obj_floor) and yadd >= 0
+	mask_index = _mask_prev;
+	return _ret;
 }
 function create_hitbox(_hitbox_data){
 	

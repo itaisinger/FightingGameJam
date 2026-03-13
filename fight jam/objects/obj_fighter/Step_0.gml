@@ -46,3 +46,5 @@ with(inst_hitbox){
 	y += other.yadd;
 }
 
+mask_index = hurtbox;
+
