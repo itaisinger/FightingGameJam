@@ -1,18 +1,32 @@
 //INPUT
+if(!is_echo){
+	
+	//get input
+	input = new frame_input(true);
+	
+	//save to echo
+	array_insert(echo_record_arr,-1,input);
+	if (array_length(echo_record_arr) > echo_size) array_delete(echo_record_arr,0,1);
 
-//array_insert(echo_record_arr,current_input);
-//array_delete(echo_record_arr,0,1);
-
-input = get_input();
+}
+else {
+	input = echo_record_arr[frames_lived]
+	frames_lived++;
+	
+	if(frames_lived >= array_length(echo_record_arr))
+		instance_destroy();
+}
 
 //STATE
+state_changed = state != state_prev;
 state_prev = state;
 state_count++;
 arr_state_functions[state]();
 
 anim_done = false;
 
-
 //MOVEMENT
-collision_movement(xadd,yadd);
+collision();
+x += xadd;
+y += yadd;
 

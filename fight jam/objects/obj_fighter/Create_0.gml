@@ -6,6 +6,8 @@ is_echo = false;
 max_hp = 100;
 hp = max_hp;
 dir = 1;
+echo_charges_max = 3;
+echo_charges_remain = echo_charges_max;
 
 /// MOVEMENT
 xadd = 0;
@@ -16,9 +18,10 @@ air_drift_spd = walkspd*0.05;
 max_air_spd = walkspd * 1.5;
 air_fric = 0.05;
 ground_fric = 1;
+slide_fric = ground_fric * 0.4;	//used to slide when entering states that slide
 jumpforce_y = 12;
 jumpforce_x = 6;
-function collision_movement(_xadd,_yadd){
+function collision(){
 	
 	mask_index = mask_fighter_col;
 
@@ -33,20 +36,17 @@ function collision_movement(_xadd,_yadd){
 	}
 	
 	//hor
-	while (place_meeting(x+_xadd,y,obj_wall)) _xadd = approach(_xadd,1,0);
-	x += _xadd;
+	while (place_meeting(x+xadd,y,obj_wall)) xadd = approach(xadd,1,0);
 	
 	//ver
-	while (place_meeting(x,y+_yadd,obj_floor)) _yadd = approach(_yadd,1,0);
-	y += _yadd;
+	while (place_meeting(x,y+yadd,obj_floor)) yadd = approach(yadd,1,0);
 	
-	
-
 }
 
 /// STATES
 state = 0;
-state_previous = state;
+state_prev = state;
+state_changed = false;
 state_count = 0;		//how many frames we are in this state
 enum STATES{
 	idle,
@@ -77,13 +77,24 @@ function change_state(new_state){
 
 /// INPUT
 input = -1;		//holds the input object for the current frame.
-echo_record_arr = [];
 
-get_input = function(){
-	if(!is_echo)
-		return new frame_input(true);
+/// ECHO
+echo_record_arr = [];	//constantly updating last inputs. for echo saves the inputs to play.
+echo_saved = -1;		//hold the saved sequence. returns to -1 after use.
+echo_size = room_speed * 3;
+frames_lived = 0;		//used by echos to count their current step
+
+function create_echo(){
+	var _inst = instance_create_depth(x,y,depth-1,obj_fighter);
+	_inst.make_echo(echo_saved);
+	echo_saved = -1;
 }
-
+function make_echo(input_arr){
+	echo_saved = -1;
+	echo_record_arr = input_arr;
+	is_echo = true;
+	hp = 1;
+}
 
 /// VISUALS
 anim_done = false;
@@ -94,6 +105,7 @@ states_sprites[STATES.jump_squat]	= spr_fighter_jump_squat;
 states_sprites[STATES.walk]			= spr_fighter_walk;
 states_sprites[STATES.light]		= spr_fighter_light;
 states_sprites[STATES.air]			= spr_fighter_air;
+states_sprites[STATES.echo]			= spr_fighter_echo;
 mask_index = spr_fighter_idle
 
 
@@ -131,10 +143,15 @@ arr_state_functions[STATES.idle] = function(){
 	//dodge
 	
 	//capture echo
+	if(input.is_pressed(INPUT.dodge) and echo_charges_remain > 0 and echo_saved == -1)
+		change_state(STATES.echo);
 	
+	//play echo
+	if(input.is_pressed(INPUT.dodge) and echo_saved != -1)
+		create_echo()
 }
 arr_state_functions[STATES.jump_squat] = function(){
-	xadd = approach(xadd,ground_fric*0.4,0);	//slide
+	xadd = approach(xadd,slide_fric,0);
 	yadd = 0;
 	
 	if(input.is_pressed(INPUT.right)) dir = 1;
@@ -199,11 +216,26 @@ arr_state_functions[STATES.air] = function(){
 	
 	//air dodge
 }
-
-
-
-
-
+arr_state_functions[STATES.echo] = function(){
+	
+	//consume charge
+	if(state_changed)
+		echo_charges_remain--;
+	
+	yadd = 0;
+	xadd = approach(xadd,slide_fric,0)
+	
+	if(anim_done){
+		//echo done
+		if(is_echo) instance_destroy();
+		//record echo
+		else{
+			echo_saved = []
+			array_copy(echo_saved,0,echo_record_arr,0,array_length(echo_record_arr));
+			change_state(STATES.idle);
+		}
+	}
+}
 
 
 

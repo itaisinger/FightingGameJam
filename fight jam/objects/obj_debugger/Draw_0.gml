@@ -1,16 +1,21 @@
 /// @description Insert description here
 // You can write your code in this editor
+if(!active) exit;
+
 draw_set_color(c_red)
 with(all) draw_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,1)
 draw_set_color(c_white)
 
 
 try{ 
+	mask_index = obj_fighter.mask_index;
 	vars = [
 	"state: " + string(obj_fighter.state),
 	"sides: " + string(obj_fighter.input.is_pressed(INPUT.left)) + ", "  + string(obj_fighter.input.is_pressed(INPUT.right)),
 	"diff: " + string(obj_fighter.input.is_pressed(INPUT.right) - obj_fighter.input.is_pressed(INPUT.right)),
-	"xadd: " + string(obj_fighter.xadd)
+	"xadd: " + string(obj_fighter.xadd),
+	"charges: " + string(obj_fighter.echo_charges_remain),
+	"pos: " + string(obj_fighter.x) + "," + string(obj_fighter.y)
 	]
 }
 catch(a){vars=[];}
