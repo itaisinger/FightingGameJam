@@ -432,6 +432,7 @@
     {"id":{"name":"hurtbox_fighter_tp","path":"sprites/hurtbox_fighter_tp/hurtbox_fighter_tp.yy",},},
     {"id":{"name":"hurtbox_fighter_walk","path":"sprites/hurtbox_fighter_walk/hurtbox_fighter_walk.yy",},},
     {"id":{"name":"mask_fighter_col","path":"sprites/mask_fighter_col/mask_fighter_col.yy",},},
+    {"id":{"name":"spr_fighter_air_heavy","path":"sprites/spr_fighter_air_heavy/spr_fighter_air_heavy.yy",},},
     {"id":{"name":"spr_fighter_air_light","path":"sprites/spr_fighter_air_light/spr_fighter_air_light.yy",},},
     {"id":{"name":"spr_fighter_air","path":"sprites/spr_fighter_air/spr_fighter_air.yy",},},
     {"id":{"name":"spr_fighter_dead","path":"sprites/spr_fighter_dead/spr_fighter_dead.yy",},},

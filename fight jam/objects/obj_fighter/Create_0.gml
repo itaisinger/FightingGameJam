@@ -98,6 +98,8 @@ function change_state(new_state){
 		create_hitbox(hitbox_data[new_state]);
 }
 
+stun_remain = 0;
+
 /// INPUT
 input = -1;		//holds the input object for the current frame.
 
@@ -127,6 +129,8 @@ echo_tp_cost = 2;
 anim_done = false;
 image_speed_prev = 1;
 image_index_prev = 0;
+_xshake = 0;
+_yshake = 0;
 
 //animation stats
 special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
@@ -472,8 +476,10 @@ arr_state_functions[STATES.air_stun] = function(){
 	if(stun_remain-- <= 0)
 		change_state(STATES.air);
 		
-	if(is_grounded())
-		change_state(STATES.idle);
+	if(is_grounded()){
+		stun_remain = 0;
+		change_state(STATES.land);
+	}
 }
 arr_state_functions[STATES.dead] = function(){
 	if(is_grounded())
@@ -640,6 +646,7 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 
 	//apply stun frames	
 	stun_remain = stun;
+	log("given stun");
 
 	yadd = -knocky;
 	xadd = knockx;

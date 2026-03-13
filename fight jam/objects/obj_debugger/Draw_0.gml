@@ -8,6 +8,7 @@ draw_set_color(c_white)
 
 with(obj_fighter) draw_sprite_ext(hurtbox,image_index,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 with(obj_hitbox) draw_self();
+with(obj_fighter) draw_text(x,y-100,stun_remain);
 
 try{ 
 	mask_index = obj_fighter.mask_index;
@@ -17,7 +18,7 @@ try{
 	"diff: " + string(obj_fighter.input.is_pressed(INPUT.right) - obj_fighter.input.is_pressed(INPUT.right)),
 	"xadd: " + string(obj_fighter.xadd),
 	"charges: " + string(obj_fighter.echo_charges_remain),
-	"hitpause: " + string(obj_fighter.hitpause_remain),
+	"stun_remain: " + string(obj_fighter.stun_remain),
 	"pos: " + string(obj_fighter.x) + "," + string(obj_fighter.y),
 	"image: " + string(obj_fighter.image_speed) + ": " + string(obj_fighter.image_index)
 	]
