@@ -97,6 +97,7 @@
     {"id":{"name":"obj_fighter","path":"objects/obj_fighter/obj_fighter.yy",},},
     {"id":{"name":"obj_floor","path":"objects/obj_floor/obj_floor.yy",},},
     {"id":{"name":"obj_hitbox","path":"objects/obj_hitbox/obj_hitbox.yy",},},
+    {"id":{"name":"obj_input","path":"objects/obj_input/obj_input.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"__InputBindingIsThumbstick","path":"scripts/__InputBindingIsThumbstick/__InputBindingIsThumbstick.yy",},},
