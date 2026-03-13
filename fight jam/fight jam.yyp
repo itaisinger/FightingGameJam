@@ -84,6 +84,7 @@
   "name":"fight jam",
   "resources":[
     {"id":{"name":"documentation","path":"notes/documentation/documentation.yy",},},
+    {"id":{"name":"todo","path":"notes/todo/todo.yy",},},
     {"id":{"name":"__InputUpdateController","path":"objects/__InputUpdateController/__InputUpdateController.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"__InputBindingIsThumbstick","path":"scripts/__InputBindingIsThumbstick/__InputBindingIsThumbstick.yy",},},

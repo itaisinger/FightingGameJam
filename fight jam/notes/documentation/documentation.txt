@@ -1,2 +1,20 @@
 
+- character state machine
+- input
+- hitboxes
+- game manager
+
 /// character state machine
+
+
+
+enum STATES{
+	idle,
+	Glight,
+	Gheavy,
+}
+
+add_state(Glight,Gheavy,spr_ground_heavy,10,INPUT_HEAVY)
+define_hitbox(Gheavy,spr_ground_heavy_hitbox,damage_frames,stun_frames,is_launcher,xkock,yknock)
+
+hitting with a hitbox makes the player do image_speed *= 1.5 to create wiff punish

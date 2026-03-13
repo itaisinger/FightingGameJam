@@ -1,0 +1,5 @@
+
+- character state machine
+- input
+- hitboxes
+- game manager
