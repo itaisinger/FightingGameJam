@@ -175,26 +175,29 @@ arr_state_functions[STATES.idle] = function(){
 	//jump
 	if(input.is_pressed(INPUT.up)) change_state(STATES.jump_squat);
 	
-	
 	//light
 	if(input.is_pressed(INPUT.light)) change_state(STATES.light);
 
 	//heavy
 	if(input.is_pressed(INPUT.heavy)) change_state(STATES.heavy);
 
-	//parry
-	if(input.is_pressed(INPUT.dodge)) change_state(STATES.parry);
-
-	//dodge right
-	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.right)){
-		dir = 1;
-		change_state(STATES.dodge);
-	}
+	//dodge
+	if(input.is_pressed(INPUT.dodge))
+	{	
+		//dodge right
+		if(input.is_pressed(INPUT.right)){
+			dir = 1;
+			change_state(STATES.dodge);
+		}
 		
-	//dodge left
-	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.left)){
-		dir = -1;
-		change_state(STATES.dodge);
+		//dodge left
+		else if(input.is_pressed(INPUT.left)){
+			dir = -1;
+			change_state(STATES.dodge);
+		}
+		
+		//parry
+		else change_state(STATES.parry);	
 	}
 	
 	//capture echo
@@ -251,18 +254,25 @@ arr_state_functions[STATES.walk] = function(){
 	//jump
 	if(input.is_pressed(INPUT.up)) change_state(STATES.jump_squat);
 	
-	//dodge right
-	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.right)){
-		dir = 1;
-		change_state(STATES.dodge);
-	}
+	//dodge
+	if(input.is_pressed(INPUT.dodge))
+	{	
+		//dodge right
+		if(input.is_pressed(INPUT.right)){
+			dir = 1;
+			change_state(STATES.dodge);
+		}
 		
-	//dodge left
-	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.left)){
-		dir = -1;
-		change_state(STATES.dodge);
-	}
+		//dodge left
+		else if(input.is_pressed(INPUT.left)){
+			dir = -1;
+			change_state(STATES.dodge);
+		}
 		
+		//parry
+		else change_state(STATES.parry);	
+	}
+	
 	//light
 	if(input.is_pressed(INPUT.light)) change_state(STATES.light);
 	
@@ -271,8 +281,6 @@ arr_state_functions[STATES.walk] = function(){
 
 	//echo
 	
-	//parry
-	if(input.is_pressed(INPUT.dodge)) change_state(STATES.parry);
 }
 arr_state_functions[STATES.air] = function(){
 	yadd += grav;
