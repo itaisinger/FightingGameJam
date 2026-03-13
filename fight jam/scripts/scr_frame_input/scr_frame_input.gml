@@ -17,12 +17,12 @@ function frame_input(P1) constructor{
 	keybinds[INPUT.heavy] = [ord("K"),ord("5")]
 	keybinds[INPUT.dodge] = [ord("L"),ord("6")]
 	
-	arr[INPUT.left]=keyboard_check(keybinds[INPUT.left]);
-	arr[INPUT.right]=keyboard_check(keybinds[INPUT.right]);
-	arr[INPUT.up]=keyboard_check_pressed(keybinds[INPUT.up]);
-	arr[INPUT.light]=keyboard_check_pressed(keybinds[INPUT.light]);
-	arr[INPUT.heavy]=keyboard_check_pressed(keybinds[INPUT.heavy]);
-	arr[INPUT.dodge]=keyboard_check_pressed(keybinds[INPUT.dodge]);
+	arr[INPUT.left]=keyboard_check(keybinds[INPUT.left][P1]);
+	arr[INPUT.right]=keyboard_check(keybinds[INPUT.right][P1]);
+	arr[INPUT.up]=keyboard_check_pressed(keybinds[INPUT.up][P1]);
+	arr[INPUT.light]=keyboard_check_pressed(keybinds[INPUT.light][P1]);
+	arr[INPUT.heavy]=keyboard_check_pressed(keybinds[INPUT.heavy][P1]);
+	arr[INPUT.dodge]=keyboard_check_pressed(keybinds[INPUT.dodge][P1]);
 		
 	function is_pressed(input){ return arr[input]; }
 	

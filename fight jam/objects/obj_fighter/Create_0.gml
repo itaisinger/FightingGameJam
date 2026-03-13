@@ -15,7 +15,7 @@ walkspd = 5;
 /// STATES
 state = 0;
 state_previous = state;
-state_frames = 0;		//how many frames we are in this state
+state_count = 0;		//how many frames we are in this state
 enum STATES{
 	idle,
 	walk,
@@ -43,11 +43,12 @@ function change_state(new_state){
 
 
 /// INPUT
-current_input = -1;		//holds the input object for the current frame.
+input = -1;		//holds the input object for the current frame.
 echo_record_arr = [];
 
 get_input = function(){
-	return new scr_frame_input();
+	if(!is_echo)
+		return new frame_input(true);
 }
 
 
@@ -65,12 +66,12 @@ arr_state_functions[STATES.idle] = function(){
 	yadd = 0;
 	
 	//left
-	if(input.get_input(INPUT.left)){
+	if(input.is_pressed(INPUT.left)){
 		dir = -1;
 		change_state(STATES.walk);
 	}
 	//right
-	if(input.get_input(INPUT.right)){
+	if(input.is_pressed(INPUT.right)){
 		dir = 1;
 		change_state(STATES.walk);
 	}
@@ -91,17 +92,17 @@ arr_state_functions[STATES.walk] = function(){
 	yadd = 0;
 	
 	//turn
-	if(input.get_input(INPUT.left) and dir == 1)
+	if(input.is_pressed(INPUT.left) and dir == 1)
 	{
 		dir = -1;
 	}
-	else if(input.get_input(INPUT.right) and dir == -1)
+	else if(input.is_pressed(INPUT.right) and dir == -1)
 	{
 		dir = 1;
 	}
 	
 	//stop
-	if(!input.get_input(INPUT.right) and !input.get_input(INPUT.left))
+	if(!input.is_pressed(INPUT.right) and !input.is_pressed(INPUT.left))
 	{
 		change_state(STATES.idle);
 	}
