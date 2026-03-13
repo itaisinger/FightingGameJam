@@ -148,6 +148,7 @@ states_sprites[STATES.parry]		= spr_fighter_parry;
 states_sprites[STATES.teleport]		= spr_fighter_tp;
 states_sprites[STATES.special]		= spr_fighter_special;
 states_sprites[STATES.land]			= spr_fighter_land;
+states_sprites[STATES.air_light]	= spr_fighter_air_light;
 
 hurtbox = hurtbox_fighter_idle;
 states_hurtboxes = [];
@@ -166,6 +167,7 @@ states_hurtboxes[STATES.parry]		= hurtbox_fighter_parry;
 states_hurtboxes[STATES.teleport]	= hurtbox_fighter_tp;
 states_hurtboxes[STATES.special]	= hurtbox_fighter_special;
 states_hurtboxes[STATES.land]		= hurtbox_fighter_land;
+states_hurtboxes[STATES.air_light]	= hurtbox_fighter_air_light;
 
 mask_index = spr_fighter_idle
 
@@ -175,7 +177,7 @@ hitbox_data = array_create(STATES.max,-1)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,80,15,6,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,40,10,7,5,1,1,false);
-hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,5,25,5,3,7,0,0,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,160,20,3,5,0,0,true);
@@ -590,6 +592,32 @@ arr_state_functions[STATES.special] = function()
 	if(anim_done){
 		change_state(STATES.idle);
 	}
+}
+arr_state_functions[STATES.air_light] = function(){
+	
+	xadd = approach(xadd,air_fric,0);
+	yadd += grav;
+	
+	if(reached_frame(2))
+	{
+		xadd += dir * jumpforce_x * 0.7;
+		yadd -= jumpforce_y/2;
+	}
+	
+	//trans to special
+	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
+		change_state(STATES.air_special)
+	
+	//link to heavy
+	if(image_index >= 2 and input.is_pressed(INPUT.heavy))
+		change_state(STATES.air_heavy);
+	
+	if(anim_done)
+		change_state(STATES.air)
+	
+	//land lag
+	if(is_grounded())
+		change_state(STATES.land);
 }
 
 //methods

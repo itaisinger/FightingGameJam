@@ -16,14 +16,20 @@ if(!is_parry)
 			//remember target
 			array_insert(arr_hits,0,_col);
 		
-			//give echo charge
+			//first hit effects
 			if(array_length(arr_hits) == 1){
-			
+				
+				//give echo charge
 				if(give_echo_charge)
 					parent.give_echo();
 			
 				parent.image_speed = hit_speedup;
 				image_speed = hit_speedup;
+				
+				if(!parent.is_grounded()){
+					parent.yadd *= 0.5
+					parent.yadd -= parent.jumpforce_y * 0.2
+				}
 			}
 		
 			//hitpause parent
