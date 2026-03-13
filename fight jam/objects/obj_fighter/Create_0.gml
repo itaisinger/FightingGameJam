@@ -118,7 +118,7 @@ arr_state_functions[STATES.idle] = function(){
 	
 }
 arr_state_functions[STATES.jump_squat] = function(){
-	xadd = approach(xadd,ground_fric,0);
+	xadd = approach(xadd,ground_fric*0.4,0);	//slide
 	yadd = 0;
 	
 	if(input.is_pressed(INPUT.right)) dir = 1;
@@ -126,8 +126,12 @@ arr_state_functions[STATES.jump_squat] = function(){
 	
 	if(anim_done)
 	{
-		xadd = jumpforce_x * dir
+		xadd = jumpforce_x * (input.is_pressed(INPUT.right) -  input.is_pressed(INPUT.left))
 		yadd = -jumpforce_y;
+		
+		//nuetral jump is higher
+		if(xadd == 0) yadd *= 1.25;
+		
 		change_state(STATES.air);
 	}
 }
