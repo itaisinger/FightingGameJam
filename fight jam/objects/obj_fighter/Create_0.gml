@@ -121,6 +121,7 @@ states_sprites[STATES.dodge]		= spr_fighter_dodge;
 states_sprites[STATES.stun]			= spr_fighter_hurt;
 states_sprites[STATES.air_stun]		= spr_fighter_hurt;
 states_sprites[STATES.dead]			= spr_fighter_dead;
+states_sprites[STATES.parry]		= spr_fighter_parry;
 
 hurtbox = hurtbox_fighter_idle;
 states_hurtboxes = [];
@@ -135,6 +136,7 @@ states_hurtboxes[STATES.dodge]		= hurtbox_fighter_dodge;
 states_hurtboxes[STATES.stun]		= hurtbox_fighter_hurt;
 states_hurtboxes[STATES.air_stun]	= hurtbox_fighter_hurt;
 states_hurtboxes[STATES.dead]		= hurtbox_fighter_hurt;
+states_hurtboxes[STATES.parry]		= hurtbox_fighter_parry;
 
 mask_index = spr_fighter_idle
 

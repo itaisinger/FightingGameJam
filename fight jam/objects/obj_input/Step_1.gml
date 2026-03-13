@@ -1,5 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
 keybinds[INPUT.left]	= [ord("A"),vk_left]
 keybinds[INPUT.right]	= [ord("D"),vk_right]
 keybinds[INPUT.up]		= [ord("W"),vk_up]
