@@ -16,6 +16,7 @@ try{
 	"diff: " + string(obj_fighter.input.is_pressed(INPUT.right) - obj_fighter.input.is_pressed(INPUT.right)),
 	"xadd: " + string(obj_fighter.xadd),
 	"charges: " + string(obj_fighter.echo_charges_remain),
+	"hitpause: " + string(obj_fighter.hitpause_remain),
 	"pos: " + string(obj_fighter.x) + "," + string(obj_fighter.y)
 	]
 }

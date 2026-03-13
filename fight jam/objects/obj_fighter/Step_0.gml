@@ -17,6 +17,15 @@ else {
 		instance_destroy();
 }
 
+
+//hitpause
+if(hitpause_remain > 0){
+	image_speed = 0;
+	hitpause_remain--;
+	exit;
+}
+else image_speed = 1;
+
 //STATE
 state_changed = state != state_prev;
 state_prev = state;

@@ -14,9 +14,11 @@ xadd = 0;
 yadd = 0;
 walkspd = 7;
 grav = 0.7;
+stun_grav = grav * 0.7;
 air_drift_spd = walkspd*0.05;
 max_air_spd = walkspd * 1.5;
 air_fric = 0.05;
+stun_air_fric = 0.4;
 ground_fric = 1;
 slide_fric = ground_fric * 0.4;	//used to slide when entering states that slide
 jumpforce_y = 12;
@@ -24,12 +26,10 @@ jumpforce_x = 6;
 
 dodge_step_remain = 0;
 
+hitpause_remain = 0;
+
 /// EXTRA STATS
 dodge_step_max = 9;
-
-
-
-
 
 
 function collision(){
@@ -122,6 +122,9 @@ states_sprites[STATES.light]		= spr_fighter_light;
 states_sprites[STATES.air]			= spr_fighter_air;
 states_sprites[STATES.echo]			= spr_fighter_echo;
 states_sprites[STATES.dodge]		= spr_fighter_dodge;
+states_sprites[STATES.stun]			= spr_fighter_hurt;
+states_sprites[STATES.air_stun]		= spr_fighter_hurt;
+states_sprites[STATES.dead]			= spr_fighter_dead;
 
 hurtbox = hurtbox_fighter_idle;
 states_hurtboxes = [];
@@ -132,6 +135,9 @@ states_hurtboxes[STATES.light]		= hurtbox_fighter_light;
 states_hurtboxes[STATES.air]		= hurtbox_fighter_air;
 states_hurtboxes[STATES.echo]		= hurtbox_fighter_echo;
 states_hurtboxes[STATES.dodge]		= hurtbox_fighter_dodge;
+states_hurtboxes[STATES.stun]		= hurtbox_fighter_hurt;
+states_hurtboxes[STATES.air_stun]	= hurtbox_fighter_hurt;
+states_hurtboxes[STATES.dead]		= hurtbox_fighter_hurt;
 
 mask_index = spr_fighter_idle
 
@@ -144,7 +150,7 @@ arr_state_functions[STATES.idle] = function(){
 	yadd = 0;
 	
 	//fall failsafe
-	if(!place_meeting(x,y+1,obj_floor))
+	if(!is_grounded())
 		change_state(STATES.air);
 	
 	//left
@@ -253,9 +259,9 @@ arr_state_functions[STATES.air] = function(){
 	image_index = yadd > 0;
 	
 	//land
-	if(place_meeting(x,y+1,obj_floor))
+	if(is_grounded())
 		change_state(STATES.idle);
-		
+	
 	//air light
 	
 	//air heavy
@@ -298,9 +304,82 @@ arr_state_functions[STATES.dodge] = function(){
 	if(anim_done)
 		change_state(STATES.idle);
 }
+arr_state_functions[STATES.stun] = function(){
+	
+	//movement
+	yadd = 0;
+	xadd = approach(xadd,ground_fric,0);
+	
+	//exit stun
+	if(stun_remain-- <= 0)
+		change_state(STATES.idle);
+}
+arr_state_functions[STATES.air_stun] = function(){
+	
+	yadd += stun_grav;
+	xadd = approach(xadd,stun_air_fric,0);
+	
+	if(stun_remain-- <= 0)
+		change_state(STATES.air);
+		
+	if(is_grounded())
+		change_state(STATES.idle);
+}
+arr_state_functions[STATES.dead] = function(){
+	if(is_grounded())
+	{
+		xadd = approach(xadd,slide_fric,0);
+		yadd = 0;
+	}
+	else
+	{
+		xadd = approach(xadd,air_fric*0.8,0);
+		yadd += stun_grav*0.8	
+	}
+	
+	if(anim_done){
+		image_index = -1;
+		image_speed = 0;
+	}
+}
 
+//methods
+function hit(damage,knockx,knocky,stun,hitpause,is_launch){
+	
+	//abort if already dead (or should we?)
+	if(state == STATES.dead)
+		exit;
+	
+	hp = max(hp-damage,0);
+	
+	//die
+	if(hp == 0) {
+		change_state(STATES.dead);
+		return;
+	}
 
+	//apply stun frames	
+	stun_remain = stun;
 
-
-
+	yadd = -knocky;
+	xadd = knockx;
+	
+	//if already stunned in air, adjust kb and stay in state
+	if(state == STATES.air_stun)
+	{
+		xadd *= 1.5;
+		yadd *= 0.6;
+	}
+	else if (is_launch){
+		change_state(STATES.air_stun)
+	}
+	else change_state(STATES.stun);
+	
+	//hitpause
+	hitpause_remain = hitpause;
+}
+function is_grounded()
+{
+	return place_meeting(x,y+1,obj_floor) and yadd >= 0
+}
 
