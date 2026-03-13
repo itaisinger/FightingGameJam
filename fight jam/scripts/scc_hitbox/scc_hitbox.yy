@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scc_hitbox",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scc_hitbox",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
