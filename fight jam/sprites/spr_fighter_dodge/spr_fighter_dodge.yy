@@ -13,8 +13,10 @@
   "For3D":false,
   "frames":[
     {"$GMSpriteFrame":"v1","%Name":"95e88b76-1d90-49ec-a5b2-b95b24aced8c","name":"95e88b76-1d90-49ec-a5b2-b95b24aced8c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"7c98e66b-ca86-4e2d-9b34-3c9f2cbda488","name":"7c98e66b-ca86-4e2d-9b34-3c9f2cbda488","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"96aa6b8a-7382-404b-99b0-f4494b056d9c","name":"96aa6b8a-7382-404b-99b0-f4494b056d9c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"e97c1e4c-fcc1-42c2-9f4d-30e3e29af1ad","name":"e97c1e4c-fcc1-42c2-9f4d-30e3e29af1ad","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"5ef0e296-46be-4125-8c22-81edd44bf301","name":"5ef0e296-46be-4125-8c22-81edd44bf301","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -27,8 +29,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"sprites",
+    "path":"folders/Sprites/fighter temp/sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -51,7 +53,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":3.0,
+    "length":5.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -61,7 +63,7 @@
     },
     "name":"spr_fighter_dodge",
     "playback":1,
-    "playbackSpeed":3.0,
+    "playbackSpeed":8.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
@@ -74,11 +76,17 @@
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"95e88b76-1d90-49ec-a5b2-b95b24aced8c","path":"sprites/spr_fighter_dodge/spr_fighter_dodge.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"2da2fb95-545f-40dc-a010-046609ef7ccb","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7c98e66b-ca86-4e2d-9b34-3c9f2cbda488","path":"sprites/spr_fighter_dodge/spr_fighter_dodge.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"185d62bb-2ce4-4109-a107-d890aa4076b0","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"96aa6b8a-7382-404b-99b0-f4494b056d9c","path":"sprites/spr_fighter_dodge/spr_fighter_dodge.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"7599fb21-ac66-40ca-9a81-ea21fdf30636","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+              },"Disabled":false,"id":"7599fb21-ac66-40ca-9a81-ea21fdf30636","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e97c1e4c-fcc1-42c2-9f4d-30e3e29af1ad","path":"sprites/spr_fighter_dodge/spr_fighter_dodge.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"8f9b0b5f-d3d2-4563-8e53-d198ffe0bf30","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+              },"Disabled":false,"id":"8f9b0b5f-d3d2-4563-8e53-d198ffe0bf30","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5ef0e296-46be-4125-8c22-81edd44bf301","path":"sprites/spr_fighter_dodge/spr_fighter_dodge.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"a49d3af6-90dd-46f2-9dd1-ee971dacdc1b","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

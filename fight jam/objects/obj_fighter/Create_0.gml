@@ -25,7 +25,7 @@ jumpforce_x = 6;
 dodge_step_remain = 0;
 
 /// EXTRA STATS
-dodge_step_max = 11;
+dodge_step_max = 9;
 
 
 
@@ -85,6 +85,8 @@ function change_state(new_state){
 	state = new_state;
 	sprite_index = states_sprites[new_state];
 	image_index = 0;
+	
+	hurtbox = states_hurtboxes[new_state];
 }
 
 
@@ -109,7 +111,7 @@ function make_echo(input_arr){
 	hp = 1;
 }
 
-/// VISUALS
+/// ANIMATION AND VISUALS
 anim_done = false;
 
 states_sprites = [];
@@ -119,6 +121,18 @@ states_sprites[STATES.walk]			= spr_fighter_walk;
 states_sprites[STATES.light]		= spr_fighter_light;
 states_sprites[STATES.air]			= spr_fighter_air;
 states_sprites[STATES.echo]			= spr_fighter_echo;
+states_sprites[STATES.dodge]		= spr_fighter_dodge;
+
+hurtbox = hurtbox_fighter_idle;
+states_hurtboxes = [];
+states_hurtboxes[STATES.idle]		= hurtbox_fighter_idle;
+states_hurtboxes[STATES.jump_squat]	= hurtbox_fighter_jump_squat;
+states_hurtboxes[STATES.walk]		= hurtbox_fighter_walk;
+states_hurtboxes[STATES.light]		= hurtbox_fighter_light;
+states_hurtboxes[STATES.air]		= hurtbox_fighter_air;
+states_hurtboxes[STATES.echo]		= hurtbox_fighter_echo;
+states_hurtboxes[STATES.dodge]		= hurtbox_fighter_dodge;
+
 mask_index = spr_fighter_idle
 
 
@@ -153,9 +167,14 @@ arr_state_functions[STATES.idle] = function(){
 	
 	//parry
 	
-	//dodge
+	//dodge right
 	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.right)){
 		dir = 1;
+		change_state(STATES.dodge);
+	}
+	//dodge left
+	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.left)){
+		dir = -1;
 		change_state(STATES.dodge);
 	}
 	
@@ -212,6 +231,18 @@ arr_state_functions[STATES.walk] = function(){
 	
 	//jump
 	if(input.is_pressed(INPUT.up)) change_state(STATES.jump_squat);
+	
+	//dodge right
+	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.right)){
+		dir = 1;
+		change_state(STATES.dodge);
+	}
+		
+	//dodge left
+	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.left)){
+		dir = -1;
+		change_state(STATES.dodge);
+	}
 }
 arr_state_functions[STATES.air] = function(){
 	yadd += grav;
@@ -253,7 +284,20 @@ arr_state_functions[STATES.echo] = function(){
 		}
 	}
 }
-
+arr_state_functions[STATES.dodge] = function(){
+	
+	if(state_changed)
+	{
+		xadd = dodge_step_max*dir;
+	}
+	
+	xadd = approach(xadd,slide_fric*0.5,0);
+	//xadd = dir*dodge_step_remain;
+	//dodge_step_remain = approach(dodge_step_remain,1,0);
+	
+	if(anim_done)
+		change_state(STATES.idle);
+}
 
 
 
