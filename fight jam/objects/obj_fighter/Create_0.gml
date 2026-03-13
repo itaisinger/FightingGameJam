@@ -72,6 +72,7 @@ enum STATES{
 	dead,
 	dodge,
 	parry,
+	teleport,
 }
 function change_state(new_state){
 	state_count = 0;
@@ -105,6 +106,10 @@ function make_echo(input_arr){
 	hp = 1;
 }
 
+/// TP
+tp_x = -1;
+echo_tp_cost = 2;
+
 /// ANIMATION AND VISUALS
 anim_done = false;
 image_speed_prev = 1;
@@ -122,10 +127,11 @@ states_sprites[STATES.stun]			= spr_fighter_hurt;
 states_sprites[STATES.air_stun]		= spr_fighter_hurt;
 states_sprites[STATES.dead]			= spr_fighter_dead;
 states_sprites[STATES.parry]		= spr_fighter_parry;
+states_sprites[STATES.teleport]		= spr_fighter_tp;
 
 hurtbox = hurtbox_fighter_idle;
 states_hurtboxes = [];
-states_hurtboxes[STATES.idle]		= hurtbox_empty;
+states_hurtboxes[STATES.idle]		= hurtbox_fighter_idle;
 states_hurtboxes[STATES.jump_squat]	= hurtbox_fighter_jump_squat;
 states_hurtboxes[STATES.walk]		= hurtbox_fighter_walk;
 states_hurtboxes[STATES.light]		= hurtbox_fighter_light;
@@ -137,6 +143,7 @@ states_hurtboxes[STATES.stun]		= hurtbox_fighter_hurt;
 states_hurtboxes[STATES.air_stun]	= hurtbox_fighter_hurt;
 states_hurtboxes[STATES.dead]		= hurtbox_fighter_hurt;
 states_hurtboxes[STATES.parry]		= hurtbox_fighter_parry;
+states_hurtboxes[STATES.teleport]	= hurtbox_fighter_tp;
 
 mask_index = spr_fighter_idle
 
@@ -316,6 +323,7 @@ arr_state_functions[STATES.echo] = function(){
 		if(is_echo) instance_destroy();
 		//record echo
 		else{
+			tp_x = x;
 			echo_saved = []
 			array_copy(echo_saved,0,echo_record_arr,0,array_length(echo_record_arr));
 			change_state(STATES.idle);
@@ -416,6 +424,29 @@ arr_state_functions[STATES.parry] = function()
 	}
 	
 	
+}
+arr_state_functions[STATES.teleport] = function()
+{
+	if(state_changed){
+		x = tp_x;
+		yadd = -jumpforce_y/2
+	}
+	
+	yadd = approach(yadd,grav/2,0);
+	xadd = 0;
+	
+	//light
+	
+	//heavy
+	
+	//special
+	
+	if(anim_done)
+		change_state(STATES.air);
+		
+	//land
+	if(is_grounded())
+		change_state(STATES.idle)
 }
 
 //methods

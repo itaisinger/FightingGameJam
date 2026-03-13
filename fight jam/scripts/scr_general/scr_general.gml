@@ -23,3 +23,25 @@ function log(msg)
 {
 	show_debug_message(object_get_name(object_index) + ": " + msg);
 }
+function play_sfx(_sfx,_prio,_loop,_pitch,_gain)
+{	
+	var _l = is_undefined(_loop)  ? 0 : _loop;	//loop
+	var _p = is_undefined(_prio)  ? 0 : _prio;	//priority
+	var _t = is_undefined(_pitch) ? 1 : _pitch;	//pitch
+	var _g = is_undefined(_gain)  ? 1 : _gain;	//gain
+	
+	//pitch array
+	if(is_array(_t))
+	{
+		_t = random_range(_t[0],_t[1]);
+	}
+	
+	//play
+	var _o_gain = audio_sound_get_gain(_sfx);
+	var _s = audio_play_sound(_sfx,_p,_l);
+	audio_sound_gain(_s,_o_gain*global.sfx_volume*_g,0);	
+	audio_sound_pitch(_s,_t);
+	
+	return _s;
+}
+global.sfx_volume = 1;

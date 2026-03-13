@@ -33,6 +33,15 @@ state_prev = state;
 state_count++;
 arr_state_functions[state]();
 
+//kombo break teleport
+if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges_remain >= echo_tp_cost){
+	
+	if (tp_x != -1)
+		change_state(STATES.teleport);	
+	else
+		play_sfx(sfx_error);
+}
+
 anim_done = false;
 
 //MOVEMENT
