@@ -3,3 +3,8 @@
 - input
 - hitboxes
 - game manager
+
+
+
+//polish
+make the character not jitter when pressing left and right at once

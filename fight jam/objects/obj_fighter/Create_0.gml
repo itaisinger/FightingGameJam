@@ -20,13 +20,28 @@ jumpforce_y = 12;
 jumpforce_x = 6;
 function collision_movement(_xadd,_yadd){
 	
+	mask_index = mask_fighter_col;
+
+	//push out of floor
+	while (place_meeting(x,y,obj_floor))
+		y--;
+		
+	//push out of walls
+	while (place_meeting(x,y,obj_wall)){
+		var _wall = instance_place(x,y,obj_wall)
+		x -= sign(_wall.image_xscale);
+	}
+	
 	//hor
 	while (place_meeting(x+_xadd,y,obj_wall)) _xadd = approach(_xadd,1,0);
 	x += _xadd;
 	
 	//ver
-	while (place_meeting(x,y+_yadd,obj_wall)) _yadd = approach(_yadd,1,0);
+	while (place_meeting(x,y+_yadd,obj_floor)) _yadd = approach(_yadd,1,0);
 	y += _yadd;
+	
+	
+
 }
 
 /// STATES
@@ -78,6 +93,7 @@ states_sprites[STATES.idle]			= spr_fighter_idle;
 states_sprites[STATES.jump_squat]	= spr_fighter_jump_squat;
 states_sprites[STATES.walk]			= spr_fighter_walk;
 states_sprites[STATES.light]		= spr_fighter_light;
+states_sprites[STATES.air]			= spr_fighter_air;
 mask_index = spr_fighter_idle
 
 
@@ -89,16 +105,16 @@ arr_state_functions[STATES.idle] = function(){
 	yadd = 0;
 	
 	//fall failsafe
-	if(!place_meeting(x,y+1,obj_wall))
+	if(!place_meeting(x,y+1,obj_floor))
 		change_state(STATES.air);
 	
 	//left
-	if(input.is_pressed(INPUT.left)){
+	if(input.is_pressed(INPUT.left) and !input.is_pressed(INPUT.right)){
 		dir = -1;
 		change_state(STATES.walk);
 	}
 	//right
-	if(input.is_pressed(INPUT.right)){
+	if(input.is_pressed(INPUT.right) and !input.is_pressed(INPUT.left)){
 		dir = 1;
 		change_state(STATES.walk);
 	}
@@ -137,8 +153,12 @@ arr_state_functions[STATES.jump_squat] = function(){
 }
 arr_state_functions[STATES.walk] = function(){
 	
-	xadd = approach(xadd,ground_fric,dir * walkspd);
 	yadd = 0;
+	xadd_dest = dir * walkspd;
+	
+	//if moving fast, slow down. otherwise, snap to speed
+	if(abs(xadd) < abs(xadd_dest)) xadd = xadd_dest;
+	else xadd = approach(xadd,ground_fric,xadd_dest);
 	
 	//turn
 	if(input.is_pressed(INPUT.left) and dir == 1)
@@ -168,7 +188,7 @@ arr_state_functions[STATES.air] = function(){
 	image_index = yadd > 0;
 	
 	//land
-	if(place_meeting(x,y+1,obj_wall))
+	if(place_meeting(x,y+1,obj_floor))
 		change_state(STATES.idle);
 		
 	//air light

@@ -7,6 +7,7 @@ draw_set_color(c_white)
 
 try{ 
 	vars = [
+	"state: " + string(obj_fighter.state),
 	"sides: " + string(obj_fighter.input.is_pressed(INPUT.left)) + ", "  + string(obj_fighter.input.is_pressed(INPUT.right)),
 	"diff: " + string(obj_fighter.input.is_pressed(INPUT.right) - obj_fighter.input.is_pressed(INPUT.right)),
 	"xadd: " + string(obj_fighter.xadd)
