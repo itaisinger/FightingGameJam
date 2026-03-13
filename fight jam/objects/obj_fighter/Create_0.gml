@@ -417,8 +417,13 @@ arr_state_functions[STATES.light] = function(){
 	xadd = approach(xadd,ground_fric,0);
 	yadd = 0;
 	
+	//trans to special
 	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
 		change_state(STATES.special)
+	
+	//link to heavy
+	if(image_index >= 2 and input.is_pressed(INPUT.heavy))
+		change_state(STATES.heavy);
 	
 	if(anim_done)
 		change_state(STATES.idle)
