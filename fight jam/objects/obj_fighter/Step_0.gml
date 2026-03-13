@@ -2,7 +2,7 @@
 if(!is_echo){
 	
 	//get input
-	input = new frame_input(true);
+	input = new FrameInput(is_p1);
 	
 	//save to echo
 	array_insert(echo_record_arr,-1,input);
@@ -38,4 +38,10 @@ anim_done = false;
 collision();
 x += xadd;
 y += yadd;
+
+//move hitbox
+with(inst_hitbox){
+	x += other.xadd;
+	y += other.yadd;
+}
 

@@ -9,7 +9,7 @@ enum INPUT{
 }
 
 
-function frame_input(P1) constructor{
+function FrameInput(P1) constructor{
 	
 	keybinds[INPUT.left]	= [ord("A"),vk_left]
 	keybinds[INPUT.right]	= [ord("D"),vk_right]

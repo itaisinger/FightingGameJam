@@ -17,7 +17,8 @@ try{
 	"xadd: " + string(obj_fighter.xadd),
 	"charges: " + string(obj_fighter.echo_charges_remain),
 	"hitpause: " + string(obj_fighter.hitpause_remain),
-	"pos: " + string(obj_fighter.x) + "," + string(obj_fighter.y)
+	"pos: " + string(obj_fighter.x) + "," + string(obj_fighter.y),
+	"count: " + string(instance_number(obj_fighter))
 	]
 }
 catch(a){vars=[];}

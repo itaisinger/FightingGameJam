@@ -1,6 +1,3 @@
-/// @description Insert description here
-// You can write your code in this editor
-
 /// TOP LOGIC
 is_echo = false;
 max_hp = 100;
@@ -8,6 +5,8 @@ hp = max_hp;
 dir = 1;
 echo_charges_max = 3;
 echo_charges_remain = echo_charges_max;
+hitpause_remain = 0;
+is_p1 = true;
 
 /// MOVEMENT
 xadd = 0;
@@ -25,12 +24,7 @@ jumpforce_y = 12;
 jumpforce_x = 6;
 
 dodge_step_remain = 0;
-
-hitpause_remain = 0;
-
-/// EXTRA STATS
 dodge_step_max = 9;
-
 
 function collision(){
 	
@@ -89,7 +83,6 @@ function change_state(new_state){
 	hurtbox = states_hurtboxes[new_state];
 }
 
-
 /// INPUT
 input = -1;		//holds the input object for the current frame.
 
@@ -142,6 +135,15 @@ states_hurtboxes[STATES.dead]		= hurtbox_fighter_hurt;
 mask_index = spr_fighter_idle
 
 
+/// ATTACKS DATA (overrided in different characters)
+hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_light,8,80,15,6,9,0,1);
+hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0);
+inst_hitbox = noone;	//saves the currently active hitbox.
+
 //state functions
 arr_state_functions = [];
 arr_state_functions[STATES.idle] = function(){
@@ -168,7 +170,8 @@ arr_state_functions[STATES.idle] = function(){
 	
 	
 	//light
-	
+	if(input.is_pressed(INPUT.light)) change_state(STATES.light);
+
 	//heavy
 	
 	//parry
@@ -178,6 +181,7 @@ arr_state_functions[STATES.idle] = function(){
 		dir = 1;
 		change_state(STATES.dodge);
 	}
+		
 	//dodge left
 	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.left)){
 		dir = -1;
@@ -249,6 +253,15 @@ arr_state_functions[STATES.walk] = function(){
 		dir = -1;
 		change_state(STATES.dodge);
 	}
+		
+	//light
+	if(input.is_pressed(INPUT.light)) change_state(STATES.light);
+	
+	//heavy
+	
+	//echo
+	
+	//parry
 }
 arr_state_functions[STATES.air] = function(){
 	yadd += grav;
@@ -342,6 +355,19 @@ arr_state_functions[STATES.dead] = function(){
 		image_speed = 0;
 	}
 }
+arr_state_functions[STATES.light] = function(){
+	
+	if(state_changed){
+		create_hitbox(hitbox_data[STATES.light])
+		xadd += dir * 3
+	}
+	
+	xadd = approach(xadd,ground_fric,0);
+	yadd = 0;
+	
+	if(anim_done)
+		change_state(STATES.idle)
+}
 
 //methods
 function hit(damage,knockx,knocky,stun,hitpause,is_launch){
@@ -349,6 +375,9 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 	//abort if already dead (or should we?)
 	if(state == STATES.dead)
 		exit;
+	
+	//cancel active hitbox
+	instance_destroy(inst_hitbox);
 	
 	hp = max(hp-damage,0);
 	
@@ -382,4 +411,17 @@ function is_grounded()
 {
 	return place_meeting(x,y+1,obj_floor) and yadd >= 0
 }
-
+function create_hitbox(_hitbox_data){
+	
+	if(inst_hitbox != noone)
+		log("multipile hitboxes!")
+	
+	inst_hitbox = instance_create_depth(x,y,depth,obj_hitbox,_hitbox_data);
+	inst_hitbox.dir = dir;
+	inst_hitbox.image_xscale = dir;
+	inst_hitbox.parent = self;
+	
+}
+function give_echo(){
+	echo_charges_remain++;
+}
