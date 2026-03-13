@@ -10,7 +10,24 @@ dir = 1;
 /// MOVEMENT
 xadd = 0;
 yadd = 0;
-walkspd = 5;
+walkspd = 7;
+grav = 0.7;
+air_drift_spd = walkspd*0.05;
+max_air_spd = walkspd * 1.5;
+air_fric = 0.05;
+ground_fric = 1;
+jumpforce_y = 12;
+jumpforce_x = 6;
+function collision_movement(_xadd,_yadd){
+	
+	//hor
+	while (place_meeting(x+_xadd,y,obj_wall)) _xadd = approach(_xadd,1,0);
+	x += _xadd;
+	
+	//ver
+	while (place_meeting(x,y+_yadd,obj_wall)) _yadd = approach(_yadd,1,0);
+	y += _yadd;
+}
 
 /// STATES
 state = 0;
@@ -19,6 +36,7 @@ state_count = 0;		//how many frames we are in this state
 enum STATES{
 	idle,
 	walk,
+	jump_squat,
 	air,
 	light,
 	heavy,
@@ -53,17 +71,26 @@ get_input = function(){
 
 
 /// VISUALS
+anim_done = false;
+
 states_sprites = [];
-states_sprites[STATES.idle] = spr_fighter_idle;
-states_sprites[STATES.walk] = spr_fighter_walk;
-states_sprites[STATES.light] = spr_fighter_light;
+states_sprites[STATES.idle]			= spr_fighter_idle;
+states_sprites[STATES.jump_squat]	= spr_fighter_jump_squat;
+states_sprites[STATES.walk]			= spr_fighter_walk;
+states_sprites[STATES.light]		= spr_fighter_light;
+mask_index = spr_fighter_idle
+
 
 //state functions
 arr_state_functions = [];
 arr_state_functions[STATES.idle] = function(){
 	
-	xadd = 0;
+	xadd = approach(xadd,ground_fric,0);
 	yadd = 0;
+	
+	//fall failsafe
+	if(!place_meeting(x,y+1,obj_wall))
+		change_state(STATES.air);
 	
 	//left
 	if(input.is_pressed(INPUT.left)){
@@ -76,6 +103,8 @@ arr_state_functions[STATES.idle] = function(){
 		change_state(STATES.walk);
 	}
 	//jump
+	if(input.is_pressed(INPUT.up)) change_state(STATES.jump_squat);
+	
 	
 	//light
 	
@@ -85,10 +114,26 @@ arr_state_functions[STATES.idle] = function(){
 	
 	//dodge
 	
+	//capture echo
+	
+}
+arr_state_functions[STATES.jump_squat] = function(){
+	xadd = approach(xadd,ground_fric,0);
+	yadd = 0;
+	
+	if(input.is_pressed(INPUT.right)) dir = 1;
+	if(input.is_pressed(INPUT.left)) dir = -1;
+	
+	if(anim_done)
+	{
+		xadd = jumpforce_x * dir
+		yadd = -jumpforce_y;
+		change_state(STATES.air);
+	}
 }
 arr_state_functions[STATES.walk] = function(){
 	
-	xadd = dir * walkspd;
+	xadd = approach(xadd,ground_fric,dir * walkspd);
 	yadd = 0;
 	
 	//turn
@@ -108,9 +153,28 @@ arr_state_functions[STATES.walk] = function(){
 	}
 	
 	//jump
+	if(input.is_pressed(INPUT.up)) change_state(STATES.jump_squat);
 }
-
-
+arr_state_functions[STATES.air] = function(){
+	yadd += grav;
+	xadd = approach(xadd,air_fric,0);
+	xadd += air_drift_spd * ( input.is_pressed(INPUT.right) -  input.is_pressed(INPUT.left) );
+	xadd = clamp(xadd,-max_air_spd,max_air_spd)
+	
+	image_index = yadd > 0;
+	
+	//land
+	if(place_meeting(x,y+1,obj_wall))
+		change_state(STATES.idle);
+		
+	//air light
+	
+	//air heavy
+	
+	//air special
+	
+	//air dodge
+}
 
 
 

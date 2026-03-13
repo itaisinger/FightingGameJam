@@ -10,6 +10,9 @@ state_prev = state;
 state_count++;
 arr_state_functions[state]();
 
+anim_done = false;
+
+
 //MOVEMENT
-x += xadd;
-y += yadd;
+collision_movement(xadd,yadd);
+
