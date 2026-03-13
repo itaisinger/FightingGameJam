@@ -21,8 +21,20 @@ ground_fric = 1;
 slide_fric = ground_fric * 0.4;	//used to slide when entering states that slide
 jumpforce_y = 12;
 jumpforce_x = 6;
+
+dodge_step_remain = 0;
+
+/// EXTRA STATS
+dodge_step_max = 11;
+
+
+
+
+
+
 function collision(){
 	
+	var _mask_prev = mask_index
 	mask_index = mask_fighter_col;
 
 	//push out of floor
@@ -41,6 +53,7 @@ function collision(){
 	//ver
 	while (place_meeting(x,y+yadd,obj_floor)) yadd = approach(yadd,1,0);
 	
+	mask_index = _mask_prev;
 }
 
 /// STATES
@@ -141,13 +154,17 @@ arr_state_functions[STATES.idle] = function(){
 	//parry
 	
 	//dodge
+	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.right)){
+		dir = 1;
+		change_state(STATES.dodge);
+	}
 	
 	//capture echo
-	if(input.is_pressed(INPUT.dodge) and echo_charges_remain > 0 and echo_saved == -1)
+	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.down) and echo_charges_remain > 0 and echo_saved == -1)
 		change_state(STATES.echo);
 	
 	//play echo
-	if(input.is_pressed(INPUT.dodge) and echo_saved != -1)
+	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.down) and echo_saved != -1)
 		create_echo()
 }
 arr_state_functions[STATES.jump_squat] = function(){

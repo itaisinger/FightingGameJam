@@ -403,6 +403,7 @@
     {"id":{"name":"scr_general","path":"scripts/scr_general/scr_general.yy",},},
     {"id":{"name":"mask_fighter_col","path":"sprites/mask_fighter_col/mask_fighter_col.yy",},},
     {"id":{"name":"spr_fighter_air","path":"sprites/spr_fighter_air/spr_fighter_air.yy",},},
+    {"id":{"name":"spr_fighter_dodge","path":"sprites/spr_fighter_dodge/spr_fighter_dodge.yy",},},
     {"id":{"name":"spr_fighter_echo","path":"sprites/spr_fighter_echo/spr_fighter_echo.yy",},},
     {"id":{"name":"spr_fighter_idle","path":"sprites/spr_fighter_idle/spr_fighter_idle.yy",},},
     {"id":{"name":"spr_fighter_jump_squat","path":"sprites/spr_fighter_jump_squat/spr_fighter_jump_squat.yy",},},
