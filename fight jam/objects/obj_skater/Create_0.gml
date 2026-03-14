@@ -68,7 +68,7 @@ hitbox_data[STATES.special]		= new HitboxData(hitbox_skate_special,8,40,10,12,7,
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_skate_air_light,4,25,5,3,7,0,0,false,pogo);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_skate_air_heavy,12,40,10,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_skate_parry,40,1,20,3,5,0,0,true);
-hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,3,20,20,3,5,0,0,false);
+hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,3,20,20,3,5,0,1,false);
 
 arr_state_functions[STATES.idle] = function(){
 	
@@ -238,8 +238,6 @@ arr_state_functions[STATES.air_light] = function(){
 }
 arr_state_functions[STATES.special] = function()
 {
-	
-	
 	xadd = approach(xadd,ground_fric*1.5,0);
 	yadd = 0;
 	
@@ -255,4 +253,50 @@ arr_state_functions[STATES.special] = function()
 	if(anim_done){
 		change_state(STATES.idle);
 	}
+}
+arr_state_functions[STATES.air_special] = function(){
+	
+	if(state_changed)
+	{
+		__grav_mult = 0.2;
+		__grav_multx = 1;
+		yadd = 0;
+	}
+	
+	//start spin
+	if(reached_frame(10))
+	{
+		__grav_mult = 0;
+		yadd = 0;
+		__grav_multx = 0;
+		xadd = dir * 8;
+	}
+	
+	//end spin
+	if(reached_frame(18))
+	{
+		__grav_mult = 0.5;
+		__grav_multx = 1;
+	}
+	
+	if(floor(image_index) != floor(image_index_prev))
+	{
+		create_hitbox(hitbox_data[STATES.air_special]);
+		inst_hitbox.image_index = image_index;
+	}
+	
+	yadd += grav * __grav_mult;
+	xadd = approach(xadd,air_fric*__grav_multx,0);
+	
+	//land
+	if(is_grounded())
+	{
+		if is_hit_success()
+			change_state(STATES.idle)
+		else
+			change_state(STATES.land);
+	}
+		
+	if(anim_done)
+		change_state(STATES.air);
 }
