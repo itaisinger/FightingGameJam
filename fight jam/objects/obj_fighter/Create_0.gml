@@ -156,6 +156,7 @@ states_sprites[STATES.special]		= spr_fighter_special;
 states_sprites[STATES.land]			= spr_fighter_land;
 states_sprites[STATES.air_light]	= spr_fighter_air_light;
 states_sprites[STATES.air_heavy]	= spr_fighter_air_heavy;
+states_sprites[STATES.air_special]	= spr_fighter_air_special;
 
 hurtbox = hurtbox_fighter_idle;
 states_hurtboxes = [];
@@ -176,9 +177,9 @@ states_hurtboxes[STATES.special]	= hurtbox_fighter_special;
 states_hurtboxes[STATES.land]		= hurtbox_fighter_land;
 states_hurtboxes[STATES.air_light]	= hurtbox_fighter_air_light;
 states_hurtboxes[STATES.air_heavy]	= hurtbox_fighter_air_heavy;
+states_hurtboxes[STATES.air_special]= hurtbox_fighter_air_special;
 
 mask_index = spr_fighter_idle
-
 
 /// ATTACKS DATA (overrided in different characters)
 hitbox_data = array_create(STATES.max,-1)
@@ -189,6 +190,7 @@ hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,25,5,3
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,40,10,3,5,0,0,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,160,20,3,5,0,0,true);
+hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,3,20,20,3,5,0,0,false);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
 //state functions
@@ -649,6 +651,58 @@ arr_state_functions[STATES.air_heavy] = function(){
 	//land lag
 	if(is_grounded())
 		change_state(STATES.land);
+}
+arr_state_functions[STATES.air_special] = function(){
+	
+	if(state_changed)
+	{
+		__grav_mult = 0;
+		__grav_multx = 8;
+		yadd = 0;
+	}
+	
+	if(reached_frame(3))
+	{
+		__grav_mult = 0;
+		xadd = dir * 14;
+		__grav_multx = 1
+		yadd = 2;
+	}
+	
+	if(reached_frame(4))
+	{
+		create_hitbox(hitbox_data[STATES.air_special]);
+		inst_hitbox.image_index = image_index;
+	}
+	
+	if(reached_frame(5))
+	{
+		//with(inst_hitbox) instance_destroy();
+		create_hitbox(hitbox_data[STATES.air_special]);
+		inst_hitbox.image_index = image_index;
+	}
+	
+	if(reached_frame(6)){
+		__grav_mult = 0.5;
+	}
+	
+	//jump cancel
+	if(instance_exists(inst_hitbox) and array_length(inst_hitbox.arr_hits) > 0 and input.is_pressed(INPUT.up)){
+		change_state(STATES.air)
+		yadd = -jumpforce_y;
+		xadd = dir * jumpforce_x;
+	}
+		
+	
+	yadd += grav * __grav_mult;
+	xadd = approach(xadd,air_fric*__grav_multx,0);
+	
+	//land
+	if(is_grounded())
+		change_state(STATES.land);
+		
+	if(anim_done)
+		change_state(STATES.air);
 }
 
 //methods
