@@ -540,7 +540,6 @@ arr_state_functions[STATES.heavy] = function(){
 	if(is_hit_success() and input.is_pressed(INPUT.up))
 		change_state(STATES.jump_squat);
 		
-	
 	if(anim_done)
 		change_state(STATES.idle)
 }
