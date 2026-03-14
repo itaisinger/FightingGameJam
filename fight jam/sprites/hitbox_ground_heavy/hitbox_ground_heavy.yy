@@ -32,7 +32,7 @@
   "origin":0,
   "parent":{
     "name":"hitboxes",
-    "path":"folders/Sprites/fighter skateboard/hitboxes.yy",
+    "path":"folders/Sprites/fighters/fighter skateboard/hitboxes.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

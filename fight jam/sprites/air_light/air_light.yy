@@ -28,7 +28,7 @@
   "origin":0,
   "parent":{
     "name":"sprites",
-    "path":"folders/Sprites/fighter skateboard/sprites.yy",
+    "path":"folders/Sprites/fighters/fighter skateboard/sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
