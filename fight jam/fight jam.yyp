@@ -54,6 +54,7 @@
   },
   "name":"fight jam",
   "resources":[
+    {"id":{"name":"font_announce","path":"fonts/font_announce/font_announce.yy",},},
     {"id":{"name":"font_main","path":"fonts/font_main/font_main.yy",},},
     {"id":{"name":"documentation","path":"notes/documentation/documentation.yy",},},
     {"id":{"name":"todo","path":"notes/todo/todo.yy",},},
@@ -124,6 +125,7 @@
     {"id":{"name":"hurtbox_skate_rising","path":"sprites/hurtbox_skate_rising/hurtbox_skate_rising.yy",},},
     {"id":{"name":"hurtbox_skate_special","path":"sprites/hurtbox_skate_special/hurtbox_skate_special.yy",},},
     {"id":{"name":"mask_fighter_col","path":"sprites/mask_fighter_col/mask_fighter_col.yy",},},
+    {"id":{"name":"spr_countdown","path":"sprites/spr_countdown/spr_countdown.yy",},},
     {"id":{"name":"spr_echo_charge","path":"sprites/spr_echo_charge/spr_echo_charge.yy",},},
     {"id":{"name":"spr_fighter_air_heavy","path":"sprites/spr_fighter_air_heavy/spr_fighter_air_heavy.yy",},},
     {"id":{"name":"spr_fighter_air_light","path":"sprites/spr_fighter_air_light/spr_fighter_air_light.yy",},},
