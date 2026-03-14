@@ -6,7 +6,7 @@ var _h = display_get_gui_height();
 //var _w = camera_get_view_width(view_camera);
 //var _h = camera_get_v
 
-var _y = _h * 0.05;
+var _y = _h * 0.08;
 var _s = 1;
 
 //vs
@@ -52,5 +52,18 @@ for(var i=0; i < _p.echo_charges_max; i++){
 	if(arr_players[1].echo_charges_remain > i) draw_sprite(spr_echo_charge,1, _w/2 + _xoff,_echo_y)
 	if(arr_players[0].echo_charges_remain > i) draw_sprite(spr_echo_charge,1, _w/2 - _xoff,_echo_y)
 }
+
+#endregion
+#region annoncer
+
+if(announce_text != ""){
+
+	var _col1 = c_black
+	var _col2 = #9E0B0F
+	
+	draw_set_all(1,c_white,font_announce,fa_center,fa_middle);
+	draw_text_color(_w/2,_h/2,announce_text,_col1,_col1,_col2,_col2,1)
+}
+
 
 #endregion
