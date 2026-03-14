@@ -137,6 +137,7 @@ floor_y = -100;
 
 //animation stats
 special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
+turnaroudn_grace_length = 8; //how many frames into heavy/light you can transition to special
 landing_lag = 10;
 
 states_sprites = [];
@@ -645,7 +646,7 @@ arr_state_functions[STATES.air_heavy] = function(){
 	
 	if(state_changed)
 	{
-		yadd -= jumpforce_y/2;
+		yadd = -jumpforce_y/2;
 	}
 	
 	xadd = approach(xadd,air_fric,0);

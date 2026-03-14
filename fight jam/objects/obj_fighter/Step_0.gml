@@ -33,6 +33,13 @@ state_prev = state;
 state_count++;
 arr_state_functions[state]();
 
+//turn around
+if(state_count < turnaroudn_grace_length)
+{
+	if(input.is_pressed(INPUT.right) and !input.is_pressed(INPUT.left)) dir = 1;
+	if(!input.is_pressed(INPUT.right) and input.is_pressed(INPUT.left)) dir = -1;
+}
+
 //kombo break teleport
 if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges_remain >= echo_tp_cost){
 	
@@ -54,6 +61,8 @@ y += yadd;
 with(inst_hitbox){
 	x = other.x;
 	y = other.y;
+	dir = other.dir;
+	image_xscale = other.image_xscale;
 }
 
 mask_index = hurtbox;
