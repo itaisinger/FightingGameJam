@@ -13,7 +13,7 @@ function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	inst_players[0] = instance_create_depth(player_left_xstart,floor_y+1,DEPTH.player,p1_obj);
 	inst_players[1] = instance_create_depth(player_right_xstart,floor_y+1,DEPTH.player,p2_obj);
 	
-	inst_players[0].is_p1 = true;
+	inst_players[0].is_p1 = true;	//left is p1
 	inst_players[1].is_p1 = false;
 	
 	inst_ui.set_players(inst_players);
