@@ -1,4 +1,8 @@
 draw_reset();
+
+//shadow
+draw_sprite_ext(spr_fighter_shadow,0,x,floor_y,image_xscale,image_yscale,0,c_white,0.2);
+
 image_xscale = dir;
 if(is_echo) image_alpha = 0.5;
 

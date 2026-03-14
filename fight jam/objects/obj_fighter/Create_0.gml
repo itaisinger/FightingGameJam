@@ -14,12 +14,12 @@ is_p1 = true;
 xadd = 0;
 yadd = 0;
 walkspd = 7;
-grav = 0.7;
-stun_grav = grav * 0.7;
+grav = 0.6;
+stun_grav = grav * 0.4;
 air_drift_spd = walkspd*0.03;
 max_air_spd = walkspd * 1.5;
 air_fric = 0.05;
-stun_air_fric = 0.4;
+stun_air_fric = air_fric * 0.25;
 ground_fric = 1;
 slide_fric = ground_fric * 0.4;	//used to slide when entering states that slide
 
@@ -133,6 +133,7 @@ image_speed_prev = 1;
 image_index_prev = 0;
 _xshake = 0;
 _yshake = 0;
+floor_y = -100;
 
 //animation stats
 special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
@@ -536,6 +537,10 @@ arr_state_functions[STATES.heavy] = function(){
 	xadd = approach(xadd,slide_fric,0);
 	yadd = 0;
 	
+	if(is_hit_success() and input.is_pressed(INPUT.up))
+		change_state(STATES.jump_squat);
+		
+	
 	if(anim_done)
 		change_state(STATES.idle)
 }
@@ -627,9 +632,14 @@ arr_state_functions[STATES.air_light] = function(){
 	if(anim_done)
 		change_state(STATES.air)
 	
-	//land lag
+	//land
 	if(is_grounded())
-		change_state(STATES.land);
+	{
+		if is_hit_success()
+			change_state(STATES.idle)
+		else
+			change_state(STATES.land);
+	}
 }
 arr_state_functions[STATES.air_heavy] = function(){
 	
@@ -648,9 +658,14 @@ arr_state_functions[STATES.air_heavy] = function(){
 	if(anim_done)
 		change_state(STATES.air)
 	
-	//land lag
+	//land
 	if(is_grounded())
-		change_state(STATES.land);
+	{
+		if is_hit_success()
+			change_state(STATES.idle)
+		else
+			change_state(STATES.land);
+	}
 }
 arr_state_functions[STATES.air_special] = function(){
 	
@@ -699,7 +714,12 @@ arr_state_functions[STATES.air_special] = function(){
 	
 	//land
 	if(is_grounded())
-		change_state(STATES.land);
+	{
+		if is_hit_success()
+			change_state(STATES.idle)
+		else
+			change_state(STATES.land);
+	}
 		
 	if(anim_done)
 		change_state(STATES.air);
@@ -750,6 +770,7 @@ function is_grounded()
 	mask_index = mask_fighter_col;
 	var _ret = place_meeting(x,y+1,obj_floor) and yadd >= 0
 	mask_index = _mask_prev;
+	if(_ret) floor_y = y+1;
 	return _ret;
 }
 function create_hitbox(_hitbox_data){
@@ -769,4 +790,9 @@ function give_echo(){
 function reached_frame(index) //return true if this is the first frame that we reached this sub image.
 {
 	return (floor(image_index) == index and floor(image_index_prev) < index)
+}
+function is_hit_success()
+{
+	with(inst_hitbox) return array_length(arr_hits) > 0
+	return false
 }

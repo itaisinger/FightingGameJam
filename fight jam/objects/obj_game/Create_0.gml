@@ -1,7 +1,7 @@
 //gameplay related
 floor_y = 200
 display_set_gui_size(480, 270);
-
+//window_set_fullscreen(1)
 
 function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	var _player_dis = room_width/4

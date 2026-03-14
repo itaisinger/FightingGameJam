@@ -1,13 +1,15 @@
 {
   "$GMObject":"",
   "%Name":"obj_floor",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_floor",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"solid",
+    "path":"folders/Objects/solid.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -32,5 +34,5 @@
     "path":"sprites/spr_floor/spr_floor.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

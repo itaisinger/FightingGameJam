@@ -26,7 +26,7 @@
   "origin":7,
   "parent":{
     "name":"fighter temp",
-    "path":"folders/Sprites/fighter temp.yy",
+    "path":"folders/Sprites/fighters/fighter temp.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

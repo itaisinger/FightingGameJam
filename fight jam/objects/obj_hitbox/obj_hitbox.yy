@@ -12,8 +12,8 @@
   "name":"obj_hitbox",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"gameplay",
+    "path":"folders/Objects/gameplay.yy",
   },
   "parentObjectId":null,
   "persistent":false,
