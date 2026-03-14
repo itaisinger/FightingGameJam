@@ -1,6 +1,6 @@
 //gameplay related
 floor_y = 200
-
+display_set_gui_size(480, 270);
 
 
 function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
