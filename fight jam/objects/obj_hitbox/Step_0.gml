@@ -30,14 +30,19 @@ if(!is_parry)
 					parent.yadd = min(0,parent.yadd)
 					parent.yadd -= parent.jumpforce_y * 0.1;
 				}
+				
+				//call
+				func();
 			}
 		
 			//hitpause parent
 			parent.hitpause_remain = hitpause/2;
-		
+			
 			//sfx
 			audio_play_sound(sfx_hit,0,0,1.5)
 		}
+		
+		
 	}
 
 	ds_list_destroy(_cols)
@@ -55,7 +60,7 @@ else
 		
 			//hit
 			_col.parent.hit(damage,knockback_x,knockback_y,stun_duration,hitpause,is_launcher);
-		
+			
 			//remember target
 			array_insert(arr_hits,0,_col);
 		
@@ -67,6 +72,9 @@ else
 			
 				parent.image_speed = hit_speedup;
 				image_speed = hit_speedup;
+				
+				//call
+				func();
 			}
 		
 			//hitpause parent

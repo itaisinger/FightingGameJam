@@ -5,20 +5,21 @@
   "bbox_bottom":127,
   "bbox_left":33,
   "bbox_right":97,
-  "bbox_top":26,
+  "bbox_top":28,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"0b5f67af-1fab-4532-97bf-3cec0e197df9","name":"0b5f67af-1fab-4532-97bf-3cec0e197df9","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"db478558-cefe-4856-8966-fddbfa9f32a4","name":"db478558-cefe-4856-8966-fddbfa9f32a4","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":128,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"3209a609-5de1-43d2-979e-e78b55c878b5","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"3209a609-5de1-43d2-979e-e78b55c878b5","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"02ad8fea-787b-49f8-8d45-9f94ef295def","blendMode":0,"displayName":"default","isLocked":false,"name":"02ad8fea-787b-49f8-8d45-9f94ef295def","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_skate_idle",
@@ -69,8 +70,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"0b5f67af-1fab-4532-97bf-3cec0e197df9","path":"sprites/spr_skate_idle/spr_skate_idle.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"bba757dc-9eca-44fb-a092-7f4f7084262b","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"db478558-cefe-4856-8966-fddbfa9f32a4","path":"sprites/spr_skate_idle/spr_skate_idle.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"bd66aaa9-5629-43c5-860d-a3b841e51899","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

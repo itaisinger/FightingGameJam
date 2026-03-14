@@ -12,8 +12,8 @@
   "name":"obj_fighter",
   "overriddenProperties":[],
   "parent":{
-    "name":"gameplay",
-    "path":"folders/Objects/gameplay.yy",
+    "name":"characters",
+    "path":"folders/Objects/gameplay/characters.yy",
   },
   "parentObjectId":null,
   "persistent":false,

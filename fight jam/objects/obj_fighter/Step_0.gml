@@ -48,7 +48,7 @@ if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges
 	else
 		play_sfx(sfx_error);
 }
-
+  
 anim_done = false;
 image_index_prev = image_index;
 
@@ -63,6 +63,7 @@ with(inst_hitbox){
 	y = other.y;
 	dir = other.dir;
 	image_xscale = other.image_xscale;
+	image_speed = other.image_speed
 }
 
 mask_index = hurtbox;

@@ -8,7 +8,7 @@ echo_charges_remain = echo_charges_max;
 hitpause_remain = 0;
 is_p1 = true;
 
-
+name = "fighter"
 
 /// MOVEMENT
 xadd = 0;
@@ -190,9 +190,7 @@ hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,80,15,6,9,0,1
 hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,40,10,7,5,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,25,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,40,10,3,5,0,0,false);
-hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,160,20,3,5,0,0,true);
-hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,3,20,20,3,5,0,0,false);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
 //state functions
@@ -321,6 +319,14 @@ arr_state_functions[STATES.walk] = function(){
 			change_state(STATES.dodge);
 		}
 		
+		//capture echo
+		else if(input.is_pressed(INPUT.down) and echo_charges_remain > 0 and echo_saved == -1)
+			change_state(STATES.echo);
+	
+		//play echo
+		else if(input.is_pressed(INPUT.down) and echo_saved != -1)
+			create_echo()
+			
 		//parry
 		else change_state(STATES.parry);	
 	}
@@ -333,9 +339,6 @@ arr_state_functions[STATES.walk] = function(){
 
 	//special
 	if(input.is_pressed(INPUT.special)) change_state(STATES.special);
-
-	//echo
-	
 }
 arr_state_functions[STATES.land] = function(){
 	
@@ -746,7 +749,6 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 
 	//apply stun frames	
 	stun_remain = stun;
-	log("given stun");
 
 	yadd = -knocky;
 	xadd = knockx;
@@ -773,17 +775,6 @@ function is_grounded()
 	mask_index = _mask_prev;
 	if(_ret) floor_y = y+1;
 	return _ret;
-}
-function create_hitbox(_hitbox_data){
-	
-	if(inst_hitbox != noone)
-		instance_destroy(inst_hitbox)
-	
-	inst_hitbox = instance_create_depth(x,y,depth,obj_hitbox,_hitbox_data);
-	inst_hitbox.dir = dir;
-	inst_hitbox.image_xscale = dir;
-	inst_hitbox.parent = self;
-	
 }
 function give_echo(){
 	echo_charges_remain++;
