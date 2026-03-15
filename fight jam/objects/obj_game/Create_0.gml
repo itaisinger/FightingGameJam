@@ -1,9 +1,23 @@
+if(instance_number(obj_game) > 1) {
+	instance_destroy();
+	exit;
+}
+
 //gameplay related
 floor_y = 200
+
+//ui
 display_set_gui_size(480, 270);
-//window_set_fullscreen(1)
 announce_text = "";
 cnt = 0;
+
+//states
+state = 0;
+enum GAME_STATES{
+	menu,
+	match,
+	over,
+}
 
 function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	var _player_dis = room_width/4

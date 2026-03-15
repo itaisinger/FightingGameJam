@@ -54,6 +54,7 @@
   },
   "name":"fight jam",
   "resources":[
+    {"id":{"name":"font_announce_small","path":"fonts/font_announce_small/font_announce_small.yy",},},
     {"id":{"name":"font_announce","path":"fonts/font_announce/font_announce.yy",},},
     {"id":{"name":"font_main","path":"fonts/font_main/font_main.yy",},},
     {"id":{"name":"documentation","path":"notes/documentation/documentation.yy",},},

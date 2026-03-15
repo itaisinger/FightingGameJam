@@ -5,7 +5,7 @@ ground_fric *= 0.1
 slide_fric *= 0.5
 walkspd = 8;
 accel = 1;
-name = "skater"
+name = "JOHNNY DREX"
 
 states_sprites[STATES.idle]			= spr_skate_idle;
 states_sprites[STATES.jump_squat]	= spr_skate_jump_squat;

@@ -1,6 +1,6 @@
 /// TOP LOGIC
 is_echo = false;
-max_hp = 200;
+max_hp = 20;
 hp = max_hp;
 dir = 1;
 echo_charges_max = 3;
@@ -8,7 +8,7 @@ echo_charges_remain = echo_charges_max;
 hitpause_remain = 0;
 is_p1 = true;
 
-name = "fighter"
+name = "FIGHTER"
 
 /// MOVEMENT
 xadd = 0;
@@ -787,4 +787,7 @@ function is_hit_success()
 {
 	with(inst_hitbox) return array_length(arr_hits) > 0
 	return false
+}
+function is_dead(){
+	return state == STATES.dead;
 }
