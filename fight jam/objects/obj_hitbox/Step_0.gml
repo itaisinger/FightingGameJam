@@ -64,7 +64,9 @@ else
 		if(_col.parent.is_p1 != parent.is_p1 and !array_contains(arr_hits,_col)){
 		
 			//hit
-			_col.parent.hit(damage,knockback_x,knockback_y,stun_duration,hitpause,is_launcher);
+			_col.parent.hit(damage,knockback_x,knockback_y,stun_duration,hitpause,false);
+			_col.parent.xadd = 0;
+			_col.parent.yadd = 0;
 			
 			//remember target
 			array_insert(arr_hits,0,_col);
