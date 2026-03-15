@@ -3,8 +3,8 @@
   "%Name":"spr_shooter_special",
   "bboxMode":0,
   "bbox_bottom":255,
-  "bbox_left":94,
-  "bbox_right":183,
+  "bbox_left":90,
+  "bbox_right":198,
   "bbox_top":162,
   "collisionKind":4,
   "collisionTolerance":0,
@@ -22,6 +22,7 @@
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"7cbfc7bf-aa67-4760-8dcd-e598ce81dce0","blendMode":0,"displayName":"","isLocked":false,"name":"7cbfc7bf-aa67-4760-8dcd-e598ce81dce0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"dab5ac61-1906-49c4-8497-1e75eb7ec9e9","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"dab5ac61-1906-49c4-8497-1e75eb7ec9e9","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_shooter_special",
   "nineSlice":null,

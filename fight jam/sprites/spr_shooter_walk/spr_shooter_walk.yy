@@ -4,7 +4,7 @@
   "bboxMode":0,
   "bbox_bottom":255,
   "bbox_left":97,
-  "bbox_right":171,
+  "bbox_right":177,
   "bbox_top":133,
   "collisionKind":4,
   "collisionTolerance":0,
@@ -20,6 +20,7 @@
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"d4df7096-1209-41bd-96f8-079d160308a1","blendMode":0,"displayName":"default","isLocked":false,"name":"d4df7096-1209-41bd-96f8-079d160308a1","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"96e2093a-5e0d-4204-aa0e-e4c734ce1bd4","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"96e2093a-5e0d-4204-aa0e-e4c734ce1bd4","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_shooter_walk",
   "nineSlice":null,

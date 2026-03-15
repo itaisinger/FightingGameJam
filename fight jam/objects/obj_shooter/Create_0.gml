@@ -1,7 +1,7 @@
 // Inherit the parent event
 event_inherited();
 
-name = "JOHNNY DREX"
+name = "SHON SHMUPS"
 win_sfx = sfx_johnny_wins;
 
 states_sprites[STATES.idle]			= spr_shooter_idle;
@@ -64,3 +64,87 @@ hitbox_data[STATES.air_light]	= new HitboxData(hitbox_shooter_air_light,4,25,5,3
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_shooter_air_heavy,12,40,10,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_shooter_parry,1,180,20,3,5,0,0,true);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_shooter_air_special,3,20,20,3,5,0,1,false);
+
+
+
+
+//////// overrides
+arr_state_functions[STATES.air_special] = function(){
+	if(state_changed)
+	{
+		__grav_mult = 0;
+		__grav_multx = 8;
+		yadd = 0;
+	}
+	
+	if(reached_frame(3))
+	{
+		__grav_mult = 0;
+		xadd = dir * 14;
+		__grav_multx = 1
+		yadd = 2;
+	}
+	
+	if(reached_frame(4))
+	{
+		create_hitbox(hitbox_data[STATES.air_special]);
+		inst_hitbox.image_index = image_index;
+	}
+	
+	if(reached_frame(5))
+	{
+		with(inst_hitbox) instance_destroy();
+		create_hitbox(hitbox_data[STATES.air_special]);
+		inst_hitbox.image_index = image_index;
+	}
+	
+	if(reached_frame(6)){
+		__grav_mult = 0.5;
+	}
+		//jump cancel
+	if(instance_exists(inst_hitbox) and array_length(inst_hitbox.arr_hits) > 0 and input.is_pressed(INPUT.up)){
+		change_state(STATES.air)
+		yadd = -jumpforce_y;
+		xadd = dir * jumpforce_x;
+	}
+		
+	
+	yadd += grav * __grav_mult;
+	xadd = approach(xadd,air_fric*__grav_multx,0);
+	
+	//land
+	if(is_grounded())
+	{
+		if is_hit_success()
+			change_state(STATES.idle)
+		else
+			change_state(STATES.land);
+	}
+		
+	if(anim_done)
+		change_state(STATES.air);
+}
+
+arr_state_functions[STATES.special] = function()
+{
+		
+	xadd = approach(xadd,ground_fric*1.2,0);
+	yadd = 0;
+	xadd = 15* dir;
+	
+	//	if(reached_frame(1))
+	//{
+	//	__grav_mult = 0;
+	//	xadd = dir * 14;
+	//	__grav_multx = 1
+	//	yadd = 2;
+	//}
+	
+	//if(reached_frame(1)){
+	//	xadd = 30 * dir;
+	//}
+	
+	if(anim_done){
+		change_state(STATES.idle);
+	}
+}

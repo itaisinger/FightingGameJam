@@ -3,7 +3,7 @@
   "%Name":"spr_shooter_heavy",
   "bboxMode":0,
   "bbox_bottom":255,
-  "bbox_left":104,
+  "bbox_left":103,
   "bbox_right":179,
   "bbox_top":117,
   "collisionKind":4,
@@ -22,6 +22,7 @@
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"8fef4ad9-1d9b-4944-93b5-e7f90ef478d1","blendMode":0,"displayName":"default","isLocked":false,"name":"8fef4ad9-1d9b-4944-93b5-e7f90ef478d1","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"694ec76f-7c42-419c-8dcd-3cd66dff5ef7","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"694ec76f-7c42-419c-8dcd-3cd66dff5ef7","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_shooter_heavy",
   "nineSlice":null,
