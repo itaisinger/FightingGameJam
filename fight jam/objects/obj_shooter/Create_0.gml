@@ -2,7 +2,9 @@
 event_inherited();
 
 name = "SHON SHMUPS"
-win_sfx = sfx_johnny_wins;
+win_sfx = sfx_shon_wins;
+max_hp = 100;
+hp = max_hp;
 
 states_sprites[STATES.idle]			= spr_shooter_idle;
 states_sprites[STATES.jump_squat]	= spr_shooter_jump_squat;

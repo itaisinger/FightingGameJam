@@ -1,6 +1,6 @@
 /// TOP LOGIC
 is_echo = false;
-max_hp = 100;
+max_hp = 120;
 hp = max_hp;
 dir = 1;
 echo_charges_max = 3;
@@ -194,13 +194,13 @@ mask_index = spr_fighter_idle
 
 /// ATTACKS DATA (overrided in different characters)
 hitbox_data = array_create(STATES.max,-1)
-hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,25,5,3,5,0,0,false);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,80,15,6,9,0,1,false);
-hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,40,10,7,5,1,1,false);
-hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,25,5,3,7,0,0,false);
-hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,40,10,3,5,0,0,false);
-hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,4,10,5,3,5,0,0,false);
-hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,160,20,3,5,0,0,true);
+hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,45,5,3,5,0,0,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,100,15,6,9,0,1,false);
+hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,60,5,3,7,0,0,false);
+hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,90,10,3,5,0,0,false);
+hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,4,20,5,3,5,0,0,false);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,180,20,3,3,0,false,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
 //state functions
@@ -768,9 +768,9 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 	//apply stun frames	
 	stun_remain = stun;
 
-	yadd = -knocky;
 	xadd = knockx;
-	
+	yadd = -knocky;
+
 	//if already stunned in air, adjust kb and stay in state
 	if(state == STATES.air_stun)
 	{
@@ -778,9 +778,13 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 		yadd *= 0.6;
 	}
 	else if (is_launch or !is_grounded()){
+		yadd = -knocky;
 		change_state(STATES.air_stun)
 	}
-	else change_state(STATES.stun);
+	else {
+		change_state(STATES.stun);
+		yadd = 0;
+	}
 	
 	//hitpause
 	hitpause_remain = hitpause;

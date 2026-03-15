@@ -76,6 +76,7 @@ with(inst_hitbox){
 	dir = other.dir;
 	image_xscale = other.image_xscale;
 	image_speed = other.image_speed
+	image_index = other.image_index
 }
 
 mask_index = hurtbox;
