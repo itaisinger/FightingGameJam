@@ -1,10 +1,34 @@
 switch(state){
 	
+	#region menu
+	
 	case GAME_STATES.menu:
 		if(keyboard_check_pressed(vk_enter))
 			room_goto(rm_match);
+		
+		var _input = [];
+		_input[0] = new FrameInput(true);
+		_input[1] = new FrameInput(false);
+		
+		draw_set_all(1,c_white,font_main,fa_left,fa_top);
+		for(var i=0; i < array_length(_input[0].arr); i++){
+			draw_text(20,20+string_height("G")*1.1*i,_input[0].arr[i]);
+		}
+		
+		for(var i=0; i < 2; i++){
+			if(_input[i].is_pressed(INPUT.right_press))
+				chosen_characters[i]++;
+			if(_input[i].is_pressed(INPUT.left_press))
+				chosen_characters[i]--;
+				
+			if(chosen_characters[i] < 0) chosen_characters[i] = array_length(arr_characters)-1;
+			if(chosen_characters[i] >= array_length(arr_characters)) chosen_characters[i] = 0;
+		}
+		
 	break;
 	
+	#endregion
+	#region match
 	case GAME_STATES.match:
 		
 		if(cnt-- <= 0){
@@ -29,8 +53,8 @@ switch(state){
 		}
 		
 		//death check
-		var _p2_dead = inst_players[1].is_dead();
-		var _p1_dead = inst_players[0].is_dead();
+		var _p2_dead = inst_players[0].is_dead();
+		var _p1_dead = inst_players[1].is_dead();
 		
 		if(_p1_dead or _p2_dead)
 		{
@@ -49,13 +73,13 @@ switch(state){
 			}
 			else if(_p1_dead)
 				call_later(3,time_source_units_seconds,function(){
-					with(obj_ui) set_announce_text(other.inst_players[1].name + "\nWINS!")
-					play_sfx(inst_players[1].win_sfx);
+					with(obj_ui) set_announce_text(other.inst_players[0].name + "\nWINS!")
+					play_sfx(inst_players[0].win_sfx);
 				});
 			else if(_p2_dead)
 				call_later(3,time_source_units_seconds,function(){
-					with(obj_ui) set_announce_text(other.inst_players[0].name + "\nWINS!")
-					play_sfx(inst_players[0].win_sfx);
+					with(obj_ui) set_announce_text(other.inst_players[1].name + "\nWINS!")
+					play_sfx(inst_players[1].win_sfx);
 
 				});
 		
@@ -64,6 +88,7 @@ switch(state){
 				
 		
 	break;
+	#endregion
 }
 
 

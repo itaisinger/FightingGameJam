@@ -1,7 +1,7 @@
 switch(room){
 	case rm_match:
 		state = GAME_STATES.match;
-		start_match(obj_fighter,obj_skater);
+		start_match(arr_characters[chosen_characters[0]].object,arr_characters[chosen_characters[1]].object);
 		obj_ui.set_announce_text("3");
 		play_sfx(sfx_3)
 		countdown = 3;

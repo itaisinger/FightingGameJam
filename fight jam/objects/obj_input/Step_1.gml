@@ -7,7 +7,9 @@ keybinds[INPUT.heavy]	= [ord("K"),vk_numpad5]
 keybinds[INPUT.dodge]	= [ord("L"),vk_numpad6]
 
 arr[INPUT.left]	 = max(5* keyboard_check(keybinds[INPUT.left][true])         ,arr[INPUT.left]-1);
+arr[INPUT.left_press]	 = keyboard_check_pressed(keybinds[INPUT.left][true]);
 arr[INPUT.right] = max(5* keyboard_check(keybinds[INPUT.right][true])        ,arr[INPUT.right]-1);
+arr[INPUT.right_press] = keyboard_check_pressed(keybinds[INPUT.right][true])
 arr[INPUT.up]	 = max(5* keyboard_check_pressed(keybinds[INPUT.up][true])   ,arr[INPUT.up]-1);
 arr[INPUT.down]	 = max(10* keyboard_check(keybinds[INPUT.down][true]) ,arr[INPUT.down]-1);
 arr[INPUT.light] = max(5* keyboard_check_pressed(keybinds[INPUT.light][true]),arr[INPUT.light]-1);
