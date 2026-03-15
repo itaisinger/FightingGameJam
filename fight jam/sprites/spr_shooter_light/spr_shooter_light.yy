@@ -5,7 +5,7 @@
   "bbox_bottom":255,
   "bbox_left":100,
   "bbox_right":183,
-  "bbox_top":144,
+  "bbox_top":143,
   "collisionKind":4,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
@@ -22,6 +22,7 @@
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"8eec3614-2bf3-4c63-b708-1d73aad343d8","blendMode":0,"displayName":"default","isLocked":false,"name":"8eec3614-2bf3-4c63-b708-1d73aad343d8","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"6c1469d7-c854-4755-9aa9-6e66b5c72900","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"6c1469d7-c854-4755-9aa9-6e66b5c72900","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_shooter_light",
   "nineSlice":null,
