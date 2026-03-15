@@ -33,7 +33,7 @@ function Character(_name,_object,_sprite) constructor{
 }
 arr_characters[0] = new Character("JOSHUA",obj_fighter,spr_portrait_fighter)
 arr_characters[1] = new Character("JOHNNY DREX",obj_skater,spr_portrait_skater)
-arr_characters[2] = new Character("shooem up",obj_shooter,spr_shooter_idle)
+arr_characters[2] = new Character("SHON SHMUPS",obj_shooter,spr_shooter_idle)
 function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	var _player_dis = room_width/4
 	player_left_xstart	= room_width/2 + _player_dis;
