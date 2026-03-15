@@ -55,7 +55,7 @@ switch(state){
 			else if(_p2_dead)
 				call_later(3,time_source_units_seconds,function(){
 					with(obj_ui) set_announce_text(other.inst_players[0].name + "\nWINS!")
-					play_sfx(inst_players[1].win_sfx);
+					play_sfx(inst_players[0].win_sfx);
 
 				});
 		

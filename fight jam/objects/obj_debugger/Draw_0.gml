@@ -8,7 +8,8 @@ draw_set_color(c_white)
 
 with(obj_fighter) draw_sprite_ext(hurtbox,image_index,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 with(obj_hitbox) draw_self();
-with(obj_fighter) draw_text(x,y-100,stun_remain);
+draw_set_font(font_announce_small)
+with(obj_fighter) draw_text(x,y-100,state);
 
 try{ 
 	mask_index = obj_fighter.mask_index;

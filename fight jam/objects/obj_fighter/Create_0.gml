@@ -1,6 +1,6 @@
 /// TOP LOGIC
 is_echo = false;
-max_hp = 20;
+max_hp = 200;
 hp = max_hp;
 dir = 1;
 echo_charges_max = 3;
@@ -776,7 +776,7 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 		xadd *= 1.5;
 		yadd *= 0.6;
 	}
-	else if (is_launch){
+	else if (is_launch or !is_grounded()){
 		change_state(STATES.air_stun)
 	}
 	else change_state(STATES.stun);
