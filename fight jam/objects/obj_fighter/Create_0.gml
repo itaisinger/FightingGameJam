@@ -119,6 +119,7 @@ frames_lived = 0;		//used by echos to count their current step
 function create_echo(){
 	var _inst = instance_create_depth(x,y,depth-1,object_index);
 	_inst.make_echo(echo_saved);
+	_inst.is_p1 = is_p1;
 	echo_saved = -1;
 }
 function make_echo(input_arr){
