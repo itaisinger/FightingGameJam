@@ -25,7 +25,6 @@ switch(state){
 				case -1:
 					obj_ui.set_announce_text("");
 					break;
-
 			}
 		}
 		

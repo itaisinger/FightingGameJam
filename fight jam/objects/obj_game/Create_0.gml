@@ -7,7 +7,7 @@ if(instance_number(obj_game) > 1) {
 floor_y = 200
 
 //ui
-display_set_gui_size(480, 270);
+display_set_gui_size(480, 270); 
 announce_text = "";
 cnt = 0;
 
@@ -18,6 +18,11 @@ enum GAME_STATES{
 	match,
 	over,
 }
+
+//menu
+chosen_characters = [obj_fighter,obj_fighter];
+instance_create_depth(0,0,0,obj_input)
+instance_create_depth(0,0,0,obj_input2)
 
 function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	var _player_dis = room_width/4
