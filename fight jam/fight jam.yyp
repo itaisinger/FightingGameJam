@@ -166,6 +166,8 @@
     {"id":{"name":"spr_floor","path":"sprites/spr_floor/spr_floor.yy",},},
     {"id":{"name":"spr_hit","path":"sprites/spr_hit/spr_hit.yy",},},
     {"id":{"name":"spr_hp","path":"sprites/spr_hp/spr_hp.yy",},},
+    {"id":{"name":"spr_menu_fire_2","path":"sprites/spr_menu_fire_2/spr_menu_fire_2.yy",},},
+    {"id":{"name":"spr_menu_fire","path":"sprites/spr_menu_fire/spr_menu_fire.yy",},},
     {"id":{"name":"spr_portrait_fighter","path":"sprites/spr_portrait_fighter/spr_portrait_fighter.yy",},},
     {"id":{"name":"spr_portrait_skater","path":"sprites/spr_portrait_skater/spr_portrait_skater.yy",},},
     {"id":{"name":"spr_skate_air_heavy","path":"sprites/spr_skate_air_heavy/spr_skate_air_heavy.yy",},},

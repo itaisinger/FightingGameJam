@@ -3,6 +3,7 @@ if(instance_number(obj_game) > 1) {
 	exit;
 }
 
+depth = 0;
 //gameplay related
 floor_y = 200
 
