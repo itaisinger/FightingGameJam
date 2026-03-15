@@ -194,7 +194,7 @@ mask_index = spr_fighter_idle
 
 /// ATTACKS DATA (overrided in different characters)
 hitbox_data = array_create(STATES.max,-1)
-hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,45,5,3,5,0,0,false);
+hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,45,5,1,4,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,100,15,6,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,60,5,3,7,0,0,false);
@@ -254,12 +254,8 @@ arr_state_functions[STATES.idle] = function(){
 	}
 	
 	//capture echo
-	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.down) and echo_charges_remain > 0 and echo_saved == -1)
+	if(input.is_pressed(INPUT.echo) and echo_charges_remain > 0 and echo_saved == -1)
 		change_state(STATES.echo);
-	
-	//play echo
-	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.down) and echo_saved != -1)
-		create_echo()
 }
 arr_state_functions[STATES.jump_squat] = function(){
 	xadd = approach(xadd,slide_fric,0);
@@ -328,18 +324,15 @@ arr_state_functions[STATES.walk] = function(){
 			dir = -1;
 			change_state(STATES.dodge);
 		}
-		
-		//capture echo
-		else if(input.is_pressed(INPUT.down) and echo_charges_remain > 0 and echo_saved == -1)
-			change_state(STATES.echo);
-	
-		//play echo
-		else if(input.is_pressed(INPUT.down) and echo_saved != -1)
-			create_echo()
 			
 		//parry
 		else change_state(STATES.parry);	
 	}
+	
+	//capture echo
+	if(input.is_pressed(INPUT.echo) and echo_charges_remain > 0 and echo_saved == -1)
+		change_state(STATES.echo);
+		
 	
 	//light
 	if(input.is_pressed(INPUT.light)) change_state(STATES.light);
@@ -541,8 +534,10 @@ arr_state_functions[STATES.light] = function(){
 		change_state(STATES.special)
 	
 	//link to heavy
-	if(image_index >= 2 and input.is_pressed(INPUT.heavy))
+	if(image_index >= 2 and input.is_pressed(INPUT.heavy)){
 		change_state(STATES.heavy);
+		image_index++;
+	}
 	
 	if(anim_done)
 		change_state(STATES.idle)
@@ -648,8 +643,10 @@ arr_state_functions[STATES.air_light] = function(){
 		change_state(STATES.air_special)
 	
 	//link to heavy
-	if(image_index >= 2 and input.is_pressed(INPUT.heavy))
+	if(image_index >= 2 and input.is_pressed(INPUT.heavy)){
 		change_state(STATES.air_heavy);
+		image_index++;
+	}
 	
 	if(anim_done)
 		change_state(STATES.air)

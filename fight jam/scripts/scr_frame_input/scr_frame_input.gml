@@ -9,6 +9,7 @@ enum INPUT{
 	heavy,
 	dodge,
 	special,
+	echo,
 }
 
 
@@ -27,6 +28,7 @@ function FrameInput(P1) constructor{
 			arr[INPUT.heavy] = obj_input.arr[INPUT.heavy];
 			arr[INPUT.dodge] = obj_input.arr[INPUT.dodge];
 			arr[INPUT.special] = obj_input.arr[INPUT.special];
+			arr[INPUT.echo] = obj_input.arr[INPUT.echo];
 		}
 		else
 		{
@@ -40,6 +42,7 @@ function FrameInput(P1) constructor{
 			arr[INPUT.heavy] = obj_input2.arr[INPUT.heavy];
 			arr[INPUT.dodge] = obj_input2.arr[INPUT.dodge];
 			arr[INPUT.special] = obj_input2.arr[INPUT.special];
+			arr[INPUT.echo] = obj_input2.arr[INPUT.echo];
 		}
 	
 
@@ -56,6 +59,7 @@ function FrameInput(P1) constructor{
 		arr[INPUT.heavy]	= false;
 		arr[INPUT.dodge]	= false;
 		arr[INPUT.special]	= false;
+		arr[INPUT.echo]	= false;
 	}
 	
 	function is_pressed(input){ return arr[input]; }

@@ -60,6 +60,11 @@ if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges
 	else
 		play_sfx(sfx_error);
 }
+
+
+//create echo
+if(input.is_pressed(INPUT.echo) and echo_saved != -1 and stun_remain <= 0)
+	create_echo()
   
 anim_done = false;
 image_index_prev = image_index;
