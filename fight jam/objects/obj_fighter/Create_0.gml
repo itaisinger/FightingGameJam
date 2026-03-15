@@ -8,7 +8,7 @@ echo_charges_remain = echo_charges_max;
 hitpause_remain = 0;
 is_p1 = true;
 
-name = "FIGHTER"
+name = "JOSHUA"
 
 /// MOVEMENT
 xadd = 0;
@@ -48,6 +48,7 @@ function collision(){
 	}
 	
 	//hor
+	if(place_meeting(x+xadd,y,obj_wall) and state == STATES.air_stun) xadd *= -1;
 	while (place_meeting(x+xadd,y,obj_wall)) xadd = approach(xadd,1,0);
 	
 	//ver
@@ -98,6 +99,9 @@ function change_state(new_state){
 	
 	if(hitbox_data[new_state] != -1)
 		create_hitbox(hitbox_data[new_state]);
+	
+	if(new_state == STATES.stun or new_state == STATES.air_stun)
+		image_index = irandom(1)
 }
 
 stun_remain = 0;
@@ -191,6 +195,7 @@ hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,80,15,6,9,0,1
 hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,40,10,7,5,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,25,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,40,10,3,5,0,0,false);
+hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,4,10,5,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,160,20,3,5,0,0,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
@@ -474,7 +479,7 @@ arr_state_functions[STATES.stun] = function(){
 	
 	//movement
 	yadd = 0;
-	xadd = approach(xadd,ground_fric,0);
+	xadd = approach(xadd,ground_fric*3,0);
 	
 	//exit stun
 	if(stun_remain-- <= 0)
@@ -490,7 +495,14 @@ arr_state_functions[STATES.air_stun] = function(){
 		
 	if(is_grounded()){
 		stun_remain = 0;
-		change_state(STATES.land);
+		
+		if(input.is_pressed(INPUT.dodge)){
+			if(input.is_pressed(INPUT.right)) dir = 1;
+			if(input.is_pressed(INPUT.left)) dir = -1;
+			
+			change_state(STATES.dodge)
+		}
+		else change_state(STATES.land);
 	}
 }
 arr_state_functions[STATES.dead] = function(){

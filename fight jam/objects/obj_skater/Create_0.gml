@@ -67,7 +67,7 @@ hitbox_data[STATES.heavy]		= new HitboxData(hitbox_skate_heavy,8,80,15,6,9,0,1,f
 hitbox_data[STATES.special]		= new HitboxData(hitbox_skate_special,8,40,10,12,7,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_skate_air_light,4,25,5,3,7,0,0,false,pogo);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_skate_air_heavy,12,40,10,3,5,0,0,false);
-hitbox_data[STATES.parry]		= new HitboxData(hitbox_skate_parry,40,1,20,3,5,0,0,true);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_skate_parry,1,180,20,3,5,0,0,true);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,3,20,20,3,5,0,1,false);
 
 arr_state_functions[STATES.idle] = function(){
