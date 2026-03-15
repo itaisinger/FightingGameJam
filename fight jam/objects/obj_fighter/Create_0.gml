@@ -117,7 +117,7 @@ echo_size = room_speed * 5;
 frames_lived = 0;		//used by echos to count their current step
 
 function create_echo(){
-	var _inst = instance_create_depth(x,y,depth-1,obj_fighter);
+	var _inst = instance_create_depth(x,y,depth-1,object_index);
 	_inst.make_echo(echo_saved);
 	echo_saved = -1;
 }

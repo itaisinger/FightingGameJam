@@ -24,8 +24,7 @@ enum GAME_STATES{
 
 //menu
 chosen_characters = [0,0];
-instance_create_depth(0,0,0,obj_input)
-instance_create_depth(0,0,0,obj_input2)
+
 
 function Character(_name,_object,_sprite) constructor{
 	name = _name;

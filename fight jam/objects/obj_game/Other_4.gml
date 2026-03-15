@@ -10,6 +10,8 @@ switch(room){
 	
 	case rm_menu:
 		state = GAME_STATES.menu;
+		instance_create_depth(0,0,0,obj_input)
+		instance_create_depth(0,0,0,obj_input2)
 		play_sfx(sfx_echo_burst);
 	break;
 }
