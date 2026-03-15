@@ -11,6 +11,8 @@ floor_y = 200
 display_set_gui_size(480, 270); 
 announce_text = "";
 cnt = 0;
+cd = 0;
+image = 0;
 
 //states
 state = 0;
