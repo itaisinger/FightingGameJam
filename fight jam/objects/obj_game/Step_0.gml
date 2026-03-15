@@ -14,9 +14,10 @@ switch(state){
 			
 			switch(countdown)
 			{
-				case 2: obj_ui.set_announce_text("2");	break;
-				case 1: obj_ui.set_announce_text("1");	break;
+				case 2: obj_ui.set_announce_text("2"); play_sfx(sfx_2);	break;
+				case 1: obj_ui.set_announce_text("1"); play_sfx(sfx_1);	break;
 				case 0: 
+					play_sfx(sfx_burst);
 					obj_ui.set_announce_text("BURST!!");
 					instance_create_depth(0,0,0,obj_input);
 					instance_create_depth(0,0,0,obj_input2);
@@ -35,18 +36,29 @@ switch(state){
 		if(_p1_dead or _p2_dead)
 		{
 			state = GAME_STATES.over;
-			
-			instance_destroy(obj_input)
-			instance_destroy(obj_input2)
+			play_sfx(sfx_ko);
+			//instance_destroy(obj_input)
+			//instance_destroy(obj_input2)
 			inst_ui.set_announce_text("KO!!")
+			with(obj_fighter) step_delay = 3;
 		
 			if(_p1_dead and _p2_dead){
-				call_later(3,time_source_units_seconds,function(){inst_ui.set_announce_text("TIE!!!")});
+				call_later(3,time_source_units_seconds,function(){
+					inst_ui.set_announce_text("TIE!!!")
+					play_sfx(sfx_tie);	
+				});
 			}
 			else if(_p1_dead)
-				call_later(3,time_source_units_seconds,function(){with(obj_ui) set_announce_text(other.inst_players[1].name + "\nWON!")});
+				call_later(3,time_source_units_seconds,function(){
+					with(obj_ui) set_announce_text(other.inst_players[1].name + "\nWINS!")
+					play_sfx(inst_players[1].win_sfx);
+				});
 			else if(_p2_dead)
-				call_later(3,time_source_units_seconds,function(){with(obj_ui) set_announce_text(other.inst_players[0].name + "\nWON!")});
+				call_later(3,time_source_units_seconds,function(){
+					with(obj_ui) set_announce_text(other.inst_players[0].name + "\nWINS!")
+					play_sfx(inst_players[1].win_sfx);
+
+				});
 		
 			call_later(8,time_source_units_seconds,function(){room_goto(rm_menu)});
 		}

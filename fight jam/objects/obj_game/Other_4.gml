@@ -3,6 +3,7 @@ switch(room){
 		state = GAME_STATES.match;
 		start_match(obj_fighter,obj_skater);
 		obj_ui.set_announce_text("3");
+		play_sfx(sfx_3)
 		countdown = 3;
 		cnt = 60;
 		break;
