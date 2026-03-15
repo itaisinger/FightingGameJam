@@ -60,7 +60,7 @@
     },
     "name":"hurtbox_shooter_jump_squat",
     "playback":1,
-    "playbackSpeed":8.0,
+    "playbackSpeed":6.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
