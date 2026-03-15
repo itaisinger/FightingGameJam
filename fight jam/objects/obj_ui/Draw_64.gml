@@ -55,7 +55,15 @@ for(var i=0; i < _p.echo_charges_max; i++){
 #region annoncer
 
 if(announce_text != ""){
-
+	
+	if(cd-- <= 0){
+		cd = 10
+		image++
+	}
+	
+	draw_sprite_ext(spr_announce_spark	,image,_w/2+5,_h/2,1,1,0,c_white,1)
+	draw_sprite_ext(spr_announce_spark_2,image,_w/2-5,_h/2,1,1,0,c_white,1)
+	
 	var _col1 = c_black
 	var _col2 = #9E0B0F
 	

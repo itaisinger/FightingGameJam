@@ -41,14 +41,14 @@ switch(state){
 			inst_ui.set_announce_text("KO!!")
 		
 			if(_p1_dead and _p2_dead){
-				call_later(2,time_source_units_seconds,function(){inst_ui.set_announce_text("TIE!!!")});
+				call_later(3,time_source_units_seconds,function(){inst_ui.set_announce_text("TIE!!!")});
 			}
 			else if(_p1_dead)
-				call_later(2,time_source_units_seconds,function(){with(obj_ui) set_announce_text(other.inst_players[1].name + "\nWON!")});
+				call_later(3,time_source_units_seconds,function(){with(obj_ui) set_announce_text(other.inst_players[1].name + "\nWON!")});
 			else if(_p2_dead)
-				call_later(2,time_source_units_seconds,function(){with(obj_ui) set_announce_text(other.inst_players[0].name + "\nWON!")});
+				call_later(3,time_source_units_seconds,function(){with(obj_ui) set_announce_text(other.inst_players[0].name + "\nWON!")});
 		
-			call_later(6,time_source_units_seconds,function(){room_goto(rm_menu)});
+			call_later(8,time_source_units_seconds,function(){room_goto(rm_menu)});
 		}
 				
 		

@@ -6,6 +6,8 @@ enum DEPTH{
 }
 
 arr_players = [];
+image = 0;
+cd = 0;
 
 function set_players(players_arr){
 	arr_players[0] = players_arr[0];
