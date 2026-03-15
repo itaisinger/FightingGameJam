@@ -3,6 +3,7 @@
 
 enum DEPTH{
 	player = 0,
+	vfx = -1,
 }
 
 arr_players = [];

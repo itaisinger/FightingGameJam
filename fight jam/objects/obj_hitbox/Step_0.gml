@@ -39,10 +39,15 @@ if(!is_parry)
 			parent.hitpause_remain = hitpause/2;
 			
 			//sfx
-			audio_play_sound(sfx_hit,0,0,1.5)
+			var _gain = map_value(damage,3,15, 0.6,2);
+			audio_play_sound(sfx_hit,0,0,_gain)
+			
+			//vfx
+			var _x = (bbox_left+bbox_right+_col.bbox_left+_col.bbox_right)/4
+			var _y = (bbox_top+bbox_bottom+_col.bbox_top+_col.bbox_bottom)/4
+			var _size = map_value(damage,3,15, 0.6,2);
+			create_vfx(_x,_y,_size,spr_hit);
 		}
-		
-		
 	}
 
 	ds_list_destroy(_cols)

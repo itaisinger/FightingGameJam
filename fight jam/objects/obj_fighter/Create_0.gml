@@ -1,6 +1,6 @@
 /// TOP LOGIC
 is_echo = false;
-max_hp = 20;
+max_hp = 200;
 hp = max_hp;
 dir = 1;
 echo_charges_max = 3;
@@ -134,6 +134,7 @@ image_index_prev = 0;
 _xshake = 0;
 _yshake = 0;
 floor_y = -100;
+depth = DEPTH.player;
 
 //animation stats
 special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
