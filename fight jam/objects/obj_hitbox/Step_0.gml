@@ -81,8 +81,7 @@ else
 				if(give_echo_charge)
 					parent.give_echo();
 			
-				parent.image_speed = hit_speedup;
-				image_speed = hit_speedup;
+				with(parent) image_index = image_number - 0.5;
 				
 				//call
 				func();
