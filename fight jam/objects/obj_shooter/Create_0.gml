@@ -64,7 +64,7 @@ hitbox_data[STATES.heavy]		= new HitboxData(hitbox_shooter_heavy,8,80,15,6,9,0,1
 hitbox_data[STATES.special]		= new HitboxData(hitbox_shooter_special,8,40,10,12,7,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_shooter_air_light,4,25,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_shooter_air_heavy,12,40,10,3,5,0,0,false);
-hitbox_data[STATES.parry]		= new HitboxData(hitbox_shooter_parry,1,180,20,3,5,0,0,true);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_shooter_parry,1,20,130,3,5,0,0,true);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_shooter_air_special,3,20,20,3,5,0,1,false);
 
 
@@ -110,18 +110,6 @@ arr_state_functions[STATES.special] = function()
 	
 	if(state_changed)
 		xadd = 15 * dir;
-	
-	//	if(reached_frame(1))
-	//{
-	//	__grav_mult = 0;
-	//	xadd = dir * 14;
-	//	__grav_multx = 1
-	//	yadd = 2;
-	//}
-	
-	//if(reached_frame(1)){
-	//	xadd = 30 * dir;
-	//}
 	
 	if(anim_done){
 		change_state(STATES.idle);

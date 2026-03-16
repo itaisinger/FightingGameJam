@@ -71,7 +71,7 @@ hitbox_data[STATES.heavy]		= new HitboxData(hitbox_skate_heavy,8,80,15,6,9,0,1,f
 hitbox_data[STATES.special]		= new HitboxData(hitbox_skate_special,8,40,10,12,7,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_skate_air_light,4,25,5,3,7,0,0,false,pogo);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_skate_air_heavy,12,40,10,3,5,0,0,false);
-hitbox_data[STATES.parry]		= new HitboxData(hitbox_skate_parry,1,180,20,3,5,0,0,true);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_skate_parry,1,30,130,3,5,0,0,true);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,1.5,20,20,3,5,0,1,false);
 
 arr_state_functions[STATES.idle] = function(){
@@ -132,20 +132,10 @@ arr_state_functions[STATES.idle] = function(){
 	}
 	
 	//capture echo
-	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.down) and echo_charges_remain > 0 and echo_saved == -1)
+	if(input.is_pressed(INPUT.echo) and echo_charges_remain > 0 and echo_saved == -1)
 		change_state(STATES.echo);
-	
-	//play echo
-	if(input.is_pressed(INPUT.dodge) and input.is_pressed(INPUT.down) and echo_saved != -1)
-		create_echo()
 }
 arr_state_functions[STATES.walk] = function(){
-	
-	//yadd = 0;
-	//xadd = approach(xadd,ground_fric,0);
-
-	//if(reached_frame(2))
-	//	xadd = dir * walkspd + xadd*1;
 	
 	yadd = 0;
 	xadd_dest = dir * walkspd;
@@ -194,18 +184,17 @@ arr_state_functions[STATES.walk] = function(){
 			change_state(STATES.dodge);
 		}
 		
-		//capture echo
-		else if(input.is_pressed(INPUT.down) and echo_charges_remain > 0 and echo_saved == -1)
-			change_state(STATES.echo);
-	
-		//play echo
-		else if(input.is_pressed(INPUT.down) and echo_saved != -1)
-			create_echo()
+
+
 			
 		//parry
 		else change_state(STATES.parry);	
 	}
 	
+	//capture echo
+	if(input.is_pressed(INPUT.echo) and echo_charges_remain > 0 and echo_saved == -1)
+			change_state(STATES.echo);
+			
 	//light
 	if(input.is_pressed(INPUT.light)) change_state(STATES.light);
 	

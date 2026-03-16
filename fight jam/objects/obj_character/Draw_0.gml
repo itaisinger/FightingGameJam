@@ -10,8 +10,10 @@ if(is_echo) image_alpha = 0.5;
 var _shake_mult = 2;
 if(current_time%3 == 0){
 	var _active = state == STATES.stun or state == STATES.air_stun;
-	_yshake = _active*_shake_mult*random_range(-hitpause_remain,hitpause_remain)
-	_xshake = _active*_shake_mult*random_range(-hitpause_remain,hitpause_remain)
+	_yshake = clamp(_active*_shake_mult*random_range(-hitpause_remain,hitpause_remain),-shake_max,shake_max)
+	_xshake = clamp(_active*_shake_mult*random_range(-hitpause_remain,hitpause_remain),-shake_max,shake_max);
+	
+	
 }
 x += _xshake;
 y += _yshake;

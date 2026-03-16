@@ -39,6 +39,11 @@ if(hitpause_remain > 0){
 }
 else image_speed = image_speed_prev;
 
+
+//create echo
+if(input.is_pressed(INPUT.echo) and echo_saved != -1 and stun_remain <= 0)
+	create_echo()
+
 //STATE
 state_changed = state != state_prev;
 state_prev = state;
@@ -62,9 +67,6 @@ if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges
 }
 
 
-//create echo
-if(input.is_pressed(INPUT.echo) and echo_saved != -1 and stun_remain <= 0)
-	create_echo()
   
 anim_done = false;
 image_index_prev = image_index;

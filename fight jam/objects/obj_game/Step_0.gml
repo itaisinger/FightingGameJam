@@ -63,7 +63,7 @@ switch(state){
 			//instance_destroy(obj_input)
 			//instance_destroy(obj_input2)
 			inst_ui.set_announce_text("KO!!")
-			with(obj_fighter) step_delay = 3;
+			with(obj_character) step_delay = 3;
 		
 			if(_p1_dead and _p2_dead){
 				call_later(3,time_source_units_seconds,function(){

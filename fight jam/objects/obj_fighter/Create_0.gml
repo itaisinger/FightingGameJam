@@ -1,3 +1,5 @@
+event_inherited();
+
 /// TOP LOGIC
 is_echo = false;
 max_hp = 120;
@@ -200,7 +202,7 @@ hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,60,10,7,
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,60,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,90,10,3,5,0,0,false);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,4,20,5,3,5,0,0,false);
-hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,180,20,3,3,0,false,true);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,100,180,3,3,0,false,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
 //state functions

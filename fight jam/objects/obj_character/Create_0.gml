@@ -143,6 +143,7 @@ floor_y = -100;
 depth = DEPTH.player;
 step_delay = 0;	//set this to a number to make it skip that number of frames after every frame
 step_delay_remain = 0;
+shake_max = 10;
 
 //animation stats
 special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special

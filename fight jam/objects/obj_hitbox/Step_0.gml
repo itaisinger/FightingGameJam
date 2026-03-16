@@ -69,6 +69,7 @@ else
 			_col.parent.hit(damage,knockback_x,knockback_y,stun_duration,hitpause,false);
 			_nme.xadd = 0;
 			_nme.yadd = 0;
+			//_nme.is_parried = true;
 			
 			//remember target
 			array_insert(arr_hits,0,_col);
@@ -85,9 +86,6 @@ else
 				//call
 				func();
 			}
-		
-			//hitpause parent
-			//parent.hitpause_remain = hitpause/2;
 		
 			//sfx
 			audio_play_sound(sfx_hit,0,0,1.5)

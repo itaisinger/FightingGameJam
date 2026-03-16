@@ -6,22 +6,22 @@ draw_set_color(c_red)
 with(all) draw_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,1)
 draw_set_color(c_white)
 
-with(obj_fighter) draw_sprite_ext(hurtbox,image_index,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
+with(obj_character) draw_sprite_ext(hurtbox,image_index,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 with(obj_hitbox) draw_self();
 draw_set_font(font_announce_small)
-with(obj_fighter) draw_text(x,y-100,state);
+with(obj_character) draw_text(x,y-100,echo_saved != -1);
 
 try{ 
-	mask_index = obj_fighter.mask_index;
+	mask_index = obj_character.mask_index;
 	vars = [
-	"state: " + string(obj_fighter.state),
-	"sides: " + string(obj_fighter.input.is_pressed(INPUT.left)) + ", "  + string(obj_fighter.input.is_pressed(INPUT.right)),
-	"diff: " + string(obj_fighter.input.is_pressed(INPUT.right) - obj_fighter.input.is_pressed(INPUT.right)),
-	"xadd: " + string(obj_fighter.xadd),
-	"charges: " + string(obj_fighter.echo_charges_remain),
-	"stun_remain: " + string(obj_fighter.stun_remain),
-	"pos: " + string(obj_fighter.x) + "," + string(obj_fighter.y),
-	"image: " + string(obj_fighter.image_speed) + ": " + string(obj_fighter.image_index)
+	"state: " + string(obj_character.state),
+	"sides: " + string(obj_character.input.is_pressed(INPUT.left)) + ", "  + string(obj_character.input.is_pressed(INPUT.right)),
+	"diff: " + string(obj_character.input.is_pressed(INPUT.right) - obj_character.input.is_pressed(INPUT.right)),
+	"xadd: " + string(obj_character.xadd),
+	"charges: " + string(obj_character.echo_charges_remain),
+	"stun_remain: " + string(obj_character.stun_remain),
+	"pos: " + string(obj_character.x) + "," + string(obj_character.y),
+	"image: " + string(obj_character.image_speed) + ": " + string(obj_character.image_index)
 	]
 }
 catch(a){vars=[];}
