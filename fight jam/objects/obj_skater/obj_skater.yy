@@ -16,8 +16,8 @@
     "path":"folders/Objects/gameplay/characters.yy",
   },
   "parentObjectId":{
-    "name":"obj_fighter",
-    "path":"objects/obj_fighter/obj_fighter.yy",
+    "name":"obj_character",
+    "path":"objects/obj_character/obj_character.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

@@ -92,6 +92,7 @@
     {"id":{"name":"Vinyl Start Guide","path":"notes/Vinyl Start Guide/Vinyl Start Guide.yy",},},
     {"id":{"name":"obj_cam_follow","path":"objects/obj_cam_follow/obj_cam_follow.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
+    {"id":{"name":"obj_character","path":"objects/obj_character/obj_character.yy",},},
     {"id":{"name":"obj_debugger","path":"objects/obj_debugger/obj_debugger.yy",},},
     {"id":{"name":"obj_fighter","path":"objects/obj_fighter/obj_fighter.yy",},},
     {"id":{"name":"obj_floor","path":"objects/obj_floor/obj_floor.yy",},},

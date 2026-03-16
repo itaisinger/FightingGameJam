@@ -63,28 +63,28 @@ state = 0;
 state_prev = state;
 state_changed = false;
 state_count = 0;		//how many frames we are in this state
-//enum STATES{
-//	idle,
-//	walk,
-//	jump_squat,
-//	air,
-//	land,
-//	light,
-//	heavy,
-//	special,
-//	air_light,
-//	air_heavy,
-//	air_special,
-//	stun,
-//	air_stun,
-//	echo,
-//	dead,
-//	dodge,
-//	parry,
-//	teleport,
+enum STATES{
+	idle,
+	walk,
+	jump_squat,
+	air,
+	land,
+	light,
+	heavy,
+	special,
+	air_light,
+	air_heavy,
+	air_special,
+	stun,
+	air_stun,
+	echo,
+	dead,
+	dodge,
+	parry,
+	teleport,
 	
-//	max,
-//}
+	max,
+}
 function change_state(new_state){
 	state_count = 0;
 	state_prev = state;
@@ -553,10 +553,6 @@ arr_state_functions[STATES.heavy] = function(){
 	
 	xadd = approach(xadd,slide_fric,0);
 	yadd = 0;
-	
-	if(is_hit_success() and input.is_pressed(INPUT.up))
-		change_state(STATES.jump_squat);
-		
 	
 	if(anim_done)
 		change_state(STATES.idle)

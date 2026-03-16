@@ -2,7 +2,7 @@
 if(!is_parry)
 {
 	var _cols = ds_list_create();
-	var _num = instance_place_list(x,y,obj_fighter,_cols,false);
+	var _num = instance_place_list(x,y,obj_character,_cols,false);
 
 	for(var i=0; i < _num; i++){
 		var _col = _cols[|i];
