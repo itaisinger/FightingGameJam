@@ -26,7 +26,7 @@
   ],
   "name":"hitbox_skate_heavy",
   "nineSlice":null,
-  "origin":7,
+  "origin":9,
   "parent":{
     "name":"hitboxes",
     "path":"folders/Sprites/fighters/fighter skateboard/hitboxes.yy",
@@ -81,7 +81,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":85,
+    "xorigin":64,
     "yorigin":128,
   },
   "swatchColours":null,
