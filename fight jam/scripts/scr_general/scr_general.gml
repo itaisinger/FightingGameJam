@@ -46,8 +46,8 @@ function play_sfx(_sfx,_prio,_loop,_pitch,_gain)
 }
 global.sfx_volume = 1;
 
-function create_vfx(_x,_y,_scale,asset){
-	return instance_create_depth(_x,_y,DEPTH.vfx,obj_vfx,{sprite_index: asset, image_xscale: _scale, image_yscale: _scale});
+function create_vfx(_x,_y,_scale,asset,_angle=0){
+	return instance_create_depth(_x,_y,DEPTH.vfx,obj_vfx,{sprite_index: asset, image_xscale: _scale, image_yscale: _scale, image_angle: _angle});
 }
 function map_value(_value, _current_lower_bound, _current_upper_bound, _desired_lowered_bound, _desired_upper_bound) {
     return (((_value - _current_lower_bound) / (_current_upper_bound - _current_lower_bound)) * (_desired_upper_bound - _desired_lowered_bound)) + _desired_lowered_bound;

@@ -43,10 +43,11 @@ if(!is_parry)
 			audio_play_sound(sfx_hit,0,0,_gain)
 			
 			//vfx
-			var _x = (bbox_left+bbox_right+_col.bbox_left+_col.bbox_right)/4
-			var _y = (bbox_top+bbox_bottom+_col.bbox_top+_col.bbox_bottom)/4
+			var _r = 10;
+			var _x = (bbox_left+bbox_right+_col.bbox_left+_col.bbox_right)/4 + random_range(-_r,_r);
+			var _y = (bbox_top+bbox_bottom+_col.bbox_top+_col.bbox_bottom)/4 + random_range(-_r,_r);
 			var _size = map_value(damage,3,15, 0.6,2);
-			create_vfx(_x,_y,_size,spr_hit);
+			create_vfx(_x,_y,_size,spr_hit,random_range(0,360));
 		}
 	}
 
