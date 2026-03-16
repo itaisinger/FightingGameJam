@@ -27,7 +27,9 @@
   "height":128,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"7147dfc1-638a-4a68-a755-bc7b9042514b","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"7147dfc1-638a-4a68-a755-bc7b9042514b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"b83efe61-6021-4772-b910-43f1eadff998","blendMode":0,"displayName":"default","isLocked":false,"name":"b83efe61-6021-4772-b910-43f1eadff998","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"55044cfe-60b9-41e6-b225-a6f23a99f86e","blendMode":0,"displayName":"Layer 3","isLocked":false,"name":"55044cfe-60b9-41e6-b225-a6f23a99f86e","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"83ac307a-9675-4b14-bdbc-fc56a2b55ca3","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"83ac307a-9675-4b14-bdbc-fc56a2b55ca3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_fighter_special",

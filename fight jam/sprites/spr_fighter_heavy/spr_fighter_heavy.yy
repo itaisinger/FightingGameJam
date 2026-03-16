@@ -5,7 +5,7 @@
   "bbox_bottom":127,
   "bbox_left":16,
   "bbox_right":109,
-  "bbox_top":24,
+  "bbox_top":25,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
@@ -25,6 +25,7 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"b83efe61-6021-4772-b910-43f1eadff998","blendMode":0,"displayName":"default","isLocked":false,"name":"b83efe61-6021-4772-b910-43f1eadff998","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"ce8cd6ac-7593-4bc8-8077-db1fba0a9640","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"ce8cd6ac-7593-4bc8-8077-db1fba0a9640","opacity":66.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"8bca01b6-ced5-4c71-a104-e2e83cca1860","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"8bca01b6-ced5-4c71-a104-e2e83cca1860","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_fighter_heavy",
   "nineSlice":null,
