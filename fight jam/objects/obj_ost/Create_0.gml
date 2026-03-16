@@ -1,6 +1,3 @@
-/// @description Insert description here
-// You can write your code in this 
-
 voice = VinylPlayFadeIn("ost",false,0.08,0.2);
 var _length = VinylGetLength(voice);
 log("playing " + audio_get_name(VinylGetAsset(voice)) + ", length: " + string(_length));

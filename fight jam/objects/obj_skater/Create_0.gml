@@ -7,6 +7,7 @@ ground_fric *= 0.1
 slide_fric *= 0.5
 walkspd = 8;
 accel = 1;
+landing_lag = 12;
 
 name = "JOHNNY DREX"
 win_sfx = sfx_johnny_wins;
@@ -292,4 +293,30 @@ arr_state_functions[STATES.air_special] = function(){
 		
 	if(anim_done)
 		change_state(STATES.air);
+}
+arr_state_functions[STATES.land] = function(){
+	
+	yadd = 0;
+	xadd = approach(xadd,ground_fric,0);
+	
+	if(state_count >= landing_lag){
+		//left
+		if(input.is_pressed(INPUT.left) and !input.is_pressed(INPUT.right)){
+			dir = -1;
+			change_state(STATES.walk);
+		}
+		//right
+		if(input.is_pressed(INPUT.right) and !input.is_pressed(INPUT.left)){
+			dir = 1;
+			change_state(STATES.walk);
+		}
+		
+		//jump
+		if(input.is_pressed(INPUT.up)) change_state(STATES.jump_squat);
+	}
+	
+	//done
+	if(anim_done)
+		change_state(STATES.idle);
+	
 }

@@ -41,8 +41,10 @@ else image_speed = image_speed_prev;
 
 
 //create echo
-if(input.is_pressed(INPUT.echo) and echo_saved != -1 and stun_remain <= 0)
+if(input.is_pressed(INPUT.echo) and echo_saved != -1 and stun_remain <= 0){
 	create_echo()
+	input.arr[INPUT.echo] = false;
+}
 
 //STATE
 state_changed = state != state_prev;

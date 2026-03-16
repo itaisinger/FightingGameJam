@@ -16,7 +16,7 @@ arr[INPUT.down]	 = max(10* keyboard_check(keybinds[INPUT.down][true]) ,arr[INPUT
 arr[INPUT.light] = max(5* keyboard_check_pressed(keybinds[INPUT.light][true]),arr[INPUT.light]-1);
 arr[INPUT.heavy] = max(5* keyboard_check_pressed(keybinds[INPUT.heavy][true]),arr[INPUT.heavy]-1);
 arr[INPUT.dodge] = max(10* keyboard_check_pressed(keybinds[INPUT.dodge][true]),arr[INPUT.dodge]-1);
-arr[INPUT.echo] = max(5* keyboard_check_pressed(keybinds[INPUT.echo][true]),arr[INPUT.echo]-1);
+arr[INPUT.echo] = keyboard_check_pressed(keybinds[INPUT.echo][true]);
 arr[INPUT.special] = min(arr[INPUT.heavy],arr[INPUT.light]);
 
 if(arr[INPUT.left] > arr[INPUT.right])  

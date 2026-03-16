@@ -537,7 +537,6 @@ arr_state_functions[STATES.light] = function(){
 	//link to heavy
 	if(image_index >= 2 and input.is_pressed(INPUT.heavy)){
 		change_state(STATES.heavy);
-		image_index++;
 	}
 	
 	if(anim_done)
