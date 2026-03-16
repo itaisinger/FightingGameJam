@@ -1,3 +1,4 @@
+audio_stop_all();
 switch(room){
 	case rm_match:
 		state = GAME_STATES.match;
@@ -6,6 +7,7 @@ switch(room){
 		play_sfx(sfx_3)
 		countdown = 3;
 		cnt = 60;
+		instance_create_depth(0,0,0,obj_ost);
 		break;
 	
 	case rm_menu:

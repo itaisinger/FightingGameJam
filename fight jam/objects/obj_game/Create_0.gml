@@ -3,6 +3,10 @@ if(instance_number(obj_game) > 1) {
 	exit;
 }
 
+__VinylConfigJSON();
+VinylSetupShuffle();
+
+
 depth = 0;
 //gameplay related
 floor_y = 200

@@ -643,9 +643,9 @@ arr_state_functions[STATES.air_light] = function(){
 		change_state(STATES.air_special)
 	
 	//link to heavy
-	if(image_index >= 2 and input.is_pressed(INPUT.heavy)){
+	if(image_index >= 3 and input.is_pressed(INPUT.heavy)){
 		change_state(STATES.air_heavy);
-		image_index++;
+		image_index += 2;
 	}
 	
 	if(anim_done)
@@ -698,7 +698,7 @@ arr_state_functions[STATES.air_special] = function(){
 	if(reached_frame(3))
 	{
 		__grav_mult = 0;
-		xadd = dir * 14;
+		xadd = dir * 17;
 		__grav_multx = 1
 		yadd = 2;
 	}
