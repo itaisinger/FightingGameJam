@@ -27,7 +27,7 @@
   "origin":0,
   "parent":{
     "name":"hurtboxes",
-    "path":"folders/Sprites/fighters/fighter temp/hurtboxes.yy",
+    "path":"folders/Sprites/fighters/fighter/hurtboxes.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -36,7 +36,7 @@
   "origin":7,
   "parent":{
     "name":"hitboxes",
-    "path":"folders/Sprites/fighters/fighter temp/hitboxes.yy",
+    "path":"folders/Sprites/fighters/fighter/hitboxes.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

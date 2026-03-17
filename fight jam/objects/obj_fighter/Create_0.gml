@@ -35,30 +35,6 @@ max_stray_back = walkspd*0.4;
 dodge_step_remain = 0;
 dodge_step_max = 9;
 
-function collision(){
-	
-	var _mask_prev = mask_index
-	mask_index = mask_fighter_col;
-
-	//push out of floor
-	while (place_meeting(x,y,obj_floor))
-		y--;
-		
-	//push out of walls
-	while (place_meeting(x,y,obj_wall)){
-		var _wall = instance_place(x,y,obj_wall)
-		x -= sign(_wall.image_xscale);
-	}
-	
-	//hor
-	if(place_meeting(x+xadd,y,obj_wall) and state == STATES.air_stun) xadd *= -1;
-	while (place_meeting(x+xadd,y,obj_wall)) xadd = approach(xadd,1,0);
-	
-	//ver
-	while (place_meeting(x,y+yadd,obj_floor)) yadd = approach(yadd,1,0);
-	
-	mask_index = _mask_prev;
-}
 
 /// STATES
 state = 0;
@@ -87,25 +63,7 @@ state_count = 0;		//how many frames we are in this state
 	
 //	max,
 //}
-function change_state(new_state){
-	state_count = 0;
-	state_prev = state;
-	state = new_state;
-	sprite_index = states_sprites[new_state];
-	image_index = 0;
-	image_speed = 1;
-	image_index_prev = 0;
-	image_speed_prev = 1;
-	hurtbox = states_hurtboxes[new_state];
-	
-	with(inst_hitbox) instance_destroy();
-	
-	if(hitbox_data[new_state] != -1)
-		create_hitbox(hitbox_data[new_state]);
-	
-	if(new_state == STATES.stun or new_state == STATES.air_stun)
-		image_index = irandom(1)
-}
+
 
 stun_remain = 0;
 
@@ -117,19 +75,6 @@ echo_record_arr = [];	//constantly updating last inputs. for echo saves the inpu
 echo_saved = -1;		//hold the saved sequence. returns to -1 after use.
 echo_size = room_speed * 5;
 frames_lived = 0;		//used by echos to count their current step
-
-function create_echo(){
-	var _inst = instance_create_depth(x,y,depth-1,object_index);
-	_inst.make_echo(echo_saved);
-	_inst.is_p1 = is_p1;
-	echo_saved = -1;
-}
-function make_echo(input_arr){
-	echo_saved = -1;
-	echo_record_arr = input_arr;
-	is_echo = true;
-	hp = 1;
-}
 
 /// TP
 tp_x = -1;
@@ -161,7 +106,7 @@ states_sprites[STATES.air]			= spr_fighter_air;
 states_sprites[STATES.echo]			= spr_fighter_echo;
 states_sprites[STATES.dodge]		= spr_fighter_dodge;
 states_sprites[STATES.stun]			= spr_fighter_hurt;
-states_sprites[STATES.air_stun]		= spr_fighter_hurt;
+states_sprites[STATES.air_stun]		= spr_fighter_air_hurt;
 states_sprites[STATES.dead]			= spr_fighter_dead;
 states_sprites[STATES.parry]		= spr_fighter_parry;
 states_sprites[STATES.teleport]		= spr_fighter_tp;
@@ -182,7 +127,7 @@ states_hurtboxes[STATES.air]		= hurtbox_fighter_air;
 states_hurtboxes[STATES.echo]		= hurtbox_fighter_echo;
 states_hurtboxes[STATES.dodge]		= hurtbox_fighter_dodge;
 states_hurtboxes[STATES.stun]		= hurtbox_fighter_hurt;
-states_hurtboxes[STATES.air_stun]	= hurtbox_fighter_hurt;
+states_hurtboxes[STATES.air_stun]	= hurtbox_fighter_air_hurt;
 states_hurtboxes[STATES.dead]		= hurtbox_fighter_hurt;
 states_hurtboxes[STATES.parry]		= hurtbox_fighter_parry;
 states_hurtboxes[STATES.teleport]	= hurtbox_fighter_tp;
@@ -204,6 +149,19 @@ hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,90,10
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,4,20,5,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,100,180,3,3,0,false,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
+
+
+var names = variable_instance_get_names(id);
+for(var i = 0; i < array_length(names); i++){
+    var val = variable_instance_get(id, names[i]);
+    if(is_method(val))
+        variable_instance_set(id, names[i], method(id, val));
+}
+for(var i=0; i < STATES.max; i++){
+	if(is_method(arr_state_functions[i])) 
+		arr_state_functions[i] = method(self,arr_state_functions[i])
+}
+
 
 //state functions
 arr_state_functions = [];
