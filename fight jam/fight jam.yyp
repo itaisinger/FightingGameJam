@@ -391,6 +391,7 @@
     {"id":{"name":"spr_shooter_light","path":"sprites/spr_shooter_light/spr_shooter_light.yy",},},
     {"id":{"name":"spr_shooter_parry","path":"sprites/spr_shooter_parry/spr_shooter_parry.yy",},},
     {"id":{"name":"spr_shooter_special","path":"sprites/spr_shooter_special/spr_shooter_special.yy",},},
+    {"id":{"name":"spr_shooter_teleport","path":"sprites/spr_shooter_teleport/spr_shooter_teleport.yy",},},
     {"id":{"name":"spr_shooter_tuant","path":"sprites/spr_shooter_tuant/spr_shooter_tuant.yy",},},
     {"id":{"name":"spr_shooter_walk","path":"sprites/spr_shooter_walk/spr_shooter_walk.yy",},},
     {"id":{"name":"spr_skate_air_heavy","path":"sprites/spr_skate_air_heavy/spr_skate_air_heavy.yy",},},
