@@ -131,7 +131,7 @@ function make_echo(input_arr){
 
 /// TP
 tp_x = -1;
-echo_tp_cost = 2;
+echo_tp_cost = 1;
 
 /// ANIMATION AND VISUALS
 anim_done = false;
@@ -572,6 +572,7 @@ arr_state_functions[STATES.parry] = function()
 arr_state_functions[STATES.teleport] = function()
 {
 	if(state_changed){
+		echo_charges_remain -= echo_tp_cost;
 		x = tp_x;
 		__grav_mult = 0;
 		__done = false;

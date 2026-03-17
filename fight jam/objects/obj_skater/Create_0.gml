@@ -24,7 +24,7 @@ states_sprites[STATES.stun]			= spr_skater_hurt;
 states_sprites[STATES.air_stun]		= spr_skater_hurt;
 states_sprites[STATES.dead]			= spr_fighter_dead;
 states_sprites[STATES.parry]		= spr_skate_parry;
-states_sprites[STATES.teleport]		= spr_fighter_tp;
+states_sprites[STATES.teleport]		= spr_skater_tp;
 states_sprites[STATES.special]		= spr_skate_special;
 states_sprites[STATES.land]			= spr_skate_land;
 states_sprites[STATES.air_light]	= spr_skate_air_light;
@@ -319,4 +319,35 @@ arr_state_functions[STATES.land] = function(){
 	if(anim_done)
 		change_state(STATES.idle);
 	
+}
+arr_state_functions[STATES.teleport] = function()
+{
+	if(state_changed){
+		echo_charges_remain -= echo_tp_cost;
+		x = tp_x;
+		__grav_mult = 0.5;
+		yadd = -jumpforce_y/2;
+	}
+	
+	yadd = approach(yadd,grav * __grav_mult,0);
+	xadd = 0;
+	
+	//light
+	if(input.is_pressed(INPUT.light))
+		change_state(STATES.air_light);
+	
+	//heavy
+	if(input.is_pressed(INPUT.light))
+		change_state(STATES.air_light);
+		
+	//special
+	if(input.is_pressed(INPUT.light))
+		change_state(STATES.air_light);
+		
+	if(anim_done)
+		change_state(STATES.air);
+		
+	//land
+	if(is_grounded())
+		change_state(STATES.idle)
 }

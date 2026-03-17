@@ -403,6 +403,7 @@
     {"id":{"name":"spr_skate_special","path":"sprites/spr_skate_special/spr_skate_special.yy",},},
     {"id":{"name":"spr_skate_walk","path":"sprites/spr_skate_walk/spr_skate_walk.yy",},},
     {"id":{"name":"spr_skater_hurt","path":"sprites/spr_skater_hurt/spr_skater_hurt.yy",},},
+    {"id":{"name":"spr_skater_tp","path":"sprites/spr_skater_tp/spr_skater_tp.yy",},},
     {"id":{"name":"spr_temple","path":"sprites/spr_temple/spr_temple.yy",},},
     {"id":{"name":"spr_title","path":"sprites/spr_title/spr_title.yy",},},
     {"id":{"name":"spr_vs","path":"sprites/spr_vs/spr_vs.yy",},},
