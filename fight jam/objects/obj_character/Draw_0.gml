@@ -1,3 +1,6 @@
+if(disable_draw) 
+	exit;
+
 draw_reset();
 
 //shadow

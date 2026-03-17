@@ -16,7 +16,7 @@ states_sprites[STATES.echo]			= spr_shooter_echo;
 states_sprites[STATES.dodge]		= spr_shooter_dodge;
 states_sprites[STATES.stun]			= spr_shooter_hurt;
 states_sprites[STATES.air_stun]		= spr_shooter_hurt;
-//states_sprites[STATES.dead]			= spr_shooter_dead;
+states_sprites[STATES.dead]			= spr_shooter_death;
 states_sprites[STATES.parry]		= spr_shooter_parry;
 states_sprites[STATES.teleport]		= spr_shooter_teleport;
 states_sprites[STATES.special]		= spr_shooter_special;
@@ -113,5 +113,38 @@ arr_state_functions[STATES.special] = function()
 	
 	if(anim_done){
 		change_state(STATES.idle);
+	}
+}
+arr_state_functions[STATES.dead] = function(){
+	
+	if(state_changed) __created = false;
+	
+	if(reached_frame(4) and !__created){
+		mask_index = spr_shooter_death;
+		var _inst = instance_create_depth(bbox_left,bbox_top,depth,obj_shooter_eye);
+		_inst.xadd = -5;
+		_inst.yadd = min(yadd*8,-3);
+		_inst.floor_y = floor_y
+		
+		var _inst = instance_create_depth(bbox_right,bbox_bottom,depth,obj_shooter_shield);
+		_inst.xadd = 5;
+		_inst.yadd = min(yadd*4,-2);
+		_inst.floor_y = floor_y
+		
+		image_speed = 0;
+		image_index++;
+		disable_draw = true;
+		__created = true;
+	}
+	
+	if(is_grounded())
+	{
+		xadd = approach(xadd,slide_fric,0);
+		yadd = 0;
+	}
+	else
+	{
+		xadd = approach(xadd,air_fric*0.8,0);
+		yadd += stun_grav*0.8	
 	}
 }
