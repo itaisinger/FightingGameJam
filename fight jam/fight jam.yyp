@@ -379,6 +379,7 @@
     {"id":{"name":"spr_shooter_air_light","path":"sprites/spr_shooter_air_light/spr_shooter_air_light.yy",},},
     {"id":{"name":"spr_shooter_air_special","path":"sprites/spr_shooter_air_special/spr_shooter_air_special.yy",},},
     {"id":{"name":"spr_shooter_air","path":"sprites/spr_shooter_air/spr_shooter_air.yy",},},
+    {"id":{"name":"spr_shooter_death","path":"sprites/spr_shooter_death/spr_shooter_death.yy",},},
     {"id":{"name":"spr_shooter_dodge","path":"sprites/spr_shooter_dodge/spr_shooter_dodge.yy",},},
     {"id":{"name":"spr_shooter_echo","path":"sprites/spr_shooter_echo/spr_shooter_echo.yy",},},
     {"id":{"name":"spr_shooter_heavy","path":"sprites/spr_shooter_heavy/spr_shooter_heavy.yy",},},
