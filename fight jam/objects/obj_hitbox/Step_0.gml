@@ -89,7 +89,7 @@ else
 			
 				with(parent) image_index = image_number - 0.5;
 				
-				//call
+				//call 
 				func();
 			}
 		
