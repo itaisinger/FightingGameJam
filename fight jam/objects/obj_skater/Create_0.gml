@@ -351,3 +351,28 @@ arr_state_functions[STATES.teleport] = function()
 	if(is_grounded())
 		change_state(STATES.idle)
 }
+arr_state_functions[STATES.dead] = function(){
+	
+	if(state_changed){
+		var _inst = instance_create_depth((bbox_right+bbox_left)/2,(bbox_top+bbox_bottom)/2,depth,obj_skateboard);
+		_inst.xadd = xadd*7;
+		_inst.yadd = min(yadd*5,-5);
+		_inst.floor_y = floor_y
+	}
+	
+	if(is_grounded())
+	{
+		xadd = approach(xadd,slide_fric,0);
+		yadd = 0;
+	}
+	else
+	{
+		xadd = approach(xadd,air_fric*0.8,0);
+		yadd += stun_grav*0.8	
+	}
+	
+	if(anim_done){
+		image_index = -1;
+		image_speed = 0;
+	}
+}
