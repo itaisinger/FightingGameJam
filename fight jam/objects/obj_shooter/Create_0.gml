@@ -60,14 +60,12 @@ for(var i=0; i < STATES.max; i++){
 //data
 hitbox_data = array_create(STATES.max,-1)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_shooter_light,2,25,5,3,5,0,0,false);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_shooter_heavy,8,80,15,6,9,0,1,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_shooter_heavy,8,70,15,4,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_shooter_special,8,40,10,12,7,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_shooter_air_light,4,25,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_shooter_air_heavy,12,40,10,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_shooter_parry,1,20,130,3,5,0,0,true);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_shooter_air_special,3,20,20,3,5,0,1,false);
-
-
 
 
 //////// overrides
@@ -78,14 +76,12 @@ arr_state_functions[STATES.air_heavy] = function(){
 		yadd -= 3;
 	}
 	
-	if(reached_frame(3))
+	if(reached_frame(2))
 	{
 		__grav_mult = 1;
 		xadd = -dir * 7;
 		yadd = -7;
 	}
-	
-		
 	
 	yadd += grav * __grav_mult;
 	xadd = approach(xadd,air_fric,0);
@@ -125,12 +121,15 @@ arr_state_functions[STATES.dead] = function(){
 		_inst.xadd = -5;
 		_inst.yadd = min(yadd*8,-3);
 		_inst.floor_y = floor_y
+		_inst.step_delay = is_echo ? 0 : 3;
+
 		
-		var _inst = instance_create_depth(bbox_right,bbox_bottom,depth,obj_shooter_shield);
+		_inst = instance_create_depth(bbox_right,bbox_bottom,depth,obj_shooter_shield);
 		_inst.xadd = 5;
 		_inst.yadd = min(yadd*4,-2);
 		_inst.floor_y = floor_y
-		
+		_inst.step_delay = is_echo ? 0 : 3;
+	
 		image_speed = 0;
 		image_index++;
 		disable_draw = true;
@@ -148,3 +147,45 @@ arr_state_functions[STATES.dead] = function(){
 		yadd += stun_grav*0.8	
 	}
 }
+arr_state_functions[STATES.teleport] = function()
+{
+	if(state_changed){
+		echo_charges_remain -= echo_tp_cost;
+		x = tp_x;
+		__grav_mult = 0;
+		__done = false;
+	}
+	
+	if(reached_frame(1))
+	{
+		__done = true;
+		__grav_mult = 0.5;
+		yadd = -jumpforce_y/2;
+	}
+	
+	yadd = approach(yadd,grav * __grav_mult,0);
+	xadd = 0;
+	
+	if(__done)
+	{
+		//light
+		if(input.is_pressed(INPUT.light))
+			change_state(STATES.air_light);
+	
+		//heavy
+		if(input.is_pressed(INPUT.light))
+			change_state(STATES.air_light);
+		
+		//special
+		if(input.is_pressed(INPUT.light))
+			change_state(STATES.air_light);
+		
+		if(anim_done)
+			change_state(STATES.air);
+		
+		//land
+		if(is_grounded())
+			change_state(STATES.idle)
+	}
+}
+

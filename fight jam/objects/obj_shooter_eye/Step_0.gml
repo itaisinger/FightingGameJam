@@ -28,7 +28,7 @@ while (place_meeting(x,y,obj_wall)){
 }
 	
 //hor
-if(place_meeting(x+xadd,y,obj_wall)) xadd *= -1;
+if(place_meeting(x+xadd,y,obj_wall)) xadd *= -0.6;
 while (place_meeting(x+xadd,y,obj_wall)) xadd = approach(xadd,1,0);
 	
 //ver

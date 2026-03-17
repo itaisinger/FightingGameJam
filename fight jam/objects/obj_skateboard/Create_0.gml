@@ -10,3 +10,4 @@ ground_fric = 0.07;
 
 step_delay = 3;
 step_delay_remain = 0;
+landed = false;

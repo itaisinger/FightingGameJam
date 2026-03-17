@@ -28,13 +28,22 @@ while (place_meeting(x,y,obj_wall)){
 }
 	
 //hor
-if(place_meeting(x+xadd,y,obj_wall)) xadd *= -1;
+if(place_meeting(x+xadd,y,obj_wall))
+	xadd *= -0.5;
+if(place_meeting(x,y+yadd,obj_floor)){
+	
+	landed = true;
+	
+	if(abs(yadd) > 2){
+		yadd *= -0.4;
+	}
+}
 while (place_meeting(x+xadd,y,obj_wall)) xadd = approach(xadd,1,0);
 	
 //ver
 while (place_meeting(x,y+yadd,obj_floor)) yadd = approach(yadd,1,0);
 
-image_index = !grounded;
+image_index = !(grounded or landed);
 image_xscale = xadd > 0 ? 1 : -1;
 
 x += xadd;
