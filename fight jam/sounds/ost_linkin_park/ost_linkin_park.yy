@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":52.3134,
+  "duration":52.579956,
   "exportDir":"",
   "name":"ost_linkin_park",
   "parent":{
