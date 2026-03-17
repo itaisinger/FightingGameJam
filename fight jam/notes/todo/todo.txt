@@ -1,0 +1,10 @@
+ost loop fix
+ost sound make it lowpass not cancer
+menu ost
+skater death animation with falling skateboard
+skater missing hurtboxes
+got through shooter missing animations
+sound effects for attacks
+consider better particles using pixel fx designer
+maybe color each player
+fighter ground low better animation
