@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"ost_animals",
+  "%Name":"ost_lying",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":127.792786,
+  "duration":83.54852,
   "exportDir":"",
-  "name":"ost_animals",
+  "name":"ost_lying",
   "parent":{
     "name":"ost",
     "path":"folders/Sounds/ost.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"ost_animals.ogg",
+  "soundFile":"ost_lying.ogg",
   "volume":1.0,
 }

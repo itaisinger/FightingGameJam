@@ -255,6 +255,7 @@
     {"id":{"name":"VinylWillStop","path":"scripts/VinylWillStop/VinylWillStop.yy",},},
     {"id":{"name":"ost_animals","path":"sounds/ost_animals/ost_animals.yy",},},
     {"id":{"name":"ost_linkin_park","path":"sounds/ost_linkin_park/ost_linkin_park.yy",},},
+    {"id":{"name":"ost_lying","path":"sounds/ost_lying/ost_lying.yy",},},
     {"id":{"name":"ost_wake_me_up","path":"sounds/ost_wake_me_up/ost_wake_me_up.yy",},},
     {"id":{"name":"sfx_1","path":"sounds/sfx_1/sfx_1.yy",},},
     {"id":{"name":"sfx_2","path":"sounds/sfx_2/sfx_2.yy",},},

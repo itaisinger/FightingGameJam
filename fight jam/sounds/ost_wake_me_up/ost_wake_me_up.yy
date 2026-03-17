@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":62.14324,
+  "duration":140.29292,
   "exportDir":"",
   "name":"ost_wake_me_up",
   "parent":{
