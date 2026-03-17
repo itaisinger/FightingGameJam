@@ -67,6 +67,12 @@ else
 			//hit
 			var _nme = _col.parent;
 			
+			//vfx
+			var _r = 10;
+			var _x = (bbox_left+bbox_right+_col.bbox_left+_col.bbox_right)/4 + random_range(-_r,_r);
+			var _y = (bbox_top+bbox_bottom+_col.bbox_top+_col.bbox_bottom)/4 + random_range(-_r,_r);
+			create_vfx(_x,_y,1,spr_hit_parry,random_range(0,360));
+			
 			_col.parent.hit(damage,knockback_x,knockback_y,stun_duration,hitpause,false);
 			_nme.xadd = 0;
 			_nme.yadd = 0;
