@@ -168,6 +168,7 @@
     {"id":{"name":"scr_frame_input","path":"scripts/scr_frame_input/scr_frame_input.yy",},},
     {"id":{"name":"scr_general","path":"scripts/scr_general/scr_general.yy",},},
     {"id":{"name":"scr_hitbox","path":"scripts/scr_hitbox/scr_hitbox.yy",},},
+    {"id":{"name":"scr_macros","path":"scripts/scr_macros/scr_macros.yy",},},
     {"id":{"name":"Script4","path":"scripts/Script4/Script4.yy",},},
     {"id":{"name":"VinylAbstract","path":"scripts/VinylAbstract/VinylAbstract.yy",},},
     {"id":{"name":"VinylAbstractStopAll","path":"scripts/VinylAbstractStopAll/VinylAbstractStopAll.yy",},},

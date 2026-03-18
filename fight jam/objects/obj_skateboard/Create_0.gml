@@ -11,3 +11,4 @@ air_fric = 0.01;
 ground_fric = 0.07;
 
 landed = false;
+is_echo = false;

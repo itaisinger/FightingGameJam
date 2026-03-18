@@ -61,8 +61,8 @@ switch(state){
 			state = GAME_STATES.over;
 			play_sfx(sfx_ko);
 			inst_ui.set_announce_text("KO!!")
-			with(obj_gameplay_object) step_delay = 3;
-			step_delay = 3;
+			with(obj_gameplay_object) step_delay = KO_STEP_DELAY;
+			step_delay = KO_STEP_DELAY;
 			
 			if(_p1_dead and _p2_dead){
 				call_later(3,time_source_units_seconds,function(){

@@ -5,7 +5,7 @@ if(instance_number(obj_game) > 1) {
 
 __VinylConfigJSON();
 VinylSetupShuffle();
-
+scr_macros();
 
 depth = 0;
 //gameplay related

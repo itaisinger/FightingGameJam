@@ -1,0 +1,2 @@
+#macro ECHO_ALPHA 0.5
+#macro KO_STEP_DELAY 3
