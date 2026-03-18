@@ -122,7 +122,6 @@ arr_state_functions[STATES.dead] = function(){
 		_inst.yadd = min(yadd*8,-3);
 		_inst.floor_y = floor_y
 		_inst.is_echo = is_echo;
-
 		
 		_inst = instance_create_depth(bbox_right,bbox_bottom,depth,obj_shooter_shield);
 		_inst.xadd = 5;

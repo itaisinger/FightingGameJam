@@ -366,6 +366,7 @@
     {"id":{"name":"spr_fighter_jump_squat","path":"sprites/spr_fighter_jump_squat/spr_fighter_jump_squat.yy",},},
     {"id":{"name":"spr_fighter_land_old","path":"sprites/spr_fighter_land_old/spr_fighter_land_old.yy",},},
     {"id":{"name":"spr_fighter_land","path":"sprites/spr_fighter_land/spr_fighter_land.yy",},},
+    {"id":{"name":"spr_fighter_light_1","path":"sprites/spr_fighter_light_1/spr_fighter_light_1.yy",},},
     {"id":{"name":"spr_fighter_light","path":"sprites/spr_fighter_light/spr_fighter_light.yy",},},
     {"id":{"name":"spr_fighter_parry","path":"sprites/spr_fighter_parry/spr_fighter_parry.yy",},},
     {"id":{"name":"spr_fighter_shadow","path":"sprites/spr_fighter_shadow/spr_fighter_shadow.yy",},},
