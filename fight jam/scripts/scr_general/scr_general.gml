@@ -23,7 +23,7 @@ function log(msg)
 {
 	show_debug_message(object_get_name(object_index) + ": " + string(msg));
 }
-function play_sfx(_sfx,_prio,_loop,_pitch,_gain)
+function play_sfx(_sfx,_prio=0,_loop=0,_pitch=1,_gain=1)
 {	
 	var _l = is_undefined(_loop)  ? 0 : _loop;	//loop
 	var _p = is_undefined(_prio)  ? 0 : _prio;	//priority

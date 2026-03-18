@@ -10,6 +10,7 @@ VinylSetupShuffle();
 depth = 0;
 //gameplay related
 floor_y = 200
+step_delay = 0;
 
 //ui
 display_set_gui_size(480, 270); 

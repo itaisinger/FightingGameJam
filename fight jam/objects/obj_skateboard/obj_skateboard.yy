@@ -13,7 +13,10 @@
     "name":"vfx",
     "path":"folders/Objects/vfx.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_gameplay_object",
+    "path":"objects/obj_gameplay_object/obj_gameplay_object.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

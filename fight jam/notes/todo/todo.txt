@@ -1,10 +1,10 @@
 ost loop fix
-ost sound make it lowpass not cancer
 menu ost
-skater death animation with falling skateboard
-skater missing hurtboxes
-got through shooter missing animations
 sound effects for attacks
 consider better particles using pixel fx designer
 maybe color each player
 fighter ground low better animation
+make death objects inherit the same thing 
+make obj game make all gameplay objects delay not just fighters
+make death objects destroy after a while if echo
+invincible frame on fighter uppercut

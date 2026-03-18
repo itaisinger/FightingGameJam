@@ -60,11 +60,10 @@ switch(state){
 		{
 			state = GAME_STATES.over;
 			play_sfx(sfx_ko);
-			//instance_destroy(obj_input)
-			//instance_destroy(obj_input2)
 			inst_ui.set_announce_text("KO!!")
-			with(obj_character) step_delay = 3;
-		
+			with(obj_gameplay_object) step_delay = 3;
+			step_delay = 3;
+			
 			if(_p1_dead and _p2_dead){
 				call_later(3,time_source_units_seconds,function(){
 					inst_ui.set_announce_text("TIE!!!")

@@ -43,7 +43,7 @@ states_hurtboxes[STATES.echo]		= hurtbox_skate_echo;
 states_hurtboxes[STATES.dodge]		= hurtbox_skate_dodge;
 states_hurtboxes[STATES.stun]		= hurtbox_skater_hurt;
 states_hurtboxes[STATES.air_stun]	= hurtbox_skater_hurt;
-states_hurtboxes[STATES.dead]		= hurtbox_skater_hurt;
+states_hurtboxes[STATES.dead]		= hurtbox_fighter_dead;
 states_hurtboxes[STATES.parry]		= hurtbox_skate_parry;
 states_hurtboxes[STATES.teleport]	= hurtbox_fighter_tp;
 states_hurtboxes[STATES.special]	= hurtbox_skate_special;
@@ -355,8 +355,8 @@ arr_state_functions[STATES.dead] = function(){
 	
 	if(state_changed){
 		var _inst = instance_create_depth((bbox_right+bbox_left)/2,(bbox_top+bbox_bottom)/2,depth,obj_skateboard);
-		_inst.xadd = xadd*7;
-		_inst.yadd = min(yadd*5,-5);
+		_inst.xadd = xadd*2;
+		_inst.yadd = min(yadd*2,-5);
 		_inst.floor_y = floor_y
 		_inst.step_delay = is_echo ? 0 : 3;
 	}
@@ -365,15 +365,17 @@ arr_state_functions[STATES.dead] = function(){
 	{
 		xadd = approach(xadd,slide_fric,0);
 		yadd = 0;
+		image_index = image_number-0.1;
 	}
 	else
 	{
 		xadd = approach(xadd,air_fric*0.8,0);
 		yadd += stun_grav*0.8	
+		image_index = min(image_index,image_number-1.1 - 1*(yadd<0));
 	}
 	
 	if(anim_done){
-		image_index = -1;
+		image_index = image_number-0.1;
 		image_speed = 0;
 	}
 }

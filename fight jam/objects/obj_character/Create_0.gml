@@ -1,3 +1,5 @@
+event_inherited();
+
 /// TOP LOGIC
 is_echo = false;
 max_hp = 120;
@@ -141,8 +143,7 @@ _xshake = 0;
 _yshake = 0;
 floor_y = -100;
 depth = DEPTH.player;
-step_delay = 0;	//set this to a number to make it skip that number of frames after every frame
-step_delay_remain = 0;
+
 shake_max = 10;
 disable_draw = false;
 
@@ -183,7 +184,7 @@ states_hurtboxes[STATES.echo]		= hurtbox_fighter_echo;
 states_hurtboxes[STATES.dodge]		= hurtbox_fighter_dodge;
 states_hurtboxes[STATES.stun]		= hurtbox_fighter_hurt;
 states_hurtboxes[STATES.air_stun]	= hurtbox_fighter_hurt;
-states_hurtboxes[STATES.dead]		= hurtbox_fighter_hurt;
+states_hurtboxes[STATES.dead]		= hurtbox_fighter_dead;
 states_hurtboxes[STATES.parry]		= hurtbox_fighter_parry;
 states_hurtboxes[STATES.teleport]	= hurtbox_fighter_tp;
 states_hurtboxes[STATES.special]	= hurtbox_fighter_special;
@@ -510,15 +511,17 @@ arr_state_functions[STATES.dead] = function(){
 	{
 		xadd = approach(xadd,slide_fric,0);
 		yadd = 0;
+		image_index = image_number-0.1;
 	}
 	else
 	{
 		xadd = approach(xadd,air_fric*0.8,0);
 		yadd += stun_grav*0.8	
+		image_index = min(image_index,image_number-1.1 - 1*(yadd<0));
 	}
 	
 	if(anim_done){
-		image_index = -1;
+		image_index = image_number-0.1;
 		image_speed = 0;
 	}
 }
@@ -754,6 +757,9 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 	
 	hp = max(hp-damage,0);
 	
+	xadd = knockx;
+	yadd = -knocky;
+	
 	//die
 	if(hp == 0) {
 		change_state(STATES.dead);
@@ -762,9 +768,6 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 
 	//apply stun frames	
 	stun_remain = stun;
-
-	xadd = knockx;
-	yadd = -knocky;
 
 	//if already stunned in air, adjust kb and stay in state
 	if(state == STATES.air_stun)

@@ -1,22 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"obj_shooter_shield",
+  "%Name":"obj_gameplay_object",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_shooter_shield",
+  "name":"obj_gameplay_object",
   "overriddenProperties":[],
   "parent":{
-    "name":"vfx",
-    "path":"folders/Objects/vfx.yy",
+    "name":"gameplay",
+    "path":"folders/Objects/gameplay.yy",
   },
-  "parentObjectId":{
-    "name":"obj_gameplay_object",
-    "path":"objects/obj_gameplay_object/obj_gameplay_object.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -34,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_shooter_shield",
-    "path":"sprites/spr_shooter_shield/spr_shooter_shield.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

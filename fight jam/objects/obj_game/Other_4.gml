@@ -1,4 +1,6 @@
 audio_stop_all();
+step_delay = 0;
+
 switch(room){
 	case rm_match:
 		state = GAME_STATES.match;
