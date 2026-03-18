@@ -62,7 +62,7 @@ else
 		var _col = _cols[|i];
 	
 		//is it an unhit nme?
-		if(_col.parent.is_p1 != parent.is_p1 and !array_contains(arr_hits,_col)){
+		if(_col.parent.is_p1 != parent.is_p1 and !array_contains(arr_hits,_col) and !_col.is_parry){
 		
 			//hit
 			var _nme = _col.parent;
