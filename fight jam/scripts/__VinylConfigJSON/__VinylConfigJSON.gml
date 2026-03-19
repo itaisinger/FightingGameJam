@@ -136,5 +136,12 @@ global.VinylConfigJSON = [
 	{
 		sound: ost_lying,
 		gain: 2
+	},
+	
+	{
+		hlt: "menu ost",
+        head: ost_menu_head,
+        loop: ost_menu_loop,
+        //tail: ost_menu_tail,
 	}
 ];

@@ -17,5 +17,6 @@ switch(room){
 		instance_create_depth(0,0,0,obj_input)
 		instance_create_depth(0,0,0,obj_input2)
 		play_sfx(sfx_echo_burst);
+		call_later(1,time_source_units_seconds,function(){VinylPlayFadeIn("menu ost",1,1,0.5);});
 	break;
 }

@@ -25,7 +25,7 @@ walkspd = 7;
 grav = 0.6;
 stun_grav = grav * 0.4;
 air_drift_spd = walkspd*0.03;
-max_air_spd = walkspd * 1.5;
+max_air_spd = walkspd * 10;
 air_fric = 0.05;
 stun_air_fric = air_fric * 0.25;
 ground_fric = 1;
@@ -345,7 +345,6 @@ arr_state_functions[STATES.land] = function(){
 	//special
 	if(input.is_pressed(INPUT.special)) change_state(STATES.special);
 	
-	
 	//done
 	if(anim_done)
 		change_state(STATES.idle);
@@ -369,7 +368,7 @@ arr_state_functions[STATES.air] = function(){
 	}
 	
 	//clamp for max movement
-	xadd = clamp(xadd,-max_air_spd,max_air_spd)
+	//xadd = clamp(xadd,-max_air_spd,max_air_spd)
 	
 	image_index = yadd > 0;
 	
@@ -441,8 +440,10 @@ arr_state_functions[STATES.air_stun] = function(){
 	yadd += stun_grav;
 	xadd = approach(xadd,stun_air_fric,0);
 	
-	if(stun_remain-- <= 0)
-		change_state(STATES.air);
+	if(stun_remain-- <= 0){
+		jump_traj_x = xadd;
+		change_state(STATES.air);	
+	}
 		
 	if(is_grounded()){
 		stun_remain = 0;
@@ -721,7 +722,10 @@ function change_state(new_state){
 }
 function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 	
-	damage *= get_damage_falloff();
+	var _falloff = get_damage_falloff();
+	damage *= _falloff
+	knockx /= _falloff;
+	knocky /= _falloff;
 	
 	combo_counter_damage += damage;
 	combo_counter++;

@@ -15,6 +15,7 @@
     {"$GMSpriteFrame":"v1","%Name":"0b672f71-5827-4c5b-893b-6a2442905b0a","name":"0b672f71-5827-4c5b-893b-6a2442905b0a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"9ab4b729-c8e2-415b-82a7-3e21cb2a758e","name":"9ab4b729-c8e2-415b-82a7-3e21cb2a758e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"582a8a90-c064-49b4-87d0-5e32cec3e1af","name":"582a8a90-c064-49b4-87d0-5e32cec3e1af","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"86b7bcb6-fe60-4010-889a-4125ac9c0bd3","name":"86b7bcb6-fe60-4010-889a-4125ac9c0bd3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -54,7 +55,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":3.0,
+    "length":4.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -64,7 +65,7 @@
     },
     "name":"spr_shooter_heavy",
     "playback":1,
-    "playbackSpeed":6.0,
+    "playbackSpeed":4.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
@@ -82,6 +83,9 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"582a8a90-c064-49b4-87d0-5e32cec3e1af","path":"sprites/spr_shooter_heavy/spr_shooter_heavy.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"76edc81f-b285-4507-ae76-89ec2b19427c","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"86b7bcb6-fe60-4010-889a-4125ac9c0bd3","path":"sprites/spr_shooter_heavy/spr_shooter_heavy.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"6690578b-f62b-4591-bdcb-ddd4654443a6","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
