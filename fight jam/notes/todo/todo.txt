@@ -3,4 +3,3 @@ menu ost
 sound effects for attacks
 consider better particles using pixel fx designer
 maybe color each player
-fighter ground low better animation

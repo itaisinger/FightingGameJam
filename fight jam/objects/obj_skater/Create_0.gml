@@ -358,6 +358,7 @@ arr_state_functions[STATES.dead] = function(){
 		_inst.xadd = xadd*2;
 		_inst.yadd = min(yadd*2,-5);
 		_inst.floor_y = floor_y
+		_inst.is_echo = is_echo;
 	}
 	
 	if(is_grounded())
