@@ -10,8 +10,13 @@ echo_charges_remain = echo_charges_max;
 hitpause_remain = 0;
 is_p1 = true;
 
+combo_counter = 0;
+combo_counter_damage = 0;
+
 name = "JOSHUA"
 win_sfx = sfx_jhoshua_wins;
+
+
 
 /// MOVEMENT
 xadd = 0;
@@ -87,25 +92,7 @@ enum STATES{
 	
 	max,
 }
-function change_state(new_state){
-	state_count = 0;
-	state_prev = state;
-	state = new_state;
-	sprite_index = states_sprites[new_state];
-	image_index = 0;
-	image_speed = 1;
-	image_index_prev = 0;
-	image_speed_prev = 1;
-	hurtbox = states_hurtboxes[new_state];
-	
-	with(inst_hitbox) instance_destroy();
-	
-	if(hitbox_data[new_state] != -1)
-		create_hitbox(hitbox_data[new_state]);
-	
-	if(new_state == STATES.stun or new_state == STATES.air_stun)
-		image_index = irandom(1)
-}
+
 
 stun_remain = 0;
 
@@ -118,18 +105,6 @@ echo_saved = -1;		//hold the saved sequence. returns to -1 after use.
 echo_size = room_speed * 5;
 frames_lived = 0;		//used by echos to count their current step
 
-function create_echo(){
-	var _inst = instance_create_depth(x,y,depth-1,object_index);
-	_inst.make_echo(echo_saved);
-	_inst.is_p1 = is_p1;
-	echo_saved = -1;
-}
-function make_echo(input_arr){
-	echo_saved = -1;
-	echo_record_arr = input_arr;
-	is_echo = true;
-	hp = 1;
-}
 
 /// TP
 tp_x = -1;
@@ -746,7 +721,35 @@ arr_state_functions[STATES.air_special] = function(){
 }
 
 //methods
+function change_state(new_state){
+	state_count = 0;
+	state_prev = state;
+	state = new_state;
+	sprite_index = states_sprites[new_state];
+	image_index = 0;
+	image_speed = 1;
+	image_index_prev = 0;
+	image_speed_prev = 1;
+	hurtbox = states_hurtboxes[new_state];
+	
+	with(inst_hitbox) instance_destroy();
+	
+	if(hitbox_data[new_state] != -1)
+		create_hitbox(hitbox_data[new_state]);
+	
+	if(new_state == STATES.stun or new_state == STATES.air_stun)
+		image_index = irandom(1)
+	else{
+		combo_counter = 0;
+		combo_counter_damage = 0;	
+	}
+}
 function hit(damage,knockx,knocky,stun,hitpause,is_launch){
+	
+	damage *= get_damage_falloff();
+	
+	combo_counter_damage += damage;
+	combo_counter++;
 	
 	//abort if already dead (or should we?)
 	if(state == STATES.dead)
@@ -810,4 +813,20 @@ function is_hit_success()
 }
 function is_dead(){
 	return state == STATES.dead;
+}
+function create_echo(){
+	var _inst = instance_create_depth(x,y,depth-1,object_index);
+	_inst.make_echo(echo_saved);
+	_inst.is_p1 = is_p1;
+	echo_saved = -1;
+}
+function make_echo(input_arr){
+	echo_saved = -1;
+	echo_record_arr = input_arr;
+	is_echo = true;
+	hp = 1;
+}
+function get_damage_falloff()	//returns a mult on damage for long combos
+{
+	return 1-map_value(combo_counter_damage,0,max_hp,0,0.7)
 }
