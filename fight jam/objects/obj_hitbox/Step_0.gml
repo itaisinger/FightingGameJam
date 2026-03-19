@@ -39,8 +39,8 @@ if(!is_parry)
 			parent.hitpause_remain = hitpause/2;
 			
 			//sfx
-			var _gain = map_value(damage,3,15, 0.6,2);
-			audio_play_sound(sfx_hit,0,0,_gain)
+			var _gain = map_value(damage,3,15, 0.3,2);
+			play_sfx(sfx_hit,0,0,[0.8,1.2],_gain)
 			
 			//vfx
 			var _r = 10;
@@ -94,7 +94,7 @@ else
 			}
 		
 			//sfx
-			audio_play_sound(sfx_hit,0,0,1.5)
+			play_sfx(sfx_parry,0,0,[0.9,1.1],1.5)
 		}
 	}
 
