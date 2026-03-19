@@ -825,7 +825,7 @@ function collision(){
 	}
 	
 	//hor
-	if(place_meeting(x+xadd,y,obj_wall) and state == STATES.air_stun) xadd *= -1;
+		if(place_meeting(x+xadd,y,obj_wall) and state == STATES.air_stun){ xadd *= - 1; dir *= -1}
 	while (place_meeting(x+xadd,y,obj_wall)) xadd = approach(xadd,1,0);
 	
 	//ver

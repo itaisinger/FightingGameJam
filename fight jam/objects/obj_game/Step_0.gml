@@ -16,10 +16,14 @@ switch(state){
 		}
 		
 		for(var i=0; i < 2; i++){
-			if(_input[i].is_pressed(INPUT.right_press))
+			if(_input[i].is_pressed(INPUT.right_press)){
 				chosen_characters[i]++;
-			if(_input[i].is_pressed(INPUT.left_press))
+				play_sfx(sfx_character_swap,0,0,[0.7,1.3])
+			}
+			if(_input[i].is_pressed(INPUT.left_press)){
 				chosen_characters[i]--;
+				play_sfx(sfx_character_swap,0,0,[0.7,1.3])
+			}
 				
 			if(chosen_characters[i] < 0) chosen_characters[i] = array_length(arr_characters)-1;
 			if(chosen_characters[i] >= array_length(arr_characters)) chosen_characters[i] = 0;
@@ -89,7 +93,6 @@ switch(state){
 	break;
 	#endregion
 }
-
 
 //fulscreen
 if(keyboard_check_pressed(vk_f4)) window_set_fullscreen(!window_get_fullscreen())

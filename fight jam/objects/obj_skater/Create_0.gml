@@ -379,3 +379,29 @@ arr_state_functions[STATES.dead] = function(){
 		image_speed = 0;
 	}
 }
+
+function collision(){
+	
+	var _mask_prev = mask_index
+	mask_index = mask_fighter_col;
+
+	//push out of floor
+	while (place_meeting(x,y,obj_floor))
+		y--;
+	
+	//push out of walls
+	while (place_meeting(x,y,obj_wall)){
+		var _wall = instance_place(x,y,obj_wall)
+		x -= sign(_wall.image_xscale);
+	}
+	
+	//hor
+	if(place_meeting(x+xadd,y,obj_wall) and state == STATES.air_stun){ xadd *= - 1; dir *= -1}
+	if(place_meeting(x+xadd,y,obj_wall) and state == STATES.idle){ xadd *= -0.7; dir *= -1}
+	while (place_meeting(x+xadd,y,obj_wall)) xadd = approach(xadd,1,0);
+	
+	//ver
+	while (place_meeting(x,y+yadd,obj_floor)) yadd = approach(yadd,1,0);
+	
+	mask_index = _mask_prev;
+}

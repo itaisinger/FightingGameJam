@@ -1,18 +1,18 @@
 {
   "$GMSound":"v2",
-  "%Name":"sfx_parry",
+  "%Name":"sfx_character_swap",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
   "channelFormat":0,
-  "compression":0,
+  "compression":3,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":1.8131746,
+  "duration":1.364263,
   "exportDir":"",
-  "name":"sfx_parry",
+  "name":"sfx_character_swap",
   "parent":{
     "name":"attacks",
     "path":"folders/Sounds/sfx/attacks.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sfx_parry.ogg",
+  "soundFile":"sfx_character_swap.ogg",
   "volume":1.0,
 }

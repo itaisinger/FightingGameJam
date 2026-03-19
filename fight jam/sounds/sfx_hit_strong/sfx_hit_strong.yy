@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sfx_hit_strong",
   "parent":{
-    "name":"sfx",
-    "path":"folders/Sounds/sfx.yy",
+    "name":"attacks",
+    "path":"folders/Sounds/sfx/attacks.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
