@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":83.54852,
+  "duration":83.74864,
   "exportDir":"",
   "name":"ost_lying",
   "parent":{

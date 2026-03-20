@@ -1,4 +1,6 @@
-audio_stop_all();
+//audio_stop_all();
+VinylStopAll();
+
 step_delay = 0;
 
 switch(room){
@@ -17,7 +19,7 @@ switch(room){
 		instance_create_depth(0,0,0,obj_input)
 		instance_create_depth(0,0,0,obj_input2)
 		play_sfx(sfx_echo_burst);
-		call_later(1,time_source_units_seconds,function(){if(room==rm_menu) VinylPlayFadeIn("menu ost",1,1,0.5);});
-		VinylPlayFadeIn(ost_menu_fire,1,0.3,0.5)
+		call_later(1,time_source_units_seconds,function(){if(room==rm_menu) VinylPlayFadeIn("menu ost",1,global.ost_vol,0.5);});
+		VinylPlayFadeIn(ost_menu_fire,1,0.3*global.ost_vol,0.5)
 	break;
 }

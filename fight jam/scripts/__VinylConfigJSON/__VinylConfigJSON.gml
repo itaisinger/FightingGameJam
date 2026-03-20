@@ -130,8 +130,13 @@ global.VinylConfigJSON = [
     
 	{
         shuffle: "ost",
-        sound: [ost_linkin_park, ost_wake_me_up, ost_animals, ost_lying],
+        sound: [ost_hate,ost_bury,ost_linkin_park, ost_wake_me_up, ost_animals, ost_lying],
     },
+	
+	{
+		sound: ost_animals,
+		gain: 2.5
+	},
 	
 	{
 		sound: ost_lying,

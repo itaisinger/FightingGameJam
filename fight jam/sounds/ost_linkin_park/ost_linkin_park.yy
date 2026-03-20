@@ -7,10 +7,10 @@
   },
   "bitDepth":0,
   "channelFormat":0,
-  "compression":0,
-  "compressionQuality":4,
+  "compression":3,
+  "compressionQuality":1,
   "conversionMode":0,
-  "duration":52.579956,
+  "duration":103.90866,
   "exportDir":"",
   "name":"ost_linkin_park",
   "parent":{

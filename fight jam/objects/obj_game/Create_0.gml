@@ -19,6 +19,9 @@ cnt = 0;
 cd = 0;
 image = 0;
 
+global.sfx_volume = 0.4;
+global.ost_vol = 1;
+
 //states
 state = 0;
 enum GAME_STATES{

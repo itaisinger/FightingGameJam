@@ -44,7 +44,7 @@ function play_sfx(_sfx,_prio=0,_loop=0,_pitch=1,_gain=1)
 	
 	return _s;
 }
-global.sfx_volume = 0.4;
+
 
 function create_vfx(_x,_y,_scale,asset,_angle=0){
 	return instance_create_depth(_x,_y,DEPTH.vfx,obj_vfx,{sprite_index: asset, image_xscale: _scale, image_yscale: _scale, image_angle: _angle});
