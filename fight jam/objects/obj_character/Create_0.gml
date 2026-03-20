@@ -584,12 +584,6 @@ arr_state_functions[STATES.air_light] = function(){
 	xadd = approach(xadd,air_fric,0);
 	yadd += grav;
 	
-	if(reached_frame(2))
-	{
-		xadd += dir * jumpforce_x * 0.7;
-		yadd -= jumpforce_y/2;
-	}
-	
 	//trans to special
 	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
 		change_state(STATES.air_special)
@@ -825,7 +819,7 @@ function collision(){
 	}
 	
 	//hor
-		if(place_meeting(x+xadd,y,obj_wall) and state == STATES.air_stun){ xadd *= - 1; dir *= -1}
+		if(place_meeting(x+xadd,y,obj_wall) and state == STATES.air_stun){ xadd *= -1; dir *= -1}
 	while (place_meeting(x+xadd,y,obj_wall)) xadd = approach(xadd,1,0);
 	
 	//ver
