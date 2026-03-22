@@ -9,18 +9,18 @@ keybinds[INPUT.heavy]	= [ord("K"),vk_numpad5]
 keybinds[INPUT.dodge]	= [ord("L"),vk_numpad6]
 keybinds[INPUT.echo]	= [vk_lshift,vk_numpad0]
 
-arr[INPUT.left]	 = max(5* keyboard_check(keybinds[INPUT.left][false])         ,arr[INPUT.left]-1);
+arr[INPUT.left]	 = max(5* keyboard_check(keybinds[INPUT.left][false])			,arr[INPUT.left]-1);
 arr[INPUT.left_press] = keyboard_check_pressed(keybinds[INPUT.left][false]);
-arr[INPUT.right] = max(5* keyboard_check(keybinds[INPUT.right][false])        ,arr[INPUT.right]-1);
+arr[INPUT.right] = max(5* keyboard_check(keybinds[INPUT.right][false])			,arr[INPUT.right]-1);
 arr[INPUT.right_press] = keyboard_check_pressed(keybinds[INPUT.right][false]);
-arr[INPUT.up]	 = max(5* keyboard_check_pressed(keybinds[INPUT.up][false])   ,arr[INPUT.up]-1);
-arr[INPUT.down]	 = max(10* keyboard_check(keybinds[INPUT.down][false]) ,arr[INPUT.down]-1);
-arr[INPUT.light] = max(5* keyboard_check_pressed(keybinds[INPUT.light][false]),arr[INPUT.light]-1);
-arr[INPUT.heavy] = max(5* keyboard_check_pressed(keybinds[INPUT.heavy][false]),arr[INPUT.heavy]-1);
-arr[INPUT.dodge] = max(10* keyboard_check_pressed(keybinds[INPUT.dodge][false]),arr[INPUT.dodge]-1);
+arr[INPUT.up]	 = max(5* keyboard_check_pressed(keybinds[INPUT.up][false])		,arr[INPUT.up]-1);
+arr[INPUT.down]	 = max(10* keyboard_check(keybinds[INPUT.down][false])			,arr[INPUT.down]-1);
+arr[INPUT.light] = max(5* keyboard_check_pressed(keybinds[INPUT.light][false])	,arr[INPUT.light]-1);
+arr[INPUT.heavy] = max(5* keyboard_check_pressed(keybinds[INPUT.heavy][false])	,arr[INPUT.heavy]-1);
+arr[INPUT.dodge] = max(10* keyboard_check_pressed(keybinds[INPUT.dodge][false])	,arr[INPUT.dodge]-1);
 arr[INPUT.echo] = keyboard_check_pressed(keybinds[INPUT.echo][false]);
 arr[INPUT.special] = min(arr[INPUT.heavy],arr[INPUT.light]);
 
-if(arr[INPUT.left] >arr[INPUT.right]  )arr[INPUT.right]=0;
+if(arr[INPUT.left] > arr[INPUT.right]) arr[INPUT.right]=0;
 else{if(arr[INPUT.left]<arr[INPUT.right])arr[INPUT.left]=0;
 	else {arr[INPUT.left]=0; arr[INPUT.right]=0;}}

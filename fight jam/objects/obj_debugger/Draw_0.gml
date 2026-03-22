@@ -13,17 +13,24 @@ with(obj_gameplay_object) draw_text(x,y-100,combo_counter_damage);
 
 try{ 
 	mask_index = obj_character.mask_index;
-	vars = [
-	"state: " + string(obj_character.state),
-	"sides: " + string(obj_character.input.is_pressed(INPUT.left)) + ", "  + string(obj_character.input.is_pressed(INPUT.right)),
-	"diff: " + string(obj_character.input.is_pressed(INPUT.right) - obj_character.input.is_pressed(INPUT.right)),
-	"xadd: " + string(obj_character.xadd),
-	"charges: " + string(obj_character.echo_charges_remain),
-	"stun_remain: " + string(obj_character.stun_remain),
-	"pos: " + string(obj_character.x) + "," + string(obj_character.y),
-	"image: " + string(obj_character.image_speed) + ": " + string(obj_character.image_index)
-	]
+	for(var i=0; i < array_length(obj_input.arr); i++)
+	{
+		vars[i] = obj_input.arr[i];
+	}
 }
+//try{ 
+//	mask_index = obj_character.mask_index;
+//	vars = [
+//	"state: " + string(obj_character.state),
+//	"sides: " + string(obj_character.input.is_pressed(INPUT.left)) + ", "  + string(obj_character.input.is_pressed(INPUT.right)),
+//	"diff: " + string(obj_character.input.is_pressed(INPUT.right) - obj_character.input.is_pressed(INPUT.right)),
+//	"xadd: " + string(obj_character.xadd),
+//	"charges: " + string(obj_character.echo_charges_remain),
+//	"stun_remain: " + string(obj_character.stun_remain),
+//	"pos: " + string(obj_character.x) + "," + string(obj_character.y),
+//	"keys: " + string(obj_input.arr[INPUT.light]) + ", " + string(obj_input.arr[INPUT.heavy]) + ", " + string(obj_input.arr[INPUT.special])
+//	]
+//}
 catch(a){vars=[];}
 
 

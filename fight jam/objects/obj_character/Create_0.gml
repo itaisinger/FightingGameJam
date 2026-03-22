@@ -367,9 +367,6 @@ arr_state_functions[STATES.air] = function(){
 		xadd = clamp(xadd,jump_traj_x-max_stray,jump_traj_x+max_stray_back);
 	}
 	
-	//clamp for max movement
-	//xadd = clamp(xadd,-max_air_spd,max_air_spd)
-	
 	image_index = yadd > 0;
 	
 	//land
@@ -383,12 +380,10 @@ arr_state_functions[STATES.air] = function(){
 	//heavy
 	if(input.is_pressed(INPUT.heavy))
 		change_state(STATES.air_heavy);
-		
-	//special
-	if(input.is_pressed(INPUT.special))
-		change_state(STATES.air_special);
 	
-	//air dodge
+	//special
+	if(input.is_pressed(INPUT.special) or (input.is_pressed(INPUT.light) and input.is_pressed(INPUT.heavy)))
+		change_state(STATES.air_special);
 }
 arr_state_functions[STATES.echo] = function(){
 	

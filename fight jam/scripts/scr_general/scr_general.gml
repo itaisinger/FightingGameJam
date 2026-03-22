@@ -21,7 +21,8 @@ function draw_reset()
 }
 function log(msg)
 {
-	show_debug_message(object_get_name(object_index) + ": " + string(msg));
+	try{show_debug_message(object_get_name(object_index) + ": " + string(msg));}
+	catch(e){show_debug_message("no object: " + string(msg));}
 }
 function play_sfx(_sfx,_prio=0,_loop=0,_pitch=1,_gain=1)
 {	
