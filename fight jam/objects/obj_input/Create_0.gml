@@ -6,3 +6,5 @@ arr[INPUT.light] =0;
 arr[INPUT.heavy] = 0;
 arr[INPUT.dodge] = 0;
 arr[INPUT.echo] = 0;
+padindex = 0;
+axis=0
