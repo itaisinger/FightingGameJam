@@ -16,37 +16,17 @@ enum INPUT{
 function FrameInput(P1) constructor{
 	
 	try{
-		if(P1)
-		{
-			arr[INPUT.left]	 = obj_input.arr[INPUT.left];
-			arr[INPUT.left_press]	 = obj_input.arr[INPUT.left_press];
-			arr[INPUT.right] = obj_input.arr[INPUT.right];
-			arr[INPUT.right_press] = obj_input.arr[INPUT.right_press];
-			arr[INPUT.down]	 = obj_input.arr[INPUT.down];
-			arr[INPUT.up]	 = obj_input.arr[INPUT.up];
-			arr[INPUT.light] = obj_input.arr[INPUT.light];
-			arr[INPUT.heavy] = obj_input.arr[INPUT.heavy];
-			arr[INPUT.dodge] = obj_input.arr[INPUT.dodge];
-			arr[INPUT.special] = obj_input.arr[INPUT.special];
-			arr[INPUT.echo] = obj_input.arr[INPUT.echo];
-		}
-		else
-		{
-			arr[INPUT.left]	 = obj_input2.arr[INPUT.left];
-			arr[INPUT.left_press]	 = obj_input2.arr[INPUT.left_press];
-			arr[INPUT.right] = obj_input2.arr[INPUT.right];
-			arr[INPUT.right_press] = obj_input2.arr[INPUT.right_press];
-			arr[INPUT.down]	 = obj_input2.arr[INPUT.down];
-			arr[INPUT.up]	 = obj_input2.arr[INPUT.up];
-			arr[INPUT.light] = obj_input2.arr[INPUT.light];
-			arr[INPUT.heavy] = obj_input2.arr[INPUT.heavy];
-			arr[INPUT.dodge] = obj_input2.arr[INPUT.dodge];
-			arr[INPUT.special] = obj_input2.arr[INPUT.special];
-			arr[INPUT.echo] = obj_input2.arr[INPUT.echo];
-		}
-	
-
-	
+			arr[INPUT.left]	 = obj_input.arr[P1][INPUT.left];
+			arr[INPUT.left_press]	 = obj_input.arr[P1][INPUT.left_press];
+			arr[INPUT.right] = obj_input.arr[P1][INPUT.right];
+			arr[INPUT.right_press] = obj_input.arr[P1][INPUT.right_press];
+			arr[INPUT.down]	 = obj_input.arr[P1][INPUT.down];
+			arr[INPUT.up]	 = obj_input.arr[P1][INPUT.up];
+			arr[INPUT.light] = obj_input.arr[P1][INPUT.light];
+			arr[INPUT.heavy] = obj_input.arr[P1][INPUT.heavy];
+			arr[INPUT.dodge] = obj_input.arr[P1][INPUT.dodge];
+			arr[INPUT.special] = obj_input.arr[P1][INPUT.special];
+			arr[INPUT.echo] = obj_input.arr[P1][INPUT.echo];
 	}
 	catch(e) {
 		arr[INPUT.left]		= false;

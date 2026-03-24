@@ -102,7 +102,7 @@
     {"id":{"name":"obj_gameplay_object","path":"objects/obj_gameplay_object/obj_gameplay_object.yy",},},
     {"id":{"name":"obj_hitbox","path":"objects/obj_hitbox/obj_hitbox.yy",},},
     {"id":{"name":"obj_input","path":"objects/obj_input/obj_input.yy",},},
-    {"id":{"name":"obj_input2","path":"objects/obj_input2/obj_input2.yy",},},
+    {"id":{"name":"obj_input2RIPinpeace","path":"objects/obj_input2RIPinpeace/obj_input2RIPinpeace.yy",},},
     {"id":{"name":"obj_ost","path":"objects/obj_ost/obj_ost.yy",},},
     {"id":{"name":"obj_shooter_eye","path":"objects/obj_shooter_eye/obj_shooter_eye.yy",},},
     {"id":{"name":"obj_shooter_shield","path":"objects/obj_shooter_shield/obj_shooter_shield.yy",},},
