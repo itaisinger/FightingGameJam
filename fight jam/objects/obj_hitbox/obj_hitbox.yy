@@ -33,10 +33,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"hitbox_fighter_light",
-    "path":"sprites/hitbox_fighter_light/hitbox_fighter_light.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

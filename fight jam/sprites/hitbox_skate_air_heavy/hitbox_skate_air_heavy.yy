@@ -2,16 +2,24 @@
   "$GMSprite":"v2",
   "%Name":"hitbox_skate_air_heavy",
   "bboxMode":0,
+<<<<<<< HEAD
   "bbox_bottom":139,
   "bbox_left":26,
   "bbox_right":138,
   "bbox_top":0,
+=======
+  "bbox_bottom":164,
+  "bbox_left":33,
+  "bbox_right":168,
+  "bbox_top":11,
+>>>>>>> itai-2
   "collisionKind":4,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
+<<<<<<< HEAD
     {"$GMSpriteFrame":"v1","%Name":"c4013fc5-8d5c-48e6-88ec-0526fb5d7205","name":"c4013fc5-8d5c-48e6-88ec-0526fb5d7205","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"78911f5e-cc0f-4b2a-8ad1-5a43dc485713","name":"78911f5e-cc0f-4b2a-8ad1-5a43dc485713","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"071ed091-3d90-4411-87da-80bd9f72a9ca","name":"071ed091-3d90-4411-87da-80bd9f72a9ca","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
@@ -59,6 +67,31 @@
   "parent":{
     "name":"hitboxes",
     "path":"folders/Sprites/fighter skateboard/hitboxes.yy",
+=======
+    {"$GMSpriteFrame":"v1","%Name":"bb3b2002-ef75-4239-a082-d37fc6618289","name":"bb3b2002-ef75-4239-a082-d37fc6618289","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"5deca7ac-695e-46af-830b-45005b12e2af","name":"5deca7ac-695e-46af-830b-45005b12e2af","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"7dbe2ebb-dec8-407f-8ab8-1b35abee30f7","name":"7dbe2ebb-dec8-407f-8ab8-1b35abee30f7","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"962b93b9-a012-4df9-88e0-38c1ae1179c1","name":"962b93b9-a012-4df9-88e0-38c1ae1179c1","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"53b4bd57-8404-4644-960a-2757e735f08a","name":"53b4bd57-8404-4644-960a-2757e735f08a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"756f5b72-08cc-4f0d-93d5-0843fc422c59","name":"756f5b72-08cc-4f0d-93d5-0843fc422c59","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"7b444fb0-8422-4054-9e19-5e12b8cbf795","name":"7b444fb0-8422-4054-9e19-5e12b8cbf795","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"62252d69-f2cd-455b-ac32-79c3a9d3f19d","name":"62252d69-f2cd-455b-ac32-79c3a9d3f19d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+  ],
+  "gridX":0,
+  "gridY":0,
+  "height":170,
+  "HTile":false,
+  "layers":[
+    {"$GMImageLayer":"","%Name":"04e486ea-36a7-447b-9d44-b49fd4563976","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"04e486ea-36a7-447b-9d44-b49fd4563976","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"8490d479-88cc-4d72-a622-5bcd721919ce","blendMode":0,"displayName":"default","isLocked":false,"name":"8490d479-88cc-4d72-a622-5bcd721919ce","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
+  ],
+  "name":"hitbox_skate_air_heavy",
+  "nineSlice":null,
+  "origin":7,
+  "parent":{
+    "name":"hitboxes",
+    "path":"folders/Sprites/fighters/fighter skateboard/hitboxes.yy",
+>>>>>>> itai-2
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -81,7 +114,11 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
+<<<<<<< HEAD
     "length":14.0,
+=======
+    "length":8.0,
+>>>>>>> itai-2
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -101,6 +138,7 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+<<<<<<< HEAD
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c4013fc5-8d5c-48e6-88ec-0526fb5d7205","path":"sprites/hitbox_skate_air_heavy/hitbox_skate_air_heavy.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"4c3db770-b13c-4a03-bb41-68ae3bcc7d49","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
@@ -142,12 +180,42 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"54069649-a276-4c27-b6d2-9d6d7556afc5","path":"sprites/hitbox_skate_air_heavy/hitbox_skate_air_heavy.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"e352a6b1-37d9-4a4e-942b-eb3ef044acfd","IsCreationKey":false,"Key":13.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+=======
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"bb3b2002-ef75-4239-a082-d37fc6618289","path":"sprites/hitbox_skate_air_heavy/hitbox_skate_air_heavy.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"cc5b8290-8e6f-49c7-b8f4-e4c9df2dc5c2","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5deca7ac-695e-46af-830b-45005b12e2af","path":"sprites/hitbox_skate_air_heavy/hitbox_skate_air_heavy.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"5a0ffa52-d01f-49c7-ae3f-5753b3e895a6","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7dbe2ebb-dec8-407f-8ab8-1b35abee30f7","path":"sprites/hitbox_skate_air_heavy/hitbox_skate_air_heavy.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"617d34cd-67a2-4055-a5c3-2531fdb32382","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"962b93b9-a012-4df9-88e0-38c1ae1179c1","path":"sprites/hitbox_skate_air_heavy/hitbox_skate_air_heavy.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"10281c5d-7cab-4f1b-9aee-9d106171494c","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"53b4bd57-8404-4644-960a-2757e735f08a","path":"sprites/hitbox_skate_air_heavy/hitbox_skate_air_heavy.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"a8bf9abe-0216-4cbf-81f9-436f711c041d","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"756f5b72-08cc-4f0d-93d5-0843fc422c59","path":"sprites/hitbox_skate_air_heavy/hitbox_skate_air_heavy.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"75dbb034-e237-41f5-a212-f19c7eb5e45c","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7b444fb0-8422-4054-9e19-5e12b8cbf795","path":"sprites/hitbox_skate_air_heavy/hitbox_skate_air_heavy.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"6e17a376-a2e1-43e1-926f-5138c30b7ecb","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"62252d69-f2cd-455b-ac32-79c3a9d3f19d","path":"sprites/hitbox_skate_air_heavy/hitbox_skate_air_heavy.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"f5c878b6-a224-47c5-b3ce-19d7a58c9431","IsCreationKey":false,"Key":7.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+>>>>>>> itai-2
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
+<<<<<<< HEAD
     "xorigin":64,
     "yorigin":128,
+=======
+    "xorigin":85,
+    "yorigin":170,
+>>>>>>> itai-2
   },
   "swatchColours":null,
   "swfPrecision":0.5,
@@ -157,5 +225,9 @@
   },
   "type":0,
   "VTile":false,
+<<<<<<< HEAD
   "width":150,
+=======
+  "width":170,
+>>>>>>> itai-2
 }

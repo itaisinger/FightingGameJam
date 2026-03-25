@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"ost_lying",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":0,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":83.74864,
+  "exportDir":"",
+  "name":"ost_lying",
+  "parent":{
+    "name":"ost",
+    "path":"folders/Sounds/ost.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"ost_lying.ogg",
+  "volume":1.0,
+}

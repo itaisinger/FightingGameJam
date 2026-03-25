@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"ost_animals",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":0,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":127.792786,
+  "exportDir":"",
+  "name":"ost_animals",
+  "parent":{
+    "name":"ost",
+    "path":"folders/Sounds/ost.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"ost_animals.ogg",
+  "volume":1.0,
+}

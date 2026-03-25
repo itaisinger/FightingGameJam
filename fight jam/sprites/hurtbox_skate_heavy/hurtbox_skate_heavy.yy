@@ -31,7 +31,7 @@
   "origin":7,
   "parent":{
     "name":"hurtboxes",
-    "path":"folders/Sprites/fighter skateboard/hurtboxes.yy",
+    "path":"folders/Sprites/fighters/fighter skateboard/hurtboxes.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

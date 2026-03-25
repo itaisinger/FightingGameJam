@@ -3,10 +3,8 @@
 
 var _w = display_get_gui_width();
 var _h = display_get_gui_height();
-//var _w = camera_get_view_width(view_camera);
-//var _h = camera_get_v
 
-var _y = _h * 0.05;
+var _y = _h * 0.08;
 var _s = 1;
 
 //vs
@@ -54,3 +52,31 @@ for(var i=0; i < _p.echo_charges_max; i++){
 }
 
 #endregion
+#region annoncer
+
+if(announce_text != ""){
+	
+	if(cd-- <= 0){
+		cd = 10
+		image++
+	}
+	
+	draw_sprite_ext(spr_announce_spark	,image,_w/2+5,_h/2,1,1,0,c_white,1)
+	draw_sprite_ext(spr_announce_spark_2,image,_w/2-5,_h/2,1,1,0,c_white,1)
+	
+	var _col1 = c_black
+	var _col2 = #9E0B0F
+	
+	var _font = font_announce;
+	if(string_length(announce_text) > 7) _font = font_announce_small;
+	draw_set_all(1,c_white,_font,fa_center,fa_middle);
+	var _text = string_split(announce_text,"\n");
+	var _th = string_height("G")*0.6;
+	
+	for(var i=0; i < array_length(_text); i++)
+		draw_text_color(_w/2,_h/2 + i*_th - _th*(array_length(_text)-1)/2,_text[i],_col1,_col1,_col2,_col2,1)
+}
+
+
+#endregion
+

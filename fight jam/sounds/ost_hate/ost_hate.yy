@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"ost_hate",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":0,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":1,
+  "conversionMode":0,
+  "duration":99.91161,
+  "exportDir":"",
+  "name":"ost_hate",
+  "parent":{
+    "name":"ost",
+    "path":"folders/Sounds/ost.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"ost_hate.ogg",
+  "volume":1.0,
+}

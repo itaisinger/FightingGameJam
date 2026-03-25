@@ -1,11 +1,5 @@
-
-- character state machine
-- input
-- hitboxes
-- game manager
-
-
-
-//polish
-make the character not jitter when pressing left and right at once
-land state
+ost loop fix
+menu ost
+sound effects for attacks
+consider better particles using pixel fx designer
+maybe color each player

@@ -26,7 +26,7 @@
   "origin":7,
   "parent":{
     "name":"sprites",
-    "path":"folders/Sprites/fighters/fighter temp/sprites.yy",
+    "path":"folders/Sprites/fighters/fighter/sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -59,7 +59,7 @@
     },
     "name":"spr_fighter_jump_squat",
     "playback":1,
-    "playbackSpeed":6.0,
+    "playbackSpeed":8.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",

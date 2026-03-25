@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 var _sum = 0, _num = 0;
-with(obj_fighter){
+with(obj_character){
 	_sum += x;
 	_num++;
 }
