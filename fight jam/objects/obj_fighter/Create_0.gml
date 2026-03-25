@@ -213,6 +213,7 @@ arr_state_functions[STATES.special] = function()
 	
 	if(reached_frame(4)){
 		xadd = 30 * dir;
+		afterimage(4);
 	}
 	
 	if(anim_done){

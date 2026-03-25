@@ -19,4 +19,9 @@ if(keyboard_check_pressed(ord("T"))){
 		teleport(dir*250);
 	}
 }
+if(keyboard_check_pressed(ord("P"))){
+	with(obj_fighter){
+		afterimage(5);
+	}
+}
 //if(keyboard_check_pressed(ord("L"))) with(obj_fighter) hit(1,8,12,irandom_range(20,120),30,true);

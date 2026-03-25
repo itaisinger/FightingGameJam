@@ -107,6 +107,7 @@
     {"id":{"name":"todo","path":"notes/todo/todo.yy",},},
     {"id":{"name":"Vinyl JSON Format","path":"notes/Vinyl JSON Format/Vinyl JSON Format.yy",},},
     {"id":{"name":"Vinyl Start Guide","path":"notes/Vinyl Start Guide/Vinyl Start Guide.yy",},},
+    {"id":{"name":"obj_afterimage","path":"objects/obj_afterimage/obj_afterimage.yy",},},
     {"id":{"name":"obj_butterfly","path":"objects/obj_butterfly/obj_butterfly.yy",},},
     {"id":{"name":"obj_cam_follow","path":"objects/obj_cam_follow/obj_cam_follow.yy",},},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},},
