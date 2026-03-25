@@ -40,5 +40,5 @@
     "path":"sprites/spr_knifer_idle/spr_knifer_idle.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }
