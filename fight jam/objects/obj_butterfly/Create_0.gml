@@ -10,7 +10,6 @@ function _create(){
 	
 	direction = 90 - dir*random_range(20,85);
 	speed = 0.3 * random_range(0.2,0.8) * (1+stray*2);
-	//alarm[1] = random_range(3,10) * (1+stray*2);
 	alarm[0] = random_range(10,30) * (1+stray*2);
 	image_index = random(image_number);
 	

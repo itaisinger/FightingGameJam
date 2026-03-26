@@ -128,6 +128,7 @@
     {"id":{"name":"obj_shooter","path":"objects/obj_shooter/obj_shooter.yy",},},
     {"id":{"name":"obj_skateboard","path":"objects/obj_skateboard/obj_skateboard.yy",},},
     {"id":{"name":"obj_skater","path":"objects/obj_skater/obj_skater.yy",},},
+    {"id":{"name":"obj_spyke","path":"objects/obj_spyke/obj_spyke.yy",},},
     {"id":{"name":"obj_ui","path":"objects/obj_ui/obj_ui.yy",},},
     {"id":{"name":"obj_vfx","path":"objects/obj_vfx/obj_vfx.yy",},},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},},
