@@ -93,6 +93,7 @@ _xshake = 0;
 _yshake = 0;
 floor_y = -100;
 depth = DEPTH.player;
+afterimage_remain = 0;
 
 shake_max = 10;
 disable_draw = false;
@@ -696,6 +697,7 @@ function change_state(new_state){
 	image_index_prev = 0;
 	image_speed_prev = 1;
 	hurtbox = states_hurtboxes[new_state];
+	afterimage_remain = 0;
 	
 	with(inst_hitbox) instance_destroy();
 	
@@ -821,4 +823,7 @@ function collision(){
 	while (place_meeting(x,y+yadd,obj_floor)) yadd = approach(yadd,1,0);
 	
 	mask_index = _mask_prev;
+}
+function afterimage(number){
+	afterimage_remain = number;
 }
