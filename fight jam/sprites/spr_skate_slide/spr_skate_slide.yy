@@ -1,10 +1,6 @@
 {
   "$GMSprite":"v2",
-<<<<<<<< HEAD:fight jam/sprites/spr_skate_idle/spr_skate_idle.yy
-  "%Name":"spr_skate_idle",
-========
   "%Name":"spr_skate_slide",
->>>>>>>> itai-2:fight jam/sprites/spr_skate_slide/spr_skate_slide.yy
   "bboxMode":0,
   "bbox_bottom":127,
   "bbox_left":33,
@@ -25,11 +21,7 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"02ad8fea-787b-49f8-8d45-9f94ef295def","blendMode":0,"displayName":"default","isLocked":false,"name":"02ad8fea-787b-49f8-8d45-9f94ef295def","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-<<<<<<<< HEAD:fight jam/sprites/spr_skate_idle/spr_skate_idle.yy
-  "name":"spr_skate_idle",
-========
   "name":"spr_skate_slide",
->>>>>>>> itai-2:fight jam/sprites/spr_skate_slide/spr_skate_slide.yy
   "nineSlice":null,
   "origin":7,
   "parent":{
@@ -41,11 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-<<<<<<<< HEAD:fight jam/sprites/spr_skate_idle/spr_skate_idle.yy
-    "%Name":"spr_skate_idle",
-========
     "%Name":"spr_skate_slide",
->>>>>>>> itai-2:fight jam/sprites/spr_skate_slide/spr_skate_slide.yy
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -69,11 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-<<<<<<<< HEAD:fight jam/sprites/spr_skate_idle/spr_skate_idle.yy
-    "name":"spr_skate_idle",
-========
     "name":"spr_skate_slide",
->>>>>>>> itai-2:fight jam/sprites/spr_skate_slide/spr_skate_slide.yy
     "playback":1,
     "playbackSpeed":8.0,
     "playbackSpeedType":0,
@@ -85,11 +69,7 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-<<<<<<<< HEAD:fight jam/sprites/spr_skate_idle/spr_skate_idle.yy
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"0b5f67af-1fab-4532-97bf-3cec0e197df9","path":"sprites/spr_skate_idle/spr_skate_idle.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-========
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"0b5f67af-1fab-4532-97bf-3cec0e197df9","path":"sprites/spr_skate_slide/spr_skate_slide.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
->>>>>>>> itai-2:fight jam/sprites/spr_skate_slide/spr_skate_slide.yy
               },"Disabled":false,"id":"bba757dc-9eca-44fb-a092-7f4f7084262b","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],

@@ -2,31 +2,16 @@
   "$GMSprite":"v2",
   "%Name":"hitbox_skate_special",
   "bboxMode":0,
-<<<<<<< HEAD
-  "bbox_bottom":107,
-  "bbox_left":80,
-  "bbox_right":127,
-  "bbox_top":55,
-  "collisionKind":4,
-=======
   "bbox_bottom":125,
   "bbox_left":64,
   "bbox_right":138,
   "bbox_top":57,
   "collisionKind":1,
->>>>>>> itai-2
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-<<<<<<< HEAD
-    {"$GMSpriteFrame":"v1","%Name":"cda6c2b9-511c-4982-868f-739d3d3d2176","name":"cda6c2b9-511c-4982-868f-739d3d3d2176","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"c2453cd5-02c6-4f7b-b7bf-94a3bd67d92d","name":"c2453cd5-02c6-4f7b-b7bf-94a3bd67d92d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"7dc2c8c9-91e9-4408-bdfd-dcdf48477f02","name":"7dc2c8c9-91e9-4408-bdfd-dcdf48477f02","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"21564404-cb0f-4e37-8688-663df94bb7df","name":"21564404-cb0f-4e37-8688-663df94bb7df","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"79a1b367-d99e-4bdd-9ba3-3bbac13d4f08","name":"79a1b367-d99e-4bdd-9ba3-3bbac13d4f08","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-=======
     {"$GMSpriteFrame":"v1","%Name":"c2453cd5-02c6-4f7b-b7bf-94a3bd67d92d","name":"c2453cd5-02c6-4f7b-b7bf-94a3bd67d92d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"7dc2c8c9-91e9-4408-bdfd-dcdf48477f02","name":"7dc2c8c9-91e9-4408-bdfd-dcdf48477f02","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"21564404-cb0f-4e37-8688-663df94bb7df","name":"21564404-cb0f-4e37-8688-663df94bb7df","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
@@ -37,42 +22,12 @@
     {"$GMSpriteFrame":"v1","%Name":"c0a6b33e-ccc2-4783-813e-4bcdcde2f200","name":"c0a6b33e-ccc2-4783-813e-4bcdcde2f200","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"d641094a-e4c5-4b69-8d25-3a916726e46b","name":"d641094a-e4c5-4b69-8d25-3a916726e46b","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"639e5454-f2bc-42a2-ad95-2b0e727121a6","name":"639e5454-f2bc-42a2-ad95-2b0e727121a6","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
->>>>>>> itai-2
   ],
   "gridX":0,
   "gridY":0,
   "height":128,
   "HTile":false,
   "layers":[
-<<<<<<< HEAD
-    {"$GMImageLayer":"","%Name":"0e9f16e4-b76a-48dc-b5f9-9afb5480842b","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"0e9f16e4-b76a-48dc-b5f9-9afb5480842b","opacity":45.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-  ],
-  "name":"hitbox_skate_special",
-  "nineSlice":{
-    "$GMNineSliceData":"",
-    "bottom":0,
-    "enabled":false,
-    "guideColour":[4294902015,4294902015,4294902015,4294902015,],
-    "highlightColour":1728023040,
-    "highlightStyle":0,
-    "left":0,
-    "resourceType":"GMNineSliceData",
-    "resourceVersion":"2.0",
-    "right":0,
-    "tileMode":[
-      0,
-      0,
-      0,
-      0,
-      0,
-    ],
-    "top":0,
-  },
-  "origin":7,
-  "parent":{
-    "name":"hitboxes",
-    "path":"folders/Sprites/fighter skateboard/hitboxes.yy",
-=======
     {"$GMImageLayer":"","%Name":"9837a098-f3f1-4c6b-bf0b-78b79174f7bb","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"9837a098-f3f1-4c6b-bf0b-78b79174f7bb","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"98dc3c11-e47b-4380-8a28-209da1f0ab3d","blendMode":0,"displayName":"default","isLocked":false,"name":"98dc3c11-e47b-4380-8a28-209da1f0ab3d","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
     {"$GMImageLayer":"","%Name":"37387ece-7708-4e46-9d25-50cb387838fd","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"37387ece-7708-4e46-9d25-50cb387838fd","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
@@ -83,7 +38,6 @@
   "parent":{
     "name":"hitboxes",
     "path":"folders/Sprites/fighters/fighter skateboard/hitboxes.yy",
->>>>>>> itai-2
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -106,11 +60,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-<<<<<<< HEAD
-    "length":5.0,
-=======
     "length":10.0,
->>>>>>> itai-2
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -130,22 +80,6 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-<<<<<<< HEAD
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"cda6c2b9-511c-4982-868f-739d3d3d2176","path":"sprites/hitbox_skate_special/hitbox_skate_special.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"f61f6614-c106-4f44-8c21-137aa4598b83","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c2453cd5-02c6-4f7b-b7bf-94a3bd67d92d","path":"sprites/hitbox_skate_special/hitbox_skate_special.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"897debbb-774e-4800-bcd0-3becdea713dc","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7dc2c8c9-91e9-4408-bdfd-dcdf48477f02","path":"sprites/hitbox_skate_special/hitbox_skate_special.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"767a171b-95a7-435d-ae44-254ea8c74e39","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"21564404-cb0f-4e37-8688-663df94bb7df","path":"sprites/hitbox_skate_special/hitbox_skate_special.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"c5949fee-c156-4dc8-9cbd-e6869bec3c11","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"79a1b367-d99e-4bdd-9ba3-3bbac13d4f08","path":"sprites/hitbox_skate_special/hitbox_skate_special.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"1b9dfc1e-62ed-4d53-88f8-9e4063890a37","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-=======
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c2453cd5-02c6-4f7b-b7bf-94a3bd67d92d","path":"sprites/hitbox_skate_special/hitbox_skate_special.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"897debbb-774e-4800-bcd0-3becdea713dc","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
@@ -175,7 +109,6 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"639e5454-f2bc-42a2-ad95-2b0e727121a6","path":"sprites/hitbox_skate_special/hitbox_skate_special.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"d171c6ff-f81e-4f89-95ad-f59cdca111a9","IsCreationKey":false,"Key":9.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
->>>>>>> itai-2
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -191,9 +124,5 @@
   },
   "type":0,
   "VTile":false,
-<<<<<<< HEAD
-  "width":128,
-=======
   "width":170,
->>>>>>> itai-2
 }

@@ -1,14 +1,6 @@
 {
   "$GMSprite":"v2",
-<<<<<<< HEAD
-<<<<<<<< HEAD:fight jam/sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy
   "%Name":"spr_skate_jump_squat",
-========
-  "%Name":"hurtbox_skate_jump",
->>>>>>>> itai-2:fight jam/sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy
-=======
-  "%Name":"spr_skate_jump_squat",
->>>>>>> itai-2
   "bboxMode":0,
   "bbox_bottom":127,
   "bbox_left":33,
@@ -20,17 +12,8 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-<<<<<<< HEAD
-    {"$GMSpriteFrame":"v1","%Name":"d09c4e6b-7833-4be3-b765-783f5bc9edcb","name":"d09c4e6b-7833-4be3-b765-783f5bc9edcb","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"85be8dc0-f0d7-443b-8762-9a2a832658c5","name":"85be8dc0-f0d7-443b-8762-9a2a832658c5","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"aa144de2-a774-4cb6-9c53-2e2e860ab3a4","name":"aa144de2-a774-4cb6-9c53-2e2e860ab3a4","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"2c9f0701-348f-4d1f-bd8f-8525505431bc","name":"2c9f0701-348f-4d1f-bd8f-8525505431bc","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"87379c43-a1f6-408f-8b84-0a100712e675","name":"87379c43-a1f6-408f-8b84-0a100712e675","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"7d435c7f-ef6a-43b0-91a9-5c0e7a7846a3","name":"7d435c7f-ef6a-43b0-91a9-5c0e7a7846a3","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-=======
-    {"$GMSpriteFrame":"v1","%Name":"aa144de2-a774-4cb6-9c53-2e2e860ab3a4","name":"aa144de2-a774-4cb6-9c53-2e2e860ab3a4","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"2c9f0701-348f-4d1f-bd8f-8525505431bc","name":"2c9f0701-348f-4d1f-bd8f-8525505431bc","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
->>>>>>> itai-2
   ],
   "gridX":0,
   "gridY":0,
@@ -39,43 +22,19 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"e3097be7-827c-4673-96fa-7d547b0abafe","blendMode":0,"displayName":"default","isLocked":false,"name":"e3097be7-827c-4673-96fa-7d547b0abafe","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-<<<<<<< HEAD
-<<<<<<<< HEAD:fight jam/sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy
-=======
->>>>>>> itai-2
   "name":"spr_skate_jump_squat",
   "nineSlice":null,
   "origin":7,
   "parent":{
     "name":"sprites",
-<<<<<<< HEAD
-    "path":"folders/Sprites/fighter skateboard/sprites.yy",
-========
-  "name":"hurtbox_skate_jump",
-  "nineSlice":null,
-  "origin":7,
-  "parent":{
-    "name":"hurtboxes",
-    "path":"folders/Sprites/fighters/fighter skateboard/hurtboxes.yy",
->>>>>>>> itai-2:fight jam/sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy
-=======
     "path":"folders/Sprites/fighters/fighter skateboard/sprites.yy",
->>>>>>> itai-2
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-<<<<<<< HEAD
-<<<<<<<< HEAD:fight jam/sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy
     "%Name":"spr_skate_jump_squat",
-========
-    "%Name":"hurtbox_skate_jump",
->>>>>>>> itai-2:fight jam/sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy
-=======
-    "%Name":"spr_skate_jump_squat",
->>>>>>> itai-2
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -91,11 +50,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-<<<<<<< HEAD
-    "length":6.0,
-=======
     "length":2.0,
->>>>>>> itai-2
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -103,19 +58,9 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-<<<<<<< HEAD
-<<<<<<<< HEAD:fight jam/sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy
-    "name":"spr_skate_jump_squat",
-========
-    "name":"hurtbox_skate_jump",
->>>>>>>> itai-2:fight jam/sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy
-    "playback":1,
-    "playbackSpeed":8.0,
-=======
     "name":"spr_skate_jump_squat",
     "playback":1,
     "playbackSpeed":10.0,
->>>>>>> itai-2
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
@@ -125,63 +70,11 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-<<<<<<< HEAD
-<<<<<<<< HEAD:fight jam/sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d09c4e6b-7833-4be3-b765-783f5bc9edcb","path":"sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"543d0cc7-9664-47ae-928b-788f4278a655","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"85be8dc0-f0d7-443b-8762-9a2a832658c5","path":"sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"a4ca6fa4-a7dc-44c0-8995-a0a9f3021a3a","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"aa144de2-a774-4cb6-9c53-2e2e860ab3a4","path":"sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"c2f3fb24-cf57-4fcc-bc62-9b32ffd76415","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2c9f0701-348f-4d1f-bd8f-8525505431bc","path":"sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"94ee9691-b7fc-4d22-8fdb-adc23dfc064b","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"87379c43-a1f6-408f-8b84-0a100712e675","path":"sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"9adcadd2-954e-4a42-8fd8-be3921c1c0c7","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7d435c7f-ef6a-43b0-91a9-5c0e7a7846a3","path":"sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"7fd79e6f-76ec-49b0-8323-e5fa4f3da047","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-========
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d09c4e6b-7833-4be3-b765-783f5bc9edcb","path":"sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"543d0cc7-9664-47ae-928b-788f4278a655","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"85be8dc0-f0d7-443b-8762-9a2a832658c5","path":"sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"a4ca6fa4-a7dc-44c0-8995-a0a9f3021a3a","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"aa144de2-a774-4cb6-9c53-2e2e860ab3a4","path":"sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"c2f3fb24-cf57-4fcc-bc62-9b32ffd76415","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2c9f0701-348f-4d1f-bd8f-8525505431bc","path":"sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"94ee9691-b7fc-4d22-8fdb-adc23dfc064b","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"87379c43-a1f6-408f-8b84-0a100712e675","path":"sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"9adcadd2-954e-4a42-8fd8-be3921c1c0c7","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7d435c7f-ef6a-43b0-91a9-5c0e7a7846a3","path":"sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"7fd79e6f-76ec-49b0-8323-e5fa4f3da047","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"247d01e1-5626-435f-981a-537ec3deae3c","path":"sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"94169071-caed-4ac2-a54b-6d6bc7f9071d","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"61806bea-1a2e-47d7-8d8e-7b7c831d1090","path":"sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"bad0e494-db3e-4c0f-bd5d-a05b55ee652f","IsCreationKey":false,"Key":7.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"a01b9bf3-471e-4fa3-af63-413debfab864","path":"sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"35f3e717-b449-4138-8b9e-154be0c16bfb","IsCreationKey":false,"Key":8.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"0a655800-f2d7-4c92-9ad8-e5e72c54a041","path":"sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"48f13933-7567-45f8-8626-df1a614f3b78","IsCreationKey":false,"Key":9.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
->>>>>>>> itai-2:fight jam/sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy
-=======
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"aa144de2-a774-4cb6-9c53-2e2e860ab3a4","path":"sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"c2f3fb24-cf57-4fcc-bc62-9b32ffd76415","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2c9f0701-348f-4d1f-bd8f-8525505431bc","path":"sprites/spr_skate_jump_squat/spr_skate_jump_squat.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"9f2939b1-b1d7-4054-aa1c-4782ebfbd7e9","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
->>>>>>> itai-2
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
