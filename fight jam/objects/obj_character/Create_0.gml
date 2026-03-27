@@ -426,6 +426,7 @@ arr_state_functions[STATES.stun] = function(){
 	//movement
 	yadd = 0;
 	xadd = approach(xadd,ground_fric*3,0);
+	stun_remain = max(0,stun_remain--);
 	
 	//exit stun
 	if(stun_remain-- <= 0)
