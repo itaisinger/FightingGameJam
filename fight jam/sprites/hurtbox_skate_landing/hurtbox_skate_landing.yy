@@ -74,6 +74,24 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+<<<<<<< HEAD:fight jam/sprites/hurtbox_landing/hurtbox_landing.yy
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"cc0da852-2b04-47fe-ae9f-dc55795455ef","path":"sprites/hurtbox_landing/hurtbox_landing.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"09ff4b7a-7600-417b-8f56-48a24ae18aaf","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"2a23fe9b-4b38-4709-afd4-5cf7ba525aed","path":"sprites/hurtbox_landing/hurtbox_landing.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"c9c79d02-4d46-4319-be92-6f81500619b0","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f054ff5a-e470-4e73-b3ab-34b7b42058fa","path":"sprites/hurtbox_landing/hurtbox_landing.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"6343f455-f1b8-401a-8b01-644731e7fcbe","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"0fff4726-2ee3-4a98-9157-f2d2bab44d19","path":"sprites/hurtbox_landing/hurtbox_landing.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"b6e9443b-9740-4794-a4de-c0be76485b82","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"41956dc5-6bd9-4c9a-b2e1-f7f4b6c0a22d","path":"sprites/hurtbox_landing/hurtbox_landing.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"10fed6b0-efea-48c4-b7ef-640df6056a4d","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"487443c7-3493-43e7-b364-18d9aaa990bc","path":"sprites/hurtbox_landing/hurtbox_landing.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+=======
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"cc0da852-2b04-47fe-ae9f-dc55795455ef","path":"sprites/hurtbox_skate_landing/hurtbox_skate_landing.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"09ff4b7a-7600-417b-8f56-48a24ae18aaf","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
@@ -90,6 +108,7 @@
               },"Disabled":false,"id":"10fed6b0-efea-48c4-b7ef-640df6056a4d","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"487443c7-3493-43e7-b364-18d9aaa990bc","path":"sprites/hurtbox_skate_landing/hurtbox_skate_landing.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+>>>>>>> itai-2:fight jam/sprites/hurtbox_skate_landing/hurtbox_skate_landing.yy
               },"Disabled":false,"id":"e56b8acd-c0aa-4675-9308-3c21f51c1e78","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],

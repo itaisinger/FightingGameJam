@@ -46,7 +46,11 @@
   "origin":7,
   "parent":{
     "name":"sprites",
+<<<<<<< HEAD
+    "path":"folders/Sprites/fighter skateboard/sprites.yy",
+=======
     "path":"folders/Sprites/fighters/fighter skateboard/sprites.yy",
+>>>>>>> itai-2
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
