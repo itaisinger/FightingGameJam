@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_knifer_idle",
-    "path":"sprites/spr_knifer_idle/spr_knifer_idle.yy",
+    "name":"spr_spyke_echo",
+    "path":"sprites/spr_spyke_echo/spr_spyke_echo.yy",
   },
   "spriteMaskId":null,
   "visible":true,

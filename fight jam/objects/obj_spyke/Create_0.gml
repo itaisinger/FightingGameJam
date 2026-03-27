@@ -41,20 +41,91 @@ states_sprites[STATES.air_special]	= spr_spyke_air_special;
 hurtbox = spr_knifer_idle;
 //states_hurtboxes = [];
 states_hurtboxes[STATES.idle]		= spr_knifer_idle;
-//states_hurtboxes[STATES.jump_squat]	= hurtbox_spyke_jump_squat;
-//states_hurtboxes[STATES.walk]		= hurtbox_fighter_walk;
-//states_hurtboxes[STATES.light]		= hurtbox_spyke_light;
-//states_hurtboxes[STATES.heavy]		= hurtbox_spyke_heavy;
-//states_hurtboxes[STATES.air]		= hurtbox_fighter_air;
-//states_hurtboxes[STATES.echo]		= hurtbox_spyke_echo;
-//states_hurtboxes[STATES.dodge]		= hurtbox_spyke_dodge;
-//states_hurtboxes[STATES.stun]		= hurtbox_spyker_hurt;
-//states_hurtboxes[STATES.air_stun]	= hurtbox_spyker_hurt;
-//states_hurtboxes[STATES.dead]		= hurtbox_fighter_dead;
-//states_hurtboxes[STATES.parry]		= hurtbox_spyke_parry;
-//states_hurtboxes[STATES.teleport]	= hurtbox_fighter_tp;
-//states_hurtboxes[STATES.special]	= hurtbox_spyke_special;
-//states_hurtboxes[STATES.land]		= hurtbox_spyke_land;
-//states_hurtboxes[STATES.air_light]	= hurtbox_spyke_air_light;
-//states_hurtboxes[STATES.air_heavy]	= hurtbox_spyke_air_heavy;
-//states_hurtboxes[STATES.air_special]= hurtbox_spyke_air_special;
+states_hurtboxes[STATES.jump_squat]	= hurtbox_spyke_jump_squat;
+states_hurtboxes[STATES.walk]		= hurtbox_spyke_walk;
+states_hurtboxes[STATES.light]		= hurtbox_spyke_light;
+states_hurtboxes[STATES.heavy]		= hurtbox_spyke_heavy;
+states_hurtboxes[STATES.air]		= hurtbox_spyke_air;
+states_hurtboxes[STATES.echo]		= hurtbox_spyke_echo;
+states_hurtboxes[STATES.dodge]		= hurtbox_spyke_dodge;
+states_hurtboxes[STATES.stun]		= hurtbox_spyke_hurt;
+states_hurtboxes[STATES.air_stun]	= hurtbox_spyke_hurt;
+//states_hurtboxes[STATES.dead]		= hurtbox_spyke_dead;
+states_hurtboxes[STATES.parry]		= hurtbox_spyke_parry;
+states_hurtboxes[STATES.teleport]	= hurtbox_spyke_teleport;
+states_hurtboxes[STATES.special]	= hurtbox_spyke_special;
+states_hurtboxes[STATES.land]		= hurtbox_spyke_land;
+states_hurtboxes[STATES.air_light]	= hurtbox_spyke_air_light;
+states_hurtboxes[STATES.air_heavy]	= hurtbox_spyke_air_heavy;
+states_hurtboxes[STATES.air_special]= hurtbox_spyke_air_special;
+
+
+
+hitbox_data = array_create(STATES.max,-1)
+hitbox_data[STATES.light]		= new HitboxData(hitbox_spyke_light,3,45,5,1,6,0,0,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_spyke_heavy,8,100,15,1,10,0,1,false);
+hitbox_data[STATES.special]		= new HitboxData(hitbox_spyke_special,12,60,10,7,5,1,1,false);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_spyke_air_light,5,60,5,3,7,0,0,false);
+hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_spyke_air_heavy,10,90,10,3,-3,0,0,false);
+hitbox_data[STATES.air_special]	= new HitboxData(hitbox_spyke_air_special,4,20,5,3,5,0,0,false);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_spyke_parry,1,100,180,3,3,0,false,true);
+
+// Moves ovveride
+
+arr_state_functions[STATES.air_special] = function(){
+	
+	if(state_changed)
+	{
+		__grav_mult = 0;
+		__grav_multx = 8;
+		yadd = 0;
+	}
+	
+	if(reached_frame(1))
+	{
+		__grav_mult = 1;
+		xadd = dir * 17;
+		__grav_multx = 1
+		yadd = 2;
+	}
+	
+	//if(reached_frame(4))
+	//{
+	//	create_hitbox(hitbox_data[STATES.air_special]);
+	//	inst_hitbox.image_index = image_index;
+	//}
+	
+	//if(reached_frame(5))
+	//{
+	//	//with(inst_hitbox) instance_destroy();
+	//	create_hitbox(hitbox_data[STATES.air_special]);
+	//	inst_hitbox.image_index = image_index;
+	//}
+	
+	//if(reached_frame(6)){
+	//	__grav_mult = 0.5;
+	//}
+	
+	//jump cancel
+	if(instance_exists(inst_hitbox) and array_length(inst_hitbox.arr_hits) > 0 and input.is_pressed(INPUT.up)){
+		change_state(STATES.air)
+		yadd = -jumpforce_y;
+		xadd = dir * jumpforce_x;
+	}
+		
+	
+	yadd += grav * __grav_mult;
+	xadd = approach(xadd,air_fric*__grav_multx,0);
+	
+	//land
+	if(is_grounded())
+	{
+		if is_hit_success()
+			change_state(STATES.idle)
+		else
+			change_state(STATES.land);
+	}
+		
+	if(anim_done)
+		change_state(STATES.air);
+}
