@@ -26,7 +26,7 @@ states_sprites[STATES.light]		= spr_spyke_light;
 states_sprites[STATES.heavy]		= spr_spyke_heavy;
 states_sprites[STATES.air]			= spr_spyke_air;
 states_sprites[STATES.echo]			= spr_spyke_echo;
-//states_sprites[STATES.dodge]		= spr_spyke_dodge;
+states_sprites[STATES.dodge]		= spr_spyke_dodge;
 states_sprites[STATES.stun]			= spr_spyke_hurt;
 states_sprites[STATES.air_stun]		= spr_spyke_hurt;
 states_sprites[STATES.dead]			= spr_fighter_dead;
@@ -36,7 +36,7 @@ states_sprites[STATES.special]		= spr_spyke_special;
 states_sprites[STATES.land]			= spr_spyke_land;
 states_sprites[STATES.air_light]	= spr_spyke_air_light;
 states_sprites[STATES.air_heavy]	= spr_spyke_air_heavy;
-//states_sprites[STATES.air_special]	= spr_spyke_air_special;
+states_sprites[STATES.air_special]	= spr_spyke_air_special;
 
 hurtbox = spr_knifer_idle;
 //states_hurtboxes = [];
