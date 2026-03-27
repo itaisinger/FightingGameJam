@@ -31,11 +31,7 @@
   "origin":7,
   "parent":{
     "name":"hurtboxes",
-<<<<<<< HEAD
-    "path":"folders/Sprites/fighter skateboard/hurtboxes.yy",
-=======
     "path":"folders/Sprites/fighters/fighter skateboard/hurtboxes.yy",
->>>>>>> itai-2
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
