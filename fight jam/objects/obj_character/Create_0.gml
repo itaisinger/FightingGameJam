@@ -52,6 +52,7 @@ enum STATES{
 	air,
 	land,
 	light,
+	light2,
 	heavy,
 	special,
 	air_light,

@@ -1,4 +1,3 @@
-if(live_call()) return live_result;
 
 function _create(){
 	if(!place_meeting(x,y,obj_knifer)){
@@ -19,5 +18,4 @@ function _create(){
 	depth = DEPTH.vfx;
 	image_speed = random_range(0.5,2);
 	
-	log(alarm[0]);
 }

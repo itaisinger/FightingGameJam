@@ -9,13 +9,14 @@ slide_fric *= 0.8
 walkspd = 9;
 landing_lag = 3;
 
-name = "JOHNNY DREX"
+name = "MINAMI NO KAZE"
 win_sfx = sfx_johnny_wins;
 
 states_sprites[STATES.idle]			= spr_knifer_idle;
 //states_sprites[STATES.jump_squat]	= spr_knifer_jump_squat;
 //states_sprites[STATES.walk]			= spr_knifer_walk;
 states_sprites[STATES.light]		= spr_knifer_light;
+states_sprites[STATES.light2]		= spr_knifer_light_2;
 //states_sprites[STATES.heavy]		= spr_knifer_heavy;
 //states_sprites[STATES.air]			= spr_knifer_air;
 //states_sprites[STATES.echo]			= spr_knifer_echo;
@@ -37,6 +38,7 @@ states_hurtboxes[STATES.idle]		= spr_knifer_idle;
 //states_hurtboxes[STATES.jump_squat]	= hurtbox_knifer_jump_squat;
 //states_hurtboxes[STATES.walk]		= hurtbox_fighter_walk;
 //states_hurtboxes[STATES.light]		= hurtbox_knifer_light;
+states_hurtboxes[STATES.light2]		= spr_knifer_idle;
 //states_hurtboxes[STATES.heavy]		= hurtbox_knifer_heavy;
 //states_hurtboxes[STATES.air]		= hurtbox_fighter_air;
 //states_hurtboxes[STATES.echo]		= hurtbox_knifer_echo;
@@ -55,6 +57,15 @@ states_hurtboxes[STATES.idle]		= spr_knifer_idle;
 image_xscale = 1;
 image_yscale = 1;
 
+hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,2,25,5,5,3,0,0,false);
+hitbox_data[STATES.light2]		= new HitboxData(hitbox_fighter_light,5,25,5,1,6,0,0,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,100,15,6,9,0,1,false);
+hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,60,5,3,7,0,0,false);
+hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,90,10,3,5,0,0,false);
+hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,4,20,5,3,5,0,0,false);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,180,20,3,3,0,false,true);
+
 function create_butterflies(margin){
 	for(var xx=bbox_left; xx <= bbox_right; xx += margin)
 	{
@@ -66,9 +77,14 @@ function create_butterflies(margin){
 		}
 	}
 }
-
 function teleport(delta)
 {
+	var _shift = dir;
+	//if(input.is_pressed(INPUT.right) and !input.is_pressed(INPUT.left)) _shift += 0.5;
+	//if(!input.is_pressed(INPUT.right) and input.is_pressed(INPUT.left)) _shift -= 0.5;
+	
+	delta *= _shift
+	
 	create_butterflies(3);
 	x += delta;
 	create_butterflies(15);
@@ -77,7 +93,7 @@ function teleport(delta)
 arr_state_functions[STATES.light] = function(){
 	
 	if(reached_frame(1)){
-		xadd += dir * 12
+		xadd += dir * 14
 	}
 	
 	xadd = approach(xadd,ground_fric,0);
@@ -87,10 +103,27 @@ arr_state_functions[STATES.light] = function(){
 	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
 		change_state(STATES.special)
 	
-	//link to heavy
+	//link to light 2
+	if(image_index >= 2 and input.is_pressed(INPUT.light)){
+		change_state(STATES.light2);
+		teleport(70);
+	}
+	
+	if(anim_done)
+		change_state(STATES.idle)
+}
+arr_state_functions[STATES.light2] = function(){
+	
+	if(reached_frame(1)){
+		xadd += dir * 5
+	}
+	
+	xadd = approach(xadd,ground_fric,0);
+	yadd = 0;
+	
+	//link to heavy?
 	if(image_index >= 2 and input.is_pressed(INPUT.heavy)){
 		change_state(STATES.heavy);
-		image_index++;
 	}
 	
 	if(anim_done)
