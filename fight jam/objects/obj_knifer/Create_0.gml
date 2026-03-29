@@ -28,8 +28,8 @@ states_sprites[STATES.air]			= spr_knifer_air;
 //states_sprites[STATES.dead]			= spr_fighter_dead;
 //states_sprites[STATES.parry]		= spr_knifer_parry;
 //states_sprites[STATES.teleport]		= spr_kniferr_tp;
-//states_sprites[STATES.special]		= spr_knifer_special;
-//states_sprites[STATES.land]			= spr_knifer_land;
+states_sprites[STATES.special]		= spr_knifer_special;
+states_sprites[STATES.land]			= spr_knifer_land;
 //states_sprites[STATES.air_light]	= spr_knifer_air_light;
 //states_sprites[STATES.air_heavy]	= spr_knifer_air_heavy;
 //states_sprites[STATES.air_special]	= spr_knifer_air_special;
@@ -90,8 +90,21 @@ function teleport(deltax,deltay=0)
 	deltax *= _shift
 	
 	create_butterflies(3);
-	x += deltax;
-	y += deltay;
+	
+	//move
+	var _prev = [xadd,yadd];
+	xadd = deltax;
+	yadd = deltay;
+	
+	collision();
+	
+	x += xadd;
+	y += yadd;
+	
+	xadd = _prev[0];
+	yadd = _prev[1];
+	
+	//butterflies
 	create_butterflies(15);
 	
 	mask_index = _mask_prev;
@@ -140,6 +153,10 @@ arr_state_functions[STATES.light2] = function(){
 }
 arr_state_functions[STATES.heavy] = function(){
 	
+	//trans to special
+	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
+		change_state(STATES.special)
+	
 	if(reached_frame(4)){
 		teleport(0,-120);
 		image_index++;
@@ -159,4 +176,102 @@ arr_state_functions[STATES.heavy] = function(){
 	
 	if(anim_done)
 		change_state(is_grounded() ? STATES.idle : STATES.air);
+}
+arr_state_functions[STATES.special] = function(){
+	
+	if(state_changed) __move_mult = 1;
+	
+	xadd = approach(xadd,slide_fric,0);
+	yadd = 0;
+	
+	if(reached_frame(4)){
+		update_dir();
+		teleport(300);
+	}
+	
+	//trans out
+	if(reached_frame(5) and !(input.is_pressed(INPUT.light_down) or input.is_pressed(INPUT.heavy_down)))
+		change_state(STATES.idle);
+	
+	if(reached_frame(6)) afterimage(6,15);
+	
+	//slide while spinning
+	if(image_index >= 6)
+	{
+		update_dir();
+		xadd = 6 * dir * __move_mult;
+	}
+	
+	//stop or loop
+	if(anim_done){
+		
+		if(input.is_pressed(INPUT.light_down) or input.is_pressed(INPUT.heavy_down)) and __move_mult > 0.2{
+			image_index = 6;
+			__move_mult = approach(__move_mult,0.1,0);
+			afterimage(floor(6 * __move_mult) ,15 * floor(map_value(1-__move_mult,0,1,1,2)))
+			image_speed *= 0.7;
+		}
+		else{
+			__lag_remain = map_value(1-__move_mult,0,1, 10,40);
+			xadd = 9 * dir;
+			change_state(STATES.land)
+		}
+	}
+}
+arr_state_functions[STATES.land] = function(){
+	
+	yadd = 0;
+	xadd = approach(xadd,slide_fric,0);
+	
+	if(state_count < __lag_remain) return;
+	else __lag_remain = -1;
+	
+	if(state_count >= landing_lag){
+		//left
+		if(input.is_pressed(INPUT.left) and !input.is_pressed(INPUT.right)){
+			dir = -1;
+			change_state(STATES.walk);
+		}
+		//right
+		if(input.is_pressed(INPUT.right) and !input.is_pressed(INPUT.left)){
+			dir = 1;
+			change_state(STATES.walk);
+		}
+	}
+	
+	//jump
+	if(input.is_pressed(INPUT.up)) change_state(STATES.jump_squat);
+	
+	//dodge
+	if(input.is_pressed(INPUT.dodge))
+	{	
+		//dodge right
+		if(input.is_pressed(INPUT.right)){
+			dir = 1;
+			change_state(STATES.dodge);
+		}
+		
+		//dodge left
+		else if(input.is_pressed(INPUT.left)){
+			dir = -1;
+			change_state(STATES.dodge);
+		}
+		
+		//parry
+		else change_state(STATES.parry);	
+	}
+	
+	//light
+	if(input.is_pressed(INPUT.light)) change_state(STATES.light);
+	
+	//heavy
+	if(input.is_pressed(INPUT.heavy)) change_state(STATES.heavy);
+
+	//special
+	if(input.is_pressed(INPUT.special)) change_state(STATES.special);
+	
+	//done
+	if(anim_done)
+		change_state(STATES.idle);
+	
 }

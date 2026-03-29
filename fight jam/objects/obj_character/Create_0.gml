@@ -350,7 +350,6 @@ arr_state_functions[STATES.land] = function(){
 	//done
 	if(anim_done)
 		change_state(STATES.idle);
-	
 }
 arr_state_functions[STATES.air] = function(){
 	
@@ -824,6 +823,11 @@ function collision(){
 	
 	mask_index = _mask_prev;
 }
-function afterimage(number){
+function afterimage(number,diff=8){
 	afterimage_remain = number;
+	afterimage_diff = diff;
+}
+function update_dir(){
+	if(input.is_pressed(INPUT.right) and !input.is_pressed(INPUT.left)) dir = 1;
+	if(!input.is_pressed(INPUT.right) and input.is_pressed(INPUT.left)) dir = -1;
 }

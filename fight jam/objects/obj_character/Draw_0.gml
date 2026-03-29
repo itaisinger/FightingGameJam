@@ -27,7 +27,7 @@ y -= _yshake;
 draw_set_alpha(1);
 
 // afterimage
-if(afterimage_remain>0 and current_time%5 == 0){
+if(afterimage_remain>0 and current_time%afterimage_diff == 0){
 	afterimage_remain--;
 	with(instance_create_depth(x,y,depth+1,obj_afterimage)){
 		image_speed = 0;

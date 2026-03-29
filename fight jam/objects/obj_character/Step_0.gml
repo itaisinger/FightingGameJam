@@ -38,7 +38,6 @@ if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges
 		play_sfx(sfx_error);
 }
   
-
 //hitpause
 if(hitpause_remain > 0){
 	image_speed_prev = max(image_speed_prev,image_speed);
@@ -48,7 +47,6 @@ if(hitpause_remain > 0){
 }
 else image_speed = image_speed_prev;
 
- 
 //create echo
 if(input.is_pressed(INPUT.echo) and echo_saved != -1 and stun_remain <= 0){
 	create_echo()
@@ -64,8 +62,7 @@ arr_state_functions[state]();
 //turn around
 if(state_count < turnaround_grace_length)
 {
-	if(input.is_pressed(INPUT.right) and !input.is_pressed(INPUT.left)) dir = 1;
-	if(!input.is_pressed(INPUT.right) and input.is_pressed(INPUT.left)) dir = -1;
+	update_dir();
 }
 
 

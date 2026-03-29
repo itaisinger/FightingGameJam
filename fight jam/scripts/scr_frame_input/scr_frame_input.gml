@@ -6,7 +6,9 @@ enum INPUT{
 	up,
 	down,
 	light,
+	light_down,
 	heavy,
+	heavy_down,
 	dodge,
 	special,
 	echo,
@@ -23,6 +25,8 @@ function FrameInput(P1) constructor{
 			arr[INPUT.down]	 = obj_input.arr[P1][INPUT.down];
 			arr[INPUT.up]	 = obj_input.arr[P1][INPUT.up];
 			arr[INPUT.light] = obj_input.arr[P1][INPUT.light];
+			arr[INPUT.light_down] = obj_input.arr[P1][INPUT.light_down];
+			arr[INPUT.heavy_down] = obj_input.arr[P1][INPUT.heavy_down];
 			arr[INPUT.heavy] = obj_input.arr[P1][INPUT.heavy];
 			arr[INPUT.dodge] = obj_input.arr[P1][INPUT.dodge];
 			arr[INPUT.special] = obj_input.arr[P1][INPUT.special];
@@ -36,6 +40,8 @@ function FrameInput(P1) constructor{
 		arr[INPUT.down]		= false;
 		arr[INPUT.up]		= false;
 		arr[INPUT.light]	= false;
+		arr[INPUT.light_down]	= false;
+		arr[INPUT.heavy_down]	= false;
 		arr[INPUT.heavy]	= false;
 		arr[INPUT.dodge]	= false;
 		arr[INPUT.special]	= false;

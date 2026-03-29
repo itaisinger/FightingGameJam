@@ -2,6 +2,7 @@
 event_inherited();
 
 max_hp *= 1.2;
+hp = max_hp;
 
 xadd = 0;
 yadd = 0;
