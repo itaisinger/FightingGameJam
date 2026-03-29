@@ -4,8 +4,8 @@ event_inherited();
 
 max_hp = 80;
 hp = max_hp;
-ground_fric *= 0.7
-slide_fric *= 0.8
+ground_fric *= 1.3
+slide_fric *= 1.8
 walkspd = 9;
 landing_lag = 3;
 
@@ -34,11 +34,11 @@ states_sprites[STATES.light2]		= spr_knifer_light_2;
 
 hurtbox = spr_knifer_idle;
 //states_hurtboxes = [];
-states_hurtboxes[STATES.idle]		= spr_knifer_idle;
+states_hurtboxes[STATES.idle]		= hurtbox_knifer_idle;
 //states_hurtboxes[STATES.jump_squat]	= hurtbox_knifer_jump_squat;
 //states_hurtboxes[STATES.walk]		= hurtbox_fighter_walk;
-//states_hurtboxes[STATES.light]		= hurtbox_knifer_light;
-states_hurtboxes[STATES.light2]		= spr_knifer_idle;
+states_hurtboxes[STATES.light]		= hurtbox_knifer_light;
+states_hurtboxes[STATES.light2]		= hurtbox_knifer_idle;
 //states_hurtboxes[STATES.heavy]		= hurtbox_knifer_heavy;
 //states_hurtboxes[STATES.air]		= hurtbox_fighter_air;
 //states_hurtboxes[STATES.echo]		= hurtbox_knifer_echo;
@@ -57,8 +57,8 @@ states_hurtboxes[STATES.light2]		= spr_knifer_idle;
 image_xscale = 1;
 image_yscale = 1;
 
-hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,2,25,5,5,3,0,0,false);
-hitbox_data[STATES.light2]		= new HitboxData(hitbox_fighter_light,6,45,5,1,9,0,0,false);
+hitbox_data[STATES.light]		= new HitboxData(hitbox_knifer_light,2,25,5,5,3,0,0,false);
+hitbox_data[STATES.light2]		= new HitboxData(hitbox_knifer_light_2,6,45,5,1,9,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,100,15,6,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,60,5,3,7,0,0,false);

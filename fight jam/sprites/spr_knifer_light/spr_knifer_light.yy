@@ -34,8 +34,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"knifer",
-    "path":"folders/Sprites/fighters/knifer.yy",
+    "name":"sprites",
+    "path":"folders/Sprites/fighters/knifer/sprites.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
