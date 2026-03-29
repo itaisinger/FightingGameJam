@@ -52,9 +52,9 @@
     {"$GMFolder":"","%Name":"hurtboxes","folderPath":"folders/Sprites/fighters/fighter/hurtboxes.yy","name":"hurtboxes","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"sprites","folderPath":"folders/Sprites/fighters/fighter/sprites.yy","name":"sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"knifer","folderPath":"folders/Sprites/fighters/knifer.yy","name":"knifer","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"sprites","folderPath":"folders/Sprites/fighters/knifer/sprites.yy","name":"sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"hitbox","folderPath":"folders/Sprites/fighters/knifer/hitbox.yy","name":"hitbox","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"hurtbox","folderPath":"folders/Sprites/fighters/knifer/hurtbox.yy","name":"hurtbox","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"sprites","folderPath":"folders/Sprites/fighters/knifer/sprites.yy","name":"sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"ui","folderPath":"folders/Sprites/ui.yy","name":"ui","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"portraits","folderPath":"folders/Sprites/ui/portraits.yy","name":"portraits","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"vfx","folderPath":"folders/Sprites/vfx.yy","name":"vfx","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -83,6 +83,7 @@
   ],
   "ForcedPrefabProjectReferences":[
     {"link":"io.gamemaker.gmparticlepresets-1.0.0","name":"io.gamemaker.gmparticlepresets-1.0.0","path":"io.gamemaker.gmparticlepresets-1.0.0.yyp",},
+    {"link":"io.gamemaker.sdfshaders-1.0.0","name":"io.gamemaker.sdfshaders-1.0.0","path":"io.gamemaker.sdfshaders-1.0.0.yyp",},
   ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"gamecontrollerdb.txt","CopyToMask":-1,"filePath":"datafiles","name":"gamecontrollerdb.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},

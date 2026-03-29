@@ -25,8 +25,6 @@ global.VinylConfigJSON = [
         gain: 0.9,
     },
     
-    
-    
     // -- Sound randomization
     //    The "shuffle" pattern can be used to choose a random sound to play. Vinyl will try to
     //    ensure that one sound is not repeatedly played.
