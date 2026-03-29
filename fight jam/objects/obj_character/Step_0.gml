@@ -24,6 +24,20 @@ else {
 		instance_destroy();
 }
 
+//kombo break teleport
+if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges_remain >= echo_tp_cost){
+	
+	if (tp_x != -1){
+		change_state(STATES.teleport);	
+		echo_charges_remain -= echo_tp_cost;
+		x = tp_x;	
+		__grav_mult = 0;
+		__done = false;
+	}
+	else
+		play_sfx(sfx_error);
+}
+  
 
 //hitpause
 if(hitpause_remain > 0){
@@ -48,21 +62,13 @@ state_count++;
 arr_state_functions[state]();
 
 //turn around
-if(state_count < turnaroudn_grace_length)
+if(state_count < turnaround_grace_length)
 {
 	if(input.is_pressed(INPUT.right) and !input.is_pressed(INPUT.left)) dir = 1;
 	if(!input.is_pressed(INPUT.right) and input.is_pressed(INPUT.left)) dir = -1;
 }
 
-//kombo break teleport
-if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges_remain >= echo_tp_cost){
-	
-	if (tp_x != -1)
-		change_state(STATES.teleport);	
-	else
-		play_sfx(sfx_error);
-}
-  
+
 anim_done = false;
 image_index_prev = image_index;
 

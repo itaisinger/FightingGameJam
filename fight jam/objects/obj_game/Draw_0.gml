@@ -41,8 +41,8 @@ switch(room)
 		var _c2 = #9E0B0F
 		draw_set_all(1,c_white,font_announce_small,fa_center,fa_middle)
 		
-		draw_text_transformed_colour(_w*0.2,_h*0.425,arr_characters[chosen_characters[1]].name,2,2,0,_c1,_c1,_c2,_c2,1)
-		draw_text_transformed_colour(_w*0.8,_h*0.425,arr_characters[chosen_characters[0]].name,2,2,0,_c1,_c1,_c2,_c2,1)
+		draw_text_ext_transformed_colour(_w*0.2,_h*0.425,arr_characters[chosen_characters[1]].name,_h*0.04,_w*0.5,2,2,0,_c1,_c1,_c2,_c2,1)
+		draw_text_ext_transformed_colour(_w*0.8,_h*0.425,arr_characters[chosen_characters[0]].name,_h*0.04,_w*0.5,2,2,0,_c1,_c1,_c2,_c2,1)
 		
 		_input[0] = new FrameInput(true);
 		_input[1] = new FrameInput(false);

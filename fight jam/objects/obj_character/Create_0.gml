@@ -101,7 +101,7 @@ disable_draw = false;
 
 //animation stats
 special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
-turnaroudn_grace_length = 8; //how many frames into heavy/light you can transition to special
+turnaround_grace_length = 8; //how many frames into heavy/light you can transition to special
 landing_lag = 10;
 
 states_sprites = [];
@@ -525,8 +525,6 @@ arr_state_functions[STATES.parry] = function()
 arr_state_functions[STATES.teleport] = function()
 {
 	if(state_changed){
-		echo_charges_remain -= echo_tp_cost;
-		x = tp_x;
 		__grav_mult = 0;
 		__done = false;
 	}

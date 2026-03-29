@@ -13,16 +13,21 @@ with(obj_gameplay_object) draw_text(x,y-100,yadd);
 
 try{ 
 	mask_index = obj_character.mask_index;
-	vars = [
-	"state: " + string(obj_character.state),
-	"sides: " + string(obj_character.input.is_pressed(INPUT.left)) + ", "  + string(obj_character.input.is_pressed(INPUT.right)),
-	"diff: " + string(obj_character.input.is_pressed(INPUT.right) - obj_character.input.is_pressed(INPUT.right)),
-	"xadd: " + string(obj_character.xadd),
-	"charges: " + string(obj_character.echo_charges_remain),
-	"stun_remain: " + string(obj_character.stun_remain),
-	"pos: " + string(obj_character.x) + "," + string(obj_character.y),
-	"keys: " + string(obj_input.arr[INPUT.light]) + ", " + string(obj_input.arr[INPUT.heavy]) + ", " + string(obj_input.arr[INPUT.special])
-	]
+	//vars = [
+	//"state: " + string(obj_character.state),
+	//"sides: " + string(obj_character.input.is_pressed(INPUT.left)) + ", "  + string(obj_character.input.is_pressed(INPUT.right)),
+	//"diff: " + string(obj_character.input.is_pressed(INPUT.right) - obj_character.input.is_pressed(INPUT.right)),
+	//"xadd: " + string(obj_character.xadd),
+	//"charges: " + string(obj_character.echo_charges_remain),
+	//"stun_remain: " + string(obj_character.stun_remain),
+	//"pos: " + string(obj_character.x) + "," + string(obj_character.y),
+	//"keys: " + string(obj_input.arr[INPUT.light]) + ", " + string(obj_input.arr[INPUT.heavy]) + ", " + string(obj_input.arr[INPUT.special])
+	//]
+	vars = [];
+	var input = obj_fighter.input;
+	for(var i=0; i < array_length(input.arr); i++){
+		vars[i] = input.arr[i];
+	}
 }
 catch(a){vars=[];}
 

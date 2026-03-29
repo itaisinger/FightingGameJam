@@ -147,8 +147,6 @@ arr_state_functions[STATES.special] = function()
 arr_state_functions[STATES.teleport] = function()
 {
 	if(state_changed){
-		echo_charges_remain -= echo_tp_cost;
-		x = tp_x;
 		__grav_mult = 0;
 		__done = false;
 	}

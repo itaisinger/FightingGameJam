@@ -81,7 +81,7 @@ depth = DEPTH.player;
 
 //animation stats
 special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
-turnaroudn_grace_length = 8; //how many frames into heavy/light you can transition to special
+turnaround_grace_length = 8; //how many frames into heavy/light you can transition to special
 landing_lag = 10;
 
 states_sprites = [];
