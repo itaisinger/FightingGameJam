@@ -56,6 +56,7 @@ enum STATES{
 	heavy,
 	special,
 	air_light,
+	air_light2,
 	air_heavy,
 	air_special,
 	stun,
@@ -746,6 +747,7 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 	{
 		xadd *= 1.5;
 		yadd *= 0.6;
+		image_index = irandom(1);
 	}
 	else if (is_launch or !is_grounded()){
 		yadd = -knocky;
