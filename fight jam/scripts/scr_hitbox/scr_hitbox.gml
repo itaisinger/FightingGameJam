@@ -7,7 +7,7 @@ enum hitboxdata{
 	give_echo_charge,
 	func,
 }
-function HitboxData(sprite,_damage,_stun_duration,_hitpause,_knockback_x,_knockback_y,_give_echo_charge,_is_launcher,_is_parry,_func=function(){}) constructor {
+function HitboxData(sprite,_damage,_stun_duration,_hitpause,_knockback_x,_knockback_y,_give_echo_charge,_is_launcher,_is_parry,_func=function(){},_hit_spd_up=3) constructor {
 	sprite_index = sprite;
 	damage = _damage;
 	stun_duration = _stun_duration;
@@ -18,6 +18,7 @@ function HitboxData(sprite,_damage,_stun_duration,_hitpause,_knockback_x,_knockb
 	is_launcher = _is_launcher;
 	is_parry = _is_parry;
 	func = _func
+	hit_speedup = _hit_spd_up;
 }
 
 function create_hitbox(_hitbox_data){
@@ -28,6 +29,7 @@ function create_hitbox(_hitbox_data){
 	inst_hitbox = instance_create_depth(x,y,depth,obj_hitbox,_hitbox_data);
 	inst_hitbox.dir = dir;
 	inst_hitbox.image_xscale = dir;
+	inst_hitbox.image_index = image_index;
 	inst_hitbox.parent = self;
 	
 }

@@ -20,3 +20,5 @@ function set_announce_text(text)
 {
 	announce_text = text;
 }
+
+depth = -y;

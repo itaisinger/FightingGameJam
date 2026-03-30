@@ -60,7 +60,6 @@ states_hurtboxes[STATES.air_light]	= hurtbox_spyke_air_light;
 states_hurtboxes[STATES.air_heavy]	= hurtbox_spyke_air_heavy;
 states_hurtboxes[STATES.air_special]= hurtbox_spyke_air_special;
 
-
 hitbox_data = array_create(STATES.max,-1)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_spyke_light,3,45,5,1,6,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_spyke_heavy,8,70,15,2,10,0,1,false);
@@ -68,7 +67,7 @@ hitbox_data[STATES.special]		= new HitboxData(hitbox_spyke_special,9,60,10,7,5,1
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_spyke_air_light,5,60,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_spyke_air_heavy,10,90,10,3,1,0,0,false);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_spyke_air_special,4,20,5,3,5,0,0,false);
-hitbox_data[STATES.parry]		= new HitboxData(hitbox_spyke_parry,1,100,180,3,3,0,false,true);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_spyke_parry,1,100,180,3,3,1,false,true);
 
 // Moves ovveride
 

@@ -28,11 +28,7 @@ else {
 if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges_remain >= echo_tp_cost){
 	
 	if (tp_x != -1){
-		change_state(STATES.teleport);	
-		echo_charges_remain -= echo_tp_cost;
-		x = tp_x;	
-		__grav_mult = 0;
-		__done = false;
+		combo_break();
 	}
 	else
 		play_sfx(sfx_error);

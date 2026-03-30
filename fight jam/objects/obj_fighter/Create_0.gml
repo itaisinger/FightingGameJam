@@ -207,7 +207,6 @@ arr_state_functions[STATES.parry] = function()
 }
 arr_state_functions[STATES.special] = function()
 {
-		
 	xadd = approach(xadd,ground_fric*1.2,0);
 	yadd = 0;
 	

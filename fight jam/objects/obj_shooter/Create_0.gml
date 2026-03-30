@@ -64,7 +64,7 @@ hitbox_data[STATES.heavy]		= new HitboxData(hitbox_shooter_heavy,8,65,15,4,9,0,1
 hitbox_data[STATES.special]		= new HitboxData(hitbox_shooter_special,8,40,10,12,7,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_shooter_air_light,4,28,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_shooter_air_heavy,12,40,10,3,5,0,0,false);
-hitbox_data[STATES.parry]		= new HitboxData(hitbox_shooter_parry,1,20,130,3,5,0,0,true);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_shooter_parry,1,20,130,3,5,1,0,true);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_shooter_air_special,3,20,20,3,5,0,1,false);
 
 
