@@ -37,8 +37,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_skate_idle",
-    "path":"sprites/spr_skate_idle/spr_skate_idle.yy",
+    "name":"spr_shooter_idle",
+    "path":"sprites/spr_shooter_idle/spr_shooter_idle.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -61,15 +61,16 @@ states_hurtboxes[STATES.air_light2]	= hurtbox_knifer_air_light_2;
 image_xscale = 1;
 image_yscale = 1;
 
-hitbox_data[STATES.light]		= new HitboxData(hitbox_knifer_light,2,25,5,5,3,0,0,false);
+hitbox_data[STATES.light]		= new HitboxData(hitbox_knifer_light,3,25,5,5,3,0,0,false);
 hitbox_data[STATES.light2]		= new HitboxData(hitbox_knifer_light_2,6,45,5,1,8,0,0,false);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_knifer_heavy,8,100,4,8,5,0,1,false);
-hitbox_data[STATES.special]		= new HitboxData(hitbox_knifer_special,3,20,7,5,5,0,0,false,,1);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_knifer_heavy,9,100,4,8,5,0,1,false);
+hitbox_data[STATES.special]		= new HitboxData(hitbox_knifer_special,2,20,7,3,3,0,0,false,,1);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,4,40,5,3,4,0,0,false,function(){yadd-=4});
 hitbox_data[STATES.air_light2]	= new HitboxData(hitbox_fighter_air_light,3,30,5,3,4,0,0,false,function(){yadd-=4});
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,90,10,3,5,0,0,false);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,4,20,5,3,5,0,0,false);
-hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,180,20,3,3,1,false,true);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,100,180,3,3,1,false,true);
+
 
 function create_butterflies(margin){
 	for(var xx=bbox_left; xx <= bbox_right; xx += margin)
@@ -195,38 +196,37 @@ arr_state_functions[STATES.special] = function(){
 	xadd = approach(xadd,slide_fric,0);
 	yadd = 0;
 	
-	if(reached_frame(4)){
+	if(reached_frame(2)){
 		update_dir();
 		teleport(400);
 		image_index++;
 	}
 	
 	//trans out
-	if(reached_frame(6) and !(input.is_pressed(INPUT.light_down) or input.is_pressed(INPUT.heavy_down)))
+	if(reached_frame(4) and !(input.is_pressed(INPUT.light_down) or input.is_pressed(INPUT.heavy_down)))
 		change_state(STATES.idle);
 	
 	//start spin
-	if(reached_frame(7)) afterimage(6,15);
+	if(reached_frame(5)) afterimage(6,15);
 	
 	//hitbox 2,3
-	if(reached_frame(8) or reached_frame(9))
+	if(reached_frame(6) or reached_frame(7))
 	{
 		create_hitbox(hitbox_data[STATES.special]);
 	}
 	
-	
 	//slide while spinning
-	if(image_index >= 7)
+	if(image_index >= 5)
 	{
 		update_dir();
-		xadd = 6 * dir * __move_mult;
+		xadd = 7 * dir * __move_mult;
 	}
 	
 	//stop or loop
 	if(anim_done){
 		
 		if(input.is_pressed(INPUT.light_down) or input.is_pressed(INPUT.heavy_down)) and __move_mult > 0.2{
-			image_index = 7;
+			image_index = 5;
 			__move_mult = approach(__move_mult,0.2,0);
 			afterimage(floor(6 * __move_mult) ,15 * floor(map_value(1-__move_mult,0,1,1,2)))
 			image_speed *= 0.7;

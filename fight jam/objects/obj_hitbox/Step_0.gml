@@ -79,7 +79,6 @@ else
 			_col.parent.hit(damage,knockback_x,knockback_y,stun_duration,hitpause,false);
 			_nme.xadd = 0;
 			_nme.yadd = 0;
-			//_nme.is_parried = true;
 			
 			//remember target
 			array_insert(arr_hits,0,_col);

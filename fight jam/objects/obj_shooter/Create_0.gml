@@ -60,7 +60,7 @@ for(var i=0; i < STATES.max; i++){
 //data
 hitbox_data = array_create(STATES.max,-1)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_shooter_light,2,25,6,3,5,0,0,false);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_shooter_heavy,8,65,15,4,9,0,1,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_shooter_heavy,7,65,15,5,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_shooter_special,8,40,10,12,7,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_shooter_air_light,4,28,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_shooter_air_heavy,12,40,10,3,5,0,0,false);
@@ -184,5 +184,26 @@ arr_state_functions[STATES.teleport] = function()
 		if(is_grounded())
 			change_state(STATES.idle)
 	}
+}
+arr_state_functions[STATES.light] = function(){
+	
+	if(state_changed){
+		xadd += dir * 5
+	}
+	
+	xadd = approach(xadd,ground_fric,0);
+	yadd = 0;
+	
+	//trans to special
+	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
+		change_state(STATES.special)
+	
+	//link to heavy
+	if(image_index >= 3 and input.is_pressed(INPUT.heavy)){
+		change_state(STATES.heavy);
+	}
+	
+	if(anim_done)
+		change_state(STATES.idle)
 }
 

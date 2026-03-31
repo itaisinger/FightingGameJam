@@ -9,7 +9,7 @@ draw_set_color(c_white)
 with(obj_character) draw_sprite_ext(hurtbox,image_index,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 with(obj_hitbox) draw_self();
 draw_set_font(font_announce_small)
-with(obj_gameplay_object) draw_text(x,y-100,yadd);
+with(obj_gameplay_object) draw_text(x,y-100,string(hitpause_remain) + ", " + string(stun_remain));
 
 try{ 
 	mask_index = obj_character.mask_index;

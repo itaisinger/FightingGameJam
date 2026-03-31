@@ -129,13 +129,13 @@ mask_index = spr_fighter_idle
 
 /// ATTACKS DATA (overrided in different characters)
 hitbox_data = array_create(STATES.max,-1)
-hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,45,5,2,4,0,0,false);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,100,15,6,9,0,1,false);
+hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,45,5,3,4,0,0,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,100,15,5,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,60,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,90,10,3,5,0,0,false);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,4,20,5,3,5,0,0,false);
-hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,100,180,3,3,0,false,true);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,100,180,3,3,1,false,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
 
@@ -155,10 +155,10 @@ for(var i=0; i < STATES.max; i++){
 arr_state_functions[STATES.light] = function(){
 	
 	if(state_changed){
-		xadd += dir * 2
+		xadd += dir * 0.0;
 	}
 	
-	xadd = approach(xadd,ground_fric,0);
+	xadd = approach(xadd,slide_fric,0);
 	yadd = 0;
 	
 	//trans to special
@@ -169,6 +169,7 @@ arr_state_functions[STATES.light] = function(){
 	if(image_index >= 2 and input.is_pressed(INPUT.heavy)){
 		change_state(STATES.heavy);
 		image_index++;
+		xadd += 3 * dir;
 	}
 	
 	if(anim_done)
@@ -186,8 +187,10 @@ arr_state_functions[STATES.heavy] = function(){
 	xadd = approach(xadd,slide_fric,0);
 	yadd = 0;
 	
-	if(is_hit_success() and input.is_pressed(INPUT.up))
+	if(is_hit_success() and input.is_pressed(INPUT.up)){
 		change_state(STATES.jump_squat);
+		image_index += 0.5;
+	}
 		
 	
 	if(anim_done)
