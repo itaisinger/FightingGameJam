@@ -1,7 +1,7 @@
 // Inherit the parent event
 event_inherited();
 
-max_hp = 80;
+max_hp *= 0.9;
 hp = max_hp;
 ground_fric *= 1.3
 slide_fric *= 1.8
@@ -338,9 +338,9 @@ arr_state_functions[STATES.teleport] = function()
 }
 arr_state_functions[STATES.echo] = function(){
 	
-	//consume charge
-	if(state_changed)
-		echo_charges_remain--;
+	////consume charge
+	//if(state_changed)
+	//	echo_charges_remain--;
 	
 	yadd = 0;
 	xadd = approach(xadd,slide_fric,0)

@@ -25,7 +25,7 @@ else {
 }
 
 //kombo break teleport
-if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges_remain >= echo_tp_cost){
+if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges_remain >= echo_tp_cost and state != STATES.teleport){
 	
 	if (tp_x != -1){
 		combo_break();
@@ -33,7 +33,7 @@ if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges
 	else
 		play_sfx(sfx_error);
 }
-  
+
 //hitpause
 if(hitpause_remain > 0){
 	image_speed_prev = max(image_speed_prev,image_speed);
@@ -60,7 +60,6 @@ if(state_count < turnaround_grace_length)
 {
 	update_dir();
 }
-
 
 anim_done = false;
 image_index_prev = image_index;

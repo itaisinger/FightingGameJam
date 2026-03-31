@@ -52,7 +52,7 @@ states_hurtboxes[STATES.air_light]	= hurtbox_skate_air_light;
 states_hurtboxes[STATES.air_heavy]	= hurtbox_skate_air_heavy;
 states_hurtboxes[STATES.air_special]= hurtbox_skate_air_special;
 
-pogo = function(){yadd = -jumpforce_y}
+pogo = function(){yadd = -jumpforce_y*0.7}
 
 var names = variable_instance_get_names(id);
 for(var i = 0; i < array_length(names); i++){
@@ -73,7 +73,7 @@ hitbox_data[STATES.special]		= new HitboxData(hitbox_skate_special,8,40,10,12,7,
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_skate_air_light,4,25,5,3,7,0,0,false,pogo);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_skate_air_heavy,12,40,10,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_skate_parry,1,30,130,3,5,1,0,true);
-hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,1.5,20,20,3,5,0,1,false);
+hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,1.4,15,20,5,5,0,1,false);
 
 arr_state_functions[STATES.idle] = function(){
 	
@@ -273,7 +273,7 @@ arr_state_functions[STATES.air_special] = function(){
 		__grav_multx = 1;
 	}
 	
-	if(floor(image_index) != floor(image_index_prev))
+	if(floor(image_index) != floor(image_index_prev))// and floor(image_index)%2 == 0)
 	{
 		create_hitbox(hitbox_data[STATES.air_special]);
 		inst_hitbox.image_index = image_index;
@@ -376,6 +376,27 @@ arr_state_functions[STATES.dead] = function(){
 		image_index = image_number-0.1;
 		image_speed = 0;
 	}
+}
+arr_state_functions[STATES.light] = function(){
+	
+	if(state_changed){
+		xadd += dir * 2
+	}
+	
+	xadd = approach(xadd,slide_fric,0);
+	yadd = 0;
+	
+	//trans to special
+	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
+		change_state(STATES.special)
+	
+	//link to heavy
+	if(image_index >= 2 and input.is_pressed(INPUT.heavy)){
+		change_state(STATES.heavy);
+	}
+	
+	if(anim_done)
+		change_state(STATES.idle)
 }
 
 function collision(){

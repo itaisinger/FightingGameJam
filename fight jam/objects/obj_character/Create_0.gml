@@ -390,9 +390,9 @@ arr_state_functions[STATES.air] = function(){
 }
 arr_state_functions[STATES.echo] = function(){
 	
-	//consume charge
-	if(state_changed)
-		echo_charges_remain--;
+	////consume charge
+	//if(state_changed)
+	//	echo_charges_remain--;
 	
 	yadd = 0;
 	xadd = approach(xadd,slide_fric,0)
