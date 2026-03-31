@@ -25,14 +25,14 @@ states_sprites[STATES.echo]			= spr_knifer_echo;
 //states_sprites[STATES.dodge]		= spr_knifer_dodge;
 states_sprites[STATES.stun]			= spr_knifer_hurt;
 states_sprites[STATES.air_stun]		= spr_knifer_hurt;
-//states_sprites[STATES.dead]		= spr_knifer_dead;
+states_sprites[STATES.dead]		= spr_knifer_dead;
 states_sprites[STATES.parry]		= spr_knifer_parry;
 states_sprites[STATES.teleport]		= spr_knifer_tp;
 states_sprites[STATES.special]		= spr_knifer_special;
 states_sprites[STATES.land]			= spr_knifer_land;
 states_sprites[STATES.air_light]	= spr_knifer_air_light;
 states_sprites[STATES.air_light2]	= spr_knifer_air_light_2;
-//states_sprites[STATES.air_heavy]	= spr_knifer_air_heavy;
+states_sprites[STATES.air_heavy]	= spr_knifer_air_heavy;
 //states_sprites[STATES.air_special]	= spr_knifer_air_special;
 
 hurtbox = spr_knifer_idle;
@@ -55,7 +55,7 @@ states_hurtboxes[STATES.special]	= hurtbox_knifer_special;
 states_hurtboxes[STATES.land]		= hurtbox_knifer_land;
 states_hurtboxes[STATES.air_light]	= hurtbox_knifer_air_light;
 states_hurtboxes[STATES.air_light2]	= hurtbox_knifer_air_light_2;
-//states_hurtboxes[STATES.air_heavy]	= hurtbox_knifer_air_heavy;
+states_hurtboxes[STATES.air_heavy]	= hurtbox_knifer_air_heavy;
 //states_hurtboxes[STATES.air_special]= hurtbox_knifer_air_special;
 
 image_xscale = 1;
@@ -67,10 +67,9 @@ hitbox_data[STATES.heavy]		= new HitboxData(hitbox_knifer_heavy,9,100,4,8,5,0,1,
 hitbox_data[STATES.special]		= new HitboxData(hitbox_knifer_special,2,20,7,3,3,0,0,false,,1);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_knifer_air_light,4,40,5,3,4,0,0,false,function(){yadd = -4});
 hitbox_data[STATES.air_light2]	= new HitboxData(hitbox_knifer_air_light_2,3,30,5,3,4,0,0,false,function(){yadd = -4});
-//hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_knifer_air_heavy,10,90,10,3,5,0,0,false);
+hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_knifer_air_heavy,5,90,10,3,5,0,0,false);
 //hitbox_data[STATES.air_special]	= new HitboxData(hitbox_knifer_air_special,4,20,5,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_knifer_parry,1,100,180,3,3,1,false,true);
-
 
 function create_butterflies(margin){
 	for(var xx=bbox_left; xx <= bbox_right; xx += margin)
@@ -79,7 +78,7 @@ function create_butterflies(margin){
 		{
 			var _inst = instance_create_depth(xx,yy,depth-1,obj_butterfly);
 			_inst.dir = xx >= x ? 1 : -1;
-			_inst._create();
+			_inst._create(self);
 		}
 	}
 }
@@ -124,9 +123,6 @@ function combo_break(){
 
 arr_state_functions[STATES.light] = function(){
 	
-	image_xscale = 1.2;
-	image_yscale = 1.2;
-	
 	if(state_changed) xadd -= dir * 4;
 	
 	if(reached_frame(1)){
@@ -142,8 +138,8 @@ arr_state_functions[STATES.light] = function(){
 	
 	//link to light 2
 	if(image_index >= 2 and input.is_pressed(INPUT.light)){
-		change_state(STATES.light2);
 		teleport(70);
+		change_state(STATES.light2);
 	}
 	
 	if(anim_done)
@@ -365,9 +361,6 @@ arr_state_functions[STATES.echo] = function(){
 }
 arr_state_functions[STATES.air_light] = function(){
 	
-	image_xscale = 1.2;
-	image_yscale = 1.2;
-	
 	//trans to special
 	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
 		change_state(STATES.air_special)
@@ -405,9 +398,6 @@ arr_state_functions[STATES.air_light] = function(){
 }
 arr_state_functions[STATES.air_light2] = function(){
 	
-	image_xscale = 1.2;
-	image_yscale = 1.2;
-	
 	//trans to special
 	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
 		change_state(STATES.air_special)
@@ -436,6 +426,85 @@ arr_state_functions[STATES.air_light2] = function(){
 		xadd += 3 * dir
 		//with(inst_hitbox) arr_hits = [];
 	}
+	
+	if(anim_done)
+		change_state(STATES.air)
+	
+	//land
+	if(is_grounded())
+	{
+		if is_hit_success()
+			change_state(STATES.idle)
+		else
+			change_state(STATES.land);
+	}
+}
+arr_state_functions[STATES.dead] = function(){
+	
+	if(state_changed){
+		
+		//left
+		var _inst = instance_create_depth(bbox_left,bbox_bottom,depth,obj_knife);
+		_inst.xadd = abs(xadd+2)*-1;
+		_inst.yadd = min(yadd*1.3,-3);
+		_inst.floor_y = floor_y
+		_inst.is_echo = is_echo;
+		_inst.dir *= -1;
+		_inst.spin_spd *= random_range(0.8,1.2)
+		
+		//right
+		var _inst = instance_create_depth(bbox_right,bbox_top,depth,obj_knife);
+		_inst.xadd = abs(xadd+2);
+		_inst.yadd = min(yadd*1.3,-3);
+		_inst.floor_y = floor_y
+		_inst.is_echo = is_echo;
+		_inst.spin_spd *= random_range(0.8,1.2)
+	}
+	
+	if(is_grounded())
+	{
+		xadd = approach(xadd,slide_fric,0);
+		yadd = 0;
+		image_index = image_number-0.1;
+	}
+	else
+	{
+		xadd = approach(xadd,air_fric*0.8,0);
+		yadd += stun_grav*0.8	
+		image_index = min(image_index,image_number-1.1 - 1*(yadd<0));
+	}
+	
+	if(anim_done){
+		image_index = image_number-0.1;
+		image_speed = 0;
+	}
+}
+arr_state_functions[STATES.air_heavy] = function(){
+	
+	if(state_changed)
+	{
+		yadd = -jumpforce_y/2;
+		xadd -= 4*dir;
+	}
+	
+	xadd = approach(xadd,air_fric*0.5,0);
+	yadd += grav*0.9;
+	
+	if(reached_frame(2))
+	{
+		yadd = -jumpforce_y/2;
+		xadd = 9*dir
+	}
+	
+	if(floor(image_index) != floor(image_index_prev) and image_index < 5)// and floor(image_index)%2 == 0)
+	{
+		create_hitbox(hitbox_data[STATES.air_heavy]);
+		inst_hitbox.image_index = image_index;
+	}
+	
+	//trans to special
+	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
+		change_state(STATES.air_special)
 	
 	if(anim_done)
 		change_state(STATES.air)

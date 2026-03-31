@@ -14,7 +14,6 @@ if(!is_echo){
 	//save to echo
 	array_insert(echo_record_arr,-1,input);
 	if (array_length(echo_record_arr) > echo_size) array_delete(echo_record_arr,0,1);
-
 }
 else {
 	input = echo_record_arr[frames_lived]

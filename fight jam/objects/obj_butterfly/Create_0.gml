@@ -1,6 +1,6 @@
 
-function _create(){
-	if(!place_meeting(x,y,obj_knifer)){
+function _create(parent){
+	if(!place_meeting(x,y,parent)){
 		instance_destroy();
 		exit;
 	}
