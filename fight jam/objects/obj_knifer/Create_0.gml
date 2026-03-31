@@ -25,8 +25,8 @@ states_sprites[STATES.echo]			= spr_knifer_echo;
 //states_sprites[STATES.dodge]		= spr_knifer_dodge;
 states_sprites[STATES.stun]			= spr_knifer_hurt;
 states_sprites[STATES.air_stun]		= spr_knifer_hurt;
-//states_sprites[STATES.dead]		= spr_fighter_dead;
-//states_sprites[STATES.parry]		= spr_knifer_parry;
+//states_sprites[STATES.dead]		= spr_knifer_dead;
+states_sprites[STATES.parry]		= spr_knifer_parry;
 states_sprites[STATES.teleport]		= spr_knifer_tp;
 states_sprites[STATES.special]		= spr_knifer_special;
 states_sprites[STATES.land]			= spr_knifer_land;
@@ -39,7 +39,7 @@ hurtbox = spr_knifer_idle;
 //states_hurtboxes = [];
 states_hurtboxes[STATES.idle]		= hurtbox_knifer_idle;
 states_hurtboxes[STATES.jump_squat]	= hurtbox_knifer_jump_squat;
-//states_hurtboxes[STATES.walk]		= hurtbox_fighter_walk;
+//states_hurtboxes[STATES.walk]		= hurtbox_knifer_walk;
 states_hurtboxes[STATES.light]		= hurtbox_knifer_light;
 states_hurtboxes[STATES.light2]		= hurtbox_knifer_idle;
 states_hurtboxes[STATES.heavy]		= hurtbox_knifer_heavy;
@@ -48,9 +48,9 @@ states_hurtboxes[STATES.echo]		= hurtbox_knifer_echo;
 //states_hurtboxes[STATES.dodge]		= hurtbox_knifer_dodge;
 states_hurtboxes[STATES.stun]		= hurtbox_knifer_hurt;
 states_hurtboxes[STATES.air_stun]	= hurtbox_knifer_hurt;
-//states_hurtboxes[STATES.dead]		= hurtbox_fighter_dead;
-//states_hurtboxes[STATES.parry]		= hurtbox_knifer_parry;
-states_hurtboxes[STATES.teleport]	= hurtbox_fighter_tp;
+//states_hurtboxes[STATES.dead]		= hurtbox_knifer_dead;
+states_hurtboxes[STATES.parry]		= hurtbox_knifer_parry;
+states_hurtboxes[STATES.teleport]	= hurtbox_knifer_tp;
 states_hurtboxes[STATES.special]	= hurtbox_knifer_special;
 states_hurtboxes[STATES.land]		= hurtbox_knifer_land;
 states_hurtboxes[STATES.air_light]	= hurtbox_knifer_air_light;
@@ -65,11 +65,11 @@ hitbox_data[STATES.light]		= new HitboxData(hitbox_knifer_light,3,25,5,5,3,0,0,f
 hitbox_data[STATES.light2]		= new HitboxData(hitbox_knifer_light_2,6,45,5,1,8,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_knifer_heavy,9,100,4,8,5,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_knifer_special,2,20,7,3,3,0,0,false,,1);
-hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,4,40,5,3,4,0,0,false,function(){yadd-=4});
-hitbox_data[STATES.air_light2]	= new HitboxData(hitbox_fighter_air_light,3,30,5,3,4,0,0,false,function(){yadd-=4});
-hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,90,10,3,5,0,0,false);
-hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,4,20,5,3,5,0,0,false);
-hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,100,180,3,3,1,false,true);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_knifer_air_light,4,40,5,3,4,0,0,false,function(){yadd = -4});
+hitbox_data[STATES.air_light2]	= new HitboxData(hitbox_knifer_air_light_2,3,30,5,3,4,0,0,false,function(){yadd = -4});
+//hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_knifer_air_heavy,10,90,10,3,5,0,0,false);
+//hitbox_data[STATES.air_special]	= new HitboxData(hitbox_knifer_air_special,4,20,5,3,5,0,0,false);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_knifer_parry,1,100,180,3,3,1,false,true);
 
 
 function create_butterflies(margin){
@@ -123,6 +123,9 @@ function combo_break(){
 }
 
 arr_state_functions[STATES.light] = function(){
+	
+	image_xscale = 1.2;
+	image_yscale = 1.2;
 	
 	if(state_changed) xadd -= dir * 4;
 	
@@ -362,13 +365,16 @@ arr_state_functions[STATES.echo] = function(){
 }
 arr_state_functions[STATES.air_light] = function(){
 	
+	image_xscale = 1.2;
+	image_yscale = 1.2;
+	
 	//trans to special
 	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
 		change_state(STATES.air_special)
 	
 	if(reached_frame(1)){
-		yadd = min(-5,yadd-5);
-		xadd += 3 * dir
+		yadd = min(-4,yadd-4);
+		xadd += 1 * dir
 	}
 	
 	xadd = approach(xadd,air_fric,0);
@@ -398,6 +404,9 @@ arr_state_functions[STATES.air_light] = function(){
 	}
 }
 arr_state_functions[STATES.air_light2] = function(){
+	
+	image_xscale = 1.2;
+	image_yscale = 1.2;
 	
 	//trans to special
 	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))

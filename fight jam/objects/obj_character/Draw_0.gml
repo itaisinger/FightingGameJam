@@ -37,3 +37,6 @@ if(afterimage_remain>0 and current_time%afterimage_diff == 0){
 		image_yscale = other.image_yscale
 	}
 }
+
+image_xscale = 1;
+image_yscale = 1;

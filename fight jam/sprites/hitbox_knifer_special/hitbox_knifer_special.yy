@@ -39,8 +39,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"hitbox",
-    "path":"folders/Sprites/fighters/knifer/hitbox.yy",
+    "name":"hurtbox",
+    "path":"folders/Sprites/fighters/knifer/hurtbox.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
