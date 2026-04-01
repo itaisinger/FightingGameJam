@@ -133,7 +133,7 @@ arr_state_functions[STATES.idle] = function(){
 	}
 	
 	//capture echo
-	if(input.is_pressed(INPUT.echo) and echo_charges_remain > 0 and echo_saved == -1)
+	if(input.is_pressed(INPUT.echo) and echo_saved == -1)
 		change_state(STATES.echo);
 }
 arr_state_functions[STATES.walk] = function(){
@@ -193,7 +193,7 @@ arr_state_functions[STATES.walk] = function(){
 	}
 	
 	//capture echo
-	if(input.is_pressed(INPUT.echo) and echo_charges_remain > 0 and echo_saved == -1)
+	if(input.is_pressed(INPUT.echo) and echo_saved == -1)
 			change_state(STATES.echo);
 			
 	//light

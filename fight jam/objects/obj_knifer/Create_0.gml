@@ -10,6 +10,7 @@ landing_lag = 3;
 jumpforce_y *= 0.9
 jumpforce_x *= 1.3
 __lag_remain = 0;
+dodge_step_max *= 1.3;
 
 name = "MINAMI NO KAZE"
 win_sfx = sfx_johnny_wins;
@@ -22,10 +23,10 @@ states_sprites[STATES.light2]		= spr_knifer_light_2;
 states_sprites[STATES.heavy]		= spr_knifer_heavy;
 states_sprites[STATES.air]			= spr_knifer_air;
 states_sprites[STATES.echo]			= spr_knifer_echo;
-//states_sprites[STATES.dodge]		= spr_knifer_dodge;
+states_sprites[STATES.dodge]		= spr_knifer_dodge;
 states_sprites[STATES.stun]			= spr_knifer_hurt;
 states_sprites[STATES.air_stun]		= spr_knifer_hurt;
-states_sprites[STATES.dead]		= spr_knifer_dead;
+states_sprites[STATES.dead]			= spr_knifer_dead;
 states_sprites[STATES.parry]		= spr_knifer_parry;
 states_sprites[STATES.teleport]		= spr_knifer_tp;
 states_sprites[STATES.special]		= spr_knifer_special;
@@ -45,7 +46,7 @@ states_hurtboxes[STATES.light2]		= hurtbox_knifer_idle;
 states_hurtboxes[STATES.heavy]		= hurtbox_knifer_heavy;
 states_hurtboxes[STATES.air]		= hurtbox_knifer_air;
 states_hurtboxes[STATES.echo]		= hurtbox_knifer_echo;
-//states_hurtboxes[STATES.dodge]		= hurtbox_knifer_dodge;
+states_hurtboxes[STATES.dodge]		= hurtbox_knifer_dodge;
 states_hurtboxes[STATES.stun]		= hurtbox_knifer_hurt;
 states_hurtboxes[STATES.air_stun]	= hurtbox_knifer_hurt;
 //states_hurtboxes[STATES.dead]		= hurtbox_knifer_dead;
@@ -517,4 +518,18 @@ arr_state_functions[STATES.air_heavy] = function(){
 		else
 			change_state(STATES.land);
 	}
+}
+arr_state_functions[STATES.dodge] = function(){
+	
+	if(state_changed)
+	{
+		xadd = dodge_step_max*dir;
+	}
+	
+	xadd = approach(xadd,slide_fric*0.5,0);
+	//xadd = dir*dodge_step_remain;
+	//dodge_step_remain = approach(dodge_step_remain,1,0);
+	
+	if(anim_done)
+		change_state(STATES.idle);
 }

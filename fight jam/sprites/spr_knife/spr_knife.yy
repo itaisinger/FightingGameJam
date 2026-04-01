@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"fight jam",
-    "path":"fight jam.yyp",
+    "name":"vfx",
+    "path":"folders/Sprites/vfx.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

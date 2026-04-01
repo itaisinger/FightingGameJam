@@ -70,7 +70,6 @@ hitbox_data[STATES.air_special]	= new HitboxData(hitbox_spyke_air_special,4,20,5
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_spyke_parry,1,100,180,3,3,1,false,true);
 
 // Moves ovveride
-
 arr_state_functions[STATES.air_special] = function(){
 	
 	if(state_changed)

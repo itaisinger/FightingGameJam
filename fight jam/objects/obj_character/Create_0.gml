@@ -211,7 +211,7 @@ arr_state_functions[STATES.idle] = function(){
 	}
 	
 	//capture echo
-	if(input.is_pressed(INPUT.echo) and echo_charges_remain > 0 and echo_saved == -1)
+	if(input.is_pressed(INPUT.echo) and echo_saved == -1)
 		change_state(STATES.echo);
 }
 arr_state_functions[STATES.jump_squat] = function(){
@@ -287,7 +287,7 @@ arr_state_functions[STATES.walk] = function(){
 	}
 	
 	//capture echo
-	if(input.is_pressed(INPUT.echo) and echo_charges_remain > 0 and echo_saved == -1)
+	if(input.is_pressed(INPUT.echo) and echo_saved == -1)
 		change_state(STATES.echo);
 		
 	
@@ -417,8 +417,6 @@ arr_state_functions[STATES.dodge] = function(){
 	}
 	
 	xadd = approach(xadd,slide_fric*0.5,0);
-	//xadd = dir*dodge_step_remain;
-	//dodge_step_remain = approach(dodge_step_remain,1,0);
 	
 	if(anim_done)
 		change_state(STATES.idle);
@@ -791,6 +789,7 @@ function create_echo(){
 	_inst.make_echo(echo_saved);
 	_inst.is_p1 = is_p1;
 	echo_saved = -1;
+	echo_charges_remain--;
 }
 function make_echo(input_arr){
 	echo_saved = -1;

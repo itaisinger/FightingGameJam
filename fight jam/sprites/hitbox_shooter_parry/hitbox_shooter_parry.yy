@@ -14,7 +14,7 @@
   "frames":[
     {"$GMSpriteFrame":"v1","%Name":"47ade92d-13c4-45d5-8d4c-946526d8eb06","name":"47ade92d-13c4-45d5-8d4c-946526d8eb06","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"eb4140e2-89d2-4600-b9bb-b668ddd71a6c","name":"eb4140e2-89d2-4600-b9bb-b668ddd71a6c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"f8fba5b5-7476-4bad-8ba5-112b53ae3a88","name":"f8fba5b5-7476-4bad-8ba5-112b53ae3a88","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"66d01a2b-44ca-4775-8c24-0411aff035cf","name":"66d01a2b-44ca-4775-8c24-0411aff035cf","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -63,7 +63,7 @@
     },
     "name":"hitbox_shooter_parry",
     "playback":1,
-    "playbackSpeed":5.0,
+    "playbackSpeed":6.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
@@ -79,8 +79,8 @@
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"eb4140e2-89d2-4600-b9bb-b668ddd71a6c","path":"sprites/hitbox_shooter_parry/hitbox_shooter_parry.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"3214c69d-1e53-421f-8a39-b03752598615","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f8fba5b5-7476-4bad-8ba5-112b53ae3a88","path":"sprites/hitbox_shooter_parry/hitbox_shooter_parry.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"36401b31-7875-4d95-a05a-87ddaed99ff5","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"66d01a2b-44ca-4775-8c24-0411aff035cf","path":"sprites/hitbox_shooter_parry/hitbox_shooter_parry.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"28d32b5f-0c13-4a7a-b8ea-c81bde964cfd","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
