@@ -698,6 +698,7 @@ function change_state(new_state){
 	image_speed = 1;
 	scalex = 1;
 	scaley = 1;
+	shadow_w = 1;
 	image_index_prev = 0;
 	image_speed_prev = 1;
 	hurtbox = states_hurtboxes[new_state];

@@ -66,7 +66,7 @@ hitbox_data[STATES.light]		= new HitboxData(hitbox_knifer_light,3,25,5,5,3,0,0,f
 hitbox_data[STATES.light2]		= new HitboxData(hitbox_knifer_light_2,6,45,5,1,8,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_knifer_heavy,9,100,4,8,5,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_knifer_special,2,20,7,3,3,0,0,false,,1);
-hitbox_data[STATES.air_light]	= new HitboxData(hitbox_knifer_air_light,4,40,5,3,4,0,0,false,function(){yadd = -4});
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_knifer_air_light,4,40,5,3,4,0,0,false,	function(){yadd = -4});
 hitbox_data[STATES.air_light2]	= new HitboxData(hitbox_knifer_air_light_2,3,30,5,3,4,0,0,false,function(){yadd = -4});
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_knifer_air_heavy,5,90,10,3,5,0,0,false);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_knifer_air_special,3,15,4,1,3,0,0,false,,1);
@@ -363,6 +363,9 @@ arr_state_functions[STATES.echo] = function(){
 }
 arr_state_functions[STATES.air_light] = function(){
 	
+	scalex = 1.2;
+	scaley = 1.2;
+	
 	//trans to special
 	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
 		change_state(STATES.air_special)
@@ -579,6 +582,7 @@ arr_state_functions[STATES.walk] = function(){
 	
 	scalex = 0.9;
 	scaley = 0.8;
+	shadow_w = 1.4;
 	
 	yadd = 0;
 	xadd_dest = dir * walkspd;
