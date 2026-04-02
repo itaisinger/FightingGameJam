@@ -2,7 +2,7 @@ event_inherited();
 
 /// TOP LOGIC
 is_echo = false;
-max_hp = 120;
+max_hp = 130;
 hp = max_hp;
 dir = 1;
 echo_charges_max = 3;
@@ -86,9 +86,11 @@ frames_lived = 0;		//used by echos to count their current step
 
 /// TP
 tp_x = -1;
-echo_tp_cost = 1;
+echo_tp_cost = 2;
 
 /// ANIMATION AND VISUALS
+scalex = 1;
+scaley = 1;
 anim_done = false;
 image_speed_prev = 1;
 image_index_prev = 0;
@@ -694,6 +696,8 @@ function change_state(new_state){
 	sprite_index = states_sprites[new_state];
 	image_index = 0;
 	image_speed = 1;
+	scalex = 1;
+	scaley = 1;
 	image_index_prev = 0;
 	image_speed_prev = 1;
 	hurtbox = states_hurtboxes[new_state];

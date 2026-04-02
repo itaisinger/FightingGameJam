@@ -6,7 +6,7 @@ hp = max_hp;
 
 xadd = 0;
 yadd = 0;
-walkspd = 7;
+walkspd = 6.5;
 grav = 0.6;
 stun_grav = grav * 0.4;
 air_drift_spd = walkspd*0.03;

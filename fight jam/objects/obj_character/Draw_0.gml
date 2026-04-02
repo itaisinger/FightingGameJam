@@ -6,7 +6,8 @@ draw_reset();
 //shadow
 draw_sprite_ext(spr_fighter_shadow,0,x,floor_y,image_xscale,image_yscale,0,c_white,0.2);
 
-image_xscale = dir;
+image_xscale = dir*scalex;
+image_yscale = scaley;
 if(is_echo) image_alpha = ECHO_ALPHA;
 
 // shake

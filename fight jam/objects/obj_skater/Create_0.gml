@@ -1,7 +1,7 @@
 // Inherit the parent event
 event_inherited();
 
-max_hp = 80;
+max_hp *= 0.8;
 hp = max_hp;
 ground_fric *= 0.1
 slide_fric *= 0.5

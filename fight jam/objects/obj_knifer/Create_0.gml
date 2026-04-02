@@ -17,7 +17,7 @@ win_sfx = sfx_johnny_wins;
 
 states_sprites[STATES.idle]			= spr_knifer_idle;
 states_sprites[STATES.jump_squat]	= spr_knifer_jump_squat;
-//states_sprites[STATES.walk]			= spr_knifer_walk;
+states_sprites[STATES.walk]			= spr_knifer_walk;
 states_sprites[STATES.light]		= spr_knifer_light;
 states_sprites[STATES.light2]		= spr_knifer_light_2;
 states_sprites[STATES.heavy]		= spr_knifer_heavy;
@@ -57,7 +57,7 @@ states_hurtboxes[STATES.land]		= hurtbox_knifer_land;
 states_hurtboxes[STATES.air_light]	= hurtbox_knifer_air_light;
 states_hurtboxes[STATES.air_light2]	= hurtbox_knifer_air_light_2;
 states_hurtboxes[STATES.air_heavy]	= hurtbox_knifer_air_heavy;
-//states_hurtboxes[STATES.air_special]= hurtbox_knifer_air_special;
+states_hurtboxes[STATES.air_special]= hurtbox_knifer_air_special;
 
 image_xscale = 1;
 image_yscale = 1;
@@ -69,8 +69,8 @@ hitbox_data[STATES.special]		= new HitboxData(hitbox_knifer_special,2,20,7,3,3,0
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_knifer_air_light,4,40,5,3,4,0,0,false,function(){yadd = -4});
 hitbox_data[STATES.air_light2]	= new HitboxData(hitbox_knifer_air_light_2,3,30,5,3,4,0,0,false,function(){yadd = -4});
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_knifer_air_heavy,5,90,10,3,5,0,0,false);
-hitbox_data[STATES.air_special]	= new HitboxData(hitbox_knifer_air_special,4,15,4,1,3,0,0,false,,1);
-hitbox_data[STATES.air_special2]= new HitboxData(hitbox_knifer_air_special,7,40,7,-8,6,0,0,false);
+hitbox_data[STATES.air_special]	= new HitboxData(hitbox_knifer_air_special,3,15,4,1,3,0,0,false,,1);
+hitbox_data[STATES.air_special2]= new HitboxData(hitbox_knifer_air_special,7,40,7,-7,6,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_knifer_parry,1,100,180,3,3,1,false,true);
 
 function create_butterflies(margin){
@@ -574,4 +574,74 @@ arr_state_functions[STATES.air_special] = function(){
 	//done		
 	if(anim_done)
 		change_state(STATES.idle);
+}
+arr_state_functions[STATES.walk] = function(){
+	
+	scalex = 0.9;
+	scaley = 0.8;
+	
+	yadd = 0;
+	xadd_dest = dir * walkspd;
+	
+	//if moving fast, slow down. otherwise, snap to speed
+	if(abs(xadd) < abs(xadd_dest)) xadd = xadd_dest;
+	else xadd = approach(xadd,ground_fric,xadd_dest);
+	
+	//failsafe
+	if(!is_grounded()){
+		change_state(STATES.air);
+		return;
+	}
+	
+	//turn
+	if(input.is_pressed(INPUT.left) and dir == 1)
+	{
+		dir = -1;
+	}
+	else if(input.is_pressed(INPUT.right) and dir == -1)
+	{
+		dir = 1;
+	}
+	
+	//stop
+	if(!input.is_pressed(INPUT.right) and !input.is_pressed(INPUT.left))
+	{
+		change_state(STATES.idle);
+	}
+	
+	//jump
+	if(input.is_pressed(INPUT.up)) change_state(STATES.jump_squat);
+	
+	//dodge
+	if(input.is_pressed(INPUT.dodge))
+	{	
+		//dodge right
+		if(input.is_pressed(INPUT.right)){
+			dir = 1;
+			change_state(STATES.dodge);
+		}
+		
+		//dodge left
+		else if(input.is_pressed(INPUT.left)){
+			dir = -1;
+			change_state(STATES.dodge);
+		}
+			
+		//parry
+		else change_state(STATES.parry);	
+	}
+	
+	//capture echo
+	if(input.is_pressed(INPUT.echo) and echo_saved == -1)
+		change_state(STATES.echo);
+		
+	
+	//light
+	if(input.is_pressed(INPUT.light)) change_state(STATES.light);
+	
+	//heavy
+	if(input.is_pressed(INPUT.heavy)) change_state(STATES.heavy);
+
+	//special
+	if(input.is_pressed(INPUT.special)) change_state(STATES.special);
 }

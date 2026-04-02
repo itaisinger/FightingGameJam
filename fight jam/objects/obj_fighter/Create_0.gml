@@ -2,7 +2,7 @@ event_inherited();
 
 /// TOP LOGIC
 is_echo = false;
-max_hp = 120;
+max_hp *= 1.2;
 hp = max_hp;
 dir = 1;
 echo_charges_max = 3;

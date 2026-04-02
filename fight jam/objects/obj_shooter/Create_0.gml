@@ -3,7 +3,7 @@ event_inherited();
 
 name = "SHON SHMUPS"
 win_sfx = sfx_shon_wins;
-max_hp = 100;
+max_hp *= 1;
 hp = max_hp;
 
 states_sprites[STATES.idle]			= spr_shooter_idle;

@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"ost_heart",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":0,
+  "channelFormat":0,
+  "compression":3,
+  "compressionQuality":1,
+  "conversionMode":0,
+  "duration":116.38356,
+  "exportDir":"",
+  "name":"ost_heart",
+  "parent":{
+    "name":"ost",
+    "path":"folders/Sounds/ost.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"ost_heart.ogg",
+  "volume":1.0,
+}
