@@ -59,6 +59,7 @@ enum STATES{
 	air_light2,
 	air_heavy,
 	air_special,
+	air_special2,
 	stun,
 	air_stun,
 	echo,

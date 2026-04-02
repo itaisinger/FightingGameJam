@@ -34,7 +34,7 @@ states_sprites[STATES.land]			= spr_knifer_land;
 states_sprites[STATES.air_light]	= spr_knifer_air_light;
 states_sprites[STATES.air_light2]	= spr_knifer_air_light_2;
 states_sprites[STATES.air_heavy]	= spr_knifer_air_heavy;
-//states_sprites[STATES.air_special]	= spr_knifer_air_special;
+states_sprites[STATES.air_special]	= spr_knifer_air_special;
 
 hurtbox = spr_knifer_idle;
 //states_hurtboxes = [];
@@ -69,7 +69,8 @@ hitbox_data[STATES.special]		= new HitboxData(hitbox_knifer_special,2,20,7,3,3,0
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_knifer_air_light,4,40,5,3,4,0,0,false,function(){yadd = -4});
 hitbox_data[STATES.air_light2]	= new HitboxData(hitbox_knifer_air_light_2,3,30,5,3,4,0,0,false,function(){yadd = -4});
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_knifer_air_heavy,5,90,10,3,5,0,0,false);
-//hitbox_data[STATES.air_special]	= new HitboxData(hitbox_knifer_air_special,4,20,5,3,5,0,0,false);
+hitbox_data[STATES.air_special]	= new HitboxData(hitbox_knifer_air_special,4,15,4,1,3,0,0,false,,1);
+hitbox_data[STATES.air_special2]= new HitboxData(hitbox_knifer_air_special,7,40,7,-8,6,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_knifer_parry,1,100,180,3,3,1,false,true);
 
 function create_butterflies(margin){
@@ -530,6 +531,47 @@ arr_state_functions[STATES.dodge] = function(){
 	//xadd = dir*dodge_step_remain;
 	//dodge_step_remain = approach(dodge_step_remain,1,0);
 	
+	if(anim_done)
+		change_state(STATES.idle);
+}
+arr_state_functions[STATES.air_special] = function(){
+	
+	if(state_changed){
+		yadd -= 2.5;
+		xadd *= 0.6;
+	}
+	
+	if(reached_frame(2))
+	{
+		update_dir();
+		teleport(0,floor_y-y)
+		image_index++;
+	}
+	
+	if(reached_frame(6) or reached_frame(9))
+	{
+		create_hitbox(hitbox_data[STATES.air_special]);
+		xadd += 5 * dir;
+	}
+	
+	if(reached_frame(12))
+	{
+		create_hitbox(hitbox_data[STATES.air_special2]);
+		xadd -= 8 * dir;
+	}
+	
+	if(image_index <= 4)
+	{
+		yadd += grav * 0.8;
+		xadd = approach(xadd,air_fric*3,0);
+	}
+	else
+	{
+		yadd += grav;
+		xadd = approach(xadd,slide_fric*0.5,0);
+	}
+
+	//done		
 	if(anim_done)
 		change_state(STATES.idle);
 }

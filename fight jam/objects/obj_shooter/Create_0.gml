@@ -206,4 +206,42 @@ arr_state_functions[STATES.light] = function(){
 	if(anim_done)
 		change_state(STATES.idle)
 }
-
+arr_state_functions[STATES.air_light] = function(){
+	
+	if(state_changed)
+	{
+		__cancel = false;
+	}
+	
+	xadd = approach(xadd,air_fric,0);
+	yadd += grav;
+	
+	//trans to special
+	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
+		change_state(STATES.air_special)
+	
+	//link to heavy
+	if(image_index >= 3 and input.is_pressed(INPUT.heavy)){
+		change_state(STATES.air_heavy);
+		image_index += 2;
+	}
+	
+	if(is_hit_success() and !__cancel)
+	{
+		__cancel = true;
+		yadd += 2;
+	}
+		
+	
+	if(anim_done)
+		change_state(STATES.air)
+	
+	//land
+	if(is_grounded())
+	{
+		if is_hit_success()
+			change_state(STATES.idle)
+		else
+			change_state(STATES.land);
+	}
+}

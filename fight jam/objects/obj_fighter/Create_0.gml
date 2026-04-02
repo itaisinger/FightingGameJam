@@ -41,29 +41,6 @@ state = 0;
 state_prev = state;
 state_changed = false;
 state_count = 0;		//how many frames we are in this state
-//enum STATES{
-//	idle,
-//	walk,
-//	jump_squat,
-//	air,
-//	land,
-//	light,
-//	heavy,
-//	special,
-//	air_light,
-//	air_heavy,
-//	air_special,
-//	stun,
-//	air_stun,
-//	echo,
-//	dead,
-//	dodge,
-//	parry,
-//	teleport,
-	
-//	max,
-//}
-
 
 stun_remain = 0;
 
