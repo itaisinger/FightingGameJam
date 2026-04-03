@@ -14,7 +14,7 @@
   "frames":[
     {"$GMSpriteFrame":"v1","%Name":"47ade92d-13c4-45d5-8d4c-946526d8eb06","name":"47ade92d-13c4-45d5-8d4c-946526d8eb06","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"b66dac55-8261-4460-bd6a-2caa48b6d761","name":"b66dac55-8261-4460-bd6a-2caa48b6d761","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"da182141-4a7b-4761-ae15-6528102f6dbc","name":"da182141-4a7b-4761-ae15-6528102f6dbc","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"61714fa2-adca-4175-a0c1-9bfd69923831","name":"61714fa2-adca-4175-a0c1-9bfd69923831","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -63,7 +63,7 @@
     },
     "name":"spr_shooter_parry",
     "playback":1,
-    "playbackSpeed":5.0,
+    "playbackSpeed":6.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
@@ -79,8 +79,8 @@
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b66dac55-8261-4460-bd6a-2caa48b6d761","path":"sprites/spr_shooter_parry/spr_shooter_parry.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"485af6f8-6851-4cf8-b926-d12df4aa99a7","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"da182141-4a7b-4761-ae15-6528102f6dbc","path":"sprites/spr_shooter_parry/spr_shooter_parry.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"a6ddd097-c5d2-4731-86e6-ac0bc9a7210a","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"61714fa2-adca-4175-a0c1-9bfd69923831","path":"sprites/spr_shooter_parry/spr_shooter_parry.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"bddb97be-7a1e-4774-90f1-7bfe862b31e7","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

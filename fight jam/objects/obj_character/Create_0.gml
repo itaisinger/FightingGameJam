@@ -73,6 +73,7 @@ enum STATES{
 
 
 stun_remain = 0;
+is_parried = false;
 
 /// INPUT
 input = -1;		//holds the input object for the current frame.
@@ -705,6 +706,7 @@ function change_state(new_state){
 	image_speed_prev = 1;
 	hurtbox = states_hurtboxes[new_state];
 	afterimage_remain = 0;
+	is_parried = false;
 	
 	with(inst_hitbox) instance_destroy();
 	
@@ -718,7 +720,7 @@ function change_state(new_state){
 		combo_counter_damage = 0;	
 	}
 }
-function hit(damage,knockx,knocky,stun,hitpause,is_launch){
+function hit(damage,knockx,knocky,stun,hitpause,is_launch,is_parry){
 	
 	var _falloff = get_damage_falloff();
 	damage *= _falloff
@@ -770,6 +772,8 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 	
 	//shake ui
 	if(!is_echo) with(obj_ui) shake_hp(other.is_p1,damage);
+	
+	is_parried = is_parry;
 }
 function is_grounded()
 {	
@@ -781,7 +785,7 @@ function is_grounded()
 	return _ret;
 }
 function give_echo(){
-	echo_charges_remain++;
+	echo_charges_remain = min(echo_charges_remain+1,echo_charges_max);
 }
 function reached_frame(index) //return true if this is the first frame that we reached this sub image.
 {

@@ -24,7 +24,7 @@ else {
 }
 
 //kombo break teleport
-if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and !is_dead() and tp_cooldown<=0)
+if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and !is_dead() and tp_cooldown<=0 and !is_parried)
 {
 	tp_cooldown = 10;
 	
