@@ -540,6 +540,7 @@
     {"id":{"name":"spr_skater_hurt","path":"sprites/spr_skater_hurt/spr_skater_hurt.yy",},},
     {"id":{"name":"spr_skater_tp","path":"sprites/spr_skater_tp/spr_skater_tp.yy",},},
     {"id":{"name":"spr_spear","path":"sprites/spr_spear/spr_spear.yy",},},
+    {"id":{"name":"spr_spyke_air_1","path":"sprites/spr_spyke_air_1/spr_spyke_air_1.yy",},},
     {"id":{"name":"spr_spyke_air_heavy","path":"sprites/spr_spyke_air_heavy/spr_spyke_air_heavy.yy",},},
     {"id":{"name":"spr_spyke_air_light","path":"sprites/spr_spyke_air_light/spr_spyke_air_light.yy",},},
     {"id":{"name":"spr_spyke_air_special","path":"sprites/spr_spyke_air_special/spr_spyke_air_special.yy",},},
