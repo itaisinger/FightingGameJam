@@ -38,17 +38,26 @@ draw_sprite_part_ext(spr_hp,0, _sprite_w - _hp_prec * _sprite_w,0, _hp_prec * _s
 
 var _m = sprite_get_width(spr_echo_charge) + 1;
 var _echo_y = _y + 16;
+var _max_s = 3;
+
+if(current_time % 3 == 0) for(var i=0; i < 2; i++){
+	_shakex[i][1] = _shakex[i][0];
+	_shakex[i][0] = random_range(-min(_max_s,echo_shake_remain[i]),min(_max_s,echo_shake_remain[i]))
+	_shakey[i][1] = _shakey[i][0];
+	_shakey[i][0] = random_range(-min(_max_s,echo_shake_remain[i]),min(_max_s,echo_shake_remain[i]))
+}
+
 for(var i=0; i < _p.echo_charges_max; i++){
-	
+
 	var _xoff = (1+i)*_m + 7
-	
+
 	//empty
-	draw_sprite(spr_echo_charge,0, _w/2 + _xoff,_echo_y)
-	draw_sprite(spr_echo_charge,0, _w/2 - _xoff,_echo_y)
-	
+	draw_sprite(spr_echo_charge,0, _w/2 + _xoff + _shakex[1][1],_echo_y + _shakey[1][1])
+	draw_sprite(spr_echo_charge,0, _w/2 - _xoff + _shakey[0][1],_echo_y + _shakey[0][1])
+
 	//full
-	if(arr_players[1].echo_charges_remain > i) draw_sprite(spr_echo_charge,1, _w/2 + _xoff,_echo_y)
-	if(arr_players[0].echo_charges_remain > i) draw_sprite(spr_echo_charge,1, _w/2 - _xoff,_echo_y)
+	if(arr_players[1].echo_charges_remain > i) draw_sprite(spr_echo_charge,1, _w/2 + _xoff + _shakex[1][0],_echo_y + _shakey[1][0])
+	if(arr_players[0].echo_charges_remain > i) draw_sprite(spr_echo_charge,1, _w/2 - _xoff + _shakex[0][0],_echo_y + _shakey[0][0])
 }
 
 #endregion
@@ -77,6 +86,4 @@ if(announce_text != ""){
 		draw_text_color(_w/2,_h/2 + i*_th - _th*(array_length(_text)-1)/2,_text[i],_col1,_col1,_col2,_col2,1)
 }
 
-
 #endregion
-

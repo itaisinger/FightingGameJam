@@ -60,15 +60,14 @@ for(var i=0; i < STATES.max; i++){
 //data
 hitbox_data = array_create(STATES.max,-1)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_shooter_light,2,25,6,3,5,0,0,false);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_shooter_heavy,7,65,15,5,9,0,1,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_shooter_heavy,7,50,15,4,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_shooter_special,8,40,10,12,7,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_shooter_air_light,4,28,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_shooter_air_heavy,12,40,10,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_shooter_parry,1,20,130,3,5,1,0,true);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_shooter_air_special,3,20,20,3,5,0,1,false);
 
-
-//////// overrides
+////// overrides
 arr_state_functions[STATES.air_heavy] = function(){
 
 	if(state_changed){

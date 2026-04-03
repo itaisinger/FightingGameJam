@@ -87,10 +87,12 @@ frames_lived = 0;		//used by echos to count their current step
 /// TP
 tp_x = -1;
 echo_tp_cost = 2;
+tp_cooldown = 0;
 
 /// ANIMATION AND VISUALS
 scalex = 1;
 scaley = 1;
+shadow_w = 1;
 anim_done = false;
 image_speed_prev = 1;
 image_index_prev = 0;
@@ -805,7 +807,7 @@ function make_echo(input_arr){
 }
 function get_damage_falloff()	//returns a mult on damage for long combos
 {
-	return 1-map_value(combo_counter_damage,0,max_hp,0,0.6)
+	return 1-map_value(combo_counter_damage,0,max_hp,0,0.5)
 }
 function collision(){
 	

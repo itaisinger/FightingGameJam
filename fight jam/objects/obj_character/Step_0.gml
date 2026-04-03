@@ -24,14 +24,19 @@ else {
 }
 
 //kombo break teleport
-if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and echo_charges_remain >= echo_tp_cost and state != STATES.teleport and !is_dead()){
+if(input.is_pressed(INPUT.up) and input.is_pressed(INPUT.dodge) and !is_dead() and tp_cooldown<=0)
+{
+	tp_cooldown = 10;
 	
-	if (tp_x != -1){
+	if(echo_charges_remain >= echo_tp_cost and tp_x != -1)
 		combo_break();
-	}
 	else
+	{
 		play_sfx(sfx_error);
+		obj_ui.shake_echo(is_p1);	
+	}
 }
+else if(tp_cooldown > 0) tp_cooldown--;
 
 //hitpause
 if(hitpause_remain > 0){
@@ -70,11 +75,11 @@ y += yadd;
 
 //move hitbox
 with(inst_hitbox){
-	x = other.x;
+	x = other.x;	
 	y = other.y;
 	dir = other.dir;
-	image_xscale = other.image_xscale;
-	image_yscale = other.image_yscale;
+	image_xscale = other.image_xscale*other.scalex;
+	image_yscale = other.image_yscale*other.scaley;
 	image_speed = other.image_speed
 	image_index = other.image_index
 }

@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.8113379,
+  "duration":0.29893425,
   "exportDir":"",
   "name":"sfx_error",
   "parent":{
