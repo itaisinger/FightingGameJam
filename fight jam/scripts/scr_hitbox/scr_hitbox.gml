@@ -7,7 +7,7 @@ enum hitboxdata{
 	give_echo_charge,
 	func,
 }
-function HitboxData(sprite,_damage,_stun_duration,_hitpause,_knockback_x,_knockback_y,_give_echo_charge,_is_launcher,_is_parry,_func=function(){},_hit_spd_up=3) constructor {
+function HitboxData(sprite,_damage,_stun_duration,_hitpause,_knockback_x,_knockback_y,_give_echo_charge,_is_launcher,_is_parry,_func=function(){},_hit_spd_up=3,_sfx=sfx_hit) constructor {
 	sprite_index = sprite;
 	damage = _damage;
 	stun_duration = _stun_duration;
@@ -19,6 +19,7 @@ function HitboxData(sprite,_damage,_stun_duration,_hitpause,_knockback_x,_knockb
 	is_parry = _is_parry;
 	func = _func
 	hit_speedup = _hit_spd_up;
+	sfx = _sfx;
 }
 
 function create_hitbox(_hitbox_data){

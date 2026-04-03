@@ -146,6 +146,11 @@ global.VinylConfigJSON = [
 		gain: 2
 	},
 	
+	//{
+	//	sound: sfx_hit_cannon,
+	//	gain: 1.5
+	//},
+	
 	{
 		hlt: "menu ost",
         head: ost_menu_head,

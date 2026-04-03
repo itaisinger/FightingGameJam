@@ -308,6 +308,7 @@
     {"id":{"name":"sfx_character_swap","path":"sounds/sfx_character_swap/sfx_character_swap.yy",},},
     {"id":{"name":"sfx_echo_burst","path":"sounds/sfx_echo_burst/sfx_echo_burst.yy",},},
     {"id":{"name":"sfx_error","path":"sounds/sfx_error/sfx_error.yy",},},
+    {"id":{"name":"sfx_hit_cannon","path":"sounds/sfx_hit_cannon/sfx_hit_cannon.yy",},},
     {"id":{"name":"sfx_hit_strong","path":"sounds/sfx_hit_strong/sfx_hit_strong.yy",},},
     {"id":{"name":"sfx_hit","path":"sounds/sfx_hit/sfx_hit.yy",},},
     {"id":{"name":"sfx_jhoshua_wins","path":"sounds/sfx_jhoshua_wins/sfx_jhoshua_wins.yy",},},

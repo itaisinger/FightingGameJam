@@ -40,7 +40,7 @@ if(!is_parry)
 			
 			//sfx
 			var _gain = map_value(damage,3,15, 0.3,2);
-			play_sfx(sfx_hit,0,0,[0.8,1.2],_gain)
+			play_sfx(sfx,0,0,[0.8,1.2],_gain)
 			//strong sfx
 			var _gain = max(0,map_value(damage,8,17, 0,1));
 			play_sfx(sfx_hit_strong,0,0,[0.8,1.2],_gain)
