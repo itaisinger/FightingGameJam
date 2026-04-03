@@ -1,4 +1,11 @@
+//maybe
 sound effects for attacks
 consider better particles using pixel fx designer
 maybe color each player
-can you feel me heart
+camera
+
+//must
+new voice lines
+spyke walk animation
+fix skate whirl infinite
+controllers

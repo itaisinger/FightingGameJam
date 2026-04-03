@@ -540,8 +540,7 @@ arr_state_functions[STATES.dodge] = function(){
 arr_state_functions[STATES.air_special] = function(){
 	
 	if(state_changed){
-		yadd -= 2.5;
-		xadd *= 0.6;
+		yadd -= 1;
 	}
 	
 	if(reached_frame(2))
@@ -549,6 +548,7 @@ arr_state_functions[STATES.air_special] = function(){
 		update_dir();
 		teleport(0,floor_y-y)
 		image_index++;
+		xadd *= 0.1;
 	}
 	
 	if(reached_frame(6) or reached_frame(9))
@@ -566,7 +566,7 @@ arr_state_functions[STATES.air_special] = function(){
 	if(image_index <= 4)
 	{
 		yadd += grav * 0.8;
-		xadd = approach(xadd,air_fric*3,0);
+		xadd = approach(xadd,air_fric*0.7,0);
 	}
 	else
 	{
