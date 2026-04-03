@@ -767,6 +767,9 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch){
 	
 	//hitpause
 	hitpause_remain = hitpause;
+	
+	//shake ui
+	if(!is_echo) with(obj_ui) shake_hp(other.is_p1,damage);
 }
 function is_grounded()
 {	

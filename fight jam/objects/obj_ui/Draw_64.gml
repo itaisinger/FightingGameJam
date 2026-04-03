@@ -12,39 +12,46 @@ draw_sprite_ext(spr_vs,0,_w/2,_y,_s,_s,0,c_white,1);
 
 #region hp
 
+
+//shake
+var _max_s = 3;
+if(current_time % 3 == 0) for(var i=0; i < 2; i++){
+	hp_shakex[i] = random_range(-min(_max_s,hp_shake_remain[i]),min(_max_s,hp_shake_remain[i]))
+	hp_shakey[i] = random_range(-min(_max_s,hp_shake_remain[i]),min(_max_s,hp_shake_remain[i]))
+}
+
 _s = 1;
 var _sprite_w = sprite_get_width(spr_hp)
 var _hp_margin = 20;
 
 //p2
 var _p = arr_players[1];
-draw_sprite_ext(spr_hp,1,_w/2 + _hp_margin,_y,-_s,_s,0,c_white,1);
+draw_sprite_ext(spr_hp,1,_w/2 + _hp_margin + hp_shakex[1],_y + hp_shakex[1],-_s,_s,0,c_white,1);
 
 var _hp_prec = _p.hp / _p.max_hp;
 
-draw_sprite_part_ext(spr_hp,0,  _sprite_w - _hp_prec * _sprite_w,0, _hp_prec * _sprite_w,sprite_get_height(spr_hp) ,_w/2 + _hp_margin + _s*_sprite_w - (1-_hp_prec)*_sprite_w*_s,_y,-_s,_s,c_white,1);
+draw_sprite_part_ext(spr_hp,0,  _sprite_w - _hp_prec * _sprite_w,0, _hp_prec * _sprite_w,sprite_get_height(spr_hp) ,_w/2 + _hp_margin + _s*_sprite_w - (1-_hp_prec)*_sprite_w*_s + hp_shakex[1],_y+ hp_shakey[1],-_s,_s,c_white,1);
 
 
 //p1
 var _p = arr_players[0];
-draw_sprite_ext(spr_hp,1,_w/2 - _hp_margin,_y,_s,_s,0,c_white,1);
+draw_sprite_ext(spr_hp,1,_w/2 - _hp_margin + hp_shakex[0],_y + hp_shakey[0],_s,_s,0,c_white,1);
 
 var _hp_prec = _p.hp / _p.max_hp;
 
-draw_sprite_part_ext(spr_hp,0, _sprite_w - _hp_prec * _sprite_w,0, _hp_prec * _sprite_w,sprite_get_height(spr_hp),_w/2 - _hp_margin - _sprite_w*_s + (1-_hp_prec)*_s*_sprite_w,_y,_s,_s,c_white,1);
+draw_sprite_part_ext(spr_hp,0, _sprite_w - _hp_prec * _sprite_w,0, _hp_prec * _sprite_w,sprite_get_height(spr_hp),_w/2 - _hp_margin - _sprite_w*_s + (1-_hp_prec)*_s*_sprite_w + hp_shakex[0],_y+hp_shakey[0],_s,_s,c_white,1);
 
 #endregion
 #region echo charges
 
 var _m = sprite_get_width(spr_echo_charge) + 1;
 var _echo_y = _y + 16;
-var _max_s = 3;
 
 if(current_time % 3 == 0) for(var i=0; i < 2; i++){
-	_shakex[i][1] = _shakex[i][0];
-	_shakex[i][0] = random_range(-min(_max_s,echo_shake_remain[i]),min(_max_s,echo_shake_remain[i]))
-	_shakey[i][1] = _shakey[i][0];
-	_shakey[i][0] = random_range(-min(_max_s,echo_shake_remain[i]),min(_max_s,echo_shake_remain[i]))
+	echo_shakex[i][1] = echo_shakex[i][0];
+	echo_shakex[i][0] = random_range(-min(_max_s,echo_shake_remain[i]),min(_max_s,echo_shake_remain[i]))
+	echo_shakey[i][1] = echo_shakey[i][0];
+	echo_shakey[i][0] = random_range(-min(_max_s,echo_shake_remain[i]),min(_max_s,echo_shake_remain[i]))
 }
 
 for(var i=0; i < _p.echo_charges_max; i++){
@@ -52,12 +59,12 @@ for(var i=0; i < _p.echo_charges_max; i++){
 	var _xoff = (1+i)*_m + 7
 
 	//empty
-	draw_sprite(spr_echo_charge,0, _w/2 + _xoff + _shakex[1][1],_echo_y + _shakey[1][1])
-	draw_sprite(spr_echo_charge,0, _w/2 - _xoff + _shakey[0][1],_echo_y + _shakey[0][1])
+	draw_sprite(spr_echo_charge,0, _w/2 + _xoff + echo_shakex[1][1],_echo_y + echo_shakey[1][1])
+	draw_sprite(spr_echo_charge,0, _w/2 - _xoff + echo_shakey[0][1],_echo_y + echo_shakey[0][1])
 
 	//full
-	if(arr_players[1].echo_charges_remain > i) draw_sprite(spr_echo_charge,1, _w/2 + _xoff + _shakex[1][0],_echo_y + _shakey[1][0])
-	if(arr_players[0].echo_charges_remain > i) draw_sprite(spr_echo_charge,1, _w/2 - _xoff + _shakex[0][0],_echo_y + _shakey[0][0])
+	if(arr_players[1].echo_charges_remain > i) draw_sprite(spr_echo_charge,1, _w/2 + _xoff + echo_shakex[1][0],_echo_y + echo_shakey[1][0])
+	if(arr_players[0].echo_charges_remain > i) draw_sprite(spr_echo_charge,1, _w/2 - _xoff + echo_shakex[0][0],_echo_y + echo_shakey[0][0])
 }
 
 #endregion
