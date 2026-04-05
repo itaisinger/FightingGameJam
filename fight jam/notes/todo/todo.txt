@@ -6,6 +6,5 @@ camera
 
 //must
 new voice lines
-spyke walk animation
 fix skate whirl infinite - done?
 controllers

@@ -16,8 +16,6 @@ combo_counter_damage = 0;
 name = "JOSHUA"
 win_sfx = sfx_jhoshua_wins;
 
-
-
 /// MOVEMENT
 xadd = 0;
 yadd = 0;
