@@ -3,8 +3,9 @@ switch(state){
 	#region menu
 	
 	case GAME_STATES.menu:
-		if(keyboard_check_pressed(vk_enter))
-			room_goto(rm_match);
+		//old confirm "system"
+		//if(keyboard_check_pressed(vk_enter))
+		//	room_goto(rm_match);
 		
 		var _input = [];
 		_input[0] = new FrameInput(true);
@@ -15,18 +16,37 @@ switch(state){
 			draw_text(20,20+string_height("G")*1.1*i,_input[0].arr[i]);
 		}
 		
-		for(var i=0; i < 2; i++){
-			if(_input[i].is_pressed(INPUT.right_press)){
-				chosen_characters[i]++;
-				play_sfx(sfx_character_swap,0,0,[0.7,1.3])
-			}
-			if(_input[i].is_pressed(INPUT.left_press)){
-				chosen_characters[i]--;
-				play_sfx(sfx_character_swap,0,0,[0.7,1.3])
-			}
+		if(!player_is_confirmed[2]){
+			for(var i=0; i < 2; i++){
+			
+				//choose character
+				if(!player_is_confirmed[i]){
+					if(_input[i].is_pressed(INPUT.right_press)){
+						chosen_characters[i]++;
+						play_sfx(sfx_character_swap,0,0,[0.7,1.3])
+					}
+					if(_input[i].is_pressed(INPUT.left_press)){
+						chosen_characters[i]--;
+						play_sfx(sfx_character_swap,0,0,[0.7,1.3])
+					}
 				
-			if(chosen_characters[i] < 0) chosen_characters[i] = array_length(arr_characters)-1;
-			if(chosen_characters[i] >= array_length(arr_characters)) chosen_characters[i] = 0;
+					if(chosen_characters[i] < 0) chosen_characters[i] = array_length(arr_characters)-1;
+					if(chosen_characters[i] >= array_length(arr_characters)) chosen_characters[i] = 0;
+			
+				}
+			
+				//confirm choice
+				if(_input[i].is_pressed(INPUT.echo)){
+				
+					player_is_confirmed[i] = !player_is_confirmed[i]
+					if(player_is_confirmed[i]) play_sfx(arr_characters[chosen_characters[i]].name_sfx)
+				}
+			}
+		
+			if(player_is_confirmed[0] and player_is_confirmed[1]){
+				call_later(2,time_source_units_seconds,function(){room_goto(rm_match);});
+				player_is_confirmed[2] = 1;
+			}
 		}
 		
 	break;

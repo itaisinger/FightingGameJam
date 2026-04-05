@@ -2,25 +2,20 @@ display_set_gui_size(480, 270);
 
 var _w = room_width;
 var _h = room_height;
-//var _w = display_get_gui_width();
-//var _h = display_get_gui_height();
 
 switch(room)
 {
 	case rm_menu:
 		
-		//draw_sprite(spr_menu_fire,0,_w*0.4,_h*1.1)
-
 		draw_set_all(1,c_white,font_main,fa_center,fa_middle);
 		if(wave(-1,1,2) > -0.5) {
 			draw_set_color(c_black)
 			draw_set_alpha(0.3)
 			var _off = 5
-			draw_text(_w/2-_off,_h*0.6+_off,"press enter to start");
+			draw_text(_w/2-_off,_h*0.6+_off,"press ECHO to confirm");
 			draw_set_color(c_white);
 			draw_set_alpha(1);
-			draw_text(_w/2,_h*0.6,"press enter to start");
-			
+			draw_text(_w/2,_h*0.6,"press ECHO to confirm");
 		}
 		
 		if(cd-- <= 0){
