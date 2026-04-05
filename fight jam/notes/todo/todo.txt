@@ -6,5 +6,4 @@ camera
 
 //must
 new voice lines
-fix skate whirl infinite - done?
 controllers

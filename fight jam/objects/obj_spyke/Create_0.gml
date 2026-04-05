@@ -18,7 +18,7 @@ slide_fric = ground_fric * 0.4;	//used to slide when entering states that slide
 
 jumpforce_y = 12;
 name = "SPYKE"
-win_sfx = sfx_johnny_wins;
+win_sfx = sfx_spyke_wins;
 
 states_sprites[STATES.idle]			= spr_spyke_idle;
 states_sprites[STATES.jump_squat]	= spr_spyke_jump_squat;
