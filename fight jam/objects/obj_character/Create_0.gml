@@ -1,8 +1,10 @@
 event_inherited();
 
+#macro BASE_MAX_HP 130
+
 /// TOP LOGIC
 is_echo = false;
-max_hp = 130;
+max_hp = BASE_MAX_HP;
 hp = max_hp;
 dir = 1;
 echo_charges_max = 3;
@@ -812,7 +814,7 @@ function make_echo(input_arr){
 }
 function get_damage_falloff()	//returns a mult on damage for long combos
 {
-	return 1-map_value(combo_counter_damage,0,max_hp,0,0.5)
+	return 1-map_value(combo_counter_damage,0,BASE_MAX_HP,0,0.4)
 }
 function collision(){
 	

@@ -395,6 +395,13 @@ arr_state_functions[STATES.light] = function(){
 		change_state(STATES.heavy);
 	}
 	
+	//jump cancel
+	if(is_hit_success() and input.is_pressed(INPUT.up))
+	{
+		change_state(STATES.jump_squat);
+		image_index++;
+	}
+	
 	if(anim_done)
 		change_state(STATES.idle)
 }

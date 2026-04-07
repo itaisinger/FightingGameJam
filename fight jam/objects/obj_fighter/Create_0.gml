@@ -106,7 +106,7 @@ mask_index = spr_fighter_idle
 
 /// ATTACKS DATA (overrided in different characters)
 hitbox_data = array_create(STATES.max,-1)
-hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,3,45,5,3,4,0,0,false);
+hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,4,45,5,3,4,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,100,15,5,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,60,5,3,7,0,0,false);
@@ -190,9 +190,9 @@ arr_state_functions[STATES.special] = function()
 	xadd = approach(xadd,ground_fric*1.2,0);
 	yadd = 0;
 	
-	if(reached_frame(4)){
+	if(reached_frame(3)){
 		xadd = 30 * dir;
-		afterimage(4);
+		afterimage(4,3);
 	}
 	
 	if(anim_done){

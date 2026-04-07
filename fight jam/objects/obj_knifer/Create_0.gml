@@ -486,6 +486,9 @@ arr_state_functions[STATES.dead] = function(){
 }
 arr_state_functions[STATES.air_heavy] = function(){
 	
+	scalex = 0.9;
+	scaley = 0.9;
+	
 	if(state_changed)
 	{
 		yadd = -jumpforce_y/2;

@@ -100,11 +100,11 @@ arr_state_functions[STATES.air_heavy] = function(){
 arr_state_functions[STATES.special] = function()
 {
 		
-	xadd = approach(xadd,slide_fric*0.7,0);
+	xadd = approach(xadd,slide_fric*0.65,0);
 	yadd = 0;
 	
 	if(state_changed)
-		xadd = 18 * dir;
+		xadd = 16 * dir;
 	
 	if(anim_done){
 		change_state(STATES.idle);

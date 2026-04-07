@@ -509,6 +509,7 @@
     {"id":{"name":"spr_portrait_fighter","path":"sprites/spr_portrait_fighter/spr_portrait_fighter.yy",},},
     {"id":{"name":"spr_portrait_shooter","path":"sprites/spr_portrait_shooter/spr_portrait_shooter.yy",},},
     {"id":{"name":"spr_portrait_skater","path":"sprites/spr_portrait_skater/spr_portrait_skater.yy",},},
+    {"id":{"name":"spr_portrait_spyke","path":"sprites/spr_portrait_spyke/spr_portrait_spyke.yy",},},
     {"id":{"name":"spr_shooter_air_heavy","path":"sprites/spr_shooter_air_heavy/spr_shooter_air_heavy.yy",},},
     {"id":{"name":"spr_shooter_air_hurt","path":"sprites/spr_shooter_air_hurt/spr_shooter_air_hurt.yy",},},
     {"id":{"name":"spr_shooter_air_light","path":"sprites/spr_shooter_air_light/spr_shooter_air_light.yy",},},
