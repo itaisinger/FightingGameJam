@@ -61,7 +61,7 @@ states_hurtboxes[STATES.air_heavy]	= hurtbox_spyke_air_heavy;
 states_hurtboxes[STATES.air_special]= hurtbox_spyke_air_special;
 
 hitbox_data = array_create(STATES.max,-1)
-hitbox_data[STATES.light]		= new HitboxData(hitbox_spyke_light,3,45,5,1,6,0,0,false);
+hitbox_data[STATES.light]		= new HitboxData(hitbox_spyke_light,3,45,5,1,6,0,0,false,,1.5);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_spyke_heavy,8,70,15,2,10,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_spyke_special,9,60,10,7,5,0,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_spyke_air_light,5,60,5,3,7,0,0,false);
@@ -184,11 +184,11 @@ arr_state_functions[STATES.teleport] = function()
 }
 arr_state_functions[STATES.light] = function(){
 	
-	if(state_changed){
-		xadd += dir * 2
+	if(reached_frame(1)){
+		xadd += dir * 4;
 	}
 	
-	xadd = approach(xadd,ground_fric,0);
+	xadd = approach(xadd,image_index < 1 ? ground_fric : slide_fric,0);
 	yadd = 0;
 	
 	//trans to special
@@ -196,7 +196,7 @@ arr_state_functions[STATES.light] = function(){
 		change_state(STATES.special)
 	
 	//link to heavy
-	if(image_index >= 3 and input.is_pressed(INPUT.heavy)){
+	if(image_index >= 2 and input.is_pressed(INPUT.heavy)){
 		change_state(STATES.heavy);
 	}
 	
@@ -300,4 +300,36 @@ arr_state_functions[STATES.walk] = function(){
 
 	//special
 	if(input.is_pressed(INPUT.special)) change_state(STATES.special);
+}
+arr_state_functions[STATES.dead] = function(){
+	
+	if(state_changed){
+		
+		//left
+		var _inst = instance_create_depth(bbox_left,bbox_bottom,depth,obj_spear);
+		_inst.xadd = xadd*2;
+		_inst.yadd = min(yadd*1.6,-4);
+		_inst.floor_y = floor_y
+		_inst.is_echo = is_echo;
+		_inst.dir *= -1;
+		_inst.spin_spd *= random_range(0.8,1.2)
+	}
+	
+	if(is_grounded())
+	{
+		xadd = approach(xadd,slide_fric,0);
+		yadd = 0;
+		image_index = image_number-0.1;
+	}
+	else
+	{
+		xadd = approach(xadd,air_fric*0.8,0);
+		yadd += stun_grav*0.8	
+		image_index = min(image_index,image_number-1.1 - 1*(yadd<0));
+	}
+	
+	if(anim_done){
+		image_index = image_number-0.1;
+		image_speed = 0;
+	}
 }

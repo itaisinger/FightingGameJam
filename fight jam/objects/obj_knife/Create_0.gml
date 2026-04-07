@@ -16,3 +16,6 @@ is_echo = false;
 dir = 1;
 spin_spd = 1;
 angle = 0;
+
+mask_index = -1;
+alarm[0] = 5;

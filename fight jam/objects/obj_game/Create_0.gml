@@ -9,7 +9,7 @@ instance_create_depth(0,0,0,obj_transition);
 
 depth = 0;
 //gameplay related
-floor_y = 200
+floor_y = 896;
 step_delay = 0;
 
 //ui
@@ -55,8 +55,8 @@ function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	
 	inst_ui = instance_create_depth(0,0,0,obj_ui);
 	
-	inst_players[1] = instance_create_depth(player_left_xstart,floor_y+1,DEPTH.player,p1_obj);
-	inst_players[0] = instance_create_depth(player_right_xstart,floor_y+1,DEPTH.player,p2_obj);
+	inst_players[1] = instance_create_depth(player_left_xstart,floor_y+1-100,DEPTH.player,p1_obj);
+	inst_players[0] = instance_create_depth(player_right_xstart,floor_y+1-100,DEPTH.player,p2_obj);
 	
 	inst_players[1].is_p1 = true;	//left is p1
 	inst_players[0].is_p1 = false;
