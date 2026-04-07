@@ -61,7 +61,7 @@ states_hurtboxes[STATES.air_heavy]	= hurtbox_spyke_air_heavy;
 states_hurtboxes[STATES.air_special]= hurtbox_spyke_air_special;
 
 hitbox_data = array_create(STATES.max,-1)
-hitbox_data[STATES.light]		= new HitboxData(hitbox_spyke_light,3,45,5,1,6,0,0,false,,1.5);
+hitbox_data[STATES.light]		= new HitboxData(hitbox_spyke_light,3,25,5,2,5,0,0,false,,1.5);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_spyke_heavy,8,70,15,2,10,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_spyke_special,9,60,10,7,5,0,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_spyke_air_light,5,60,5,3,7,0,0,false);
@@ -306,12 +306,11 @@ arr_state_functions[STATES.dead] = function(){
 	if(state_changed){
 		
 		//left
-		var _inst = instance_create_depth(bbox_left,bbox_bottom,depth,obj_spear);
+		var _inst = instance_create_depth((bbox_left+bbox_right)/2,(bbox_bottom+bbox_top)/2,depth,obj_spear);
 		_inst.xadd = xadd*2;
 		_inst.yadd = min(yadd*1.6,-4);
-		_inst.floor_y = floor_y
+		_inst.floor_y = floor_y;
 		_inst.is_echo = is_echo;
-		_inst.dir *= -1;
 		_inst.spin_spd *= random_range(0.8,1.2)
 	}
 	
