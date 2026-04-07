@@ -1,4 +1,4 @@
-#macro OST_FADE 5
+#macro OST_FADE 4
 voice = -1;
 
 function play_ost(){

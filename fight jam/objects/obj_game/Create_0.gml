@@ -5,6 +5,7 @@ if(instance_number(obj_game) > 1) {
 
 __VinylConfigJSON();
 scr_macros();
+instance_create_depth(0,0,0,obj_transition);
 
 depth = 0;
 //gameplay related

@@ -44,7 +44,7 @@ switch(state){
 			}
 		
 			if(player_is_confirmed[0] and player_is_confirmed[1]){
-				call_later(2,time_source_units_seconds,function(){room_goto(rm_match);});
+				call_later(1,time_source_units_seconds,function(){room_trans(rm_match);});
 				player_is_confirmed[2] = 1;
 			}
 		}
@@ -105,7 +105,7 @@ switch(state){
 
 				});
 		
-			call_later(8,time_source_units_seconds,function(){room_goto(rm_menu)});
+			call_later(6.5,time_source_units_seconds,function(){room_trans(rm_menu)});
 		}
 				
 		

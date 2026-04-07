@@ -67,3 +67,15 @@ function wave(from, to, duration, offset=0)
 	a4 = (to - from) * 0.5;
 	return from + a4 + sin((((current_time * 0.001) + duration * offset) / duration) * (pi*2)) * a4;
 }
+
+function room_trans(rm)
+{
+	if(!instance_exists(obj_transition)) instance_create_depth(0,0,0,obj_transition);
+	
+	with(obj_transition) if (state == TRANS_STATES.off)
+	{
+		target = rm;
+		state = TRANS_STATES.in;
+		trans_prec = 0;	//double check
+	}
+}

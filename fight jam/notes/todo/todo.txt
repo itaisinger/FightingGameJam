@@ -5,5 +5,9 @@ maybe color each player
 camera
 
 //must
-new voice lines
 controllers
+transition object
+minami heavy nerfs
+spikes
+new portraits
+make hp combo drop value base character hp not current character
