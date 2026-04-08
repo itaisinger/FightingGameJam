@@ -449,21 +449,23 @@ arr_state_functions[STATES.dead] = function(){
 	if(state_changed){
 		
 		//left
-		var _inst = instance_create_depth(bbox_left,bbox_bottom,depth,obj_knife);
+		var _inst = instance_create_depth(bbox_left,bbox_bottom-5,depth,obj_knife_phy);
 		_inst.xadd = abs(xadd+2)*-1;
 		_inst.yadd = min(yadd*1.3,-3);
-		_inst.floor_y = floor_y
 		_inst.is_echo = is_echo;
-		_inst.dir *= -1;
-		_inst.spin_spd *= random_range(0.8,1.2)
+		_inst.apply_phy(-1,1.5)
+		_inst.floor_y = floor_y
+		//_inst.dir *= -1;
+		//_inst.spin_spd *= random_range(0.8,1.2)
 		
 		//right
-		var _inst = instance_create_depth(bbox_right,bbox_top,depth,obj_knife);
+		var _inst = instance_create_depth(bbox_right,bbox_top,depth,obj_knife_phy);
 		_inst.xadd = abs(xadd+2);
 		_inst.yadd = min(yadd*1.3,-3);
-		_inst.floor_y = floor_y
 		_inst.is_echo = is_echo;
-		_inst.spin_spd *= random_range(0.8,1.2)
+		_inst.apply_phy(1,0.7);
+		_inst.floor_y = floor_y
+		//_inst.spin_spd *= random_range(0.8,1.2)
 	}
 	
 	if(is_grounded())

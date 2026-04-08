@@ -46,7 +46,7 @@ function Character(_name,_object,_sprite,_name_sfx) constructor{
 arr_characters[0] = new Character("JOSHUA",			 obj_fighter,	spr_portrait_fighter,	sfx_joshua)
 arr_characters[1] = new Character("JOHNNY DREX",	 obj_skater,	spr_portrait_skater,	sfx_johnny)
 arr_characters[2] = new Character("SHON SHMUPS",	 obj_shooter,	spr_portrait_shooter,	sfx_shon)
-arr_characters[3] = new Character("MINAMI\nNO  KAZE",obj_knifer,	spr_knifer_idle,		sfx_minami)
+arr_characters[3] = new Character("MINAMI\nNO  KAZE",obj_knifer,	spr_portrait_knifer,	sfx_minami)
 arr_characters[4] = new Character("SPYKE",			 obj_spyke,		spr_portrait_spyke,		sfx_spyke)
 function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	var _player_dis = room_width/4
