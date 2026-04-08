@@ -166,6 +166,7 @@ hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,100,180,3,3,1
 
 inst_hitbox = noone;	//saves the currently active hitbox.
 
+
 //state functions
 arr_state_functions = [];
 arr_state_functions[STATES.idle] = function(){

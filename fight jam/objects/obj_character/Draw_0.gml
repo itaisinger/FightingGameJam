@@ -40,3 +40,5 @@ if(afterimage_remain>0 and current_time%afterimage_diff == 0){
 		image_yscale = other.image_yscale
 	}
 }
+
+draw_sprite(spr_fighter_air,2,50,50);
