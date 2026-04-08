@@ -23,7 +23,7 @@ switch(room){
 		
 		call_later(0.5,time_source_units_seconds,function(){ 
 			play_sfx(sfx_echo_burst);
-			call_later(1,time_source_units_seconds,function(){if(room==rm_menu) VinylPlayFadeIn("menu ost",1,global.ost_vol,0.5);});
+			call_later(0.5,time_source_units_seconds,function(){if(room==rm_menu) VinylPlayFadeIn("menu ost",1,global.ost_vol,0.5);});
 			VinylPlayFadeIn(ost_menu_fire,1,0.3*global.ost_vol,0.5)
 		});
 	break;
