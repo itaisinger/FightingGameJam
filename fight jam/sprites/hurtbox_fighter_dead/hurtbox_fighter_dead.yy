@@ -3,7 +3,7 @@
   "%Name":"hurtbox_fighter_dead",
   "bboxMode":0,
   "bbox_bottom":127,
-  "bbox_left":0,
+  "bbox_left":1,
   "bbox_right":100,
   "bbox_top":38,
   "collisionKind":4,
@@ -23,7 +23,7 @@
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"2aa5c0ee-5207-42b0-aede-f2929a89b126","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"2aa5c0ee-5207-42b0-aede-f2929a89b126","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
-    {"$GMImageLayer":"","%Name":"b83efe61-6021-4772-b910-43f1eadff998","blendMode":0,"displayName":"default","isLocked":false,"name":"b83efe61-6021-4772-b910-43f1eadff998","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"b83efe61-6021-4772-b910-43f1eadff998","blendMode":0,"displayName":"default","isLocked":false,"name":"b83efe61-6021-4772-b910-43f1eadff998","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
   ],
   "name":"hurtbox_fighter_dead",
   "nineSlice":null,

@@ -6,7 +6,5 @@ camera
 
 //must
 controllers
-minami heavy nerfs
-spikes
 new portraits
 spike spear flying

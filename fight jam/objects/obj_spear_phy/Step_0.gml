@@ -1,0 +1,1 @@
+phy_active = step_delay == 0 or current_time % step_delay == 0

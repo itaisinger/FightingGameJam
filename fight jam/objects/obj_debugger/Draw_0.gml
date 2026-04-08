@@ -2,6 +2,8 @@ if(live_call()) return live_result;
 
 if(!active) exit;
 
+physics_world_draw_debug(phy_debug_render_shapes)
+
 draw_set_color(c_red)
 with(all) draw_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,1)
 draw_set_color(c_white)
@@ -21,13 +23,14 @@ try{
 	"charges: " + string(obj_character.echo_charges_remain),
 	"stun_remain: " + string(obj_character.stun_remain),
 	"pos: " + string(obj_character.x) + "," + string(obj_character.y),
-	"keys: " + string(obj_input.arr[INPUT.light]) + ", " + string(obj_input.arr[INPUT.heavy]) + ", " + string(obj_input.arr[INPUT.special])
+	"rot: " + string(obj_spear_phy.phy_rotation) + ", " + string(dcos(obj_spear_phy.phy_rotation))
 	]
 	//vars = [];
 	//var input = obj_fighter.input;
 	//for(var i=0; i < array_length(input.arr); i++){
 	//	vars[i] = input.arr[i];
 	//}
+	log("rot: " + string(obj_spear_phy.phy_rotation) + ", " + string(dcos(obj_spear_phy.phy_rotation)))
 }
 catch(a){vars=[];}
 

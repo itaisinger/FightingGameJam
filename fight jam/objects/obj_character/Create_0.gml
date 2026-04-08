@@ -465,6 +465,7 @@ arr_state_functions[STATES.air_stun] = function(){
 		else if(stun_remain > spike_bounce_stun_require and abs(yadd) >= spike_bounce_momentum_require)
 		{
 			yadd *= -0.5;
+			stun_remain *= 0.5;
 			image_index = random(image_number);
 		}
 		else{
