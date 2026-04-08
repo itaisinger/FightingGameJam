@@ -40,6 +40,9 @@ max_stray_back = walkspd*0.4;
 dodge_step_remain = 0;
 dodge_step_max = 9;
 
+spike_bounce_stun_require = 10;
+spike_bounce_momentum_require = 4;
+
 /// STATES
 state = 0;
 state_prev = state;
@@ -450,15 +453,24 @@ arr_state_functions[STATES.air_stun] = function(){
 	}
 		
 	if(is_grounded()){
-		stun_remain = 0;
 		
 		if(input.is_pressed(INPUT.dodge)){
+			stun_remain = 0;
+
 			if(input.is_pressed(INPUT.right)) dir = 1;
 			if(input.is_pressed(INPUT.left)) dir = -1;
 			
 			change_state(STATES.dodge)
 		}
-		else change_state(STATES.land);
+		else if(stun_remain > spike_bounce_stun_require and abs(yadd) >= spike_bounce_momentum_require)
+		{
+			yadd *= -0.5;
+			image_index = random(image_number);
+		}
+		else{
+			stun_remain = 0;
+			change_state(STATES.land);
+		}
 	}
 }
 arr_state_functions[STATES.dead] = function(){
@@ -739,6 +751,10 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch,is_parry){
 	instance_destroy(inst_hitbox);
 	
 	hp = max(hp-damage,0);
+	
+	//spike
+	if(is_grounded() and knocky < 0)
+		knocky *= -1;
 	
 	xadd = knockx;
 	yadd = -knocky;
