@@ -8,7 +8,7 @@ if(active){
 if(keyboard_check_pressed(ord("H"))) with(obj_character) echo_charges_remain++;
 if(keyboard_check_pressed(ord("Z"))) with(obj_character) hp *= 0.5;
 if(keyboard_check_pressed(ord("X"))) with(obj_character) hp *= 2;
-if(keyboard_check_pressed(ord("O"))) with(obj_ost) play_ost();
+if(keyboard_check_pressed(ord("O"))) with(obj_ost) stop();
 
 if(keyboard_check_pressed(ord("R"))) game_restart();
 

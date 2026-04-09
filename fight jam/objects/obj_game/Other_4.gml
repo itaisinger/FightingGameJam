@@ -1,4 +1,3 @@
-//audio_stop_all();
 VinylStopAll();
 cnt = room_speed*10;
 step_delay = 0;

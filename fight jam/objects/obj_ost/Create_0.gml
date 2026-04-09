@@ -11,5 +11,10 @@ function play_ost(){
 	alarm[0] = room_speed*(_length - OST_FADE)
 	log("playing " + audio_get_name(VinylGetAsset(voice)) + ", length: " + string(_length));
 }
+function stop()
+{
+	VinylFadeOut(voice,0.2);
+	instance_destroy();
+}
 
 play_ost();
