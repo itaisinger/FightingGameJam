@@ -1,7 +1,3 @@
-
-instance_destroy();
-exit;
-
 #macro OST_FADE 4
 voice = -1;
 
