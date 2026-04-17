@@ -64,13 +64,13 @@ image_yscale = 1;
 
 hitbox_data[STATES.light]		= new HitboxData(hitbox_knifer_light,3,25,5,5,3,0,0,false);
 hitbox_data[STATES.light2]		= new HitboxData(hitbox_knifer_light_2,6,45,5,1,8,0,0,false);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_knifer_heavy,9,100,4,8,5,0,1,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_knifer_heavy,9,90,4,9,4.5,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_knifer_special,2,20,7,3,3,0,0,false,,1);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_knifer_air_light,4,40,5,3,4,0,0,false,	function(){yadd = -4});
 hitbox_data[STATES.air_light2]	= new HitboxData(hitbox_knifer_air_light_2,3,30,5,3,4,0,0,false,function(){yadd = -4});
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_knifer_air_heavy,4,80,10,5,5,0,0,false,,1.2);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_knifer_air_special,3,15,4,1,3,0,0,false,,1);
-hitbox_data[STATES.air_special2]= new HitboxData(hitbox_knifer_air_special,8,35,7,-8.5,6,0,0,false);
+hitbox_data[STATES.air_special2]= new HitboxData(hitbox_knifer_air_special,8,30,7,-8.5,6,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_knifer_parry,1,100,180,3,3,1,false,true);
 
 function create_butterflies(margin){
