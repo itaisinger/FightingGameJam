@@ -828,7 +828,7 @@ function make_echo(input_arr){
 	echo_saved = -1;
 	echo_record_arr = input_arr;
 	is_echo = true;
-	hp = 1;
+	hp = 10;
 }
 function get_damage_falloff()	//returns a mult on damage for long combos
 {
