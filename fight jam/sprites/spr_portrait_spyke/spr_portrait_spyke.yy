@@ -4,22 +4,22 @@
   "bboxMode":0,
   "bbox_bottom":383,
   "bbox_left":1,
-  "bbox_right":319,
-  "bbox_top":45,
+  "bbox_right":332,
+  "bbox_top":25,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"1f9eb5db-b168-4688-81a7-89bc62bdd842","name":"1f9eb5db-b168-4688-81a7-89bc62bdd842","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"7036b1a1-81e9-47b8-913b-19a467674cc0","name":"7036b1a1-81e9-47b8-913b-19a467674cc0","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":384,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"91ae36e7-960a-487b-90ec-dd621e441525","blendMode":0,"displayName":"default","isLocked":false,"name":"91ae36e7-960a-487b-90ec-dd621e441525","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"f6149ccc-6461-4bb5-adca-8e7b11238419","blendMode":0,"displayName":"default","isLocked":false,"name":"f6149ccc-6461-4bb5-adca-8e7b11238419","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_portrait_spyke",
   "nineSlice":null,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"1f9eb5db-b168-4688-81a7-89bc62bdd842","path":"sprites/spr_portrait_spyke/spr_portrait_spyke.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"cf649ff9-c62d-4799-b3da-67a7819e9ec1","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"7036b1a1-81e9-47b8-913b-19a467674cc0","path":"sprites/spr_portrait_spyke/spr_portrait_spyke.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"67c8013a-958e-4edd-a958-80c2badfbb8d","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
