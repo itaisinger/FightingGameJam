@@ -1,11 +1,4 @@
-keybinds[INPUT.left]	= [ord("A"),vk_left]
-keybinds[INPUT.right]	= [ord("D"),vk_right]
-keybinds[INPUT.up]		= [ord("W"),vk_up]
-keybinds[INPUT.down]	= [ord("S"),vk_down]
-keybinds[INPUT.light]	= [ord("J"),vk_numpad4]
-keybinds[INPUT.heavy]	= [ord("K"),vk_numpad5]
-keybinds[INPUT.dodge]	= [ord("L"),vk_numpad6]
-keybinds[INPUT.echo]	= [vk_lshift,vk_numpad0]
+
 
 for(var i=0;i<2;i++){
 	
