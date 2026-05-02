@@ -68,8 +68,8 @@ for(var i=0; i < STATES.max; i++){
 //data
 hitbox_data = array_create(STATES.max,-1)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_skate_light,2,25,5,3,5,0,0,false);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_skate_heavy,8,80,15,6,9,0,1,false);
-hitbox_data[STATES.special]		= new HitboxData(hitbox_skate_special,8,40,10,12,7,0,1,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_skate_heavy,8,80,15,8,9,0,1,false);
+hitbox_data[STATES.special]		= new HitboxData(hitbox_skate_special,8,40,10,6,7,0,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_skate_air_light,4,25,5,3,7,0,0,false,pogo);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_skate_air_heavy,12,40,10,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_skate_parry,1,30,130,3,5,1,0,true);

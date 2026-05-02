@@ -41,6 +41,7 @@ else
 	}
 	
 	keybinds = json_parse(_json);
+	file_text_close(_file);
 }
 
 keys = {};
