@@ -67,13 +67,13 @@ for(var i=0; i < STATES.max; i++){
 
 //data
 hitbox_data = array_create(STATES.max,-1)
-hitbox_data[STATES.light]		= new HitboxData(hitbox_skate_light,2,25,5,3,5,0,0,false);
+hitbox_data[STATES.light]		= new HitboxData(hitbox_skate_light,3,25,5,3,5,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_skate_heavy,8,80,15,8,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_skate_special,8,40,10,6,7,0,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_skate_air_light,4,25,5,3,7,0,0,false,pogo);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_skate_air_heavy,12,40,10,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_skate_parry,1,30,130,3,5,1,0,true);
-hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,1.4,10,20,5,5,0,1,false,,1.2);
+hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,1.6,10,20,5,5,0,1,false,,1.2);
 
 arr_state_functions[STATES.idle] = function(){
 	
@@ -252,22 +252,23 @@ arr_state_functions[STATES.air_special] = function(){
 	
 	if(state_changed)
 	{
-		__grav_mult = 0.2;
-		__grav_multx = 1;
-		yadd = 0;
+		xadd += 1.5 * dir;
+		yadd = min(-2,yadd-1);
+		__grav_mult = 0.7;
+		__grav_multx = 0.9;
 	}
 	
 	//start spin
-	if(reached_frame(10))
+	if(reached_frame(4))
 	{
-		__grav_mult = 0;
+		__grav_mult = 0.15;
 		yadd = 0;
 		__grav_multx = 0;
-		xadd = dir * 8;
+		xadd = dir * 10;
 	}
 	
 	//end spin
-	if(reached_frame(18))
+	if(reached_frame(12))
 	{
 		__grav_mult = 0.5;
 		__grav_multx = 1;
@@ -380,7 +381,7 @@ arr_state_functions[STATES.dead] = function(){
 arr_state_functions[STATES.light] = function(){
 	
 	if(state_changed){
-		xadd += dir * 2
+		xadd += dir * 3
 	}
 	
 	xadd = approach(xadd,slide_fric,0);
@@ -390,10 +391,17 @@ arr_state_functions[STATES.light] = function(){
 	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
 		change_state(STATES.special)
 	
-	//link to heavy
-	if(image_index >= 2 and input.is_pressed(INPUT.heavy)){
-		change_state(STATES.heavy);
+	//link to special
+	if(image_index >= 2 and input.is_pressed(INPUT.special)){
+		change_state(STATES.special);
+		image_index += 2;
 	}
+	//link to heavy
+	else if(image_index >= 2 and input.is_pressed(INPUT.heavy)){
+		change_state(STATES.heavy);
+		image_index += 0.7;
+	}
+	
 	
 	//jump cancel
 	if(is_hit_success() and input.is_pressed(INPUT.up))
