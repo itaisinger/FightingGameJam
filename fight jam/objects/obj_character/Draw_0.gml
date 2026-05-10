@@ -3,6 +3,9 @@ if(disable_draw)
 
 draw_reset();
 
+if(is_color_inverted)
+	shader_set(sh_invert)
+
 image_xscale = dir*scalex;
 image_yscale = scaley;
 if(is_echo) image_alpha = ECHO_ALPHA;
@@ -38,5 +41,9 @@ if(afterimage_remain>0 and current_time%afterimage_diff == 0){
 		image_index = other.image_index;
 		image_xscale = other.image_xscale
 		image_yscale = other.image_yscale
+		is_color_inverted = other.is_color_inverted;
 	}
 }
+
+if(is_color_inverted)
+	shader_reset();

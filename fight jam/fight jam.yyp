@@ -294,6 +294,7 @@
     {"id":{"name":"VinylStopAll","path":"scripts/VinylStopAll/VinylStopAll.yy",},},
     {"id":{"name":"VinylUnloadExternal","path":"scripts/VinylUnloadExternal/VinylUnloadExternal.yy",},},
     {"id":{"name":"VinylWillStop","path":"scripts/VinylWillStop/VinylWillStop.yy",},},
+    {"id":{"name":"sh_invert","path":"shaders/sh_invert/sh_invert.yy",},},
     {"id":{"name":"ost_animals","path":"sounds/ost_animals/ost_animals.yy",},},
     {"id":{"name":"ost_bury","path":"sounds/ost_bury/ost_bury.yy",},},
     {"id":{"name":"ost_hate","path":"sounds/ost_hate/ost_hate.yy",},},

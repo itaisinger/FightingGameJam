@@ -105,6 +105,7 @@ _yshake = 0;
 floor_y = -100;
 depth = DEPTH.player;
 afterimage_remain = 0;
+is_color_inverted = 0;
 
 shake_max = 10;
 disable_draw = false;
@@ -821,6 +822,7 @@ function create_echo(){
 	var _inst = instance_create_depth(x,y,depth-1,object_index);
 	_inst.make_echo(echo_saved);
 	_inst.is_p1 = is_p1;
+	_inst.is_color_inverted = is_color_inverted;
 	echo_saved = -1;
 	echo_charges_remain--;
 }
