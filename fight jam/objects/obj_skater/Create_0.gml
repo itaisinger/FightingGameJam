@@ -12,6 +12,8 @@ landing_lag = 12;
 name = "JOHNNY DREX"
 win_sfx = sfx_johnny_wins;
 
+is_special_jump = false;
+
 states_sprites[STATES.idle]			= spr_skate_idle;
 states_sprites[STATES.jump_squat]	= spr_skate_jump_squat;
 states_sprites[STATES.walk]			= spr_skate_walk;
@@ -73,7 +75,7 @@ hitbox_data[STATES.special]		= new HitboxData(hitbox_skate_special,8,40,10,6,7,0
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_skate_air_light,4,25,5,3,7,0,0,false,pogo);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_skate_air_heavy,12,40,10,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_skate_parry,1,30,130,3,5,1,0,true);
-hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,1.6,10,20,5,5,0,1,false,,1.2);
+hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,1.7,10,20,5,5,0,1,false,,1.5);
 
 arr_state_functions[STATES.idle] = function(){
 	
@@ -232,13 +234,21 @@ arr_state_functions[STATES.air_light] = function(){
 }
 arr_state_functions[STATES.special] = function()
 {
-	xadd = approach(xadd,ground_fric*1.5,0);
+	xadd = approach(xadd,ground_fric*1.6,0);
 	yadd = 0;
 	
-	if(reached_frame(2)) xadd *= 0.4;
+	if(reached_frame(2)) xadd *= 0.3;
 	
 	if(reached_frame(3)){
 		xadd = 15 * dir;
+	}
+	
+	//jump cancel
+	if(image_index >= 3 and image_index <= 4 and input.is_pressed(INPUT.up))
+	{
+		change_state(STATES.jump_squat);
+		is_special_jump = true;
+		image_index += 2;
 	}
 	
 	if(is_hit_success() and input.is_pressed(INPUT.up))
@@ -246,6 +256,35 @@ arr_state_functions[STATES.special] = function()
 	
 	if(anim_done){
 		change_state(STATES.idle);
+	}
+}
+arr_state_functions[STATES.jump_squat] = function(){
+	xadd = approach(xadd,slide_fric,0);
+	yadd = 0;
+	
+	if(input.is_pressed(INPUT.right)) dir = 1;
+	if(input.is_pressed(INPUT.left)) dir = -1;
+	
+	if(anim_done)
+	{
+		if(is_special_jump)
+		{
+			xadd = jumpforce_x * dir * 1.5;
+			yadd = -jumpforce_y * 0.8;
+			jump_traj_x = xadd;
+			is_special_jump = false;
+		}
+		else
+		{
+			xadd = jumpforce_x * sign(input.is_pressed(INPUT.right) -  input.is_pressed(INPUT.left))
+			yadd = -jumpforce_y;
+			jump_traj_x = xadd;
+		
+			//nuetral jump is higher
+			if(xadd == 0) yadd *= 1.25;
+		}
+		
+		change_state(STATES.air);
 	}
 }
 arr_state_functions[STATES.air_special] = function(){
@@ -382,6 +421,7 @@ arr_state_functions[STATES.light] = function(){
 	
 	if(state_changed){
 		xadd += dir * 3
+		//xadd = dir * (abs(xadd)+3)
 	}
 	
 	xadd = approach(xadd,slide_fric,0);

@@ -1,10 +1,9 @@
 //maybe
 sound effects for attacks
 consider better particles using pixel fx designer
-maybe color each player
-camera
+controllers
 
 //must
-controllers
-new portraits
-knifes use phy
+camera
+color each player
+drex - jumpcacnel special
