@@ -9,3 +9,11 @@ zoom_min = 0.7;
 
 base_w = 1920;
 base_h = 1080;
+
+shake_remain = 0;
+shake_x = 0;
+shake_y = 0;
+
+function add_shake(amount){
+	shake_remain += amount*0.85;
+}
