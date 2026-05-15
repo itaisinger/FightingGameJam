@@ -27,8 +27,6 @@ var _cam_w = base_w * zoom;
 //y
 y = map_value(zoom, zoom_min,zoom_max, room_height*0.97,room_height) + shake_y;
 
-
-
 //set camera
 var _camx = clamp(x-_cam_w/2,	0, room_width -_cam_w);
 var _camy = clamp(y-_cam_h,		0, room_height-_cam_h);
