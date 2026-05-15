@@ -15,5 +15,5 @@ shake_x = 0;
 shake_y = 0;
 
 function add_shake(amount){
-	shake_remain += amount*0.85;
+	shake_remain += amount*0.65;
 }
