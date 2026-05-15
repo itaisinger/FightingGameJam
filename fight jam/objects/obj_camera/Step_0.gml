@@ -1,5 +1,23 @@
-follow_x = (arr_players[0].x + arr_players[1].x)/2
-x = lerp(x,follow_x,0.05);
-x = approach(x,1,follow_x);
+var cam = view_get_camera(view_current);
 
-view_set_xport(0,x-camera_get_view_width(view_camera[0]/2));
+//gather borders
+var _min = room_width, _max = 0;
+with(obj_character){
+	_min = min(_min,x);
+	_max = max(_max,x);
+}
+
+xdest = (_min+_max)/2;
+x = lerp(x,xdest,0.02);
+
+//zoom
+var _zoom_dest = (abs(_max-_min) + 2*side_margin)/room_width;
+zoom = clamp( lerp(zoom,_zoom_dest,0.03), zoom_min, zoom_max);
+var _cam_h = base_h * zoom;
+var _cam_w = base_w * zoom;
+
+//set camera
+var _camx = clamp(x-_cam_w/2, 0, room_width-_cam_w);
+var _camy = map_value(zoom, zoom_min,zoom_max, room_height*0.97,room_height)-_cam_h;
+camera_set_view_size(cam,_cam_w,_cam_h);
+camera_set_view_pos(cam,_camx,_camy);

@@ -20,17 +20,14 @@ try{
 	"sides: " + string(obj_character.input.is_pressed(INPUT.left)) + ", "  + string(obj_character.input.is_pressed(INPUT.right)),
 	"diff: " + string(obj_character.input.is_pressed(INPUT.right) - obj_character.input.is_pressed(INPUT.right)),
 	"xadd: " + string(obj_character.xadd),
-	"charges: " + string(obj_character.echo_charges_remain),
-	"stun_remain: " + string(obj_character.stun_remain),
-	"pos: " + string(obj_character.x) + "," + string(obj_character.y),
-	"rot: " + string(obj_spear_phy.phy_rotation) + ", " + string(dcos(obj_spear_phy.phy_rotation))
+	"xdest: " + string(obj_camera.xdest),
+	"zoom: " + string(obj_camera.zoom),
 	]
 	//vars = [];
 	//var input = obj_fighter.input;
 	//for(var i=0; i < array_length(input.arr); i++){
 	//	vars[i] = input.arr[i];
 	//}
-	log("rot: " + string(obj_spear_phy.phy_rotation) + ", " + string(dcos(obj_spear_phy.phy_rotation)))
 }
 catch(a){vars=[];}
 

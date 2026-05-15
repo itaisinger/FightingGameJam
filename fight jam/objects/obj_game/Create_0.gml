@@ -54,6 +54,7 @@ function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	player_right_xstart = room_width/2 - _player_dis;
 	
 	inst_ui = instance_create_depth(0,0,0,obj_ui);
+	inst_camera = instance_create_depth(0,0,0,obj_camera);
 	
 	inst_players[1] = instance_create_depth(player_left_xstart,floor_y+1-100,DEPTH.player,p1_obj);
 	inst_players[0] = instance_create_depth(player_right_xstart,floor_y+1-100,DEPTH.player,p2_obj);
