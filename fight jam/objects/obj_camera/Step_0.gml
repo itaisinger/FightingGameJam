@@ -20,7 +20,8 @@ x = lerp(x,xdest,0.02) + shake_x;
 
 //zoom
 var _zoom_dest = (abs(_max-_min) + 2*side_margin)/room_width;
-zoom = clamp( lerp(zoom,_zoom_dest,0.02), zoom_min, zoom_max);
+var _spd = zoom > _zoom_dest ? 0.015 : 0.15;
+zoom = clamp( lerp(zoom,_zoom_dest,_spd), zoom_min, zoom_max);
 var _cam_h = base_h * zoom;
 var _cam_w = base_w * zoom;
 
