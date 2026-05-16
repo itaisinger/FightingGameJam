@@ -2,6 +2,7 @@
 // You can write your code in this editor
 
 enum DEPTH{
+	tutorial = -1000,
 	player = 0,
 	vfx = -1,
 }
