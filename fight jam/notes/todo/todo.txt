@@ -4,6 +4,4 @@ consider better particles using pixel fx designer
 controllers
 
 //must
-camera
 color each player
-drex - jumpcacnel special

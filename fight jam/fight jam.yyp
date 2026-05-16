@@ -102,7 +102,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.3.217",
+    "IDEVersion":"2024.14.4.222",
   },
   "name":"fight jam",
   "resources":[
@@ -459,6 +459,7 @@
     {"id":{"name":"spr_butterfly_1","path":"sprites/spr_butterfly_1/spr_butterfly_1.yy",},},
     {"id":{"name":"spr_butterfly","path":"sprites/spr_butterfly/spr_butterfly.yy",},},
     {"id":{"name":"spr_countdown","path":"sprites/spr_countdown/spr_countdown.yy",},},
+    {"id":{"name":"spr_echo_charge_active","path":"sprites/spr_echo_charge_active/spr_echo_charge_active.yy",},},
     {"id":{"name":"spr_echo_charge","path":"sprites/spr_echo_charge/spr_echo_charge.yy",},},
     {"id":{"name":"spr_empty","path":"sprites/spr_empty/spr_empty.yy",},},
     {"id":{"name":"spr_fighter_air_heavy","path":"sprites/spr_fighter_air_heavy/spr_fighter_air_heavy.yy",},},
