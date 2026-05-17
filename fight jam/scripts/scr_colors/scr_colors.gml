@@ -27,3 +27,5 @@
 
 //grape
 #macro C_RUBY_RED #660A30
+#macro C_AIR_GRAY #B2B2B2
+#macro C_GRASS_GREEN #197B30

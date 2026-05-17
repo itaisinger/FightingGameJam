@@ -62,11 +62,11 @@ turnaround_grace_length = 8; //how many frames into heavy/light you can transiti
 landing_lag = 10;
 
 states_sprites = [];
-states_sprites[STATES.idle]			= spr_fighter_idle;
+states_sprites[STATES.idle]			= spr_grape_idle;
 states_sprites[STATES.jump_squat]	= spr_fighter_jump_squat;
 states_sprites[STATES.walk]			= spr_fighter_walk;
-states_sprites[STATES.light]		= spr_fighter_light;
-states_sprites[STATES.heavy]		= spr_fighter_heavy;
+states_sprites[STATES.light]		= spr_grape_light;
+states_sprites[STATES.heavy]		= spr_grape_heavy;
 states_sprites[STATES.air]			= spr_fighter_air;
 states_sprites[STATES.echo]			= spr_fighter_echo;
 states_sprites[STATES.dodge]		= spr_fighter_dodge;
