@@ -63,11 +63,11 @@ landing_lag = 10;
 
 states_sprites = [];
 states_sprites[STATES.idle]			= spr_grape_idle;
-states_sprites[STATES.jump_squat]	= spr_fighter_jump_squat;
+states_sprites[STATES.jump_squat]	= spr_grape_jump_squat;
 states_sprites[STATES.walk]			= spr_fighter_walk;
 states_sprites[STATES.light]		= spr_grape_light;
 states_sprites[STATES.heavy]		= spr_grape_heavy;
-states_sprites[STATES.air]			= spr_fighter_air;
+states_sprites[STATES.air]			= spr_grape_air;
 states_sprites[STATES.echo]			= spr_fighter_echo;
 states_sprites[STATES.dodge]		= spr_fighter_dodge;
 states_sprites[STATES.stun]			= spr_fighter_hurt;
