@@ -27,7 +27,7 @@
   "height":128,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"5bbd3815-f13f-4336-a949-b1c6f3c1f9d4","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"5bbd3815-f13f-4336-a949-b1c6f3c1f9d4","opacity":60.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"5bbd3815-f13f-4336-a949-b1c6f3c1f9d4","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"5bbd3815-f13f-4336-a949-b1c6f3c1f9d4","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"b83efe61-6021-4772-b910-43f1eadff998","blendMode":0,"displayName":"default","isLocked":false,"name":"b83efe61-6021-4772-b910-43f1eadff998","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_fighter_air_special",

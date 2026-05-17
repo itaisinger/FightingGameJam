@@ -48,6 +48,7 @@ arr_characters[1] = new Character("JOHNNY DREX",	 obj_skater,	spr_portrait_skate
 arr_characters[2] = new Character("SHON SHMUPS",	 obj_shooter,	spr_portrait_shooter,	sfx_shon)
 arr_characters[3] = new Character("MINAMI\nNO  KAZE",obj_knifer,	spr_portrait_knifer,	sfx_minami)
 arr_characters[4] = new Character("SPYKE",			 obj_spyke,		spr_portrait_spyke,		sfx_spyke)
+arr_characters[5] = new Character("Grape",			 obj_grape,		spr_portrait_grape,		sfx_spyke)
 function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	var _player_dis = room_width/4
 	player_left_xstart	= room_width/2 + _player_dis;

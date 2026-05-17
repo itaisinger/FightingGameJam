@@ -69,6 +69,10 @@ enum STATES{
 	dead,
 	dodge,
 	parry,
+	special1,
+	special2,
+	special3,
+	special4,
 	teleport,
 	
 	max,

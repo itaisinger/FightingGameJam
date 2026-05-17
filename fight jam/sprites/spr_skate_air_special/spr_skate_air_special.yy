@@ -34,7 +34,8 @@
   "height":128,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"197b81d4-5eb9-4b1e-a7b0-6c9154da202a","blendMode":0,"displayName":"default","isLocked":false,"name":"197b81d4-5eb9-4b1e-a7b0-6c9154da202a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"197b81d4-5eb9-4b1e-a7b0-6c9154da202a","blendMode":0,"displayName":"default","isLocked":false,"name":"197b81d4-5eb9-4b1e-a7b0-6c9154da202a","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"b2c13509-1e71-4ff0-aa87-3f98ae38ca40","blendMode":0,"displayName":"default (2)","isLocked":false,"name":"b2c13509-1e71-4ff0-aa87-3f98ae38ca40","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_skate_air_special",
   "nineSlice":null,
