@@ -77,9 +77,10 @@ states_sprites[STATES.parry]		= spr_fighter_parry;
 states_sprites[STATES.teleport]		= spr_fighter_tp;
 states_sprites[STATES.special]		= spr_fighter_special;
 states_sprites[STATES.land]			= spr_fighter_land;
-states_sprites[STATES.air_light]	= spr_fighter_air_light;
-states_sprites[STATES.air_heavy]	= spr_fighter_air_heavy;
-states_sprites[STATES.air_special]	= spr_fighter_air_special;
+states_sprites[STATES.air_light]	= spr_grape_air_light;
+states_sprites[STATES.air_heavy]	= spr_grape_air_heavy;
+states_sprites[STATES.air_heavy2]	= spr_grape_air_heavy2;
+states_sprites[STATES.air_special]	= spr_grape_air_heavy;
 
 hurtbox = hurtbox_fighter_idle;
 states_hurtboxes = [];
@@ -99,7 +100,8 @@ states_hurtboxes[STATES.teleport]	= hurtbox_fighter_tp;
 states_hurtboxes[STATES.special]	= hurtbox_fighter_special;
 states_hurtboxes[STATES.land]		= hurtbox_fighter_land;
 states_hurtboxes[STATES.air_light]	= hurtbox_fighter_air_light;
-states_hurtboxes[STATES.air_heavy]	= hurtbox_fighter_air_heavy;
+states_hurtboxes[STATES.air_heavy]	= hurtbox_grape_air_heavy;
+states_hurtboxes[STATES.air_heavy2]	= hurtbox_grape_air_heavy2;
 states_hurtboxes[STATES.air_special]= hurtbox_fighter_air_special;
 
 mask_index = spr_fighter_idle
@@ -111,6 +113,7 @@ hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,100,15,5,9,0,
 hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,60,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,90,10,3,5,0,0,false);
+hitbox_data[STATES.air_heavy2]	= new HitboxData(hitbox_fighter_air_heavy,10,90,10,3,5,0,0,false);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,4,20,5,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,100,180,3,3,1,false,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
@@ -238,23 +241,115 @@ arr_state_functions[STATES.air_light] = function(){
 			change_state(STATES.land);
 	}
 }
+
+
+
+//arr_state_functions[STATES.air_heavy] = function(){
+	
+//	if(state_changed)
+//	{
+//		yadd = -jumpforce_y/2;
+//		afterimage(1,1);
+//	}
+	
+//	xadd = approach(xadd,air_fric,0);
+//	yadd += grav*0.5;
+	
+//	//trans to special
+//	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
+//		change_state(STATES.air_special)
+		
+//		if(image_index >= 4 and input.is_pressed(INPUT.heavy)){
+//		change_state(STATES.air_heavy2);
+//	}
+	
+//	if(anim_done)
+//		change_state(STATES.air)
+//	if(is_grounded())
+//	{
+//		if is_hit_success()
+//			change_state(STATES.idle)
+//		else
+//			change_state(STATES.land);
+//	}
+//}
+
 arr_state_functions[STATES.air_heavy] = function(){
 	
 	if(state_changed)
 	{
-		yadd = -jumpforce_y/2;
+		__grav_mult = 0;
+		__grav_multx = 8;
+		yadd = 0;
 	}
 	
-	xadd = approach(xadd,air_fric,0);
-	yadd += grav;
+	if(reached_frame(3))
+	{
+		__grav_mult = 0;
+		xadd = dir * 8;
+		__grav_multx = 1;
+		yadd = 2;
+	}
+	
+	if(reached_frame(4))
+	{
+		create_hitbox(hitbox_data[STATES.air_heavy]);
+		inst_hitbox.image_index = image_index;
+		
+	}
+	
+	if(reached_frame(5))
+	{
+		create_hitbox(hitbox_data[STATES.air_heavy]);
+		inst_hitbox.image_index = image_index;
+	}
+	
+
+	// keep transition to air_special
+	if(state_count <= special_trans_grace_length && input.is_pressed(INPUT.special))
+	{
+		change_state(STATES.air_special);
+	}
+
+	// keep path to air_heavy2
+	if(image_index >= 4 && input.is_pressed(INPUT.heavy))
+	{
+		change_state(STATES.air_heavy2);
+	}
+
+	yadd += grav * __grav_mult;
+	xadd = approach(xadd, air_fric * __grav_multx, 0);
+
+	if(anim_done)
+	{
+		change_state(STATES.air);
+	}
+
+	if(is_grounded())
+	{
+		if(is_hit_success())
+			change_state(STATES.idle);
+		else
+			change_state(STATES.land);
+	}
+}
+
+arr_state_functions[STATES.air_heavy2] = function(){
+	
+	if(state_changed)
+	{
+		xadd = 10 * dir;
+		__grav_mult = 0;
+		
+	}
+		__grav_mult = 0;	
+	//xadd = approach(xadd,air_fric,0);
 	
 	//trans to special
 	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
 		change_state(STATES.air_special)
-	
 	if(anim_done)
-		change_state(STATES.air)
-	
+			change_state(STATES.air)
 	//land
 	if(is_grounded())
 	{
@@ -264,6 +359,7 @@ arr_state_functions[STATES.air_heavy] = function(){
 			change_state(STATES.land);
 	}
 }
+
 arr_state_functions[STATES.air_special] = function(){
 	
 	if(state_changed)
