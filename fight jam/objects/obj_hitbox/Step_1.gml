@@ -17,7 +17,7 @@ if(is_parry)
 			var _r = 10;
 			var _x = (bbox_left+bbox_right+_col.bbox_left+_col.bbox_right)/4 + random_range(-_r,_r);
 			var _y = (bbox_top+bbox_bottom+_col.bbox_top+_col.bbox_bottom)/4 + random_range(-_r,_r);
-			create_vfx(_x,_y,spr_hit_parry,1,1,random_range(0,360));
+			create_vfx(_x,_y,vfx_parry,2,2,random_range(0,360));
 			
 			_col.parent.hit(damage,knockback_x,knockback_y,stun_duration,hitpause,false,true);
 			_nme.xadd = 0;

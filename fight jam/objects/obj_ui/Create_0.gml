@@ -4,7 +4,7 @@
 enum DEPTH{
 	tutorial = -1000,
 	player = 0,
-	vfx = -1,
+	vfx = -10,
 }
 
 arr_players = [];

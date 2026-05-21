@@ -624,6 +624,7 @@
     {"id":{"name":"vfx_hit","path":"sprites/vfx_hit/vfx_hit.yy",},},
     {"id":{"name":"vfx_land_stun","path":"sprites/vfx_land_stun/vfx_land_stun.yy",},},
     {"id":{"name":"vfx_land","path":"sprites/vfx_land/vfx_land.yy",},},
+    {"id":{"name":"vfx_parry","path":"sprites/vfx_parry/vfx_parry.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
