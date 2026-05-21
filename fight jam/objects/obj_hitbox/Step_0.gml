@@ -50,7 +50,7 @@ if(!is_parry)
 			var _x = (bbox_left+bbox_right+_col.bbox_left+_col.bbox_right)/4 + random_range(-_r,_r);
 			var _y = (bbox_top+bbox_bottom+_col.bbox_top+_col.bbox_bottom)/4 + random_range(-_r,_r);
 			var _size = map_value(damage,3,15, 0.6,2);
-			create_vfx(_x,_y,vfx_hit_mid,_size,_size,random_range(0,360));
+			create_vfx(_x,_y,vfx,_size,_size,random_range(0,360));
 			
 			with(obj_camera) add_shake(other.damage);
 		}
