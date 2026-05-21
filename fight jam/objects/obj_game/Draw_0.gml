@@ -12,10 +12,10 @@ switch(room)
 			draw_set_color(c_black)
 			draw_set_alpha(0.3)
 			var _off = 5
-			draw_text(_w/2-_off,_h*0.6+_off,"press ECHO to confirm");
+			draw_text(_w/2-_off,_h*0.6+_off,"press ECHO to confirm\npress T for tutorial");
 			draw_set_color(c_white);
 			draw_set_alpha(1);
-			draw_text(_w/2,_h*0.6,"press ECHO to confirm");
+			draw_text(_w/2,_h*0.6,"press ECHO to confirm\npress T for tutorial");
 		}
 		
 		if(cd-- <= 0){

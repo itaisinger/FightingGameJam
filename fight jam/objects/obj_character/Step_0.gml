@@ -68,10 +68,21 @@ if(state_count < turnaround_grace_length)
 anim_done = false;
 image_index_prev = image_index;
 
+//land particles
+var _was_grounded = is_grounded();
+
 //MOVEMENT
 collision();
 x += xadd;
 y += yadd;
+
+//create land particles
+if(!_was_grounded and is_grounded()){
+	var _sprite = stun_remain > 0 ? vfx_land_stun : vfx_land;
+	var _s = map_value(sqrt(xadd*xadd + yadd*yadd), 0, 10, 1,2);
+	create_vfx(x,y,_sprite,dir*_s,_s);
+	
+}
 
 //move hitbox
 with(inst_hitbox){

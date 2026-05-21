@@ -79,7 +79,6 @@ enum STATES{
 	max,
 }
 
-
 stun_remain = 0;
 is_parried = false;
 
@@ -91,7 +90,6 @@ echo_record_arr = [];	//constantly updating last inputs. for echo saves the inpu
 echo_saved = -1;		//hold the saved sequence. returns to -1 after use.
 echo_size = room_speed * 5;
 frames_lived = 0;		//used by echos to count their current step
-
 
 /// TP
 tp_x = -1;
