@@ -252,6 +252,9 @@ arr_state_functions[STATES.walk] = function(){
 	yadd = 0;
 	xadd_dest = dir * walkspd;
 	
+	if(state_changed){
+		create_vfx(x, y, vfx_running_smoke, -dir, 1);
+	}
 	//if moving fast, slow down. otherwise, snap to speed
 	if(abs(xadd) < abs(xadd_dest)) xadd = xadd_dest;
 	else xadd = approach(xadd,ground_fric,xadd_dest);
@@ -265,10 +268,12 @@ arr_state_functions[STATES.walk] = function(){
 	//turn
 	if(input.is_pressed(INPUT.left) and dir == 1)
 	{
+		create_vfx(x, y, vfx_running_smoke, dir, 1);
 		dir = -1;
 	}
 	else if(input.is_pressed(INPUT.right) and dir == -1)
 	{
+		create_vfx(x, y, vfx_running_smoke, -dir, 1);
 		dir = 1;
 	}
 	
@@ -314,6 +319,7 @@ arr_state_functions[STATES.walk] = function(){
 	//special
 	if(input.is_pressed(INPUT.special)) change_state(STATES.special);
 }
+
 arr_state_functions[STATES.land] = function(){
 	
 	yadd = 0;
