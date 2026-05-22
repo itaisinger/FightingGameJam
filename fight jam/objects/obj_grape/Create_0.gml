@@ -155,7 +155,6 @@ arr_state_functions[STATES.light] = function(){
 
 	if(state_changed){
 		xadd += dir * 0.0;
-			create_vfx(x, y, spr_ice_spawn, -dir, 1);
 	}
 	
 	xadd = approach(xadd,slide_fric,0);
@@ -179,7 +178,6 @@ arr_state_functions[STATES.heavy] = function(){
 	
 	if(state_changed){
 		xadd += dir * 2
-		create_vfx(x, y, spr_icicle, -dir, 1);
 	}
 	
 	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
@@ -193,7 +191,9 @@ arr_state_functions[STATES.heavy] = function(){
 		image_index += 0.5;
 	}
 		
-	
+	if(reached_frame(1) and input.is_pressed(INPUT.special)){
+		change_state(STATES.special)
+	}
 	if(anim_done)
 		change_state(STATES.idle)
 }
@@ -245,36 +245,6 @@ arr_state_functions[STATES.air_light] = function(){
 }
 
 
-
-//arr_state_functions[STATES.air_heavy] = function(){
-	
-//	if(state_changed)
-//	{
-//		yadd = -jumpforce_y/2;
-//		afterimage(1,1);
-//	}
-	
-//	xadd = approach(xadd,air_fric,0);
-//	yadd += grav*0.5;
-	
-//	//trans to special
-//	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
-//		change_state(STATES.air_special)
-		
-//		if(image_index >= 4 and input.is_pressed(INPUT.heavy)){
-//		change_state(STATES.air_heavy2);
-//	}
-	
-//	if(anim_done)
-//		change_state(STATES.air)
-//	if(is_grounded())
-//	{
-//		if is_hit_success()
-//			change_state(STATES.idle)
-//		else
-//			change_state(STATES.land);
-//	}
-//}
 
 arr_state_functions[STATES.air_heavy] = function(){
 	
@@ -460,8 +430,8 @@ arr_state_functions[STATES.special] = function(){
 
 arr_state_functions[STATES.special1] = function(){
 	if(state_changed){
-		create_vfx(x, y-100, spr_ice_spawn, -dir, 1);
-		create_projectile(obj_projectile,32, -100);
+		//create_vfx(x, y-100, spr_ice_spawn, -dir, 1);
+		create_projectile(obj_icicle,0, -60);
 
 	}
 	
