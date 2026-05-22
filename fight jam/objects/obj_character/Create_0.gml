@@ -884,3 +884,31 @@ function combo_break(){
 	__grav_mult = 0;
 	__done = false;
 }
+// projectile object, x offset ,y offset
+function create_projectile(_projectile_obj, _xoff, _yoff) {
+
+
+    var _spawn_x = x + _xoff * dir;
+
+
+    var _spawn_y = y + _yoff;
+
+
+    var _p = instance_create_depth(
+        _spawn_x,
+        _spawn_y,
+        depth,
+        _projectile_obj
+    );
+
+
+    _p.parent = self;
+
+
+    _p.dir = dir;
+
+
+    _p.image_xscale = dir;
+
+    return _p;
+}

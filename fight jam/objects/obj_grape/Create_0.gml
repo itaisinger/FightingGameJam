@@ -152,9 +152,10 @@ for(var i=0; i < STATES.max; i++){
 
 //state functions
 arr_state_functions[STATES.light] = function(){
-	
+
 	if(state_changed){
 		xadd += dir * 0.0;
+			create_vfx(x, y, spr_ice_spawn, -dir, 1);
 	}
 	
 	xadd = approach(xadd,slide_fric,0);
@@ -178,6 +179,7 @@ arr_state_functions[STATES.heavy] = function(){
 	
 	if(state_changed){
 		xadd += dir * 2
+		create_vfx(x, y, spr_icicle, -dir, 1);
 	}
 	
 	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
@@ -443,13 +445,24 @@ arr_state_functions[STATES.special] = function(){
 		change_state(STATES.special4); // 4
 }
 
+//function create_projectile(_xoff, _yoff) {
+//    var _p = instance_create_depth(
+//        x + _xoff * dir,
+//        y + _yoff,
+//        depth,
+//        obj_projectile
+//    );
+
+//    _p.parent = self;
+//    _p.dir = dir;
+//    _p.image_xscale = dir;
+//}
+
 arr_state_functions[STATES.special1] = function(){
-	xadd = approach(xadd, ground_fric * 1.2, 0);
-	yadd = 0;
-	
-	if(reached_frame(3)){
-		xadd = 30 * dir;
-		afterimage(4, 3);
+	if(state_changed){
+		create_vfx(x, y-100, spr_ice_spawn, -dir, 1);
+		create_projectile(obj_projectile,32, -100);
+
 	}
 	
 	if(anim_done)
