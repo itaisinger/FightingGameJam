@@ -273,7 +273,7 @@ arr_state_functions[STATES.walk] = function(){
 	}
 	else if(input.is_pressed(INPUT.right) and dir == -1)
 	{
-		create_vfx(x, y, vfx_running_smoke, -dir, 1);
+		create_vfx(x, y, vfx_running_smoke, dir, 1);
 		dir = 1;
 	}
 	
