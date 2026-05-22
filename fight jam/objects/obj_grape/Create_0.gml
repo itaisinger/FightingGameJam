@@ -122,19 +122,19 @@ inst_hitbox = noone;	//saves the currently active hitbox.
 //magic
 //special moves
 //1
-states_sprites[STATES.special1]		= spr_knifer_special;
+states_sprites[STATES.special1]		= spr_grape_idle;
 states_hurtboxes[STATES.special1]	= hurtbox_knifer_special;
 hitbox_data[STATES.special1]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 //2
-states_sprites[STATES.special2]		= spr_spyke_special;
+states_sprites[STATES.special2]		= spr_grape_idle;
 states_hurtboxes[STATES.special2]	= hurtbox_spyke_special;
 hitbox_data[STATES.special2]		= new HitboxData(hitbox_spyke_special,12,60,10,7,5,1,1,false);
 //3
-states_sprites[STATES.special3]		= spr_shooter_special;
+states_sprites[STATES.special3]		= spr_grape_idle;
 states_hurtboxes[STATES.special3]	= hurtbox_shooter_special;
 hitbox_data[STATES.special3]		= new HitboxData(hitbox_shooter_special,12,60,10,7,5,1,1,false);
 //4
-states_sprites[STATES.special4]		= spr_fighter_special;
+states_sprites[STATES.special4]		= spr_grape_idle;
 states_hurtboxes[STATES.special4]	= hurtbox_fighter_special;
 hitbox_data[STATES.special4]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 
@@ -430,9 +430,7 @@ arr_state_functions[STATES.special] = function(){
 
 arr_state_functions[STATES.special1] = function(){
 	if(state_changed){
-		//create_vfx(x, y-100, spr_ice_spawn, -dir, 1);
-		create_projectile(obj_icicle,0, -60);
-
+		create_projectile(obj_icicle,0, -200);
 	}
 	
 	if(anim_done)
@@ -440,6 +438,9 @@ arr_state_functions[STATES.special1] = function(){
 }
 
 arr_state_functions[STATES.special2] = function(){
+		if(state_changed){
+		create_projectile(obj_fireball,30, -50);
+	}
 	xadd = approach(xadd, ground_fric * 1.2, 0);
 	yadd = 0;
 	
