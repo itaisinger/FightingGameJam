@@ -482,7 +482,7 @@ arr_state_functions[STATES.special4] = function(){
 
 arr_state_functions[STATES.left] = function(){
 	if(anim_done){
-	if(input.is_just_pressed(INPUT.left)){
+	if(input.is_pressed(INPUT.left)){
 		change_state(STATES.special1);
 		return;
 	}
@@ -502,8 +502,8 @@ arr_state_functions[STATES.left] = function(){
 
 /////////
 arr_state_functions[STATES.right] = function(){
-	if(anim_done){
-	if(input.is_just_pressed(INPUT.right)){
+	if(image_index>=1){
+	if(input.is_pressed(INPUT.right)){
 		change_state(STATES.special2);
 		return;
 	}
@@ -523,7 +523,7 @@ arr_state_functions[STATES.right] = function(){
 arr_state_functions[STATES.up] = function(){
 	
 	if(anim_done){
-	if(input.is_just_pressed(INPUT.up)){
+	if(input.is_pressed(INPUT.up)){
 		change_state(STATES.special3);
 		return;
 	}
@@ -542,7 +542,7 @@ arr_state_functions[STATES.up] = function(){
 ///////////////
 arr_state_functions[STATES.down] = function(){
 	if(anim_done){
-	if(input.is_just_pressed(INPUT.down)){
+	if(input.is_pressed(INPUT.down)){
 		change_state(STATES.heavy);
 		return;
 	}
