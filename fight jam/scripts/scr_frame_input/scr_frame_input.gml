@@ -49,6 +49,10 @@ function FrameInput(P1) constructor{
 	}
 	
 	function is_pressed(input){ return arr[input]; }
+	function is_just_pressed(_input) { 
+		    show_debug_message("input value = " + string(arr[_input]));
+		    return arr[_input] >= 2;
+		}
 
 }
 

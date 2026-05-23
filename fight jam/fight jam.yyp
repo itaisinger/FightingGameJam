@@ -540,6 +540,7 @@
     {"id":{"name":"spr_grape_sign_right","path":"sprites/spr_grape_sign_right/spr_grape_sign_right.yy",},},
     {"id":{"name":"spr_grape_sign_up","path":"sprites/spr_grape_sign_up/spr_grape_sign_up.yy",},},
     {"id":{"name":"spr_grape_special","path":"sprites/spr_grape_special/spr_grape_special.yy",},},
+    {"id":{"name":"spr_grape_tp_OLD_FULL","path":"sprites/spr_grape_tp_OLD_FULL/spr_grape_tp_OLD_FULL.yy",},},
     {"id":{"name":"spr_grape_tp","path":"sprites/spr_grape_tp/spr_grape_tp.yy",},},
     {"id":{"name":"spr_grape_walk","path":"sprites/spr_grape_walk/spr_grape_walk.yy",},},
     {"id":{"name":"spr_hit_parry","path":"sprites/spr_hit_parry/spr_hit_parry.yy",},},

@@ -61,7 +61,7 @@ special_trans_grace_length = 8; //how many frames into heavy/light you can trans
 turnaround_grace_length = 8; //how many frames into heavy/light you can transition to special
 landing_lag = 10;
 
-states_sprites = [];
+states_sprites =array_create(STATES.max,-1);
 states_sprites[STATES.idle]			= spr_grape_idle;
 states_sprites[STATES.jump_squat]	= spr_grape_jump_squat;
 states_sprites[STATES.walk]			= spr_grape_walk;
@@ -81,9 +81,13 @@ states_sprites[STATES.air_light]	= spr_grape_air_light;
 states_sprites[STATES.air_heavy]	= spr_grape_air_heavy;
 states_sprites[STATES.air_heavy2]	= spr_grape_air_heavy2;
 states_sprites[STATES.air_special]	= spr_grape_air_heavy;
+states_sprites[STATES.left]	= spr_grape_sign_left;
+states_sprites[STATES.right]	= spr_grape_sign_right;
+states_sprites[STATES.up]	= spr_grape_sign_up;
+states_sprites[STATES.down]	= spr_grape_sign_down;
 
 hurtbox = hurtbox_fighter_idle;
-states_hurtboxes = [];
+states_hurtboxes =array_create(STATES.max,-1);
 states_hurtboxes[STATES.idle]		= hurtbox_fighter_idle;
 states_hurtboxes[STATES.jump_squat]	= hurtbox_fighter_jump_squat;
 states_hurtboxes[STATES.walk]		= hurtbox_fighter_walk;
@@ -102,8 +106,10 @@ states_hurtboxes[STATES.land]		= hurtbox_fighter_land;
 states_hurtboxes[STATES.air_light]	= hurtbox_fighter_air_light;
 states_hurtboxes[STATES.air_heavy]	= hurtbox_grape_air_heavy;
 states_hurtboxes[STATES.air_heavy2]	= hurtbox_grape_air_heavy2;
-states_hurtboxes[STATES.air_special]= hurtbox_fighter_air_special;
-
+states_hurtboxes[STATES.left]	= hurtbox_fighter_idle;
+states_hurtboxes[STATES.right]	= hurtbox_fighter_idle;
+states_hurtboxes[STATES.up]	= hurtbox_fighter_idle;
+states_hurtboxes[STATES.down]	= hurtbox_fighter_idle;
 mask_index = spr_fighter_idle
 
 /// ATTACKS DATA (overrided in different characters)
@@ -406,18 +412,20 @@ arr_state_functions[STATES.special] = function(){
 
     xadd = approach(xadd, ground_fric, 0);
     yadd = 0;
-
+	if(input.is_pressed(INPUT.light) or input.is_pressed(INPUT.heavy)){
+	change_state(STATES.idle);
+	}
     if(input.is_pressed(INPUT.up))
-        change_state(STATES.special1);
+        change_state(STATES.up);
 
     if(input.is_pressed(INPUT.right))
-        change_state(STATES.special2);
+        change_state(STATES.right);
 
     if(input.is_pressed(INPUT.down))
-        change_state(STATES.special3);
+        change_state(STATES.down);
 
     if(input.is_pressed(INPUT.left))
-        change_state(STATES.special4);
+        change_state(STATES.left);
 }
 
 
@@ -468,6 +476,85 @@ arr_state_functions[STATES.special4] = function(){
 		afterimage(4, 3);
 	}
 	
-	if(anim_done)
-		change_state(STATES.idle);
+
+}
+///////////////////////////////////////////
+
+arr_state_functions[STATES.left] = function(){
+	if(anim_done){
+	if(input.is_just_pressed(INPUT.left)){
+		change_state(STATES.special1);
+		return;
+	}
+	image_index = 2
+	image_speed=0
+	if(input.is_pressed(INPUT.right))
+		change_state(STATES.right);
+	if(input.is_pressed(INPUT.left))
+		change_state(STATES.left);
+	if(input.is_pressed(INPUT.up))
+		change_state(STATES.up);
+	if(input.is_pressed(INPUT.down))
+		change_state(STATES.down);
+	}
+
+}
+
+/////////
+arr_state_functions[STATES.right] = function(){
+	if(anim_done){
+	if(input.is_just_pressed(INPUT.right)){
+		change_state(STATES.special2);
+		return;
+	}
+	image_index = 2
+	image_speed=0
+	if(input.is_pressed(INPUT.right))
+		change_state(STATES.right);
+	if(input.is_pressed(INPUT.left))
+		change_state(STATES.left);
+	if(input.is_pressed(INPUT.up))
+		change_state(STATES.up);
+	if(input.is_pressed(INPUT.down))
+		change_state(STATES.down);
+	}
+}
+////////////////////
+arr_state_functions[STATES.up] = function(){
+	
+	if(anim_done){
+	if(input.is_just_pressed(INPUT.up)){
+		change_state(STATES.special3);
+		return;
+	}
+	image_index = 2
+	image_speed=0
+	if(input.is_pressed(INPUT.right))
+		change_state(STATES.right);
+	if(input.is_pressed(INPUT.left))
+		change_state(STATES.left);
+	if(input.is_pressed(INPUT.up))
+		change_state(STATES.up);
+	if(input.is_pressed(INPUT.down))
+		change_state(STATES.down);
+	}
+}
+///////////////
+arr_state_functions[STATES.down] = function(){
+	if(anim_done){
+	if(input.is_just_pressed(INPUT.down)){
+		change_state(STATES.heavy);
+		return;
+	}
+	image_index = 2
+	image_speed=0
+	if(input.is_pressed(INPUT.right))
+		change_state(STATES.right);
+	if(input.is_pressed(INPUT.left))
+		change_state(STATES.left);
+	if(input.is_pressed(INPUT.up))
+		change_state(STATES.up);
+	if(input.is_pressed(INPUT.down))
+		change_state(STATES.down);
+	}
 }

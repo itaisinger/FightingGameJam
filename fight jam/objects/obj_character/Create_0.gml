@@ -75,7 +75,10 @@ enum STATES{
 	special3,
 	special4,
 	teleport,
-	
+	left,
+	right,
+	up,
+	down,
 	max,
 }
 
@@ -175,7 +178,7 @@ inst_hitbox = noone;	//saves the currently active hitbox.
 
 
 //state functions
-arr_state_functions = [];
+arr_state_functions = array_create(STATES.max,-1);
 arr_state_functions[STATES.idle] = function(){
 	
 	xadd = approach(xadd,ground_fric,0);
