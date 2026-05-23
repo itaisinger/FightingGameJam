@@ -64,19 +64,19 @@ landing_lag = 10;
 states_sprites = [];
 states_sprites[STATES.idle]			= spr_grape_idle;
 states_sprites[STATES.jump_squat]	= spr_grape_jump_squat;
-states_sprites[STATES.walk]			= spr_fighter_walk;
+states_sprites[STATES.walk]			= spr_grape_walk;
 states_sprites[STATES.light]		= spr_grape_light;
 states_sprites[STATES.heavy]		= spr_grape_heavy;
 states_sprites[STATES.air]			= spr_grape_air;
-states_sprites[STATES.echo]			= spr_fighter_echo;
-states_sprites[STATES.dodge]		= spr_fighter_dodge;
-states_sprites[STATES.stun]			= spr_fighter_hurt;
-states_sprites[STATES.air_stun]		= spr_fighter_air_hurt;
-states_sprites[STATES.dead]			= spr_fighter_dead;
-states_sprites[STATES.parry]		= spr_fighter_parry;
-states_sprites[STATES.teleport]		= spr_fighter_tp;
-states_sprites[STATES.special]		= spr_fighter_special;
-states_sprites[STATES.land]			= spr_fighter_land;
+states_sprites[STATES.echo]			= spr_grape_echo;
+states_sprites[STATES.dodge]		= spr_grape_dodge;
+states_sprites[STATES.stun]			= spr_grape_hurt;
+states_sprites[STATES.air_stun]		= spr_grape_hurt;
+states_sprites[STATES.dead]			= spr_grape_dead;
+states_sprites[STATES.parry]		= spr_grape_parry;
+states_sprites[STATES.teleport]		= spr_grape_tp;
+states_sprites[STATES.special]		= spr_grape_special;
+states_sprites[STATES.land]			= spr_grape_land;
 states_sprites[STATES.air_light]	= spr_grape_air_light;
 states_sprites[STATES.air_heavy]	= spr_grape_air_heavy;
 states_sprites[STATES.air_heavy2]	= spr_grape_air_heavy2;
@@ -122,19 +122,19 @@ inst_hitbox = noone;	//saves the currently active hitbox.
 //magic
 //special moves
 //1
-states_sprites[STATES.special1]		= spr_grape_dodge;
+states_sprites[STATES.special1]		= spr_grape_special;
 states_hurtboxes[STATES.special1]	= hurtbox_knifer_special;
 hitbox_data[STATES.special1]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 //2
-states_sprites[STATES.special2]		= spr_grape_dodge;
+states_sprites[STATES.special2]		= spr_grape_special;
 states_hurtboxes[STATES.special2]	= hurtbox_spyke_special;
 hitbox_data[STATES.special2]		= new HitboxData(hitbox_spyke_special,12,60,10,7,5,1,1,false);
 //3
-states_sprites[STATES.special3]		= spr_grape_dodge;
+states_sprites[STATES.special3]		= spr_grape_special;
 states_hurtboxes[STATES.special3]	= hurtbox_shooter_special;
 hitbox_data[STATES.special3]		= new HitboxData(hitbox_shooter_special,12,60,10,7,5,1,1,false);
 //4
-states_sprites[STATES.special4]		= spr_grape_dodge;
+states_sprites[STATES.special4]		= spr_grape_special;
 states_hurtboxes[STATES.special4]	= hurtbox_fighter_special;
 hitbox_data[STATES.special4]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 
@@ -392,41 +392,34 @@ arr_state_functions[STATES.air_special] = function(){
 
 arr_state_functions[STATES.special] = function(){
 	
-	//waiting mode: no animation
-	image_speed = 0;
-	image_index = 0;
-	
-	xadd = approach(xadd, ground_fric, 0);
-	yadd = 0;
-	
-	if(state_changed)
-		show_debug_message("special");
-	
-	if(input.is_pressed(INPUT.up))
-		change_state(STATES.special1); // 1
-	
-	if(input.is_pressed(INPUT.right))
-		change_state(STATES.special2); // 2
-	
-	if(input.is_pressed(INPUT.down))
-		change_state(STATES.special3); // 3
-	
-	if(input.is_pressed(INPUT.left))
-		change_state(STATES.special4); // 4
+	    if (image_index <= 1) {
+        image_index = 2;
+    }
+
+
+    if (state_changed) {
+        image_index = 0;
+        image_speed = 1;
+    }
+
+    // when animation reaches the end, loop only the last 2 frames
+
+    xadd = approach(xadd, ground_fric, 0);
+    yadd = 0;
+
+    if(input.is_pressed(INPUT.up))
+        change_state(STATES.special1);
+
+    if(input.is_pressed(INPUT.right))
+        change_state(STATES.special2);
+
+    if(input.is_pressed(INPUT.down))
+        change_state(STATES.special3);
+
+    if(input.is_pressed(INPUT.left))
+        change_state(STATES.special4);
 }
 
-//function create_projectile(_xoff, _yoff) {
-//    var _p = instance_create_depth(
-//        x + _xoff * dir,
-//        y + _yoff,
-//        depth,
-//        obj_projectile
-//    );
-
-//    _p.parent = self;
-//    _p.dir = dir;
-//    _p.image_xscale = dir;
-//}
 
 arr_state_functions[STATES.special1] = function(){
 	if(state_changed){
