@@ -122,19 +122,19 @@ inst_hitbox = noone;	//saves the currently active hitbox.
 //magic
 //special moves
 //1
-states_sprites[STATES.special1]		= spr_grape_idle;
+states_sprites[STATES.special1]		= spr_grape_dodge;
 states_hurtboxes[STATES.special1]	= hurtbox_knifer_special;
 hitbox_data[STATES.special1]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 //2
-states_sprites[STATES.special2]		= spr_grape_idle;
+states_sprites[STATES.special2]		= spr_grape_dodge;
 states_hurtboxes[STATES.special2]	= hurtbox_spyke_special;
 hitbox_data[STATES.special2]		= new HitboxData(hitbox_spyke_special,12,60,10,7,5,1,1,false);
 //3
-states_sprites[STATES.special3]		= spr_grape_idle;
+states_sprites[STATES.special3]		= spr_grape_dodge;
 states_hurtboxes[STATES.special3]	= hurtbox_shooter_special;
 hitbox_data[STATES.special3]		= new HitboxData(hitbox_shooter_special,12,60,10,7,5,1,1,false);
 //4
-states_sprites[STATES.special4]		= spr_grape_idle;
+states_sprites[STATES.special4]		= spr_grape_dodge;
 states_hurtboxes[STATES.special4]	= hurtbox_fighter_special;
 hitbox_data[STATES.special4]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 
