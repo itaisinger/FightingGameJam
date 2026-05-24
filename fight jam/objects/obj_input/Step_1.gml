@@ -33,6 +33,7 @@ for(var i=0;i<2;i++){
 	arr[i][INPUT.dodge]			= max(10 * (keyboard_check_pressed(keybinds[INPUT.dodge][i]) || gdodge), arr[i][INPUT.dodge] - 1);
 	arr[i][INPUT.echo]			= keyboard_check_pressed(keybinds[INPUT.echo][i]) || gecho;
 	arr[i][INPUT.special]		= (arr[i][INPUT.heavy] && arr[i][INPUT.light]) or gspecial;
+	arr[i][INPUT.down_press]	= keyboard_check_pressed(keybinds[INPUT.down][i]) || gdown;
 	
 	if(arr[i][INPUT.left] > arr[i][INPUT.right])  
 		arr[i][INPUT.right]=0;

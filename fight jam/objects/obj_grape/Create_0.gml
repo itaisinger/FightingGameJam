@@ -43,6 +43,8 @@ state_changed = false;
 state_count = 0;		//how many frames we are in this state
 
 stun_remain = 0;
+spell_array= []
+special_dir =1;
 
 /// INPUT
 input = -1;		//holds the input object for the current frame.
@@ -80,7 +82,7 @@ states_sprites[STATES.land]			= spr_grape_land;
 states_sprites[STATES.air_light]	= spr_grape_air_light;
 states_sprites[STATES.air_heavy]	= spr_grape_air_heavy;
 states_sprites[STATES.air_heavy2]	= spr_grape_air_heavy2;
-states_sprites[STATES.air_special]	= spr_grape_air_heavy;
+states_sprites[STATES.air_special]	= spr_grape_special;
 states_sprites[STATES.left]	= spr_grape_sign_left;
 states_sprites[STATES.right]	= spr_grape_sign_right;
 states_sprites[STATES.up]	= spr_grape_sign_up;
@@ -133,15 +135,15 @@ states_hurtboxes[STATES.special1]	= hurtbox_knifer_special;
 hitbox_data[STATES.special1]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 //2
 states_sprites[STATES.special2]		= spr_grape_special;
-states_hurtboxes[STATES.special2]	= hurtbox_spyke_special;
-hitbox_data[STATES.special2]		= new HitboxData(hitbox_spyke_special,12,60,10,7,5,1,1,false);
+states_hurtboxes[STATES.special2]	= hurtbox_knifer_special;
+hitbox_data[STATES.special2]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 //3
-states_sprites[STATES.special3]		= spr_grape_special;
-states_hurtboxes[STATES.special3]	= hurtbox_shooter_special;
-hitbox_data[STATES.special3]		= new HitboxData(hitbox_shooter_special,12,60,10,7,5,1,1,false);
+states_sprites[STATES.special3]		= spr_grape_special3;
+states_hurtboxes[STATES.special3]	= hurtbox_knifer_special;
+hitbox_data[STATES.special3]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 //4
 states_sprites[STATES.special4]		= spr_grape_special;
-states_hurtboxes[STATES.special4]	= hurtbox_fighter_special;
+states_hurtboxes[STATES.special4]	= hurtbox_knifer_special;
 hitbox_data[STATES.special4]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
 
 var names = variable_instance_get_names(id);
@@ -186,7 +188,7 @@ arr_state_functions[STATES.heavy] = function(){
 		xadd += dir * 2
 	}
 	
-	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
+	if((state_count <= special_trans_grace_length or image_index>=3 ) and input.is_pressed(INPUT.special))
 		change_state(STATES.special)
 	
 	xadd = approach(xadd,slide_fric,0);
@@ -338,63 +340,63 @@ arr_state_functions[STATES.air_heavy2] = function(){
 	}
 }
 
-arr_state_functions[STATES.air_special] = function(){
+//arr_state_functions[STATES.air_special] = function(){
 	
-	if(state_changed)
-	{
-		__grav_mult = 0;
-		__grav_multx = 8;
-		yadd = 0;
-	}
+//	if(state_changed)
+//	{
+//		__grav_mult = 0;
+//		__grav_multx = 8;
+//		yadd = 0;
+//	}
 	
-	if(reached_frame(3))
-	{
-		__grav_mult = 0;
-		xadd = dir * 17;
-		__grav_multx = 1
-		yadd = 2;
-	}
+//	if(reached_frame(3))
+//	{
+//		__grav_mult = 0;
+//		xadd = dir * 17;
+//		__grav_multx = 1
+//		yadd = 2;
+//	}
 	
-	if(reached_frame(4))
-	{
-		create_hitbox(hitbox_data[STATES.air_special]);
-		inst_hitbox.image_index = image_index;
-	}
+//	if(reached_frame(4))
+//	{
+//		create_hitbox(hitbox_data[STATES.air_special]);
+//		inst_hitbox.image_index = image_index;
+//	}
 	
-	if(reached_frame(5))
-	{
-		//with(inst_hitbox) instance_destroy();
-		create_hitbox(hitbox_data[STATES.air_special]);
-		inst_hitbox.image_index = image_index;
-	}
+//	if(reached_frame(5))
+//	{
+//		//with(inst_hitbox) instance_destroy();
+//		create_hitbox(hitbox_data[STATES.air_special]);
+//		inst_hitbox.image_index = image_index;
+//	}
 	
-	if(reached_frame(6)){
-		__grav_mult = 0.5;
-	}
+//	if(reached_frame(6)){
+//		__grav_mult = 0.5;
+//	}
 	
-	//jump cancel
-	if(instance_exists(inst_hitbox) and array_length(inst_hitbox.arr_hits) > 0 and input.is_pressed(INPUT.up)){
-		change_state(STATES.air)
-		yadd = -jumpforce_y;
-		xadd = dir * jumpforce_x;
-	}
+//	//jump cancel
+//	if(instance_exists(inst_hitbox) and array_length(inst_hitbox.arr_hits) > 0 and input.is_pressed(INPUT.up)){
+//		change_state(STATES.air)
+//		yadd = -jumpforce_y;
+//		xadd = dir * jumpforce_x;
+//	}
 		
 	
-	yadd += grav * __grav_mult;
-	xadd = approach(xadd,air_fric*__grav_multx,0);
+//	yadd += grav * __grav_mult;
+//	xadd = approach(xadd,air_fric*__grav_multx,0);
 	
-	//land
-	if(is_grounded())
-	{
-		if is_hit_success()
-			change_state(STATES.idle)
-		else
-			change_state(STATES.land);
-	}
+//	//land
+//	if(is_grounded())
+//	{
+//		if is_hit_success()
+//			change_state(STATES.idle)
+//		else
+//			change_state(STATES.land);
+//	}
 		
-	if(anim_done)
-		change_state(STATES.air);
-}
+//	if(anim_done)
+//		change_state(STATES.air);
+//}
 
 arr_state_functions[STATES.special] = function(){
 	
@@ -404,6 +406,7 @@ arr_state_functions[STATES.special] = function(){
 
 
     if (state_changed) {
+		special_dir=dir;
         image_index = 0;
         image_speed = 1;
     }
@@ -412,7 +415,7 @@ arr_state_functions[STATES.special] = function(){
 
     xadd = approach(xadd, ground_fric, 0);
     yadd = 0;
-	if(input.is_pressed(INPUT.light) or input.is_pressed(INPUT.heavy)){
+	if(input.is_pressed(INPUT.dodge)){
 	change_state(STATES.idle);
 	}
     if(input.is_pressed(INPUT.up))
@@ -428,133 +431,161 @@ arr_state_functions[STATES.special] = function(){
         change_state(STATES.left);
 }
 
-
+arr_state_functions[STATES.air_special]=arr_state_functions[STATES.special];
+/////////
 arr_state_functions[STATES.special1] = function(){
+	dir=special_dir;
 	if(state_changed){
 		create_projectile(obj_icicle,0, -200);
 	}
-	
-	if(anim_done)
-		change_state(STATES.idle);
+	change_state(STATES.idle);
 }
-
+/////////
 arr_state_functions[STATES.special2] = function(){
+	dir=special_dir;
 		if(state_changed){
 		create_projectile(obj_fireball,30, -50);
 	}
-	xadd = approach(xadd, ground_fric * 1.2, 0);
-	yadd = 0;
-	
-	if(reached_frame(3)){
-		xadd = 30 * dir;
-		afterimage(4, 3);
-	}
-	
-	if(anim_done)
-		change_state(STATES.idle);
+	change_state(STATES.idle);
 }
-
+/////
 arr_state_functions[STATES.special3] = function(){
-	xadd = approach(xadd, ground_fric * 1.2, 0);
-	yadd = 0;
-	
-	if(reached_frame(3)){
-		xadd = 30 * dir;
-		afterimage(4, 3);
+	dir=special_dir;
+	if(state_changed){
+		yadd-=7;
+		xadd+=17*dir;
+		create_vfx(x, y, SmokeNDust_1, -dir, 1);
+	}
+	if(anim_done){
+		change_state(STATES.air);
 	}
 	
+}
+//////
+arr_state_functions[STATES.special4] = function(){
+	dir=special_dir;
 	if(anim_done)
 		change_state(STATES.idle);
-}
-
-arr_state_functions[STATES.special4] = function(){
-	xadd = approach(xadd, ground_fric * 1.2, 0);
-	yadd = 0;
-	
-	if(reached_frame(3)){
-		xadd = 30 * dir;
-		afterimage(4, 3);
-	}
-	
-
 }
 ///////////////////////////////////////////
 
 arr_state_functions[STATES.left] = function(){
+	xadd = approach(xadd, ground_fric, 0);
+    yadd = 0;
+		if(state_changed){add_state(); }
 	if(anim_done){
-	if(input.is_pressed(INPUT.left)){
-		change_state(STATES.special1);
-		return;
+		
+		image_index = 2
+		image_speed=0
 	}
-	image_index = 2
-	image_speed=0
-	if(input.is_pressed(INPUT.right))
-		change_state(STATES.right);
-	if(input.is_pressed(INPUT.left))
-		change_state(STATES.left);
-	if(input.is_pressed(INPUT.up))
-		change_state(STATES.up);
-	if(input.is_pressed(INPUT.down))
-		change_state(STATES.down);
+	if(image_index >= 2){
+		if(handle_array()){return;}
+		if(input.is_just_pressed(INPUT.right)){restart_state(STATES.right);image_index = 0 ; anim_done=false;}
+		if(input.is_just_pressed(INPUT.left)){ restart_state(STATES.left); image_index = 0; anim_done=false;}
+		if(input.is_just_pressed(INPUT.up)){ restart_state(STATES.up);image_index = 0; anim_done=false;}
+		if(input.is_just_pressed(INPUT.down)) {restart_state(STATES.down);image_index = 0; anim_done=false;}
 	}
+	
 
 }
 
 /////////
 arr_state_functions[STATES.right] = function(){
-	if(image_index>=1){
-	if(input.is_pressed(INPUT.right)){
-		change_state(STATES.special2);
-		return;
+	xadd = approach(xadd, ground_fric, 0);
+    yadd = 0;
+	if(state_changed){add_state(); }
+	if(anim_done){
+		
+		image_index = 2
+		image_speed=0
 	}
-	image_index = 2
-	image_speed=0
-	if(input.is_pressed(INPUT.right))
-		change_state(STATES.right);
-	if(input.is_pressed(INPUT.left))
-		change_state(STATES.left);
-	if(input.is_pressed(INPUT.up))
-		change_state(STATES.up);
-	if(input.is_pressed(INPUT.down))
-		change_state(STATES.down);
+	if(image_index >= 2){
+		if(handle_array()){return;}
+		if(input.is_just_pressed(INPUT.right)){restart_state(STATES.right);image_index = 0 ; anim_done=false;}
+		if(input.is_just_pressed(INPUT.left)){ restart_state(STATES.left); image_index = 0; anim_done=false;}
+		if(input.is_just_pressed(INPUT.up)){ restart_state(STATES.up);image_index = 0; anim_done=false;}
+		if(input.is_just_pressed(INPUT.down)) {restart_state(STATES.down);image_index = 0; anim_done=false;}
 	}
+	
 }
 ////////////////////
 arr_state_functions[STATES.up] = function(){
-	
+	xadd = approach(xadd, ground_fric, 0);
+    yadd = 0;
+	if(state_changed){add_state(); }
 	if(anim_done){
-	if(input.is_pressed(INPUT.up)){
-		change_state(STATES.special3);
-		return;
-	}
-	image_index = 2
-	image_speed=0
-	if(input.is_pressed(INPUT.right))
-		change_state(STATES.right);
-	if(input.is_pressed(INPUT.left))
-		change_state(STATES.left);
-	if(input.is_pressed(INPUT.up))
-		change_state(STATES.up);
-	if(input.is_pressed(INPUT.down))
-		change_state(STATES.down);
-	}
+		
+		image_index = 2
+		image_speed=0
+		}
+		if(image_index >= 2){
+			if(handle_array()){return;}
+		if(input.is_just_pressed(INPUT.right)){restart_state(STATES.right);image_index = 0 ; anim_done=false;}
+		if(input.is_just_pressed(INPUT.left)){ restart_state(STATES.left); image_index = 0; anim_done=false;}
+		if(input.is_just_pressed(INPUT.up)){ restart_state(STATES.up);image_index = 0; anim_done=false;}
+		if(input.is_just_pressed(INPUT.down)) {restart_state(STATES.down);image_index = 0; anim_done=false;}
+		}
 }
 ///////////////
 arr_state_functions[STATES.down] = function(){
+	xadd = approach(xadd, ground_fric, 0);
+    yadd = 0;
+	if(state_changed){add_state(); }
 	if(anim_done){
-	if(input.is_pressed(INPUT.down)){
-		change_state(STATES.heavy);
-		return;
-	}
-	image_index = 2
-	image_speed=0
-	if(input.is_pressed(INPUT.right))
-		change_state(STATES.right);
-	if(input.is_pressed(INPUT.left))
-		change_state(STATES.left);
-	if(input.is_pressed(INPUT.up))
-		change_state(STATES.up);
-	if(input.is_pressed(INPUT.down))
-		change_state(STATES.down);
-	}
+		if(handle_array()){return;}
+		image_index = 2
+		image_speed=0
+		}
+		if(image_index >= 2){
+		if(input.is_just_pressed(INPUT.right)){restart_state(STATES.right);image_index = 0 ; anim_done=false;}
+		if(input.is_just_pressed(INPUT.left)){ restart_state(STATES.left); image_index = 0; anim_done=false;}
+		if(input.is_just_pressed(INPUT.up)){ restart_state(STATES.up);image_index = 0; anim_done=false;}
+		if(input.is_just_pressed(INPUT.down)) {restart_state(STATES.down);image_index = 0; anim_done=false;}
+		}
+	
+}
+
+function add_state(){
+	
+    array_push(spell_array, state);
+
+    if (array_length(spell_array) >= 3) {
+        array_delete(spell_array, 0, 1);
+    }
+	show_debug_message("spell array= " + string(spell_array));
+}
+
+function handle_array() {
+    if (array_length(spell_array) < 2) return false;
+
+    var a = spell_array[0];
+    var b = spell_array[1];
+    if (a == STATES.left && b == STATES.left) {
+        spell_array = [];
+        change_state(STATES.special1);
+        return true;
+    }
+    if (a == STATES.right && b == STATES.right) {
+        spell_array = [];
+        change_state(STATES.special2);
+        return true;
+    }
+    if (a == STATES.up && b == STATES.up) {
+        spell_array = [];
+        change_state(STATES.special3);
+        return true;
+    }
+    if (a == STATES.down && b == STATES.down) {
+        spell_array = [];
+        change_state(STATES.heavy);
+        return true;
+    }
+    return false;
+}
+function restart_state(_state) {
+    change_state(_state);
+
+    // force same-state transition to count as changed
+    state_prev = -1;
+    state_changed = true;
 }
