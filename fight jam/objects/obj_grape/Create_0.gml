@@ -88,42 +88,42 @@ states_sprites[STATES.right]	= spr_grape_sign_right;
 states_sprites[STATES.up]	= spr_grape_sign_up;
 states_sprites[STATES.down]	= spr_grape_sign_down;
 
-hurtbox = hurtbox_fighter_idle;
+hurtbox = hurtbox_grape_idle;
 states_hurtboxes =array_create(STATES.max,-1);
-states_hurtboxes[STATES.idle]		= hurtbox_fighter_idle;
-states_hurtboxes[STATES.jump_squat]	= hurtbox_fighter_jump_squat;
-states_hurtboxes[STATES.walk]		= hurtbox_fighter_walk;
-states_hurtboxes[STATES.light]		= hurtbox_fighter_light;
-states_hurtboxes[STATES.heavy]		= hurtbox_fighter_heavy;
-states_hurtboxes[STATES.air]		= hurtbox_fighter_air;
-states_hurtboxes[STATES.echo]		= hurtbox_fighter_echo;
-states_hurtboxes[STATES.dodge]		= hurtbox_fighter_dodge;
-states_hurtboxes[STATES.stun]		= hurtbox_fighter_hurt;
-states_hurtboxes[STATES.air_stun]	= hurtbox_fighter_air_hurt;
-states_hurtboxes[STATES.dead]		= hurtbox_fighter_dead;
-states_hurtboxes[STATES.parry]		= hurtbox_fighter_parry;
-states_hurtboxes[STATES.teleport]	= hurtbox_fighter_tp;
-states_hurtboxes[STATES.special]	= hurtbox_fighter_special;
-states_hurtboxes[STATES.land]		= hurtbox_fighter_land;
-states_hurtboxes[STATES.air_light]	= hurtbox_fighter_air_light;
-states_hurtboxes[STATES.air_heavy]	= hurtbox_grape_air_heavy;
-states_hurtboxes[STATES.air_heavy2]	= hurtbox_grape_air_heavy2;
-states_hurtboxes[STATES.left]	= hurtbox_fighter_idle;
-states_hurtboxes[STATES.right]	= hurtbox_fighter_idle;
-states_hurtboxes[STATES.up]	= hurtbox_fighter_idle;
-states_hurtboxes[STATES.down]	= hurtbox_fighter_idle;
-mask_index = spr_fighter_idle
+states_hurtboxes[STATES.idle]		= hurtbox_grape_idle;
+states_hurtboxes[STATES.jump_squat]	= hurtbox_grape_jump_squat;
+states_hurtboxes[STATES.walk]		= hurtbox_grape_walk;
+states_hurtboxes[STATES.light]		= hurtbox_grape_light;
+states_hurtboxes[STATES.heavy]		= hurtbox_grape_heavy;
+states_hurtboxes[STATES.air]		= hurtbox_grape_air;
+states_hurtboxes[STATES.echo]		= hurtbox_grape_echo;
+states_hurtboxes[STATES.dodge]		= hurtbox_grape_dodge;
+states_hurtboxes[STATES.stun]		= hurtbox_grape_hurt;
+states_hurtboxes[STATES.air_stun]	= hurtbox_grape_hurt;
+states_hurtboxes[STATES.dead]		= hurtbox_grape_dead;
+states_hurtboxes[STATES.parry]		= hurtbox_grape_parry;
+states_hurtboxes[STATES.teleport]	= hurtbox_grape_tp;
+states_hurtboxes[STATES.special]	= hurtbox_grape_special;
+states_hurtboxes[STATES.land]		= hurtbox_grape_land;
+states_hurtboxes[STATES.air_light]	= hurtbox_grape_air_light;
+states_hurtboxes[STATES.air_heavy]	= hitbox_grape_air_heavy;
+states_hurtboxes[STATES.air_heavy2]	= hitbox_grape_air_heavy2;
+states_hurtboxes[STATES.left]	= hurtbox_grape_idle;
+states_hurtboxes[STATES.right]	= hurtbox_grape_idle;
+states_hurtboxes[STATES.up]	= hurtbox_grape_idle;
+states_hurtboxes[STATES.down]	= hurtbox_grape_idle;
+mask_index = spr_grape_idle
 
 /// ATTACKS DATA (overrided in different characters)
 hitbox_data = array_create(STATES.max,-1)
-hitbox_data[STATES.light]		= new HitboxData(hitbox_fighter_light,4,45,5,3,4,0,0,false);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_fighter_heavy,8,100,15,5,9,0,1,false);
-hitbox_data[STATES.special]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
-hitbox_data[STATES.air_light]	= new HitboxData(hitbox_fighter_air_light,5,60,5,3,7,0,0,false);
-hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_fighter_air_heavy,10,90,10,3,5,0,0,false);
-hitbox_data[STATES.air_heavy2]	= new HitboxData(hitbox_fighter_air_heavy,10,90,10,3,5,0,0,false);
-hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,4,20,5,3,5,0,0,false);
-hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,100,180,3,3,1,false,true);
+hitbox_data[STATES.light]		= new HitboxData(hitbox_grape_light,4,45,5,3,4,0,0,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_grape_heavy,8,100,15,5,9,0,1,false);
+//hitbox_data[STATES.special]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_grape_air_light,5,60,5,3,7,0,0,false);
+hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_grape_air_heavy,10,90,10,3,5,0,0,false);
+hitbox_data[STATES.air_heavy2]	= new HitboxData(hitbox_grape_air_heavy,10,90,10,3,5,0,0,false);
+//hitbox_data[STATES.air_special]	= new HitboxData(hitbox_grape_air_special,4,20,5,3,5,0,0,false);
+hitbox_data[STATES.parry]		= new HitboxData(hitbox_grape_parry,1,100,180,3,3,1,false,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
 
@@ -131,20 +131,20 @@ inst_hitbox = noone;	//saves the currently active hitbox.
 //special moves
 //1
 states_sprites[STATES.special1]		= spr_grape_special;
-states_hurtboxes[STATES.special1]	= hurtbox_knifer_special;
-hitbox_data[STATES.special1]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
+states_hurtboxes[STATES.special1]	= hurtbox_grape_special;
+//hitbox_data[STATES.special1]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 //2
 states_sprites[STATES.special2]		= spr_grape_special;
-states_hurtboxes[STATES.special2]	= hurtbox_knifer_special;
-hitbox_data[STATES.special2]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
+states_hurtboxes[STATES.special2]	= hurtbox_grape_special;
+//hitbox_data[STATES.special2]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 //3
 states_sprites[STATES.special3]		= spr_grape_special3;
-states_hurtboxes[STATES.special3]	= hurtbox_knifer_special;
-hitbox_data[STATES.special3]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
+states_hurtboxes[STATES.special3]	= hurtbox_grape_special;
+//hitbox_data[STATES.special3]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 //4
 states_sprites[STATES.special4]		= spr_grape_special;
-states_hurtboxes[STATES.special4]	= hurtbox_knifer_special;
-hitbox_data[STATES.special4]		= new HitboxData(hitbox_fighter_special,12,60,10,7,5,1,1,false);
+states_hurtboxes[STATES.special4]	= hurtbox_grape_special;
+//hitbox_data[STATES.special4]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 
 var names = variable_instance_get_names(id);
 for(var i = 0; i < array_length(names); i++){
