@@ -10,7 +10,7 @@ echo_charges_remain = echo_charges_max;
 hitpause_remain = 0;
 is_p1 = true;
 
-name = "JOSHUA"
+name = "GRAPE"
 win_sfx = sfx_jhoshua_wins;
 
 /// MOVEMENT

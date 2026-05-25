@@ -121,6 +121,8 @@ special_trans_grace_length = 8; //how many frames into heavy/light you can trans
 turnaround_grace_length = 8; //how many frames into heavy/light you can transition to special
 landing_lag = 10;
 
+
+
 states_sprites = [];
 states_sprites[STATES.idle]			= spr_fighter_idle;
 states_sprites[STATES.jump_squat]	= spr_fighter_jump_squat;
@@ -252,12 +254,15 @@ arr_state_functions[STATES.jump_squat] = function(){
 }
 arr_state_functions[STATES.walk] = function(){
 	
+	if(state_changed)
+	{
+		press_prev = 0;	
+	}
+	
+	
 	yadd = 0;
 	xadd_dest = dir * walkspd;
 	
-	if(state_changed){
-		create_vfx(x, y, vfx_running_smoke, -dir, 1);
-	}
 	//if moving fast, slow down. otherwise, snap to speed
 	if(abs(xadd) < abs(xadd_dest)) xadd = xadd_dest;
 	else xadd = approach(xadd,ground_fric,xadd_dest);
@@ -271,12 +276,10 @@ arr_state_functions[STATES.walk] = function(){
 	//turn
 	if(input.is_pressed(INPUT.left) and dir == 1)
 	{
-		create_vfx(x, y, vfx_running_smoke, dir, 1);
 		dir = -1;
 	}
 	else if(input.is_pressed(INPUT.right) and dir == -1)
 	{
-		create_vfx(x, y, vfx_running_smoke, dir, 1);
 		dir = 1;
 	}
 	
@@ -321,6 +324,11 @@ arr_state_functions[STATES.walk] = function(){
 
 	//special
 	if(input.is_pressed(INPUT.special)) change_state(STATES.special);
+	
+	//particles
+	var _press = sign(input.is_pressed(INPUT.right)) - sign(input.is_pressed(INPUT.left));
+	if(_press != press_prev and _press != 0) create_vfx(x,y,vfx_run,dir,1,1);
+	press_prev = _press
 }
 
 arr_state_functions[STATES.land] = function(){
