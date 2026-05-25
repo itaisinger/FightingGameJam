@@ -1,67 +1,15 @@
 event_inherited();
 
-/// TOP LOGIC
-is_echo = false;
+//STATS
 max_hp *= 1.2;
 hp = max_hp;
-dir = 1;
-echo_charges_max = 3;
-echo_charges_remain = echo_charges_max;
-hitpause_remain = 0;
-is_p1 = true;
+walkspd -= 1.7;
+grav *= 0.7;
+jumpforce_y *= 1;
+jumpforce_x *= 0.8;
 
 name = "GRAPE"
 win_sfx = sfx_jhoshua_wins;
-
-/// MOVEMENT
-xadd = 0;
-yadd = 0;
-walkspd = 7;
-grav = 0.6;
-stun_grav = grav * 0.4;
-air_drift_spd = walkspd*0.03;
-max_air_spd = walkspd * 1.5;
-air_fric = 0.05;
-stun_air_fric = air_fric * 0.25;
-ground_fric = 1;
-slide_fric = ground_fric * 0.4;	//used to slide when entering states that slide
-
-jumpforce_y = 12;
-jumpforce_x = walkspd * 0.8;
-jump_traj_x = 0; //base xadd set when jumping. cant stray away from this too much.
-max_stray = walkspd * 0.6;
-max_stray_back = walkspd*0.4;
-
-dodge_step_remain = 0;
-dodge_step_max = 9;
-
-
-/// STATES
-state = 0;
-state_prev = state;
-state_changed = false;
-state_count = 0;		//how many frames we are in this state
-
-stun_remain = 0;
-spell_array= []
-special_dir =1;
-
-/// INPUT
-input = -1;		//holds the input object for the current frame.
-
-/// ANIMATION AND VISUALS
-anim_done = false;
-image_speed_prev = 1;
-image_index_prev = 0;
-_xshake = 0;
-_yshake = 0;
-floor_y = -100;
-depth = DEPTH.player;
-
-//animation stats
-special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
-turnaround_grace_length = 8; //how many frames into heavy/light you can transition to special
-landing_lag = 10;
 
 states_sprites =array_create(STATES.max,-1);
 states_sprites[STATES.idle]			= spr_grape_idle;
