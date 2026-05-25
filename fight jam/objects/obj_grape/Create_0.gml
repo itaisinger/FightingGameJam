@@ -6,7 +6,7 @@ hp = max_hp;
 walkspd -= 1.7;
 grav *= 0.7;
 jumpforce_y *= 1;
-jumpforce_x *= 0.8;
+jumpforce_x *= 0.7;
 
 name = "GRAPE"
 win_sfx = sfx_jhoshua_wins;
@@ -199,9 +199,6 @@ arr_state_functions[STATES.air_light] = function(){
 			change_state(STATES.land);
 	}
 }
-
-
-
 arr_state_functions[STATES.air_heavy] = function(){
 	
 	if(state_changed)
@@ -261,7 +258,6 @@ arr_state_functions[STATES.air_heavy] = function(){
 			change_state(STATES.land);
 	}
 }
-
 arr_state_functions[STATES.air_heavy2] = function(){
 	
 	if(state_changed)
@@ -348,7 +344,7 @@ arr_state_functions[STATES.air_heavy2] = function(){
 
 arr_state_functions[STATES.special] = function(){
 	
-	    if (image_index <= 1) {
+	if (image_index <= 1) {
         image_index = 2;
     }
 
@@ -357,14 +353,16 @@ arr_state_functions[STATES.special] = function(){
 		special_dir=dir;
         image_index = 0;
         image_speed = 1;
-    }
+	}
 
     // when animation reaches the end, loop only the last 2 frames
 
-    xadd = approach(xadd, ground_fric, 0);
-    yadd = 0;
-	if(input.is_pressed(INPUT.dodge)){
-	change_state(STATES.idle);
+    xadd = lerp(xadd, 0, 0.06);
+    yadd = lerp(yadd, 0, 0.06);
+    //yadd = approach(yadd, grav*0.6, 0);
+	
+	if(input.is_pressed(INPUT.dodge) or input.is_pressed(INPUT.special)){
+		change_state(STATES.air);
 	}
     if(input.is_pressed(INPUT.up))
         change_state(STATES.up);
@@ -493,6 +491,7 @@ arr_state_functions[STATES.down] = function(){
 	
 }
 
+spell_array = [];
 function add_state(){
 	
     array_push(spell_array, state);
