@@ -20,6 +20,7 @@
   "height":128,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"b96dfef6-59da-4969-afba-8f998dcf5821","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"b96dfef6-59da-4969-afba-8f998dcf5821","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"b83efe61-6021-4772-b910-43f1eadff998","blendMode":0,"displayName":"default","isLocked":false,"name":"b83efe61-6021-4772-b910-43f1eadff998","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_fighter_air_hurt",

@@ -361,7 +361,7 @@ arr_state_functions[STATES.special] = function(){
     yadd = lerp(yadd, 0, 0.06);
     //yadd = approach(yadd, grav*0.6, 0);
 	
-	if(input.is_pressed(INPUT.dodge) or input.is_pressed(INPUT.special)){
+	if((input.is_pressed(INPUT.dodge) or input.is_pressed(INPUT.special)) and not state_changed){
 		change_state(STATES.air);
 	}
     if(input.is_pressed(INPUT.up))
