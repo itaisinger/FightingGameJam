@@ -23,7 +23,7 @@
   "height":128,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"354effc6-ec07-47a2-b572-6c62387ada6a","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"354effc6-ec07-47a2-b572-6c62387ada6a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"354effc6-ec07-47a2-b572-6c62387ada6a","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"354effc6-ec07-47a2-b572-6c62387ada6a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
     {"$GMImageLayer":"","%Name":"b83efe61-6021-4772-b910-43f1eadff998","blendMode":0,"displayName":"default","isLocked":false,"name":"b83efe61-6021-4772-b910-43f1eadff998","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"spr_fighter_walk",
