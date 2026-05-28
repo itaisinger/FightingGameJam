@@ -116,6 +116,11 @@ is_color_inverted = 0;
 shake_max = 10;
 disable_draw = false;
 
+u_texel       = shader_get_uniform(sh_outline, "u_texel");
+u_outline_col = shader_get_uniform(sh_outline, "u_outline_col");
+u_thickness   = shader_get_uniform(sh_outline, "u_thickness");
+outline_col = [1.0, 0.0, 0.0];
+
 //animation stats
 special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
 turnaround_grace_length = 8; //how many frames into heavy/light you can transition to special
