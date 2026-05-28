@@ -116,6 +116,7 @@ is_color_inverted = 0;
 shake_max = 10;
 disable_draw = false;
 
+outline_active = false;
 u_texel       = shader_get_uniform(sh_outline, "u_texel");
 u_outline_col = shader_get_uniform(sh_outline, "u_outline_col");
 u_thickness   = shader_get_uniform(sh_outline, "u_thickness");
@@ -848,6 +849,8 @@ function create_echo(){
 	_inst.make_echo(echo_saved);
 	_inst.is_p1 = is_p1;
 	_inst.is_color_inverted = is_color_inverted;
+	_inst.outline_active = outline_active;
+	_inst.outline_col = outline_col;
 	echo_saved = -1;
 	echo_charges_remain--;
 }

@@ -18,7 +18,7 @@ void main() {
 
     // Draw outline if this pixel is transparent but a neighbor isn't
     if (base.a < 0.01 && neighbor_max > 0.1) {
-        gl_FragColor = u_outline_col;
+        gl_FragColor = vec4(u_outline_col.r, u_outline_col.g, u_outline_col.b, u_outline_col.a * neighbor_max);
     } else {
         gl_FragColor = base * v_vColour;
     }

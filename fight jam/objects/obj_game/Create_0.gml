@@ -64,7 +64,12 @@ function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	inst_players[0].is_p1 = false;
 	inst_players[1].dir = -1;
 	
-	if(p1_obj == p2_obj) inst_players[1].is_color_inverted = true;
+	inst_players[1].outline_col = [0.0, 0.0, 1.0];
+
+	if(p1_obj == p2_obj) {
+		inst_players[1].outline_active = true;
+		inst_players[0].outline_active = true;
+	}
 	
 	inst_ui.set_players(inst_players);
 }
