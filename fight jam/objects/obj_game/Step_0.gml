@@ -3,9 +3,8 @@ switch(state){
 	#region menu
 	
 	case GAME_STATES.menu:
-		//old confirm "system"
-		//if(keyboard_check_pressed(vk_enter))
-		//	room_goto(rm_match);
+		
+		if(instance_exists(obj_tutorial)) exit;
 		
 		var _input = [];
 		_input[0] = new FrameInput(true);
@@ -48,6 +47,10 @@ switch(state){
 				player_is_confirmed[2] = 1;
 			}
 		}
+			
+		//tutorial
+		if(keyboard_check_pressed(ord("T")))
+			instance_create_depth(0,0,0,obj_tutorial);
 		
 	break;
 	

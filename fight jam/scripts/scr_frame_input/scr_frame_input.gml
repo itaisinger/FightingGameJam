@@ -12,6 +12,7 @@ enum INPUT{
 	dodge,
 	special,
 	echo,
+	down_press,
 }
 
 
@@ -31,6 +32,7 @@ function FrameInput(P1) constructor{
 			arr[INPUT.dodge] = obj_input.arr[P1][INPUT.dodge];
 			arr[INPUT.special] = obj_input.arr[P1][INPUT.special];
 			arr[INPUT.echo] = obj_input.arr[P1][INPUT.echo];
+			arr[INPUT.down_press] =obj_input.arr[P1][INPUT.down_press];
 	}
 	catch(e) {
 		arr[INPUT.left]		= false;
@@ -46,9 +48,14 @@ function FrameInput(P1) constructor{
 		arr[INPUT.dodge]	= false;
 		arr[INPUT.special]	= false;
 		arr[INPUT.echo]	= false;
+		arr[INPUT.down_press] =false;
 	}
 	
 	function is_pressed(input){ return arr[input]; }
+	function is_just_pressed(_input) { 
+		    
+		    return arr[_input] >= 3;
+		}
 
 }
 

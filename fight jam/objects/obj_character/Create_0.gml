@@ -61,6 +61,7 @@ enum STATES{
 	air_light,
 	air_light2,
 	air_heavy,
+	air_heavy2,
 	air_special,
 	air_special2,
 	stun,
@@ -69,11 +70,17 @@ enum STATES{
 	dead,
 	dodge,
 	parry,
+	special1,
+	special2,
+	special3,
+	special4,
 	teleport,
-	
+	left,
+	right,
+	up,
+	down,
 	max,
 }
-
 
 stun_remain = 0;
 is_parried = false;
@@ -86,7 +93,6 @@ echo_record_arr = [];	//constantly updating last inputs. for echo saves the inpu
 echo_saved = -1;		//hold the saved sequence. returns to -1 after use.
 echo_size = room_speed * 5;
 frames_lived = 0;		//used by echos to count their current step
-
 
 /// TP
 tp_x = -1;
@@ -114,6 +120,8 @@ disable_draw = false;
 special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
 turnaround_grace_length = 8; //how many frames into heavy/light you can transition to special
 landing_lag = 10;
+
+
 
 states_sprites = [];
 states_sprites[STATES.idle]			= spr_fighter_idle;
@@ -172,7 +180,7 @@ inst_hitbox = noone;	//saves the currently active hitbox.
 
 
 //state functions
-arr_state_functions = [];
+arr_state_functions = array_create(STATES.max,-1);
 arr_state_functions[STATES.idle] = function(){
 	
 	xadd = approach(xadd,ground_fric,0);
@@ -246,6 +254,12 @@ arr_state_functions[STATES.jump_squat] = function(){
 }
 arr_state_functions[STATES.walk] = function(){
 	
+	if(state_changed)
+	{
+		press_prev = 0;	
+	}
+	
+	
 	yadd = 0;
 	xadd_dest = dir * walkspd;
 	
@@ -310,7 +324,13 @@ arr_state_functions[STATES.walk] = function(){
 
 	//special
 	if(input.is_pressed(INPUT.special)) change_state(STATES.special);
+	
+	//particles
+	var _press = sign(input.is_pressed(INPUT.right)) - sign(input.is_pressed(INPUT.left));
+	if(_press != press_prev and _press != 0) create_vfx(x,y,vfx_run,dir,1,1);
+	press_prev = _press
 }
+
 arr_state_functions[STATES.land] = function(){
 	
 	yadd = 0;
@@ -874,4 +894,23 @@ function combo_break(){
 	x = tp_x;	
 	__grav_mult = 0;
 	__done = false;
+}
+
+
+// projectile object, x offset ,y offset
+function create_projectile(_projectile_obj, _xoff, _yoff) {
+    var _spawn_x = x + _xoff * dir;
+    var _spawn_y = y + _yoff;
+    var _p = instance_create_depth(
+        _spawn_x,
+        _spawn_y,
+        depth,
+        _projectile_obj
+    );
+    _p.parent = self;
+
+    _p.dir = dir;
+
+    _p.image_xscale = dir;
+    return _p;
 }

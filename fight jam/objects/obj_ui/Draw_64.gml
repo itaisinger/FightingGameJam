@@ -57,14 +57,18 @@ if(current_time % 3 == 0) for(var i=0; i < 2; i++){
 for(var i=0; i < _p.echo_charges_max; i++){
 
 	var _xoff = (1+i)*_m + 7
-
+	var _sprs = [
+		arr_players[0].echo_saved == -1 ? spr_echo_charge : spr_echo_charge_active,
+		arr_players[1].echo_saved == -1 ? spr_echo_charge : spr_echo_charge_active
+		]
+	
 	//empty
-	draw_sprite(spr_echo_charge,0, _w/2 + _xoff + echo_shakex[1][1],_echo_y + echo_shakey[1][1])
-	draw_sprite(spr_echo_charge,0, _w/2 - _xoff + echo_shakey[0][1],_echo_y + echo_shakey[0][1])
+	draw_sprite(_sprs[1],0, _w/2 + _xoff + echo_shakex[1][1],_echo_y + echo_shakey[1][1])
+	draw_sprite(_sprs[0],0, _w/2 - _xoff + echo_shakey[0][1],_echo_y + echo_shakey[0][1])
 
 	//full
-	if(arr_players[1].echo_charges_remain > i) draw_sprite(spr_echo_charge,1, _w/2 + _xoff + echo_shakex[1][0],_echo_y + echo_shakey[1][0])
-	if(arr_players[0].echo_charges_remain > i) draw_sprite(spr_echo_charge,1, _w/2 - _xoff + echo_shakex[0][0],_echo_y + echo_shakey[0][0])
+	if(arr_players[1].echo_charges_remain > i) draw_sprite(_sprs[1],1, _w/2 + _xoff + echo_shakex[1][0],_echo_y + echo_shakey[1][0])
+	if(arr_players[0].echo_charges_remain > i) draw_sprite(_sprs[0],1, _w/2 - _xoff + echo_shakex[0][0],_echo_y + echo_shakey[0][0])
 }
 
 #endregion

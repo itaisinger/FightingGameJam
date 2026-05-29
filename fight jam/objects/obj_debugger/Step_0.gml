@@ -15,8 +15,8 @@ if(keyboard_check_pressed(ord("R"))) game_restart();
 }
 
 if(keyboard_check_pressed(ord("T"))){
-	with(obj_knifer){
-		teleport(dir*250);
+	with(obj_camera){
+		add_shake(10);
 	}
 }
 if(keyboard_check_pressed(ord("P"))){
