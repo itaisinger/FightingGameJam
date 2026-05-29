@@ -1,7 +1,7 @@
 // Inherit the parent event
 event_inherited();
 
-max_hp *= 1.2;
+max_hp *= 1.1;
 hp = max_hp;
 
 xadd = 0;

@@ -7,3 +7,5 @@ controllers
 camera
 color each player
 drex - jumpcacnel special
+echo saved indicator
+make sure p[arry have priority
