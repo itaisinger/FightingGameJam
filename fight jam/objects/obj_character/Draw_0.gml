@@ -15,17 +15,6 @@ var _shadow_w = image_xscale * map_value(abs(y-floor_y),0,400,1,1.5) * shadow_w;
 var _shadow_a = map_value(200-abs(y-floor_y),0,400,0.1,0.2);
 draw_sprite_ext(spr_fighter_shadow,0,x,floor_y,_shadow_w,image_yscale,0,c_white,_shadow_a);
 
-
-/// SHADER
-if(outline_active){
-	shader_set(sh_outline);
-	var tex_w = texture_get_texel_width(sprite_get_texture(sprite_index,image_index))
-	var tex_h = texture_get_texel_height(sprite_get_texture(sprite_index,image_index))
-	shader_set_uniform_f(u_texel, tex_w, tex_h);
-	shader_set_uniform_f(u_outline_col, outline_col[0], outline_col[1], outline_col[2], 0.5); 
-	shader_set_uniform_f(u_thickness, 2.0);
-}
-
 // shake
 var _shake_mult = 2;
 if(current_time%3 == 0){
@@ -36,7 +25,9 @@ if(current_time%3 == 0){
 x += _xshake;
 y += _yshake;
 
-draw_self();
+if(outline_active)
+	draw_outlined(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,image_alpha,outline_col);
+else draw_self();
 
 x -= _xshake;
 y -= _yshake;

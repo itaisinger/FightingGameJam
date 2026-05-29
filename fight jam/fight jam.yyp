@@ -233,6 +233,7 @@
     {"id":{"name":"GMLiveAPI_js","path":"scripts/GMLiveAPI_js/GMLiveAPI_js.yy",},},
     {"id":{"name":"GMLiveAPI","path":"scripts/GMLiveAPI/GMLiveAPI.yy",},},
     {"id":{"name":"scr_colors","path":"scripts/scr_colors/scr_colors.yy",},},
+    {"id":{"name":"scr_draw","path":"scripts/scr_draw/scr_draw.yy",},},
     {"id":{"name":"scr_frame_input","path":"scripts/scr_frame_input/scr_frame_input.yy",},},
     {"id":{"name":"scr_general","path":"scripts/scr_general/scr_general.yy",},},
     {"id":{"name":"scr_hitbox","path":"scripts/scr_hitbox/scr_hitbox.yy",},},
