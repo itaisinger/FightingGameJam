@@ -48,9 +48,12 @@ if(hitpause_remain > 0){
 else image_speed = image_speed_prev;
 
 //create echo
-if(input.is_pressed(INPUT.echo) and echo_saved != -1 and stun_remain <= 0 and echo_charges_remain>=0){
-	create_echo()
-	input.arr[INPUT.echo] = false;
+if(input.is_pressed(INPUT.echo) and echo_saved != -1 and stun_remain <= 0){
+	if(echo_charges_remain>0){
+		create_echo()
+		input.arr[INPUT.echo] = false;
+	}
+	else with(obj_ui) shake_echo(other.is_p1);
 }
 
 //STATE
