@@ -840,6 +840,7 @@
     {"id":{"name":"spr_splash_front_8","path":"sprites/spr_splash_front_8/spr_splash_front_8.yy",},},
     {"id":{"name":"spr_splash_front_9","path":"sprites/spr_splash_front_9/spr_splash_front_9.yy",},},
     {"id":{"name":"spr_spyke_air_1","path":"sprites/spr_spyke_air_1/spr_spyke_air_1.yy",},},
+    {"id":{"name":"spr_spyke_air_heavy_1","path":"sprites/spr_spyke_air_heavy_1/spr_spyke_air_heavy_1.yy",},},
     {"id":{"name":"spr_spyke_air_heavy","path":"sprites/spr_spyke_air_heavy/spr_spyke_air_heavy.yy",},},
     {"id":{"name":"spr_spyke_air_light_1","path":"sprites/spr_spyke_air_light_1/spr_spyke_air_light_1.yy",},},
     {"id":{"name":"spr_spyke_air_light","path":"sprites/spr_spyke_air_light/spr_spyke_air_light.yy",},},
