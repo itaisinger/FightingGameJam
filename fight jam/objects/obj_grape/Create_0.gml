@@ -166,11 +166,14 @@ arr_state_functions[STATES.parry] = function()
 	
 }
 
+lighthit =false
 arr_state_functions[STATES.air_light] = function(){
 	
 	xadd = approach(xadd,air_fric,0);
 	yadd += grav;
-	
+	if(state_changed){
+		lighthit=false
+	}
 	if(reached_frame(2))
 	{
 		xadd += dir * jumpforce_x * 0.7;
@@ -197,6 +200,11 @@ arr_state_functions[STATES.air_light] = function(){
 			change_state(STATES.idle)
 		else
 			change_state(STATES.land);
+	}
+	if(is_hit_success() and not lighthit){
+		//create_vfx(x,y,vfx_hitmark_blue,dir*-1,RUN_VFX_S,0);
+		lighthit=true
+		
 	}
 }
 arr_state_functions[STATES.air_heavy] = function(){
