@@ -1,5 +1,7 @@
 function draw_outlined(sprite,image,x,y,xscale,yscale,angle,alpha,color_arr)
 {
+	draw_self();
+	return;
 	if(live_call()) return live_result;
 	
 	static u_texel       = shader_get_uniform(sh_outline, "u_texel");
