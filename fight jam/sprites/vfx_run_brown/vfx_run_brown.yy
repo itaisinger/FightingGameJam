@@ -158,7 +158,7 @@
     },
     "name":"vfx_run_brown",
     "playback":1,
-    "playbackSpeed":240.0,
+    "playbackSpeed":300.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
