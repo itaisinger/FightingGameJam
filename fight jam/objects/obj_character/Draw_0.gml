@@ -47,6 +47,6 @@ if(afterimage_remain>0 and current_time%afterimage_diff == 0){
 	}
 }
 
-if(outline_active){
-	shader_reset();
-}
+//if(outline_active){
+//	shader_reset();
+//}
