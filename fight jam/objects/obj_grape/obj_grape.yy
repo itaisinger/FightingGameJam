@@ -36,8 +36,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_portrait_grape",
-    "path":"sprites/spr_portrait_grape/spr_portrait_grape.yy",
+    "name":"spr_grape_idle",
+    "path":"sprites/spr_grape_idle/spr_grape_idle.yy",
   },
   "spriteMaskId":null,
   "visible":true,
