@@ -220,7 +220,6 @@ arr_state_functions[STATES.air_heavy] = function(){
 	{
 		create_hitbox(hitbox_data[STATES.air_heavy]);
 		inst_hitbox.image_index = image_index;
-		
 	}
 	
 	if(reached_frame(5))
@@ -228,7 +227,7 @@ arr_state_functions[STATES.air_heavy] = function(){
 		create_hitbox(hitbox_data[STATES.air_heavy]);
 		inst_hitbox.image_index = image_index;
 	}
-
+	
 	// keep transition to air_special
 	if(state_count <= special_trans_grace_length && input.is_pressed(INPUT.special))
 	{
@@ -236,7 +235,8 @@ arr_state_functions[STATES.air_heavy] = function(){
 	}
 
 	// keep path to air_heavy2
-	if(image_index >= 4 && input.is_pressed(INPUT.heavy))
+	//if(image_index >= 4 && input.is_pressed(INPUT.heavy))
+	if(is_hit_success())
 	{
 		change_state(STATES.air_heavy2);
 	}
