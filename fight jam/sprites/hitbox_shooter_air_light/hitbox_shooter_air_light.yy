@@ -14,13 +14,14 @@
   "frames":[
     {"$GMSpriteFrame":"v1","%Name":"884c5b78-edb4-4a82-9510-fefcca2667fa","name":"884c5b78-edb4-4a82-9510-fefcca2667fa","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"c3f3883c-6513-4706-b4f2-d8443aa9a822","name":"c3f3883c-6513-4706-b4f2-d8443aa9a822","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"da619f95-8f12-400a-a78c-e05091e5a60d","name":"da619f95-8f12-400a-a78c-e05091e5a60d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":256,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"6f87bf4a-9257-45cc-99f0-0624f5598589","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"6f87bf4a-9257-45cc-99f0-0624f5598589","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"6f87bf4a-9257-45cc-99f0-0624f5598589","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"6f87bf4a-9257-45cc-99f0-0624f5598589","opacity":56.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"hitbox_shooter_air_light",
   "nineSlice":null,
@@ -50,7 +51,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":2.0,
+    "length":3.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -60,7 +61,7 @@
     },
     "name":"hitbox_shooter_air_light",
     "playback":1,
-    "playbackSpeed":4.0,
+    "playbackSpeed":8.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
@@ -75,6 +76,9 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c3f3883c-6513-4706-b4f2-d8443aa9a822","path":"sprites/hitbox_shooter_air_light/hitbox_shooter_air_light.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"9adce4f3-3dd2-4926-813d-cdfd1fd91f29","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"da619f95-8f12-400a-a78c-e05091e5a60d","path":"sprites/hitbox_shooter_air_light/hitbox_shooter_air_light.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"bed344c4-d34f-44e1-a739-38fc566a8433","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
