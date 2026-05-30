@@ -491,7 +491,6 @@
     {"id":{"name":"hurtbox_skate_jump_squat","path":"sprites/hurtbox_skate_jump_squat/hurtbox_skate_jump_squat.yy",},},
     {"id":{"name":"hurtbox_skate_jump","path":"sprites/hurtbox_skate_jump/hurtbox_skate_jump.yy",},},
     {"id":{"name":"hurtbox_skate_land","path":"sprites/hurtbox_skate_land/hurtbox_skate_land.yy",},},
-    {"id":{"name":"hurtbox_skate_landing","path":"sprites/hurtbox_skate_landing/hurtbox_skate_landing.yy",},},
     {"id":{"name":"hurtbox_skate_light","path":"sprites/hurtbox_skate_light/hurtbox_skate_light.yy",},},
     {"id":{"name":"hurtbox_skate_parry","path":"sprites/hurtbox_skate_parry/hurtbox_skate_parry.yy",},},
     {"id":{"name":"hurtbox_skate_rising","path":"sprites/hurtbox_skate_rising/hurtbox_skate_rising.yy",},},
