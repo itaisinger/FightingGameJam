@@ -2,3 +2,5 @@
 #macro KO_STEP_DELAY 3
 
 #macro OUTLINE_ALPHA 0.5
+#macro RUN_VFX_S 1.25
+#macro RUN_VFX_S_SMALL 0.5
