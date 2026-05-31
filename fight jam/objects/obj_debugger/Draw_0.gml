@@ -13,10 +13,10 @@ with(obj_hitbox) draw_self();
 draw_set_font(font_announce_small)
 
 try{ 
-	with(obj_character) draw_text(x,y-100,string(echo_charges_remain));
+	with(obj_character) draw_text(x,y-100,string(image_speed));
 	mask_index = obj_character.mask_index;
 	vars = [
-	"state: " + string(obj_character.state),
+	"state: " + string(obj_character.image_speed),
 	"sides: " + string(obj_character.input.is_pressed(INPUT.left)) + ", "  + string(obj_character.input.is_pressed(INPUT.right)),
 	"echo: " + string(obj_character.input.is_pressed(INPUT.right) - obj_character.input.is_pressed(INPUT.right)),
 	"xadd: " + string(obj_character.xadd),
