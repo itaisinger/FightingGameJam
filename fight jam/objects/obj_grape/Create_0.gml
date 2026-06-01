@@ -244,8 +244,8 @@ arr_state_functions[STATES.air_heavy2] = function(){
 	}
 	
 	var _m = 1;
-	if(input.is_pressed(INPUT.up) and !input.is_pressed(INPUT.down)) _m = 1.2;
-	if(!input.is_pressed(INPUT.up) and input.is_pressed(INPUT.down)) _m = 0.8;
+	if(input.is_pressed(INPUT.up) and !input.is_pressed(INPUT.down)) _m = 1.3;
+	if(!input.is_pressed(INPUT.up) and input.is_pressed(INPUT.down)) _m = 0.7;
 	yadd += _yadd * _m;
 	
 	//end
@@ -257,6 +257,7 @@ arr_state_functions[STATES.air_heavy2] = function(){
 	//land
 	if(is_grounded())
 	{
+		xadd *= 1.4;
 		change_state(STATES.idle);
 	}
 	
@@ -405,6 +406,10 @@ arr_state_functions[STATES.special2] = function(){
 /////
 arr_state_functions[STATES.special3] = function(){
 	dir=special_dir;
+	if(input.is_pressed(INPUT.light))
+		change_state(STATES.air_light);
+	if(input.is_pressed(INPUT.heavy))
+		change_state(STATES.air_heavy);
 	if(state_changed){
 		yadd-=7;
 		xadd+=17*dir;
