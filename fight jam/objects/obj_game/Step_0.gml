@@ -38,7 +38,16 @@ switch(state){
 				if(_input[i].is_pressed(INPUT.echo)){
 				
 					player_is_confirmed[i] = !player_is_confirmed[i]
-					if(player_is_confirmed[i]) play_sfx(arr_characters[chosen_characters[i]].name_sfx)
+					if(player_is_confirmed[i]) {
+						
+						//sfx
+						play_sfx(arr_characters[chosen_characters[i]].name_sfx)
+						
+						//vfx
+						instance_create_depth(room_width*(0.2 + 0.6*(i == 0)),room_height*0.425,depth+1,obj_text_fade,{
+							text: arr_characters[chosen_characters[i]].name
+						})
+					}
 				}
 			}
 		

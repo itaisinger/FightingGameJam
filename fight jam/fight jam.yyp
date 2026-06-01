@@ -131,6 +131,7 @@
   },
   "name":"fight jam",
   "resources":[
+    {"id":{"name":"cur_text_fade","path":"animcurves/cur_text_fade/cur_text_fade.yy",},},
     {"id":{"name":"cur_trans","path":"animcurves/cur_trans/cur_trans.yy",},},
     {"id":{"name":"GMLive_fallback","path":"extensions/GMLive_fallback/GMLive_fallback.yy",},},
     {"id":{"name":"font_announce_small","path":"fonts/font_announce_small/font_announce_small.yy",},},
@@ -169,6 +170,7 @@
     {"id":{"name":"obj_skater","path":"objects/obj_skater/obj_skater.yy",},},
     {"id":{"name":"obj_spear_phy","path":"objects/obj_spear_phy/obj_spear_phy.yy",},},
     {"id":{"name":"obj_spyke","path":"objects/obj_spyke/obj_spyke.yy",},},
+    {"id":{"name":"obj_text_fade","path":"objects/obj_text_fade/obj_text_fade.yy",},},
     {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},},
     {"id":{"name":"obj_tutorial","path":"objects/obj_tutorial/obj_tutorial.yy",},},
     {"id":{"name":"obj_ui","path":"objects/obj_ui/obj_ui.yy",},},
