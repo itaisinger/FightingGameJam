@@ -1,6 +1,6 @@
 {
   "$GMSprite":"v2",
-  "%Name":"vfx_run_hand",
+  "%Name":"vfx_run_hand_2",
   "bboxMode":0,
   "bbox_bottom":95,
   "bbox_left":107,
@@ -30,7 +30,7 @@
     {"$GMImageLayer":"","%Name":"33290f4c-ce19-4f5d-9306-eff5715207f0","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"33290f4c-ce19-4f5d-9306-eff5715207f0","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"f9ea3a92-af42-4965-8d40-04a15ed1e492","blendMode":0,"displayName":"3","isLocked":false,"name":"f9ea3a92-af42-4965-8d40-04a15ed1e492","opacity":50.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"vfx_run_hand",
+  "name":"vfx_run_hand_2",
   "nineSlice":{
     "$GMNineSliceData":"",
     "bottom":0,
@@ -97,16 +97,16 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3dc3737e-8fd1-43b0-9d0e-5b8a82acd518","path":"sprites/vfx_run_hand/vfx_run_hand.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3dc3737e-8fd1-43b0-9d0e-5b8a82acd518","path":"sprites/vfx_run_hand_2/vfx_run_hand_2.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"dec5b263-dda5-4267-aea1-98fb97f353ad","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"fa0b06f8-6e94-4279-95bf-6678e83df9b4","path":"sprites/vfx_run_hand/vfx_run_hand.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"fa0b06f8-6e94-4279-95bf-6678e83df9b4","path":"sprites/vfx_run_hand_2/vfx_run_hand_2.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"fd68878d-9faa-42d0-9745-e937e1068b85","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e88ff54d-ab5c-426b-a35c-d2283cddb461","path":"sprites/vfx_run_hand/vfx_run_hand.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e88ff54d-ab5c-426b-a35c-d2283cddb461","path":"sprites/vfx_run_hand_2/vfx_run_hand_2.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"75cb389b-d0ef-4d2c-aa71-d7e2867e0a2b","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"88c70fe7-f078-4c56-8cda-084e8c271749","path":"sprites/vfx_run_hand/vfx_run_hand.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"88c70fe7-f078-4c56-8cda-084e8c271749","path":"sprites/vfx_run_hand_2/vfx_run_hand_2.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"c6fa93bd-849b-4f3c-8213-b1ab7f02e7e3","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
