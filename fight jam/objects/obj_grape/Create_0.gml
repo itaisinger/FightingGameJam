@@ -30,6 +30,7 @@ states_sprites[STATES.land]			= spr_grape_land;
 states_sprites[STATES.air_light]	= spr_grape_air_light;
 states_sprites[STATES.air_heavy]	= spr_grape_air_heavy_start;
 states_sprites[STATES.air_heavy2]	= spr_grape_air_heavy2;
+states_sprites[STATES.air_heavy3]	= spr_grape_air_heavy3;
 states_sprites[STATES.air_special]	= spr_grape_special;
 states_sprites[STATES.left]			= spr_grape_sign_left;
 states_sprites[STATES.right]		= spr_grape_sign_right;
@@ -54,8 +55,9 @@ states_hurtboxes[STATES.teleport]	= hurtbox_grape_tp;
 states_hurtboxes[STATES.special]	= hurtbox_grape_special;
 states_hurtboxes[STATES.land]		= hurtbox_grape_land;
 states_hurtboxes[STATES.air_light]	= hurtbox_grape_air_light;
-states_hurtboxes[STATES.air_heavy]	= hitbox_grape_air_heavy;
-states_hurtboxes[STATES.air_heavy2]	= hitbox_grape_air_heavy2;
+states_hurtboxes[STATES.air_heavy]	= hurtbox_grape_air_heavy_start;
+states_hurtboxes[STATES.air_heavy2]	= hurtbox_grape_air_heavy2;
+states_hurtboxes[STATES.air_heavy3]	= hurtbox_grape_air_heavy3;
 states_hurtboxes[STATES.left]		= hurtbox_grape_idle;
 states_hurtboxes[STATES.right]		= hurtbox_grape_idle;
 states_hurtboxes[STATES.up]			= hurtbox_grape_idle;
@@ -66,11 +68,10 @@ mask_index = spr_grape_idle
 hitbox_data = array_create(STATES.max,-1)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_grape_light,4,45,5,3,4,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_grape_heavy,8,100,15,5,9,0,1,false);
-//hitbox_data[STATES.special]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
+//hitbox_data[STATES.special]	= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_grape_air_light,5,60,5,3,7,0,0,false);
-hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_grape_air_heavy,4,90,10,3,5,0,0,false);
-hitbox_data[STATES.air_heavy2]	= new HitboxData(hitbox_grape_air_heavy,10,90,10,3,5,0,0,false);
-//hitbox_data[STATES.air_special]	= new HitboxData(hitbox_grape_air_special,4,20,5,3,5,0,0,false);
+hitbox_data[STATES.air_heavy2]	= new HitboxData(hitbox_grape_air_heavy3,4,30,10,2,5,0,0,false);
+hitbox_data[STATES.air_heavy3]	= new HitboxData(hitbox_grape_air_heavy3,4,70,10,4,6,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_grape_parry,1,100,180,3,3,1,false,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
@@ -104,7 +105,6 @@ for(var i=0; i < STATES.max; i++){
 	if(is_method(arr_state_functions[i])) 
 		arr_state_functions[i] = method(self,arr_state_functions[i])
 }
-
 
 //state functions
 arr_state_functions[STATES.light] = function(){
@@ -166,7 +166,7 @@ arr_state_functions[STATES.parry] = function()
 	
 }
 
-lighthit =false
+lighthit = false
 arr_state_functions[STATES.air_light] = function(){
 	
 	xadd = approach(xadd,air_fric,0);
@@ -204,7 +204,6 @@ arr_state_functions[STATES.air_light] = function(){
 	if(is_hit_success() and not lighthit){
 		//create_vfx(x,y,vfx_hitmark_blue,dir*-1,RUN_VFX_S,0);
 		lighthit=true
-		
 	}
 }
 arr_state_functions[STATES.air_heavy] = function(){
@@ -212,9 +211,7 @@ arr_state_functions[STATES.air_heavy] = function(){
 	if(state_changed)
 	{
 		yadd = -4;
-		xadd = -2;
-		__active_remain = 0;
-		__stage = 0;
+		xadd = -2*dir;
 	}
 	
 	//transition to air_special
@@ -222,51 +219,14 @@ arr_state_functions[STATES.air_heavy] = function(){
 	{
 		change_state(STATES.air_special);
 	}
+
+	yadd += grav;
+	xadd = approach(xadd, air_fric, 0);
 	
-	switch(__stage)
+	//continue
+	if(anim_done)
 	{
-		#region startup
-		case 0:
-			yadd += grav;
-			xadd = approach(xadd, air_fric, 0);
-			
-			if(anim_done)
-			{
-				sprite_index = spr_grape_air_heavy_dive;
-				_yadd = -grav*1.2;
-				yadd = 9;
-				xadd = dir * 12;
-				__active_remain = 30;
-				__stage++;
-			}
-		break;
-		#endregion
-		#region active
-		case 1:
-			yadd += _yadd;
-			if(__active_remain-- <= 0)
-			{
-				sprite_index = spr_grape_air_heavy_end;
-				__stage++;
-			}
-			// air_heavy2
-			if(is_hit_success())
-			{
-				change_state(STATES.air_heavy2);
-			}
-		break;
-		#endregion
-		#region end
-		case 2:
-			yadd += grav;
-			xadd = approach(xadd, air_fric, 0);
-			
-			if(anim_done)
-			{
-				change_state(STATES.air);
-			}
-		break;
-		#endregion
+		change_state(STATES.air_heavy2);
 	}
 
 	if(is_grounded())
@@ -275,21 +235,53 @@ arr_state_functions[STATES.air_heavy] = function(){
 	}
 }
 arr_state_functions[STATES.air_heavy2] = function(){
+	if(state_changed)
+	{
+		_yadd = -grav*1.2;
+		yadd = 9;
+		xadd = dir * 12;
+		__active_remain = 30;
+	}
+	
+	var _m = 1;
+	if(input.is_pressed(INPUT.up) and !input.is_pressed(INPUT.down)) _m = 1.2;
+	if(!input.is_pressed(INPUT.up) and input.is_pressed(INPUT.down)) _m = 0.8;
+	yadd += _yadd * _m;
+	
+	//end
+	if(__active_remain-- <= 0)
+	{
+		change_state(STATES.air)
+	}
+	
+	//land
+	if(is_grounded())
+	{
+		change_state(STATES.idle);
+	}
+	
+	// air_heavy2
+	if(is_hit_success())
+	{
+		change_state(STATES.air_heavy3);
+	}
+}
+arr_state_functions[STATES.air_heavy3] = function(){
 	
 	if(state_changed)
 	{
-		xadd = 10 * dir;
-		__grav_mult = 0;
-		
+		xadd = 6 * dir;
+		yadd = 0;
 	}
-		__grav_mult = 0;	
-	//xadd = approach(xadd,air_fric,0);
 	
-	//trans to special
-	if(state_count <= special_trans_grace_length and input.is_pressed(INPUT.special))
-		change_state(STATES.air_special)
 	if(anim_done)
-			change_state(STATES.air)
+		change_state(STATES.air)
+	
+	if(reached_frame(2) or reached_frame(4))
+	{
+		create_hitbox(hitbox_data[STATES.air_heavy3]);
+	}
+	
 	//land
 	if(is_grounded())
 	{

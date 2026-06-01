@@ -70,16 +70,24 @@ enum STATES{
 	dead,
 	dodge,
 	parry,
+
+	teleport,
+	
+	//grape
 	special1,
 	special2,
 	special3,
 	special4,
-	teleport,
 	left,
 	right,
 	up,
 	down,
+	air_heavy3,
+	
+	
 	max,
+	
+	
 }
 
 stun_remain = 0;
@@ -125,6 +133,7 @@ outline_col = [1.0, 0.0, 0.0];
 //animation stats
 special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
 turnaround_grace_length = 8; //how many frames into heavy/light you can transition to special
+dir_locked = false;
 landing_lag = 10;
 
 
@@ -749,6 +758,7 @@ function change_state(new_state){
 	hurtbox = states_hurtboxes[new_state];
 	afterimage_remain = 0;
 	is_parried = false;
+	dir_locked = false;
 	
 	with(inst_hitbox) instance_destroy();
 	
