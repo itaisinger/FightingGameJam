@@ -24,7 +24,7 @@
   "height":128,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"d9cc474f-7a9b-4808-a77f-3e0544dc1daf","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"d9cc474f-7a9b-4808-a77f-3e0544dc1daf","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"d9cc474f-7a9b-4808-a77f-3e0544dc1daf","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"d9cc474f-7a9b-4808-a77f-3e0544dc1daf","opacity":58.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"d605a662-c2c1-45ca-a8f3-914569728527","blendMode":0,"displayName":"hands","isLocked":false,"name":"d605a662-c2c1-45ca-a8f3-914569728527","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
     {"$GMImageLayer":"","%Name":"78620d1b-c835-49de-abad-9ce939fc546b","blendMode":0,"displayName":"staff","isLocked":false,"name":"78620d1b-c835-49de-abad-9ce939fc546b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
     {"$GMImageLayer":"","%Name":"b83efe61-6021-4772-b910-43f1eadff998","blendMode":0,"displayName":"body","isLocked":false,"name":"b83efe61-6021-4772-b910-43f1eadff998","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},

@@ -110,10 +110,12 @@ for(var i=0; i < STATES.max; i++){
 arr_state_functions[STATES.light] = function(){
 
 	if(state_changed){
-		xadd += dir * 0.0;
+		xadd += dir * 2.0;
+		
 	}
 	
 	xadd = approach(xadd,slide_fric,0);
+	
 	yadd = 0;
 	
 	//trans to special
@@ -133,7 +135,8 @@ arr_state_functions[STATES.light] = function(){
 arr_state_functions[STATES.heavy] = function(){
 	
 	if(state_changed){
-		xadd += dir * 2
+		xadd += dir * 2;
+		
 	}
 	
 	if((state_count <= special_trans_grace_length or image_index>=3 ) and input.is_pressed(INPUT.special))
@@ -172,6 +175,7 @@ arr_state_functions[STATES.air_light] = function(){
 	xadd = approach(xadd,air_fric,0);
 	yadd += grav;
 	if(state_changed){
+		
 		lighthit=false
 	}
 	if(reached_frame(2))
