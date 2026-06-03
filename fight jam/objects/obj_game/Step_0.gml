@@ -47,6 +47,7 @@ switch(state){
 						instance_create_depth(room_width*(0.2 + 0.6*(i == 0)),room_height*0.425,depth+1,obj_text_fade,{
 							text: arr_characters[chosen_characters[i]].name
 						})
+						port_flash[i] = 1;
 					}
 				}
 			}

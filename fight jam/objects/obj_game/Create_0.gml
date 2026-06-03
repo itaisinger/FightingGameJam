@@ -20,6 +20,7 @@ cd = 0;
 image = 0;
 _s1 = 1;
 _s2 = 1;
+port_flash = [0,0];
 
 //menu
 player_is_confirmed = [0,0,0];
