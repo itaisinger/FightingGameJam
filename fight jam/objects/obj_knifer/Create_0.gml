@@ -208,7 +208,8 @@ arr_state_functions[STATES.special] = function(){
 		change_state(STATES.idle);
 	
 	//start spin
-	if(reached_frame(5)) afterimage(6,15);
+	if(reached_frame(5)) 
+		afterimage(6,15);
 	
 	//hitbox 2,3
 	if(reached_frame(6) or reached_frame(7))

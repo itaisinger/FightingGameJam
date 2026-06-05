@@ -11,7 +11,7 @@ jumpforce_x *= 0.7;
 name = "GRAPE"
 win_sfx = sfx_jhoshua_wins;
 
-states_sprites =array_create(STATES.max,-1);
+states_sprites = array_create(STATES.max,-1);
 states_sprites[STATES.idle]			= spr_grape_idle;
 states_sprites[STATES.jump_squat]	= spr_grape_jump_squat;
 states_sprites[STATES.walk]			= spr_grape_walk;
@@ -111,7 +111,6 @@ arr_state_functions[STATES.light] = function(){
 
 	if(state_changed){
 		xadd += dir * 2.0;
-		
 	}
 	
 	xadd = approach(xadd,slide_fric,0);
@@ -299,6 +298,11 @@ arr_state_functions[STATES.air_heavy3] = function(){
 
 arr_state_functions[STATES.special] = function(){
 
+	if(state_changed)
+	{
+		arr_sigils = [];
+	}
+
     xadd = lerp(xadd, 0, 0.06);
     yadd = lerp(yadd, 0, 0.06);
 	
@@ -326,10 +330,9 @@ arr_state_functions[STATES.special] = function(){
         cast_sigil(SIGILS.left);
 }
 
-arr_state_functions[STATES.air_special]=arr_state_functions[STATES.special];
+arr_state_functions[STATES.air_special] = arr_state_functions[STATES.special];
 /////////
 arr_state_functions[STATES.special1] = function(){
-	dir=special_dir;
 	if(state_changed){
 		create_projectile(obj_icicle,0, -200);
 	}
@@ -337,7 +340,6 @@ arr_state_functions[STATES.special1] = function(){
 }
 /////////
 arr_state_functions[STATES.special2] = function(){
-	dir=special_dir;
 		if(state_changed){
 		create_projectile(obj_fireball,30, -50);
 	}
@@ -345,7 +347,6 @@ arr_state_functions[STATES.special2] = function(){
 }
 /////
 arr_state_functions[STATES.special3] = function(){
-	dir=special_dir;
 	if(input.is_pressed(INPUT.light))
 		change_state(STATES.air_light);
 	if(input.is_pressed(INPUT.heavy))
@@ -362,7 +363,6 @@ arr_state_functions[STATES.special3] = function(){
 }
 //////
 arr_state_functions[STATES.special4] = function(){
-	dir=special_dir;
 	if(anim_done)
 		change_state(STATES.idle);
 }
@@ -492,7 +492,7 @@ function cast_sigil(_dir)
 	}
 	
 	//insert new sign
-	array_insert(arr_sigils,-1,_dir);
+	arr_sigils[array_length(arr_sigils)] = _dir;
 	
 	/// cast spell
 	
@@ -501,40 +501,28 @@ function cast_sigil(_dir)
 	for(var i=0; i < array_length(arr_spells); i++)
 		_spells_remain[i] = arr_spells[i];
 	
-	//loop sigils
-	for(var s=0; s < array_length(arr_sigils); s++)
-	{
-		var _sigil = arr_sigils[array_length(arr_sigils)-1-s];
-		//loop spells
-		for(var i=0; i < array_length(_spells_remain); i++)
-		{
-			//filter out spell
-			if(_sigil != _spells_remain[i][1][array_length(_spells_remain[i][1]) - 1 - s]){
-				array_delete(_spells_remain,i,1)
-				i--;
-			}
-			
-			//cast spell
-			else if(s == array_length(_spells_remain[i][1]))
-			{
-				change_state(_spells_remain[i][0]);
-				return true;
-			}
-				
-		}
-	}
-	
-	
 	//loop spells
 	for(var i=0; i < array_length(_spells_remain); i++)
 	{
+		var _stop = false;
+		
 		//loop sigils
-		for(var s=array_length(arr_sigils)-1; s >= 0; s--)
+		for(var s=0; s < array_length(arr_sigils) and !_stop; s++)
 		{
 			var _spell_sigils = _spells_remain[i][1];
-			if(arr_sigils[s] != _spell_sigils[s])
-			{
 			
+			//filter out spell
+			if(s >= array_length(_spell_sigils) or arr_sigils[array_length(arr_sigils)-1-s] != _spell_sigils[array_length(_spell_sigils)- s-1])
+			{
+				array_delete(_spells_remain,i,1);
+				i--;
+				_stop = true;
+			}
+			//cast
+			else if(array_length(_spell_sigils) == s+1)
+			{
+				change_state(_spells_remain[i][0]);
+				return;
 			}
 		}
 	}

@@ -5,3 +5,6 @@ controllers
 
 //must
 color each player
+
+//bugs
+minami special after image sometimes doesnt work good
