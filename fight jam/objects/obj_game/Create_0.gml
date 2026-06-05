@@ -21,7 +21,7 @@ image = 0;
 
 //menu
 player_is_confirmed = [0,0,0];
-
+is_graped_unlocked = false;
 
 global.sfx_volume = 0.4;
 global.ost_vol = 1;
@@ -37,18 +37,26 @@ enum GAME_STATES{
 //menu
 chosen_characters = [0,0,0];
 
+enum CHARACTERS{
+	joshua,
+	drex,
+	shon,
+	minami,
+	grape,	//make sure he is not in the start or end of the enum, unlock feature will break.
+	spike,
+}
 function Character(_name,_object,_sprite,_name_sfx) constructor{
 	name = _name;
 	object = _object;
 	sprite = _sprite;
 	name_sfx = _name_sfx;
 }
-arr_characters[0] = new Character("JOSHUA",			 obj_fighter,	spr_portrait_fighter,	sfx_joshua)
-arr_characters[1] = new Character("JOHNNY DREX",	 obj_skater,	spr_portrait_skater,	sfx_johnny)
-arr_characters[2] = new Character("SHON SHMUPS",	 obj_shooter,	spr_portrait_shooter,	sfx_shon)
-arr_characters[3] = new Character("MINAMI\nNO  KAZE",obj_knifer,	spr_portrait_knifer,	sfx_minami)
-arr_characters[4] = new Character("SPYKE",			 obj_spyke,		spr_portrait_spyke,		sfx_spyke)
-arr_characters[5] = new Character("Grape",			 obj_grape,		spr_portrait_grape,		sfx_spyke)
+arr_characters[CHARACTERS.joshua]	= new Character("JOSHUA",				obj_fighter,	spr_portrait_fighter,	sfx_joshua)
+arr_characters[CHARACTERS.drex]		= new Character("JOHNNY DREX",			obj_skater,		spr_portrait_skater,	sfx_johnny)
+arr_characters[CHARACTERS.shon]		= new Character("SHON SHMUPS",			obj_shooter,	spr_portrait_shooter,	sfx_shon)
+arr_characters[CHARACTERS.minami]	= new Character("MINAMI\nNO  KAZE",		obj_knifer,		spr_portrait_knifer,	sfx_minami)
+arr_characters[CHARACTERS.spike]	= new Character("SPYKE",				obj_spyke,		spr_portrait_spyke,		sfx_spyke)
+arr_characters[CHARACTERS.grape]	= new Character("GRAPE",				obj_grape,		spr_portrait_grape,		sfx_spyke)
 function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	var _player_dis = room_width/4
 	player_left_xstart	= room_width/2 + _player_dis;
