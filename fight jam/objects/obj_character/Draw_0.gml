@@ -26,7 +26,7 @@ x += _xshake;
 y += _yshake;
 
 if(outline_active)
-	draw_outlined(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,image_alpha,outline_col);
+	draw_outlined(sprite_index,image_index,x,y,image_xscale,image_yscale,image_angle,image_alpha,is_p1 ? c_red : c_blue);
 else draw_self();
 
 x -= _xshake;

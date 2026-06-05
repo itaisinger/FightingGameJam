@@ -24,7 +24,7 @@
   "height":128,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"221cb12e-2c37-4e66-8395-832c9b76294f","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"221cb12e-2c37-4e66-8395-832c9b76294f","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"221cb12e-2c37-4e66-8395-832c9b76294f","blendMode":0,"displayName":"Layer 2","isLocked":false,"name":"221cb12e-2c37-4e66-8395-832c9b76294f","opacity":53.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"7c8516aa-beaa-42c9-932e-d0de6caf7c5e","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"7c8516aa-beaa-42c9-932e-d0de6caf7c5e","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
     {"$GMImageLayer":"","%Name":"d605a662-c2c1-45ca-a8f3-914569728527","blendMode":0,"displayName":"hands","isLocked":false,"name":"d605a662-c2c1-45ca-a8f3-914569728527","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},
     {"$GMImageLayer":"","%Name":"78620d1b-c835-49de-abad-9ce939fc546b","blendMode":0,"displayName":"staff","isLocked":false,"name":"78620d1b-c835-49de-abad-9ce939fc546b","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":false,},

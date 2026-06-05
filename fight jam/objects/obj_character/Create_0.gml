@@ -70,16 +70,24 @@ enum STATES{
 	dead,
 	dodge,
 	parry,
+
+	teleport,
+	
+	//grape
 	special1,
 	special2,
 	special3,
 	special4,
-	teleport,
 	left,
 	right,
 	up,
 	down,
+	air_heavy3,
+	
+	
 	max,
+	
+	
 }
 
 stun_remain = 0;
@@ -125,6 +133,7 @@ outline_col = [1.0, 0.0, 0.0];
 //animation stats
 special_trans_grace_length = 8; //how many frames into heavy/light you can transition to special
 turnaround_grace_length = 8; //how many frames into heavy/light you can transition to special
+dir_locked = false;
 landing_lag = 10;
 
 
@@ -333,7 +342,10 @@ arr_state_functions[STATES.walk] = function(){
 	
 	//particles
 	var _press = sign(input.is_pressed(INPUT.right)) - sign(input.is_pressed(INPUT.left));
-	if(_press != press_prev and _press != 0 or reached_frame(image_number-1)) create_vfx(x,y,vfx_run_grey,dir*RUN_VFX_S,RUN_VFX_S,0);
+	if(_press != press_prev and _press != 0 or reached_frame(image_number-1)) {
+		create_vfx(x,y,vfx_run_hand_2,dir*RUN_VFX_S,RUN_VFX_S,0);
+		create_vfx(x,y,vfx_run,dir*RUN_VFX_S,RUN_VFX_S,0);
+		}
 	//if(state_count % 10 == 0) create_vfx(x,y,vfx_run,dir*RUN_VFX_S_SMALL,RUN_VFX_S_SMALL,0);
 	press_prev = _press
 }
@@ -749,6 +761,7 @@ function change_state(new_state){
 	hurtbox = states_hurtboxes[new_state];
 	afterimage_remain = 0;
 	is_parried = false;
+	dir_locked = false;
 	
 	with(inst_hitbox) instance_destroy();
 	
