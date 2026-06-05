@@ -10,10 +10,10 @@ arr[i][INPUT.echo] = 0;
 }
 padindex =[0,1];
 axis=[0,0];
-
+buffer_amount = 5;
 
 //binds
-if(!file_exists("keybinds.json"))
+if(!file_exists("keybinds.json") or true)
 {
 	keybinds[INPUT.left]	= [ord("A"),vk_left,	"left"]
 	keybinds[INPUT.right]	= [ord("D"),vk_right,	"right"]
@@ -74,3 +74,6 @@ var _json = json_stringify(keys,1)
 var _file = file_text_open_write("keys values.json")
 file_text_write_string(_file,_json);
 file_text_close(_file);
+
+//some problems are caused when this isnt here. something must not work 100% with the keybinds loading.
+keybinds[INPUT.down]	= [ord("S"),vk_down,	"down"]

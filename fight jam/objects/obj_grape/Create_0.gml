@@ -297,97 +297,33 @@ arr_state_functions[STATES.air_heavy3] = function(){
 	}
 }
 
-//arr_state_functions[STATES.air_special] = function(){
-	
-//	if(state_changed)
-//	{
-//		__grav_mult = 0;
-//		__grav_multx = 8;
-//		yadd = 0;
-//	}
-	
-//	if(reached_frame(3))
-//	{
-//		__grav_mult = 0;
-//		xadd = dir * 17;
-//		__grav_multx = 1
-//		yadd = 2;
-//	}
-	
-//	if(reached_frame(4))
-//	{
-//		create_hitbox(hitbox_data[STATES.air_special]);
-//		inst_hitbox.image_index = image_index;
-//	}
-	
-//	if(reached_frame(5))
-//	{
-//		//with(inst_hitbox) instance_destroy();
-//		create_hitbox(hitbox_data[STATES.air_special]);
-//		inst_hitbox.image_index = image_index;
-//	}
-	
-//	if(reached_frame(6)){
-//		__grav_mult = 0.5;
-//	}
-	
-//	//jump cancel
-//	if(instance_exists(inst_hitbox) and array_length(inst_hitbox.arr_hits) > 0 and input.is_pressed(INPUT.up)){
-//		change_state(STATES.air)
-//		yadd = -jumpforce_y;
-//		xadd = dir * jumpforce_x;
-//	}
-		
-	
-//	yadd += grav * __grav_mult;
-//	xadd = approach(xadd,air_fric*__grav_multx,0);
-	
-//	//land
-//	if(is_grounded())
-//	{
-//		if is_hit_success()
-//			change_state(STATES.idle)
-//		else
-//			change_state(STATES.land);
-//	}
-		
-//	if(anim_done)
-//		change_state(STATES.air);
-//}
-
 arr_state_functions[STATES.special] = function(){
-	
-	if (image_index <= 1) {
-        image_index = 2;
-    }
-
-
-    if (state_changed) {
-		special_dir=dir;
-        image_index = 0;
-        image_speed = 1;
-	}
-
-    // when animation reaches the end, loop only the last 2 frames
 
     xadd = lerp(xadd, 0, 0.06);
     yadd = lerp(yadd, 0, 0.06);
-    //yadd = approach(yadd, grav*0.6, 0);
 	
+	//cancel
 	if((input.is_pressed(INPUT.dodge) or input.is_pressed(INPUT.special)) and not state_changed){
 		change_state(STATES.air);
 	}
-    if(input.is_pressed(INPUT.up))
-        change_state(STATES.up);
+	
+	if(anim_done)
+	{
+		image_speed = 0;
+	}
+	
+	//input sign
+    if(input.is_pressed(INPUT.up_press))
+        cast_sigil(SIGILS.up);
 
-    if(input.is_pressed(INPUT.right))
-        change_state(STATES.right);
+    if(input.is_pressed(INPUT.right_press))
+        cast_sigil(SIGILS.right);
 
-    if(input.is_pressed(INPUT.down))
-        change_state(STATES.down);
+    if(input.is_pressed(INPUT.down_press))
+        cast_sigil(SIGILS.down);
 
-    if(input.is_pressed(INPUT.left))
-        change_state(STATES.left);
+    if(input.is_pressed(INPUT.left_press))
+        cast_sigil(SIGILS.left);
 }
 
 arr_state_functions[STATES.air_special]=arr_state_functions[STATES.special];
@@ -508,43 +444,100 @@ arr_state_functions[STATES.down] = function(){
 	
 }
 
-spell_array = [];
-function add_state(){
-	
-    array_push(spell_array, state);
-
-    if (array_length(spell_array) >= 3) {
-        array_delete(spell_array, 0, 1);
-    }
-	show_debug_message("spell array= " + string(spell_array));
+enum SIGILS{
+	up,
+	down,
+	left,
+	right
 }
+arr_sigils = [];
+arr_spells[0] = [STATES.special1, [SIGILS.left, SIGILS.left]]
+arr_spells[1] = [STATES.special2, [SIGILS.down, SIGILS.right]]
 
 function handle_array() {
-    if (array_length(spell_array) < 2) return false;
+    if (array_length(arr_sigils) < 2) return false;
 
-    var a = spell_array[0];
-    var b = spell_array[1];
+    var a = arr_sigils[0];
+    var b = arr_sigils[1];
     if (a == STATES.left && b == STATES.left) {
-        spell_array = [];
+        arr_sigils = [];
         change_state(STATES.special1);
         return true;
     }
     if (a == STATES.right && b == STATES.right) {
-        spell_array = [];
+        arr_sigils = [];
         change_state(STATES.special2);
         return true;
     }
     if (a == STATES.up && b == STATES.up) {
-        spell_array = [];
+        arr_sigils = [];
         change_state(STATES.special3);
         return true;
     }
     if (a == STATES.down && b == STATES.down) {
-        spell_array = [];
+        arr_sigils = [];
         change_state(STATES.heavy);
         return true;
     }
     return false;
+}
+function cast_sigil(_dir)
+{
+	//anim
+	switch(_dir){
+		case SIGILS.right:	sprite_index = spr_grape_sign_right;	break;	
+		case SIGILS.left:	sprite_index = spr_grape_sign_left;		break;	
+		case SIGILS.up:		sprite_index = spr_grape_sign_up;		break;	
+		case SIGILS.down:	sprite_index = spr_grape_sign_down;		break;	
+	}
+	
+	//insert new sign
+	array_insert(arr_sigils,-1,_dir);
+	
+	/// cast spell
+	
+	//gather options
+	var _spells_remain = [];
+	for(var i=0; i < array_length(arr_spells); i++)
+		_spells_remain[i] = arr_spells[i];
+	
+	//loop sigils
+	for(var s=0; s < array_length(arr_sigils); s++)
+	{
+		var _sigil = arr_sigils[array_length(arr_sigils)-1-s];
+		//loop spells
+		for(var i=0; i < array_length(_spells_remain); i++)
+		{
+			//filter out spell
+			if(_sigil != _spells_remain[i][1][array_length(_spells_remain[i][1]) - 1 - s]){
+				array_delete(_spells_remain,i,1)
+				i--;
+			}
+			
+			//cast spell
+			else if(s == array_length(_spells_remain[i][1]))
+			{
+				change_state(_spells_remain[i][0]);
+				return true;
+			}
+				
+		}
+	}
+	
+	
+	//loop spells
+	for(var i=0; i < array_length(_spells_remain); i++)
+	{
+		//loop sigils
+		for(var s=array_length(arr_sigils)-1; s >= 0; s--)
+		{
+			var _spell_sigils = _spells_remain[i][1];
+			if(arr_sigils[s] != _spell_sigils[s])
+			{
+			
+			}
+		}
+	}
 }
 function restart_state(_state) {
     change_state(_state);

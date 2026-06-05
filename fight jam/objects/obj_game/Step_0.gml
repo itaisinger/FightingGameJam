@@ -22,10 +22,12 @@ switch(state){
 				if(!player_is_confirmed[i]){
 					if(_input[i].is_pressed(INPUT.right_press)){
 						chosen_characters[i]++;
+						if(chosen_characters[i] == CHARACTERS.grape and !is_graped_unlocked) chosen_characters[i]++
 						play_sfx(sfx_character_swap,0,0,[0.7,1.3])
 					}
 					if(_input[i].is_pressed(INPUT.left_press)){
 						chosen_characters[i]--;
+						if(chosen_characters[i] == CHARACTERS.grape and !is_graped_unlocked) chosen_characters[i]--;
 						play_sfx(sfx_character_swap,0,0,[0.7,1.3])
 					}
 				
@@ -61,6 +63,15 @@ switch(state){
 		//tutorial
 		if(keyboard_check_pressed(ord("T")))
 			instance_create_depth(0,0,0,obj_tutorial);
+		
+		//unlock grape
+		if(string_ends_with(keyboard_string,"grape") and !is_graped_unlocked)
+		{
+			is_graped_unlocked = true;
+			chosen_characters[0] = CHARACTERS.grape;
+			chosen_characters[1] = CHARACTERS.grape;
+			play_sfx(sfx_parry)
+		}
 		
 	break;
 	
