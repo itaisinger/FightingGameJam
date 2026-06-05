@@ -583,6 +583,7 @@
     {"id":{"name":"spr_grape_sign_left","path":"sprites/spr_grape_sign_left/spr_grape_sign_left.yy",},},
     {"id":{"name":"spr_grape_sign_right","path":"sprites/spr_grape_sign_right/spr_grape_sign_right.yy",},},
     {"id":{"name":"spr_grape_sign_up","path":"sprites/spr_grape_sign_up/spr_grape_sign_up.yy",},},
+    {"id":{"name":"spr_grape_special_sigils","path":"sprites/spr_grape_special_sigils/spr_grape_special_sigils.yy",},},
     {"id":{"name":"spr_grape_special","path":"sprites/spr_grape_special/spr_grape_special.yy",},},
     {"id":{"name":"spr_grape_special3","path":"sprites/spr_grape_special3/spr_grape_special3.yy",},},
     {"id":{"name":"spr_grape_tp_OLD_FULL","path":"sprites/spr_grape_tp_OLD_FULL/spr_grape_tp_OLD_FULL.yy",},},
