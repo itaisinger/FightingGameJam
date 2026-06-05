@@ -1,8 +1,8 @@
 // obj_icicle Create Event
 event_inherited();
 
-spr_spawn = spr_ice_spawn;
-spr_projectile = spr_icicle;
+spr_spawn = ice_spawn_small1;
+spr_projectile = iciccle_vfx;
 
 sprite_index = spr_spawn;
 image_index = 0;
