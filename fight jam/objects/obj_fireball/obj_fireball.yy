@@ -34,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_fireball",
-    "path":"sprites/spr_fireball/spr_fireball.yy",
+    "name":"firball_pink_1big",
+    "path":"sprites/firball_pink_1big/firball_pink_1big.yy",
   },
   "spriteMaskId":null,
   "visible":true,
