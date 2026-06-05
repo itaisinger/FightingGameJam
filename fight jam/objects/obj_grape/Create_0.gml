@@ -451,36 +451,37 @@ enum SIGILS{
 	right
 }
 arr_sigils = [];
-arr_spells[0] = [STATES.special1, [SIGILS.left, SIGILS.left]]
-arr_spells[1] = [STATES.special2, [SIGILS.down, SIGILS.right]]
 
-function handle_array() {
-    if (array_length(arr_sigils) < 2) return false;
-
-    var a = arr_sigils[0];
-    var b = arr_sigils[1];
-    if (a == STATES.left && b == STATES.left) {
-        arr_sigils = [];
-        change_state(STATES.special1);
-        return true;
-    }
-    if (a == STATES.right && b == STATES.right) {
-        arr_sigils = [];
-        change_state(STATES.special2);
-        return true;
-    }
-    if (a == STATES.up && b == STATES.up) {
-        arr_sigils = [];
-        change_state(STATES.special3);
-        return true;
-    }
-    if (a == STATES.down && b == STATES.down) {
-        arr_sigils = [];
-        change_state(STATES.heavy);
-        return true;
-    }
-    return false;
+function Spell(_state,_sigils_arr,_dir=1) constructor
+{
+	state = _state;
+	sigils = _sigils_arr;
+	dir = _dir;
 }
+
+arr_spells[0] = new Spell(STATES.special1, [SIGILS.left, SIGILS.left])
+arr_spells[1] = new Spell(STATES.special2, [SIGILS.down, SIGILS.right])
+
+//duplicate spells for turnaround
+var _l = array_length(arr_spells);
+for(var i=0; i < _l; i++)
+{
+	var _spell = variable_clone(arr_spells[i]);
+	_spell.dir = -1;
+	
+	//flip dirs
+	for(var s=0; s < array_length(_spell.sigils); s++)
+	{
+		switch(_spell.sigils[s])
+		{
+			case SIGILS.right: _spell.sigils[s] = SIGILS.left; break;
+			case SIGILS.left: _spell.sigils[s] = SIGILS.right; break;
+		}
+	}
+	
+	arr_spells[array_length(arr_spells)] = _spell;
+}
+
 function cast_sigil(_dir)
 {
 	//anim
@@ -509,19 +510,20 @@ function cast_sigil(_dir)
 		//loop sigils
 		for(var s=0; s < array_length(arr_sigils) and !_stop; s++)
 		{
-			var _spell_sigils = _spells_remain[i][1];
+			var _spell = _spells_remain[i]
 			
 			//filter out spell
-			if(s >= array_length(_spell_sigils) or arr_sigils[array_length(arr_sigils)-1-s] != _spell_sigils[array_length(_spell_sigils)- s-1])
+			if(s >= array_length(_spell.sigils) or arr_sigils[array_length(arr_sigils)-1-s] != _spell.sigils[array_length(_spell.sigils)- s-1])
 			{
 				array_delete(_spells_remain,i,1);
 				i--;
 				_stop = true;
 			}
 			//cast
-			else if(array_length(_spell_sigils) == s+1)
+			else if(array_length(_spell.sigils) == s+1)
 			{
-				change_state(_spells_remain[i][0]);
+				dir = _spell.dir;
+				change_state(_spell.state);
 				return;
 			}
 		}
