@@ -243,6 +243,7 @@ arr_state_functions[STATES.air_heavy2] = function(){
 		_yadd = -grav*1.2;
 		yadd = 9;
 		xadd = dir * 12;
+		jump_traj_x = xadd * 0.8;
 		__active_remain = 30;
 	}
 	
@@ -301,13 +302,14 @@ arr_state_functions[STATES.special] = function(){
 	if(state_changed)
 	{
 		arr_sigils = [];
+		jump_traj_x = 0;
 	}
 
     xadd = lerp(xadd, 0, 0.06);
-    yadd = lerp(yadd, 0, 0.06);
+    yadd = lerp(yadd, 0, 0.06) + grav * 0.1;
 	
 	//cancel
-	if((input.is_pressed(INPUT.dodge) or input.is_pressed(INPUT.special)) and not state_changed){
+	if((input.is_pressed(INPUT.dodge) or input.is_pressed(INPUT.special)) and state_count > 6){
 		change_state(STATES.air);
 	}
 	
@@ -347,15 +349,38 @@ arr_state_functions[STATES.special2] = function(){
 }
 /////
 arr_state_functions[STATES.special3] = function(){
+	
+	if(state_changed){
+		
+		__grav_mult = 0;
+		
+		yadd -= 4;
+		
+		if(is_grounded()){
+			yadd -= 6;
+		}
+		
+		xadd = 15*dir;
+		jump_traj_x = xadd;
+		create_vfx(x, y, air_burst_1, dir, 1);
+	}
+	
+	//trans out
 	if(input.is_pressed(INPUT.light))
 		change_state(STATES.air_light);
 	if(input.is_pressed(INPUT.heavy))
 		change_state(STATES.air_heavy);
-	if(state_changed){
-		yadd-=7;
-		xadd+=17*dir;
-		create_vfx(x, y, SmokeNDust_1, -dir, 1);
+		
+	yadd += grav * __grav_mult;
+	xadd = approach(xadd,air_fric,0);
+	__grav_mult = approach(__grav_mult,0.075,1);
+	
+	if(is_grounded())
+	{
+		xadd *= 1.2;
+		change_state(STATES.idle);
 	}
+	
 	if(anim_done){
 		change_state(STATES.air);
 	}
@@ -363,8 +388,14 @@ arr_state_functions[STATES.special3] = function(){
 }
 //////
 arr_state_functions[STATES.special4] = function(){
+	
+	if(state_changed){
+		show_debug_message("y is: " + string(y));
+		create_projectile(obj_projectile_grape_tree, 0, 896.26 - y);
+	}
 	if(anim_done)
 		change_state(STATES.idle);
+		
 }
 ///////////////////////////////////////////
 
@@ -461,6 +492,9 @@ function Spell(_state,_sigils_arr,_dir=1) constructor
 
 arr_spells[0] = new Spell(STATES.special1, [SIGILS.left, SIGILS.left])
 arr_spells[1] = new Spell(STATES.special2, [SIGILS.down, SIGILS.right])
+arr_spells[2] = new Spell(STATES.special3, [SIGILS.up, SIGILS.right])
+arr_spells[3] = new Spell(STATES.special4, [SIGILS.down, SIGILS.down])
+
 
 //duplicate spells for turnaround
 var _l = array_length(arr_spells);
