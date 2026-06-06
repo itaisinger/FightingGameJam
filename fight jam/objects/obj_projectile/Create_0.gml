@@ -12,3 +12,5 @@ hitpause = 4;
 knockback_x = 6;
 knockback_y = 3;
 is_launcher = false;
+
+//inst_hitbox = instance_create_depth(x,y,)
