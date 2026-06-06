@@ -363,8 +363,13 @@ arr_state_functions[STATES.special3] = function(){
 }
 //////
 arr_state_functions[STATES.special4] = function(){
+	
+	if(state_changed){
+		create_projectile(obj_projectile_grape_tree,x+10,0);
+	}
 	if(anim_done)
 		change_state(STATES.idle);
+		
 }
 ///////////////////////////////////////////
 
@@ -461,6 +466,8 @@ function Spell(_state,_sigils_arr,_dir=1) constructor
 
 arr_spells[0] = new Spell(STATES.special1, [SIGILS.left, SIGILS.left])
 arr_spells[1] = new Spell(STATES.special2, [SIGILS.down, SIGILS.right])
+arr_spells[1] = new Spell(STATES.special4, [SIGILS.down, SIGILS.down])
+
 
 //duplicate spells for turnaround
 var _l = array_length(arr_spells);
