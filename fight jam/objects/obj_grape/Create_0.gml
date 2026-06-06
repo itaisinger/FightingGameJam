@@ -354,7 +354,7 @@ arr_state_functions[STATES.special3] = function(){
 	if(state_changed){
 		yadd-=4;
 		xadd+=15*dir;
-		create_vfx(x, y, SmokeNDust_1, -dir, 1);
+		create_vfx(x, y, air_burst_1, dir, 1);
 	}
 	if(anim_done){
 		change_state(STATES.air);
