@@ -599,6 +599,7 @@
     {"id":{"name":"spr_grape_special3","path":"sprites/spr_grape_special3/spr_grape_special3.yy",},},
     {"id":{"name":"spr_grape_tp_OLD_FULL","path":"sprites/spr_grape_tp_OLD_FULL/spr_grape_tp_OLD_FULL.yy",},},
     {"id":{"name":"spr_grape_tp","path":"sprites/spr_grape_tp/spr_grape_tp.yy",},},
+    {"id":{"name":"spr_grape_tree_large_1","path":"sprites/spr_grape_tree_large_1/spr_grape_tree_large_1.yy",},},
     {"id":{"name":"spr_grape_tree_large","path":"sprites/spr_grape_tree_large/spr_grape_tree_large.yy",},},
     {"id":{"name":"spr_grape_tree","path":"sprites/spr_grape_tree/spr_grape_tree.yy",},},
     {"id":{"name":"spr_grape_walk_dust","path":"sprites/spr_grape_walk_dust/spr_grape_walk_dust.yy",},},

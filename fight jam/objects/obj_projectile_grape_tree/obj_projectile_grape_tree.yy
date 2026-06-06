@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_grape_tree_large",
-    "path":"sprites/spr_grape_tree_large/spr_grape_tree_large.yy",
+    "name":"spr_grape_tree_large_1",
+    "path":"sprites/spr_grape_tree_large_1/spr_grape_tree_large_1.yy",
   },
   "spriteMaskId":null,
   "visible":true,
