@@ -352,8 +352,8 @@ arr_state_functions[STATES.special3] = function(){
 	if(input.is_pressed(INPUT.heavy))
 		change_state(STATES.air_heavy);
 	if(state_changed){
-		yadd-=7;
-		xadd+=17*dir;
+		yadd-=4;
+		xadd+=15*dir;
 		create_vfx(x, y, SmokeNDust_1, -dir, 1);
 	}
 	if(anim_done){
