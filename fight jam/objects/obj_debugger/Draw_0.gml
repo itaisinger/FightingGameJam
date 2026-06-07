@@ -13,7 +13,8 @@ with(obj_hitbox) draw_self();
 draw_set_font(font_announce_small)
 
 try{ 
-	with(obj_character) draw_text(x,y-100,string(image_speed));
+	//with(obj_character) draw_text(x,y-100,string(image_speed));
+	with(obj_character) draw_text(x,y-100,string(obj_character.combo_counter));
 	mask_index = obj_character.mask_index;
 	vars = [
 	"state: " + string(obj_character.image_speed),
