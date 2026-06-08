@@ -420,7 +420,7 @@ arr_state_functions[STATES.dead] = function(){
 arr_state_functions[STATES.light] = function(){
 	
 	if(state_changed){
-		xadd += dir * 3
+		xadd += dir * 4
 		//xadd = dir * (abs(xadd)+3)
 	}
 	

@@ -340,16 +340,21 @@ arr_state_functions[STATES.special1] = function(){
 	}
 	change_state(STATES.idle);
 }
-/////////
+///// fireball
 arr_state_functions[STATES.special2] = function(){
-		if (anim_done){
-		create_projectile(obj_fireball,30, -50);
-		change_state(STATES.idle);
+	
+		yadd += grav * 0.8;
+		xadd = approach(xadd,air_fric * 0.8, 0);
+	
+		if (reached_frame(1)){
+			create_projectile(obj_fireball,30, -50);
 		}
-	
-	
+		if(anim_done)
+		{
+			change_state(is_grounded() ? STATES.idle : STATES.air);
+		}
 }
-/////
+///// dash
 arr_state_functions[STATES.special3] = function(){
 	
 	if(state_changed){
