@@ -83,7 +83,7 @@ states_sprites[STATES.special1]		= spr_grape_special;
 states_hurtboxes[STATES.special1]	= hurtbox_grape_special;
 //hitbox_data[STATES.special1]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 //2
-states_sprites[STATES.special2]		= spr_grape_special;
+states_sprites[STATES.special2]		= spr_grape_fireball;
 states_hurtboxes[STATES.special2]	= hurtbox_grape_special;
 //hitbox_data[STATES.special2]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 //3
@@ -342,10 +342,12 @@ arr_state_functions[STATES.special1] = function(){
 }
 /////////
 arr_state_functions[STATES.special2] = function(){
-		if(state_changed){
+		if (anim_done){
 		create_projectile(obj_fireball,30, -50);
-	}
-	change_state(STATES.idle);
+		change_state(STATES.idle);
+		}
+	
+	
 }
 /////
 arr_state_functions[STATES.special3] = function(){
@@ -521,7 +523,7 @@ function cast_sigil(_dir)
 	//anim
 	switch(_dir){
 		case SIGILS.right:	sprite_index = spr_grape_sign_right;	break;	
-		case SIGILS.left:	sprite_index = spr_grape_sign_left;		break;	
+		case SIGILS.left:	sprite_index = spr_grape_fireball;		break;	
 		case SIGILS.up:		sprite_index = spr_grape_sign_up;		break;	
 		case SIGILS.down:	sprite_index = spr_grape_sign_down;		break;	
 	}
