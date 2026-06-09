@@ -79,19 +79,19 @@ inst_hitbox = noone;	//saves the currently active hitbox.
 //magic
 //special moves
 //1
-states_sprites[STATES.special1]		= spr_grape_special;
+states_sprites[STATES.special1]		= spr_grape_spell_ice;
 states_hurtboxes[STATES.special1]	= hurtbox_grape_special;
 //hitbox_data[STATES.special1]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 //2
-states_sprites[STATES.special2]		= spr_grape_fireball;
+states_sprites[STATES.special2]		= spr_grape_spell_fire;
 states_hurtboxes[STATES.special2]	= hurtbox_grape_special;
 //hitbox_data[STATES.special2]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 //3
-states_sprites[STATES.special3]		= spr_grape_special3;
+states_sprites[STATES.special3]		= spr_grape_spell_air_1;
 states_hurtboxes[STATES.special3]	= hurtbox_grape_special;
 //hitbox_data[STATES.special3]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 //4
-states_sprites[STATES.special4]		= spr_grape_special;
+states_sprites[STATES.special4]		= spr_grape_spell_grass;
 states_hurtboxes[STATES.special4]	= hurtbox_grape_special;
 //hitbox_data[STATES.special4]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 
@@ -335,10 +335,16 @@ arr_state_functions[STATES.special] = function(){
 arr_state_functions[STATES.air_special] = arr_state_functions[STATES.special];
 /////////
 arr_state_functions[STATES.special1] = function(){
-	if(state_changed){
-		create_projectile(obj_icicle,0, -200);
-	}
-	change_state(STATES.idle);
+		yadd += grav * 0.8;
+		xadd = approach(xadd,air_fric * 0.8, 0);
+	
+		if (reached_frame(1)){
+			create_projectile(obj_icicle,0, -200);
+		}
+		if(anim_done)
+		{
+			change_state(is_grounded() ? STATES.idle : STATES.air);
+		}
 }
 ///// fireball
 arr_state_functions[STATES.special2] = function(){
@@ -528,7 +534,7 @@ function cast_sigil(_dir)
 	//anim
 	switch(_dir){
 		case SIGILS.right:	sprite_index = spr_grape_sign_right;	break;	
-		case SIGILS.left:	sprite_index = spr_grape_fireball;		break;	
+		case SIGILS.left:	sprite_index = spr_grape_sign_left;		break;	
 		case SIGILS.up:		sprite_index = spr_grape_sign_up;		break;	
 		case SIGILS.down:	sprite_index = spr_grape_sign_down;		break;	
 	}
