@@ -53,6 +53,7 @@ states_hurtboxes[STATES.dead]		= hurtbox_grape_dead;
 states_hurtboxes[STATES.parry]		= hurtbox_grape_parry;
 states_hurtboxes[STATES.teleport]	= hurtbox_grape_tp;
 states_hurtboxes[STATES.special]	= hurtbox_grape_special;
+states_hurtboxes[STATES.air_special]	= hurtbox_grape_special;
 states_hurtboxes[STATES.land]		= hurtbox_grape_land;
 states_hurtboxes[STATES.air_light]	= hurtbox_grape_air_light;
 states_hurtboxes[STATES.air_heavy]	= hurtbox_grape_air_heavy_start;
@@ -339,7 +340,7 @@ arr_state_functions[STATES.special1] = function(){
 		xadd = approach(xadd,air_fric * 0.8, 0);
 	
 		if (reached_frame(1)){
-			create_projectile(obj_icicle,0, -200);
+			create_projectile(obj_projectile_icicle,0, -200);
 		}
 		if(anim_done)
 		{
@@ -353,7 +354,7 @@ arr_state_functions[STATES.special2] = function(){
 		xadd = approach(xadd,air_fric * 0.8, 0);
 	
 		if (reached_frame(1)){
-			create_projectile(obj_fireball,30, -50);
+			create_projectile(obj_projectile_fireball,30, -50);
 		}
 		if(anim_done)
 		{

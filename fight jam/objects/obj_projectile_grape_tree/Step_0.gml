@@ -2,8 +2,31 @@
 x += 0;
 
 // hit enemies
+
+
 var _cols = ds_list_create();
 var _num = instance_place_list(x, y, obj_character, _cols, false);
+
+var _parry = instance_place(x, y, obj_hitbox);
+
+if (_parry != noone) {
+    if (
+        _parry.is_parry &&
+        _parry.parent != parent &&
+        _parry.parent.is_p1 != parent.is_p1
+    ) {
+		instance_destroy();
+        //parent = _parry.parent;
+        //dir *= -1;
+        //image_xscale = dir;
+        //arr_hits = [];
+
+        //x += spd * dir;
+
+        exit;
+    }
+}
+
 
 for (var i = 0; i < _num; i++) {
     var _col = _cols[| i];
