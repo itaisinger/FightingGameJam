@@ -46,6 +46,7 @@ for (var i = 0; i < _num; i++) {
 
         instance_destroy();
 		create_vfx(_col.x,_col.y-50,vfx_explosion,2,2,0);
+		//play_sfx(sfx_explosion)
         break;
     }
 }

@@ -91,6 +91,7 @@ for (var i = 0; i < _num; i++) {
 
         array_insert(arr_hits, 0, _col);
 		create_vfx(_col.x,_col.y-50,vfx_ice_explosion,2,2,0);
+		play_sfx(sfx_ice_hit)
         instance_destroy();
         break;
     }

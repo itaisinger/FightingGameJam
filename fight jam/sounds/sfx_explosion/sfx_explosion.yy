@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sfx_explosion",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":5.4959865,
+  "exportDir":"",
+  "name":"sfx_explosion",
+  "parent":{
+    "name":"dvir sfx",
+    "path":"folders/Sounds/sfx/dvir sfx.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sfx_explosion.mp3",
+  "volume":1.0,
+}

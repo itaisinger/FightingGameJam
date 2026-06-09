@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sfx_ice_hit",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":8.04,
+  "exportDir":"",
+  "name":"sfx_ice_hit",
+  "parent":{
+    "name":"dvir sfx",
+    "path":"folders/Sounds/sfx/dvir sfx.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sfx_ice_hit.mp3",
+  "volume":1.0,
+}
