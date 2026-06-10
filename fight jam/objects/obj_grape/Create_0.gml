@@ -76,7 +76,6 @@ hitbox_data[STATES.air_heavy3]	= new HitboxData(hitbox_grape_air_heavy3,4,70,10,
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_grape_parry,1,100,180,3,3,1,false,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
-
 //magic
 //special moves
 //1

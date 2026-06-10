@@ -5,6 +5,8 @@ x += spd * dir;
 // parry projectile
 var _parry = instance_place(x, y, obj_hitbox);
 
+
+
 if (_parry != noone) {
     if (
         _parry.is_parry &&
@@ -15,7 +17,8 @@ if (_parry != noone) {
         dir *= -1;
         image_xscale = dir;
         arr_hits = [];
-
+		play_sfx(sfx_parry);
+		
         x += spd * dir;
 
         exit;
