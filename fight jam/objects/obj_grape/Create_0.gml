@@ -338,8 +338,8 @@ arr_state_functions[STATES.air_special] = arr_state_functions[STATES.special];
 arr_state_functions[STATES.special1] = function(){
 		yadd += grav * 0.8;
 		xadd = approach(xadd,air_fric * 0.8, 0);
-		if(state_changed){play_sfx(sfx_ice_spawn)}
-		
+		//if(state_changed){play_sfx(sfx_ice_spawn)}
+		if(state_changed){play_sfx(ice_spawn__AudioTrimmer_com_)}
 		if (reached_frame(1)){
 			create_projectile(obj_projectile_icicle,0, -200);
 		}
@@ -353,7 +353,8 @@ arr_state_functions[STATES.special2] = function(){
 	
 		yadd += grav * 0.8;
 		xadd = approach(xadd,air_fric * 0.8, 0);
-		if(state_changed){play_sfx(sfx_fire_spawn)}
+		//if(state_changed){play_sfx(sfx_fire_spawn)}
+		if(state_changed){play_sfx(fire_spawn__AudioTrimmer_com_)}
 		if (reached_frame(1)){
 			create_projectile(obj_projectile_fireball,30, -50);
 		}

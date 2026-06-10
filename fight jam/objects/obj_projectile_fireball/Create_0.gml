@@ -12,4 +12,4 @@ hitpause = 4;
 knockback_x = 6;
 knockback_y = 3;
 is_launcher = false;
-play_sfx(sfx_fire_spawn)
+//play_sfx(explos_spawn)

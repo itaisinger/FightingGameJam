@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"sfx_fire_spawn",
+  "%Name":"ice_hit__AudioTrimmer_com__2_",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":1.5359864,
+  "duration":4.4756465,
   "exportDir":"",
-  "name":"sfx_fire_spawn",
+  "name":"ice_hit__AudioTrimmer_com__2_",
   "parent":{
     "name":"dvir sfx",
     "path":"folders/Sounds/sfx/dvir sfx.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sfx_fire_spawn.mp3",
-  "volume":0.78,
+  "soundFile":"ice_hit__AudioTrimmer_com__2_.mp3",
+  "volume":1.0,
 }
