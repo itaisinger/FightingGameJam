@@ -72,7 +72,7 @@ hitbox_data = array_create(STATES.max,-1)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_skate_light,3,25,5,3,5,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_skate_heavy,8,80,15,8,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_skate_special,9,40,10,6,7,0,1,false);
-hitbox_data[STATES.air_light]	= new HitboxData(hitbox_skate_air_light,4,25,5,3,7,0,0,false,pogo);
+hitbox_data[STATES.air_light]	= new HitboxData(hitbox_skate_air_light,4,25,5,3.5,7,0,0,false,pogo);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_skate_air_heavy,12,40,10,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_skate_parry,1,30,130,3,5,1,0,true);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,1.7,10,20,5,5,0,1,false,,1.5);
@@ -420,7 +420,7 @@ arr_state_functions[STATES.dead] = function(){
 arr_state_functions[STATES.light] = function(){
 	
 	if(state_changed){
-		xadd += dir * 4
+		xadd += dir * 3.75
 		//xadd = dir * (abs(xadd)+3)
 	}
 	
@@ -439,7 +439,7 @@ arr_state_functions[STATES.light] = function(){
 	//link to heavy
 	else if(image_index >= 2 and input.is_pressed(INPUT.heavy)){
 		change_state(STATES.heavy);
-		image_index += 0.7;
+		image_index += 1;
 	}
 	
 	
