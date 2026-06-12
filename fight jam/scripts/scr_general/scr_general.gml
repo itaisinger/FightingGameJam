@@ -45,9 +45,10 @@ function play_sfx(_sfx,_prio=0,_loop=0,_pitch=1,_gain=1)
 	
 	return _s;
 }
-function stop_sfx(sfx_inst)
+function stop_sfx(sfx_inst,fade_out_seconds=0)
 {
-	audio_stop_sound(sfx_inst);
+	if(fade_out_seconds == 0)
+		audio_stop_sound(sfx_inst);
 }
 
 
