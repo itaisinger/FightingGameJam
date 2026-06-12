@@ -58,9 +58,9 @@ ds_list_destroy(_cols);
 // lifetime
 life--;
 //show_debug_message("y is: " + string(life));
-//if (life ==50){
-//	stop_sfx(sfx);
-//	}
+if (life ==50){
+	stop_sfx(sfx,1);
+}
 
 if (life <= 0){
 	instance_destroy();

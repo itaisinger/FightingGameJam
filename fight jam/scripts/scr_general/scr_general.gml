@@ -50,7 +50,7 @@ function stop_sfx(sfx_inst,fade_out_seconds=0)
 	if(fade_out_seconds == 0)
 		VinylStop(sfx_inst);
 	else
-		VinylFadeOut(sfx_inst,1/fade_out_second)
+		VinylFadeOut(sfx_inst,1/fade_out_seconds)
 }
 
 function create_vfx(_x,_y,asset,_xscale=1,_yscale=1,_angle=0){
