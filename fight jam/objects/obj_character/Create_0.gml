@@ -762,6 +762,8 @@ function change_state(new_state){
 	afterimage_remain = 0;
 	is_parried = false;
 	dir_locked = false;
+	press_prev = 0;	
+
 	
 	with(inst_hitbox) instance_destroy();
 	
