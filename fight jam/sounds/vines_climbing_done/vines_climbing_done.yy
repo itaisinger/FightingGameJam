@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"vines_climbing_7",
+  "%Name":"vines_climbing_done",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -12,15 +12,15 @@
   "conversionMode":0,
   "duration":3.4666667,
   "exportDir":"",
-  "name":"vines_climbing_7",
+  "name":"vines_climbing_done",
   "parent":{
-    "name":"dvir sfx",
-    "path":"folders/Sounds/sfx/dvir sfx.yy",
+    "name":"done",
+    "path":"folders/Sounds/sfx/dvir sfx/done.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"vines_climbing_7.wav",
+  "soundFile":"vines_climbing_done.wav",
   "volume":1.0,
 }

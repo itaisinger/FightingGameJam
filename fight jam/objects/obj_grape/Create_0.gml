@@ -408,7 +408,7 @@ arr_state_functions[STATES.special4] = function(){
 	//if(state_changed){play_sfx(fire_spawn__AudioTrimmer_com_)}
 	if(state_changed){
 		//show_debug_message("y is: " + string(y));
-		play_sfx(vines_climbing_7)
+		//play_sfx(vines_climbing_done)
 		create_projectile(obj_projectile_grape_tree, 0, 896.26 - y);
 	}
 	if(anim_done)

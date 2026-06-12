@@ -44,14 +44,25 @@ for (var i = 0; i < _num; i++) {
         );
 
         array_insert(arr_hits, 0, _col);
-
+		
         instance_destroy();
+		stop_sfx(sfx);
         break;
     }
 }
 
 ds_list_destroy(_cols);
 
+
+
 // lifetime
 life--;
-if (life <= 0) instance_destroy();
+//show_debug_message("y is: " + string(life));
+//if (life ==50){
+//	stop_sfx(sfx);
+//	}
+
+if (life <= 0){
+	instance_destroy();
+	}
+	
