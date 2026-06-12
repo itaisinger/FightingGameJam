@@ -9,7 +9,7 @@ jumpforce_y *= 1;
 jumpforce_x *= 0.7;
 
 name = "GRAPE"
-win_sfx = sfx_jhoshua_wins;
+win_sfx = sfx_grape_wins;
 
 states_sprites = array_create(STATES.max,-1);
 states_sprites[STATES.idle]			= spr_grape_idle;

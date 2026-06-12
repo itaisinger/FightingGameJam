@@ -45,6 +45,11 @@ function play_sfx(_sfx,_prio=0,_loop=0,_pitch=1,_gain=1)
 	
 	return _s;
 }
+function stop_sfx(sfx_inst,fade_out_seconds=0)
+{
+	if(fade_out_seconds == 0)
+		audio_stop_sound(sfx_inst);
+}
 
 
 function create_vfx(_x,_y,asset,_xscale=1,_yscale=1,_angle=0){

@@ -1,7 +1,7 @@
 // Inherit the parent event
 event_inherited();
 
-max_hp *= 0.8;
+max_hp *= 0.9;
 hp = max_hp;
 ground_fric *= 0.1
 slide_fric *= 0.5
@@ -69,13 +69,13 @@ for(var i=0; i < STATES.max; i++){
 
 //data
 hitbox_data = array_create(STATES.max,-1)
-hitbox_data[STATES.light]		= new HitboxData(hitbox_skate_light,3,25,5,3,5,0,0,false);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_skate_heavy,8,80,15,8,9,0,1,false);
+hitbox_data[STATES.light]		= new HitboxData(hitbox_skate_light,4,25,5,3,5,0,0,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_skate_heavy,8,80,15,5,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_skate_special,9,40,10,6,7,0,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_skate_air_light,4,25,5,3.5,7,0,0,false,pogo);
 hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_skate_air_heavy,12,40,10,3,5,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_skate_parry,1,30,130,3,5,1,0,true);
-hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,1.7,10,20,5,5,0,1,false,,1.5);
+hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,2,10,20,5,5,0,1,false,,1.5);
 
 arr_state_functions[STATES.idle] = function(){
 	
@@ -292,18 +292,18 @@ arr_state_functions[STATES.air_special] = function(){
 	if(state_changed)
 	{
 		xadd += 1.5 * dir;
-		yadd = min(-2,yadd-1);
-		__grav_mult = 0.7;
+		yadd = -2//min(-2,yadd-1);
+		__grav_mult = 0.5;
 		__grav_multx = 0.9;
 	}
 	
 	//start spin
 	if(reached_frame(4))
 	{
-		__grav_mult = 0.15;
+		__grav_mult = 0.1;
 		yadd = 0;
 		__grav_multx = 0;
-		xadd = dir * 10;
+		xadd = dir * 12;
 	}
 	
 	//end spin

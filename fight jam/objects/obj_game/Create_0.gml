@@ -59,7 +59,7 @@ arr_characters[CHARACTERS.drex]		= new Character("JOHNNY DREX",			obj_skater,		s
 arr_characters[CHARACTERS.shon]		= new Character("SHON SHMUPS",			obj_shooter,	spr_portrait_shooter,	sfx_shon)
 arr_characters[CHARACTERS.minami]	= new Character("MINAMI\nNO  KAZE",		obj_knifer,		spr_portrait_knifer,	sfx_minami)
 arr_characters[CHARACTERS.spike]	= new Character("SPYKE",				obj_spyke,		spr_portrait_spyke,		sfx_spyke)
-arr_characters[CHARACTERS.grape]	= new Character("GRAPE",				obj_grape,		spr_portrait_grape,		sfx_spyke)
+arr_characters[CHARACTERS.grape]	= new Character("GRAPE",				obj_grape,		spr_portrait_grape,		sfx_grape)
 function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	var _player_dis = room_width/4
 	player_left_xstart	= room_width/2 + _player_dis;
