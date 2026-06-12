@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"wind_356",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":1.7346712,
+  "exportDir":"",
+  "name":"wind_356",
+  "parent":{
+    "name":"done",
+    "path":"folders/Sounds/sfx/dvir sfx/done.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"wind_356.wav",
+  "volume":1.0,
+}

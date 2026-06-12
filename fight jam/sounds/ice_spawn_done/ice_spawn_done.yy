@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"ice_spawn_done",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":1.163991,
+  "exportDir":"",
+  "name":"ice_spawn_done",
+  "parent":{
+    "name":"done",
+    "path":"folders/Sounds/sfx/dvir sfx/done.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"ice_spawn_done.wav",
+  "volume":1.0,
+}
