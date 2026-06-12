@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sfx_grape",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":0,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":1.2190477,
+  "exportDir":"",
+  "name":"sfx_grape",
+  "parent":{
+    "name":"announcer",
+    "path":"folders/Sounds/sfx/announcer.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sfx_grape.ogg",
+  "volume":1.0,
+}
