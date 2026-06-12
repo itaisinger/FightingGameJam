@@ -39,18 +39,19 @@ function play_sfx(_sfx,_prio=0,_loop=0,_pitch=1,_gain=1)
 	
 	//play
 	var _o_gain = audio_sound_get_gain(_sfx);
-	var _s = audio_play_sound(_sfx,_p,_l);
-	audio_sound_gain(_s,_o_gain*global.sfx_volume*_g,0);	
-	audio_sound_pitch(_s,_t);
+	var _s = VinylPlay(_sfx,_l,_o_gain*global.sfx_volume*_g,_t);
+	//audio_sound_gain(_s,_o_gain*global.sfx_volume*_g,0);	
+	//audio_sound_pitch(_s,_t);
 	
 	return _s;
 }
 function stop_sfx(sfx_inst,fade_out_seconds=0)
 {
 	if(fade_out_seconds == 0)
-		audio_stop_sound(sfx_inst);
+		VinylStop(sfx_inst);
+	else
+		VinylFadeOut(sfx_inst,1/fade_out_second)
 }
-
 
 function create_vfx(_x,_y,asset,_xscale=1,_yscale=1,_angle=0){
 	return instance_create_depth(_x,_y,DEPTH.vfx,obj_vfx,{sprite_index: asset, image_xscale: _xscale, image_yscale: _yscale, image_angle: _angle});
