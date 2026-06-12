@@ -156,5 +156,10 @@ global.VinylConfigJSON = [
         head: ost_menu_head,
         loop: ost_menu_loop,
         //tail: ost_menu_tail,
+	},
+	
+	{
+		sound: sfx_character_swap,
+		gain: 2,
 	}
 ];
