@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":2.4575737,
+  "duration":2.647075,
   "exportDir":"",
   "name":"sfx_grape_wins",
   "parent":{
