@@ -652,7 +652,6 @@
     {"id":{"name":"spr_grape_spell_grass","path":"sprites/spr_grape_spell_grass/spr_grape_spell_grass.yy",},},
     {"id":{"name":"spr_grape_spell_ice","path":"sprites/spr_grape_spell_ice/spr_grape_spell_ice.yy",},},
     {"id":{"name":"spr_grape_tp_2","path":"sprites/spr_grape_tp_2/spr_grape_tp_2.yy",},},
-    {"id":{"name":"spr_grape_tp_OLD_FULL","path":"sprites/spr_grape_tp_OLD_FULL/spr_grape_tp_OLD_FULL.yy",},},
     {"id":{"name":"spr_grape_tp","path":"sprites/spr_grape_tp/spr_grape_tp.yy",},},
     {"id":{"name":"spr_grape_tree_large_1","path":"sprites/spr_grape_tree_large_1/spr_grape_tree_large_1.yy",},},
     {"id":{"name":"spr_grape_tree_large","path":"sprites/spr_grape_tree_large/spr_grape_tree_large.yy",},},
