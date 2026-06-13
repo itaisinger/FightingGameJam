@@ -74,7 +74,7 @@ hitbox_data[STATES.heavy]		= new HitboxData(hitbox_grape_heavy,8,100,15,5,9,0,1,
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_grape_air_light,5,60,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy2]	= new HitboxData(hitbox_grape_air_heavy3,4,30,10,2,5,0,0,false);
 hitbox_data[STATES.air_heavy3]	= new HitboxData(hitbox_grape_air_heavy3,4,70,10,4,6,0,0,false);
-hitbox_data[STATES.special_ex]	= new HitboxData(hitbox_grape_explosion,12,70,12,4,6,0,0,false);
+hitbox_data[STATES.special_ex]	= new HitboxData(hitbox_grape_explosion,12,70,13,2,8,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_grape_parry,1,100,180,3,3,1,false,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
@@ -414,17 +414,36 @@ arr_state_functions[STATES.special4] = function(){
 ///// explosion
 arr_state_functions[STATES.special_ex] = function(){
 	
-	if(reached_frame(3))
+	if(is_grounded())
 	{
-		xadd += dir * 2;
-		create_vfx(x,y-sprite_height/3,vfx_magic_explosion,3,3,random(360),1);
+		image_speed = 1;
+		
+		if(reached_frame(2))
+		{
+			xadd += dir * 2;
+			create_vfx(x,y-sprite_height/3,vfx_magic_explosion,3,3,random(360),1);
+		}
+	
+		xadd = approach(xadd,slide_fric,0);
+		yadd = 0;
+	
+		if(anim_done)
+			change_state(STATES.idle);
+	}
+	else
+	{
+		if(state_changed)
+		{
+			yadd -= 1;
+			xadd += dir;
+		}
+		
+		xadd = approach(xadd,slide_fric,0);
+		yadd += grav;
+
+		image_index = min(image_index, 1.7);
 	}
 	
-	xadd = approach(xadd,slide_fric,0);
-	yadd = is_grounded() ? 0 : yadd+grav;
-	
-	if(anim_done)
-		change_state(is_grounded() ? STATES.idle : STATES.air);
 }
 
 enum SIGILS{

@@ -621,6 +621,7 @@
     {"id":{"name":"spr_fighter_walk","path":"sprites/spr_fighter_walk/spr_fighter_walk.yy",},},
     {"id":{"name":"spr_fireball","path":"sprites/spr_fireball/spr_fireball.yy",},},
     {"id":{"name":"spr_floor","path":"sprites/spr_floor/spr_floor.yy",},},
+    {"id":{"name":"spr_frog","path":"sprites/spr_frog/spr_frog.yy",},},
     {"id":{"name":"spr_grape_air_heavy_end","path":"sprites/spr_grape_air_heavy_end/spr_grape_air_heavy_end.yy",},},
     {"id":{"name":"spr_grape_air_heavy_start","path":"sprites/spr_grape_air_heavy_start/spr_grape_air_heavy_start.yy",},},
     {"id":{"name":"spr_grape_air_heavy_temp_1","path":"sprites/spr_grape_air_heavy_temp_1/spr_grape_air_heavy_temp_1.yy",},},
