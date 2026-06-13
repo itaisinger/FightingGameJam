@@ -4,10 +4,15 @@
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_projectile_fireball",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"propertyId":{"name":"hurtbox_spr","path":"objects/obj_projectile/obj_projectile.yy",},"resource":{"name":"hurtbox_fireball","path":"sprites/hurtbox_fireball/hurtbox_fireball.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"hurtbox_fireball",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"propertyId":{"name":"hitbox_spr","path":"objects/obj_projectile/obj_projectile.yy",},"resource":{"name":"hitbox_fireball","path":"sprites/hitbox_fireball/hitbox_fireball.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"hitbox_fireball",},
+  ],
   "parent":{
     "name":"projectiles",
     "path":"folders/Objects/gameplay/projectiles.yy",
@@ -34,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"firball_pink_1big",
-    "path":"sprites/firball_pink_1big/firball_pink_1big.yy",
+    "name":"spr_fireball",
+    "path":"sprites/spr_fireball/spr_fireball.yy",
   },
   "spriteMaskId":null,
   "visible":true,

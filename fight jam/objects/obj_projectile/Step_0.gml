@@ -15,4 +15,7 @@ with(inst_hitbox){
 
 // lifetime
 life--;
-if (life <= 0) instance_destroy();
+if (life <= 0){
+	instance_destroy();
+	create_vfx(x,y,death_vfx,image_xscale,image_yscale);	
+}

@@ -907,10 +907,7 @@ function combo_break(){
 	__grav_mult = 0;
 	__done = false;
 }
-
-
-// projectile object, x offset ,y offset
-function create_projectile(_projectile_obj, _xoff, _yoff) {
+function create_projectile(_projectile_obj, _xoff=0, _yoff=-sprite_height/2) {
     var _spawn_x = x + _xoff * dir;
     var _spawn_y = y + _yoff;
     var _p = instance_create_depth(
@@ -919,10 +916,14 @@ function create_projectile(_projectile_obj, _xoff, _yoff) {
         depth,
         _projectile_obj
     );
-    _p.parent = self;
+    _p.parent = other;
 
     _p.dir = dir;
 
     _p.image_xscale = dir;
+	
+	_p.start();
+	
     return _p;
 }
+

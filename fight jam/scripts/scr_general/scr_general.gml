@@ -95,3 +95,4 @@ function string_pad(str_left, str_right, L) {
     }
     return str_left + padding + str_right;
 }
+	

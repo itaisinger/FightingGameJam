@@ -350,17 +350,20 @@ arr_state_functions[STATES.special1] = function(){
 ///// fireball
 arr_state_functions[STATES.special2] = function(){
 	
-		yadd += grav * 0.8;
-		xadd = approach(xadd,air_fric * 0.8, 0);
-		//if(state_changed){play_sfx(sfx_fire_spawn)}
-		if(state_changed){play_sfx(fire_spawn_done)}
-		if (reached_frame(1)){
-			create_projectile(obj_projectile,30, -50);
-		}
-		if(anim_done)
-		{
-			change_state(is_grounded() ? STATES.idle : STATES.air);
-		}
+	yadd += grav * 0.8;
+	xadd = approach(xadd,air_fric * 0.8, 0);
+	
+	if(state_changed){play_sfx(sfx_fire_spawn_done)}
+	
+	//create fireball
+	if (reached_frame(1)){
+		create_projectile(obj_projectile_fireball,30,-30);
+	}
+	
+	if(anim_done)
+	{
+		change_state(is_grounded() ? STATES.idle : STATES.air);
+	}
 }
 ///// dash
 arr_state_functions[STATES.special3] = function(){

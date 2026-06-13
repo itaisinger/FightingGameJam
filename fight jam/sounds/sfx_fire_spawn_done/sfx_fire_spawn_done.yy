@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"fire_spawn_done",
+  "%Name":"sfx_fire_spawn_done",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -12,7 +12,7 @@
   "conversionMode":0,
   "duration":0.8964399,
   "exportDir":"",
-  "name":"fire_spawn_done",
+  "name":"sfx_fire_spawn_done",
   "parent":{
     "name":"done",
     "path":"folders/Sounds/sfx/dvir sfx/done.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"fire_spawn_done.wav",
+  "soundFile":"sfx_fire_spawn_done.wav",
   "volume":1.0,
 }
