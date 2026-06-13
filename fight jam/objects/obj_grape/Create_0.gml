@@ -36,6 +36,7 @@ states_sprites[STATES.left]			= spr_grape_sign_left;
 states_sprites[STATES.right]		= spr_grape_sign_right;
 states_sprites[STATES.up]			= spr_grape_sign_up;
 states_sprites[STATES.down]			= spr_grape_sign_down;
+states_sprites[STATES.special_ex]	= spr_grape_explosion;
 
 hurtbox = hurtbox_grape_idle;
 states_hurtboxes =array_create(STATES.max,-1);
@@ -63,16 +64,17 @@ states_hurtboxes[STATES.left]		= hurtbox_grape_idle;
 states_hurtboxes[STATES.right]		= hurtbox_grape_idle;
 states_hurtboxes[STATES.up]			= hurtbox_grape_idle;
 states_hurtboxes[STATES.down]		= hurtbox_grape_idle;
+states_hurtboxes[STATES.special_ex]	= hurtbox_grape_explosion;
 mask_index = spr_grape_idle
 
 /// ATTACKS DATA (overrided in different characters)
 hitbox_data = array_create(STATES.max,-1)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_grape_light,4,45,5,3,4,0,0,false);
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_grape_heavy,8,100,15,5,9,0,1,false);
-//hitbox_data[STATES.special]	= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_grape_air_light,5,60,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy2]	= new HitboxData(hitbox_grape_air_heavy3,4,30,10,2,5,0,0,false);
 hitbox_data[STATES.air_heavy3]	= new HitboxData(hitbox_grape_air_heavy3,4,70,10,4,6,0,0,false);
+hitbox_data[STATES.special_ex]	= new HitboxData(hitbox_grape_explosion,12,70,12,4,6,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_grape_parry,1,100,180,3,3,1,false,true);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
@@ -81,19 +83,15 @@ inst_hitbox = noone;	//saves the currently active hitbox.
 //1
 states_sprites[STATES.special1]		= spr_grape_spell_ice;
 states_hurtboxes[STATES.special1]	= hurtbox_grape_special;
-//hitbox_data[STATES.special1]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 //2
 states_sprites[STATES.special2]		= spr_grape_spell_fire;
 states_hurtboxes[STATES.special2]	= hurtbox_grape_special;
-//hitbox_data[STATES.special2]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 //3
 states_sprites[STATES.special3]		= spr_grape_spell_air_1;
 states_hurtboxes[STATES.special3]	= hurtbox_grape_special;
-//hitbox_data[STATES.special3]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 //4
 states_sprites[STATES.special4]		= spr_grape_spell_grass;
 states_hurtboxes[STATES.special4]	= hurtbox_grape_special;
-//hitbox_data[STATES.special4]		= new HitboxData(hitbox_grape_special,12,60,10,7,5,1,1,false);
 
 var names = variable_instance_get_names(id);
 for(var i = 0; i < array_length(names); i++){
@@ -296,7 +294,6 @@ arr_state_functions[STATES.air_heavy3] = function(){
 			change_state(STATES.land);
 	}
 }
-
 arr_state_functions[STATES.special] = function(){
 
 	if(state_changed)
@@ -331,9 +328,8 @@ arr_state_functions[STATES.special] = function(){
     if(input.is_pressed(INPUT.left_press))
         cast_sigil(SIGILS.left);
 }
-
 arr_state_functions[STATES.air_special] = arr_state_functions[STATES.special];
-///////// ice
+///// ice
 arr_state_functions[STATES.special1] = function(){
 		yadd += grav * 0.8;
 		xadd = approach(xadd,air_fric * 0.8, 0);
@@ -415,6 +411,21 @@ arr_state_functions[STATES.special4] = function(){
 		change_state(STATES.idle);
 	
 }
+///// explosion
+arr_state_functions[STATES.special_ex] = function(){
+	
+	if(reached_frame(3))
+	{
+		xadd += dir * 2;
+		create_vfx(x,y-sprite_height/3,vfx_magic_explosion,3,3,random(360),1);
+	}
+	
+	xadd = approach(xadd,slide_fric,0);
+	yadd = is_grounded() ? 0 : yadd+grav;
+	
+	if(anim_done)
+		change_state(is_grounded() ? STATES.idle : STATES.air);
+}
 
 enum SIGILS{
 	up,
@@ -431,10 +442,11 @@ function Spell(_state,_sigils_arr,_dir=1) constructor
 	dir = _dir;
 }
 
-arr_spells[0] = new Spell(STATES.special1, [SIGILS.left, SIGILS.left])
-arr_spells[1] = new Spell(STATES.special2, [SIGILS.down, SIGILS.right])
-arr_spells[2] = new Spell(STATES.special3, [SIGILS.up, SIGILS.right])
-arr_spells[3] = new Spell(STATES.special4, [SIGILS.down, SIGILS.down])
+arr_spells[0] = new Spell(STATES.special1,		[SIGILS.left, SIGILS.left])
+arr_spells[1] = new Spell(STATES.special2,		[SIGILS.down, SIGILS.right])
+arr_spells[2] = new Spell(STATES.special3,		[SIGILS.up, SIGILS.right])
+arr_spells[3] = new Spell(STATES.special4,		[SIGILS.down, SIGILS.down])
+arr_spells[4] = new Spell(STATES.special_ex,	[SIGILS.right, SIGILS.left, SIGILS.down, SIGILS.up])
 
 //duplicate spells for turnaround
 var _l = array_length(arr_spells);

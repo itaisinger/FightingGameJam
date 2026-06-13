@@ -2,8 +2,10 @@
 event_inherited();
 
 angle = 30;
-spd = 9;
+spd = 12;
 parried = false;
+image_xscale *= 2;
+image_yscale *= 2;
 
 parry = function()
 {

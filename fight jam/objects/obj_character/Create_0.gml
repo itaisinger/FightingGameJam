@@ -83,7 +83,7 @@ enum STATES{
 	up,
 	down,
 	air_heavy3,
-	
+	special_ex,
 	
 	max,
 	
