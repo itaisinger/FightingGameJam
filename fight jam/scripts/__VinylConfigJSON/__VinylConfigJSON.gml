@@ -161,5 +161,11 @@ global.VinylConfigJSON = [
 	{
 		sound: sfx_character_swap,
 		gain: 2,
+	},
+	
+		{
+		sound: sfx_correct,
+		gain: 2,
 	}
+	
 ];

@@ -85,3 +85,4 @@ function start_match(p1_obj=obj_fighter,p2_obj=obj_fighter){
 	
 	inst_ui.set_players(inst_players);
 }
+playingsfx=0

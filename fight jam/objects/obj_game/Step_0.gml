@@ -80,13 +80,35 @@ switch(state){
 			room_trans(rm_rebind);
 		
 		//unlock grape
+		
 		if(string_ends_with(keyboard_string,"grape") and !is_graped_unlocked)
 		{
 			is_graped_unlocked = true;
 			chosen_characters[0] = CHARACTERS.grape;
 			chosen_characters[1] = CHARACTERS.grape;
-			play_sfx(sfx_parry)
+			play_sfx(sfx_parry) 
 		}
+		// hitmarks when aproaching grape
+		if (!variable_instance_exists(id, "grape_prefixes")){
+		    grape_prefixes = ["g", "gr", "gra", "grap", "grape"];
+			
+			grape_pitches = {"g":1,"gr":1.5,"gra":0.5,"grap":0.9,"grape":2}
+		    last_grape_prefix = ""; }
+		var current_prefix = "";
+		for (var i = 0; i < array_length(grape_prefixes); i++)
+		{
+			if (string_ends_with(keyboard_string, grape_prefixes[i]))
+			{
+			    current_prefix = grape_prefixes[i];
+			}
+		}
+			
+		if (current_prefix != "" && current_prefix != last_grape_prefix){
+			if(playingsfx !=0){stop_sfx(playingsfx)}
+			playingsfx=play_sfx(sfx_correct,,,grape_pitches[$current_prefix],);
+			log(grape_pitches[$current_prefix])
+			}
+		last_grape_prefix = current_prefix;
 		
 	break;
 	
