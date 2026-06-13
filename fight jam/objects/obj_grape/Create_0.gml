@@ -333,14 +333,14 @@ arr_state_functions[STATES.special] = function(){
 }
 
 arr_state_functions[STATES.air_special] = arr_state_functions[STATES.special];
-/////////
+///////// ice
 arr_state_functions[STATES.special1] = function(){
 		yadd += grav * 0.8;
 		xadd = approach(xadd,air_fric * 0.8, 0);
 		//if(state_changed){play_sfx(sfx_ice_spawn)}
 		if(state_changed){play_sfx(ice_spawn_done)}
 		if (reached_frame(1)){
-			create_projectile(obj_projectile_icicle,0, -200);
+			create_projectile(obj_projectile_icicle,0, -250);
 		}
 		if(anim_done)
 		{
@@ -515,7 +515,6 @@ arr_spells[0] = new Spell(STATES.special1, [SIGILS.left, SIGILS.left])
 arr_spells[1] = new Spell(STATES.special2, [SIGILS.down, SIGILS.right])
 arr_spells[2] = new Spell(STATES.special3, [SIGILS.up, SIGILS.right])
 arr_spells[3] = new Spell(STATES.special4, [SIGILS.down, SIGILS.down])
-
 
 //duplicate spells for turnaround
 var _l = array_length(arr_spells);

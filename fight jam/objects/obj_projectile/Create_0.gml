@@ -46,3 +46,7 @@ function start(){
 	inst_hitbox.loop = 1;
 
 }
+function destroy(){
+	instance_destroy();
+	create_vfx(x,y,death_vfx,image_xscale,image_yscale);
+}
