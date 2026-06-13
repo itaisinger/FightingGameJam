@@ -4,15 +4,23 @@
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_projectile_grape_tree",
-  "overriddenProperties":[],
+  "overriddenProperties":[
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"propertyId":{"name":"hurtbox_spr","path":"objects/obj_projectile/obj_projectile.yy",},"resource":{"name":"hitbox_grape_tree","path":"sprites/hitbox_grape_tree/hitbox_grape_tree.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"hitbox_grape_tree",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"propertyId":{"name":"hitbox_spr","path":"objects/obj_projectile/obj_projectile.yy",},"resource":{"name":"hitbox_grape_tree","path":"sprites/hitbox_grape_tree/hitbox_grape_tree.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"hitbox_grape_tree",},
+  ],
   "parent":{
     "name":"projectiles",
     "path":"folders/Objects/gameplay/projectiles.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_projectile",
+    "path":"objects/obj_projectile/obj_projectile.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_grape_tree_large_1",
-    "path":"sprites/spr_grape_tree_large_1/spr_grape_tree_large_1.yy",
+    "name":"spr_grape_tree",
+    "path":"sprites/spr_grape_tree/spr_grape_tree.yy",
   },
   "spriteMaskId":null,
   "visible":true,

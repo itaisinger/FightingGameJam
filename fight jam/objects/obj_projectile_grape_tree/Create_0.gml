@@ -1,16 +1,18 @@
-arr_hits = [];
+event_inherited();
 
-parent = noone;
-dir = 1;
+xadd = 0;
+yadd = 0;
+image_yscale = 5;
+image_xscale = 2;
+mask_index = hurtbox_spr;
 
-spd = 12;
 life = room_speed * 2;
 sfx = play_sfx(vines_climbing_done)
-damage = 5;
-stun_duration = 40;
-hitpause = 4;
-knockback_x = 6;
-knockback_y = 7;
-is_launcher = true;
 
 create_vfx(x,y,vfx_tree_spawn,3,3);
+
+data = new HitboxData(hitbox_spr,3,60,3,0,11,0,0,0,,1);
+parry = function(){
+	life = life_max;
+	is_p1 = !is_p1;
+}

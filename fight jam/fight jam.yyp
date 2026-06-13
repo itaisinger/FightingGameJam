@@ -433,6 +433,7 @@
     {"id":{"name":"hitbox_grape_heavy","path":"sprites/hitbox_grape_heavy/hitbox_grape_heavy.yy",},},
     {"id":{"name":"hitbox_grape_light","path":"sprites/hitbox_grape_light/hitbox_grape_light.yy",},},
     {"id":{"name":"hitbox_grape_parry","path":"sprites/hitbox_grape_parry/hitbox_grape_parry.yy",},},
+    {"id":{"name":"hitbox_grape_tree","path":"sprites/hitbox_grape_tree/hitbox_grape_tree.yy",},},
     {"id":{"name":"hitbox_icicle","path":"sprites/hitbox_icicle/hitbox_icicle.yy",},},
     {"id":{"name":"hitbox_knifer_air_heavy","path":"sprites/hitbox_knifer_air_heavy/hitbox_knifer_air_heavy.yy",},},
     {"id":{"name":"hitbox_knifer_air_light_2","path":"sprites/hitbox_knifer_air_light_2/hitbox_knifer_air_light_2.yy",},},

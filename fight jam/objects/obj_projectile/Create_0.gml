@@ -1,9 +1,9 @@
 
-parent = noone;
 dir = 1;
 is_p1 = false;
 
-life = 120;
+life_max = 120;
+life = life_max;
 
 data = new HitboxData(hitbox_spr,5,10,3,3,2,0,0,0,function(){hit(2)},,,vfx_ice_explosion);
 death_vfx = vfx_ice_explosion;
@@ -23,12 +23,18 @@ function is_grounded(){return false;}
 
 function hit(damage,knockx=0,knocky=0,stun=0,hitpause=0,is_launch=0,is_parry=0){
 	
+	if(is_parry)
+	{
+		parry();
+		return;
+	}
+	
 	hp = max(hp-damage,0);
 	
 	//die
 	if(hp == 0) {
 		instance_destroy();
-		exit;
+		return;
 	}
 	
 	//shake
@@ -49,4 +55,11 @@ function start(){
 function destroy(){
 	instance_destroy();
 	create_vfx(x,y,death_vfx,image_xscale,image_yscale);
+}
+parry = function()
+{
+	is_p1 = !is_p1;
+	dir *= -1;
+	image_xscale *= -1;
+	life = life_max
 }

@@ -406,93 +406,13 @@ arr_state_functions[STATES.special3] = function(){
 	}
 	
 }
-//////
+////// tree
 arr_state_functions[STATES.special4] = function(){
-	//if(state_changed){play_sfx(fire_spawn__AudioTrimmer_com_)}
 	if(state_changed){
-		//show_debug_message("y is: " + string(y));
-		//play_sfx(vines_climbing_done)
-		create_projectile(obj_projectile_grape_tree, 0, 896.26 - y);
+		create_projectile(obj_projectile_grape_tree, 0, floor_y - y);
 	}
 	if(anim_done)
 		change_state(STATES.idle);
-		
-}
-///////////////////////////////////////////
-
-arr_state_functions[STATES.left] = function(){
-	xadd = approach(xadd, ground_fric, 0);
-    yadd = 0;
-		if(state_changed){add_state(); }
-	if(anim_done){
-		
-		image_index = 2
-		image_speed=0
-	}
-	if(image_index >= 2){
-		if(handle_array()){return;}
-		if(input.is_just_pressed(INPUT.right)){restart_state(STATES.right);image_index = 0 ; anim_done=false;}
-		if(input.is_just_pressed(INPUT.left)){ restart_state(STATES.left); image_index = 0; anim_done=false;}
-		if(input.is_just_pressed(INPUT.up)){ restart_state(STATES.up);image_index = 0; anim_done=false;}
-		if(input.is_just_pressed(INPUT.down)) {restart_state(STATES.down);image_index = 0; anim_done=false;}
-	}
-	
-
-}
-
-/////////
-arr_state_functions[STATES.right] = function(){
-	xadd = approach(xadd, ground_fric, 0);
-    yadd = 0;
-	if(state_changed){add_state(); }
-	if(anim_done){
-		
-		image_index = 2
-		image_speed=0
-	}
-	if(image_index >= 2){
-		if(handle_array()){return;}
-		if(input.is_just_pressed(INPUT.right)){restart_state(STATES.right);image_index = 0 ; anim_done=false;}
-		if(input.is_just_pressed(INPUT.left)){ restart_state(STATES.left); image_index = 0; anim_done=false;}
-		if(input.is_just_pressed(INPUT.up)){ restart_state(STATES.up);image_index = 0; anim_done=false;}
-		if(input.is_just_pressed(INPUT.down)) {restart_state(STATES.down);image_index = 0; anim_done=false;}
-	}
-	
-}
-////////////////////
-arr_state_functions[STATES.up] = function(){
-	xadd = approach(xadd, ground_fric, 0);
-    yadd = 0;
-	if(state_changed){add_state(); }
-	if(anim_done){
-		
-		image_index = 2
-		image_speed=0
-		}
-		if(image_index >= 2){
-			if(handle_array()){return;}
-		if(input.is_just_pressed(INPUT.right)){restart_state(STATES.right);image_index = 0 ; anim_done=false;}
-		if(input.is_just_pressed(INPUT.left)){ restart_state(STATES.left); image_index = 0; anim_done=false;}
-		if(input.is_just_pressed(INPUT.up)){ restart_state(STATES.up);image_index = 0; anim_done=false;}
-		if(input.is_just_pressed(INPUT.down)) {restart_state(STATES.down);image_index = 0; anim_done=false;}
-		}
-}
-///////////////
-arr_state_functions[STATES.down] = function(){
-	xadd = approach(xadd, ground_fric, 0);
-    yadd = 0;
-	if(state_changed){add_state(); }
-	if(anim_done){
-		if(handle_array()){return;}
-		image_index = 2
-		image_speed=0
-		}
-		if(image_index >= 2){
-		if(input.is_just_pressed(INPUT.right)){restart_state(STATES.right);image_index = 0 ; anim_done=false;}
-		if(input.is_just_pressed(INPUT.left)){ restart_state(STATES.left); image_index = 0; anim_done=false;}
-		if(input.is_just_pressed(INPUT.up)){ restart_state(STATES.up);image_index = 0; anim_done=false;}
-		if(input.is_just_pressed(INPUT.down)) {restart_state(STATES.down);image_index = 0; anim_done=false;}
-		}
 	
 }
 

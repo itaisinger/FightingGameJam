@@ -20,8 +20,6 @@ if(is_parry)
 			create_vfx(_x,_y,vfx_parry,2,2,random_range(0,360));
 			
 			_col.parent.hit(damage,knockback_x,knockback_y,stun_duration,hitpause,false,true);
-			_nme.xadd = 0;
-			_nme.yadd = 0;
 			
 			//remember target
 			array_insert(arr_hits,0,_col);

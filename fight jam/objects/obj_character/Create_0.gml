@@ -822,6 +822,11 @@ function hit(damage,knockx,knocky,stun,hitpause,is_launch,is_parry){
 	if(!is_echo) with(obj_ui) shake_hp(other.is_p1,damage);
 	
 	is_parried = is_parry;
+	if(is_parry)
+	{
+		xadd = 0;
+		yadd = 0;
+	}
 }
 function is_grounded()
 {	
@@ -916,11 +921,12 @@ function create_projectile(_projectile_obj, _xoff=0, _yoff=-sprite_height/2) {
         depth,
         _projectile_obj
     );
-    _p.parent = other;
+    //_p.parent = other;
+    _p.is_p1 = is_p1;
 
     _p.dir = dir;
 
-    _p.image_xscale = dir;
+    _p.image_xscale *= dir;
 	
 	_p.start();
 	
