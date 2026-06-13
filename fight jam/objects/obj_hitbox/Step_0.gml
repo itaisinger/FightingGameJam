@@ -2,10 +2,10 @@
 if(!is_parry)
 {
 	var _cols = ds_list_create();
-	var _num = instance_place_list(x,y,obj_character,_cols,false);
+	var _num = instance_place_list(x,y,obj_hurtbox,_cols,false);
 
 	for(var i=0; i < _num; i++){
-		var _col = _cols[|i];
+		var _col = _cols[|i].parent;
 	
 		//is it an unhit nme?
 		if(_col.is_p1 != parent.is_p1 and !array_contains(arr_hits,_col)){

@@ -178,6 +178,8 @@ states_hurtboxes[STATES.air_heavy]	= hurtbox_fighter_air_heavy;
 states_hurtboxes[STATES.air_special]= hurtbox_fighter_air_special;
 
 mask_index = spr_fighter_idle
+inst_hurtbox = instance_create_depth(x,y,depth,obj_hurtbox)
+inst_hurtbox.parent = self;
 
 /// ATTACKS DATA (overrided in different characters)
 hitbox_data = array_create(STATES.max,-1)
