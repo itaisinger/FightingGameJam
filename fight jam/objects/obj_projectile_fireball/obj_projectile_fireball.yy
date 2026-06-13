@@ -10,8 +10,8 @@
   "managed":true,
   "name":"obj_projectile_fireball",
   "overriddenProperties":[
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"propertyId":{"name":"hurtbox_spr","path":"objects/obj_projectile/obj_projectile.yy",},"resource":{"name":"hurtbox_fireball","path":"sprites/hurtbox_fireball/hurtbox_fireball.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"hurtbox_fireball",},
-    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"propertyId":{"name":"hitbox_spr","path":"objects/obj_projectile/obj_projectile.yy",},"resource":{"name":"hitbox_fireball","path":"sprites/hitbox_fireball/hitbox_fireball.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"hitbox_fireball",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"propertyId":{"name":"hurtbox_spr","path":"objects/obj_projectile/obj_projectile.yy",},"resource":{"name":"hurtbox_icicle","path":"sprites/hurtbox_icicle/hurtbox_icicle.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"hurtbox_fireball",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"propertyId":{"name":"hitbox_spr","path":"objects/obj_projectile/obj_projectile.yy",},"resource":{"name":"hitbox_icicle","path":"sprites/hitbox_icicle/hitbox_icicle.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"hitbox_fireball",},
   ],
   "parent":{
     "name":"projectiles",
