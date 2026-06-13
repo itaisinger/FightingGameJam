@@ -4,6 +4,8 @@
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_projectile",
@@ -26,7 +28,12 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v2","%Name":"hurtbox_spr","filters":[
+        "GMSprite",
+      ],"listItems":[],"multiselect":false,"name":"hurtbox_spr","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"hurtbox_icicle","path":"sprites/hurtbox_icicle/hurtbox_icicle.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"hurtbox_icicle","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"hitbox_spr","filters":[],"listItems":[],"multiselect":false,"name":"hitbox_spr","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"hitbox_icicle","path":"sprites/hitbox_icicle/hitbox_icicle.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"hitbox_icicle","varType":5,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,

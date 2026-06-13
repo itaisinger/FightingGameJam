@@ -8,7 +8,6 @@ draw_set_color(c_red)
 with(all) draw_rectangle(bbox_left,bbox_top,bbox_right,bbox_bottom,1)
 draw_set_color(c_white)
 
-with(obj_character) draw_sprite_ext(hurtbox,image_index,x,y,image_xscale,image_yscale,image_angle,image_blend,image_alpha);
 with(obj_hitbox) draw_self();
 draw_set_font(font_announce_small)
 
@@ -24,11 +23,6 @@ try{
 	"xdest: " + string(obj_camera.xdest),
 	"zoom: " + string(obj_camera.zoom),
 	]
-	//vars = [];
-	//var input = obj_fighter.input;
-	//for(var i=0; i < array_length(input.arr); i++){
-	//	vars[i] = input.arr[i];
-	//}
 }
 catch(a){vars=[];}
 

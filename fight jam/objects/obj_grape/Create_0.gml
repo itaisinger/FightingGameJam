@@ -355,7 +355,7 @@ arr_state_functions[STATES.special2] = function(){
 		//if(state_changed){play_sfx(sfx_fire_spawn)}
 		if(state_changed){play_sfx(fire_spawn_done)}
 		if (reached_frame(1)){
-			create_projectile(obj_projectile_fireball,30, -50);
+			create_projectile(obj_projectile,30, -50);
 		}
 		if(anim_done)
 		{

@@ -571,6 +571,8 @@ arr_state_functions[STATES.teleport] = function()
 	if(state_changed){
 		__grav_mult = 0;
 		__done = false;
+		xadd = 0;
+		yadd = 0;
 	}
 	
 	if(reached_frame(4))
