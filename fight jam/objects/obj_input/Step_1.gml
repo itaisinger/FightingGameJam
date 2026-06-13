@@ -19,7 +19,7 @@ for(var i=0;i<2;i++){
 	var	gright_press = gamepad_button_check_pressed(padindex[i], gp_padr)||(gamepad_axis_value(padindex[i], gp_axislh) > 0.5 && axis[i] < 0.5 );	
 	axis[i]=gamepad_axis_value(padindex[i], gp_axislh);
 	
-	arr[i][INPUT.down] = keybinds[INPUT.down][i];
+	//arr[i][INPUT.down] = keybinds[INPUT.down][i];
 	arr[i][INPUT.up]			= max(buffer_amount * (keyboard_check_pressed(keybinds[INPUT.up][i]) || gup), arr[i][INPUT.up] - 1);
 	arr[i][INPUT.down]			= max(buffer_amount * (keyboard_check(keybinds[INPUT.down][i]) || gdown), arr[i][INPUT.down] - 1);
 	arr[i][INPUT.left]			= max(buffer_amount * (keyboard_check(keybinds[INPUT.left][i])  || gleft),  arr[i][INPUT.left] - 1);

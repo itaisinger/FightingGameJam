@@ -26,4 +26,10 @@ switch(room){
 			VinylPlayFadeIn(ost_menu_fire,1,0.3*global.ost_vol,0.5)
 		});
 	break;
+	
+	case rm_rebind:
+		state = GAME_STATES.keybinds;
+		instance_create_depth(0,0,0,obj_input)
+		
+	break;
 }

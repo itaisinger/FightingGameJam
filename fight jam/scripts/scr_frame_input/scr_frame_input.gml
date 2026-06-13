@@ -1,19 +1,23 @@
 enum INPUT{
-	left_press,
-	right_press,
-	up_press,
-	down_press,
+	//the order here matters, make sure up until max all are "real" inputs.
 	left,
 	right,
 	up,
 	down,
 	light,
-	light_down,
 	heavy,
-	heavy_down,
 	dodge,
-	special,
 	echo,
+	
+	max,
+	special,
+	left_press,
+	right_press,
+	up_press,
+	down_press,
+	heavy_down,
+	light_down,
+
 }
 
 function FrameInput(P1) constructor{
@@ -75,6 +79,11 @@ global.keybinds[INPUT.dodge]	= [ord("L"),vk_numpad6,	"dodge"]
 global.keybinds[INPUT.echo]		= [vk_lshift,vk_numpad0,"echo"]
 
 //input keys names
+function get_key_name(key)
+{
+	if(key >= array_length(global.keys_names)) return "Unknown";
+	return global.keys_names[key];
+}
 for(var i = 0; i < 256; i++)
 {
     global.keys_names[i] = "Unknown";
