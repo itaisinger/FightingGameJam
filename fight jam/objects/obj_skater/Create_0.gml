@@ -206,14 +206,6 @@ arr_state_functions[STATES.walk] = function(){
 
 	//special
 	if(input.is_pressed(INPUT.special)) change_state(STATES.special);
-	
-	//particles
-	var _press = sign(input.is_pressed(INPUT.right)) - sign(input.is_pressed(INPUT.left));
-	if(_press != press_prev and _press != 0 or reached_frame(image_number-1)) {
-		//create_vfx(x,y,vfx_run_hand_2,dir*RUN_VFX_S,RUN_VFX_S,0);
-		create_vfx(x,y,vfx_run,dir*RUN_VFX_S,RUN_VFX_S,0);
-		}
-	press_prev = _press
 }
 arr_state_functions[STATES.air_light] = function(){
 	

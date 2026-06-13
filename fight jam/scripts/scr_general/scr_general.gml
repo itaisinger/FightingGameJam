@@ -52,10 +52,11 @@ function stop_sfx(sfx_inst,fade_out_seconds=0)
 	else
 		VinylFadeOut(sfx_inst,1/fade_out_seconds)
 }
-
-function create_vfx(_x,_y,asset,_xscale=1,_yscale=1,_angle=0){
-	return instance_create_depth(_x,_y,DEPTH.vfx,obj_vfx,{sprite_index: asset, image_xscale: _xscale, image_yscale: _yscale, image_angle: _angle});
+function array_random(array)
+{
+	return array[irandom(array_length(array)-1)];
 }
+
 function map_value(_value, _current_lower_bound, _current_upper_bound, _desired_lowered_bound, _desired_upper_bound) {
     return (((_value - _current_lower_bound) / (_current_upper_bound - _current_lower_bound)) * (_desired_upper_bound - _desired_lowered_bound)) + _desired_lowered_bound;
 }
