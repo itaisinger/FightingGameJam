@@ -136,8 +136,6 @@ turnaround_grace_length = 8; //how many frames into heavy/light you can transiti
 dir_locked = false;
 landing_lag = 10;
 
-
-
 states_sprites = [];
 states_sprites[STATES.idle]			= spr_fighter_idle;
 states_sprites[STATES.jump_squat]	= spr_fighter_jump_squat;
@@ -192,7 +190,6 @@ hitbox_data[STATES.air_special]	= new HitboxData(hitbox_fighter_air_special,4,20
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_fighter_parry,1,100,180,3,3,1,false,true);
 
 inst_hitbox = noone;	//saves the currently active hitbox.
-
 
 //state functions
 arr_state_functions = array_create(STATES.max,-1);
@@ -349,7 +346,6 @@ arr_state_functions[STATES.walk] = function(){
 	//if(state_count % 10 == 0) create_vfx(x,y,vfx_run,dir*RUN_VFX_S_SMALL,RUN_VFX_S_SMALL,0);
 	press_prev = _press
 }
-
 arr_state_functions[STATES.land] = function(){
 	
 	yadd = 0;
@@ -867,6 +863,7 @@ function create_echo(){
 	_inst.is_color_inverted = is_color_inverted;
 	_inst.outline_active = outline_active;
 	_inst.outline_col = outline_col;
+	_inst.change_state(is_grounded() ? STATES.idle : STATES.air);
 	echo_saved = -1;
 	echo_charges_remain--;
 }

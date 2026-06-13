@@ -291,7 +291,6 @@ arr_state_functions[STATES.walk] = function(){
 	if(input.is_pressed(INPUT.echo) and echo_saved == -1)
 		change_state(STATES.echo);
 		
-	
 	//light
 	if(input.is_pressed(INPUT.light)) change_state(STATES.light);
 	
