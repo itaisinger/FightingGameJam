@@ -387,6 +387,7 @@
     {"id":{"name":"sfx_johnny","path":"sounds/sfx_johnny/sfx_johnny.yy",},},
     {"id":{"name":"sfx_joshua","path":"sounds/sfx_joshua/sfx_joshua.yy",},},
     {"id":{"name":"sfx_ko","path":"sounds/sfx_ko/sfx_ko.yy",},},
+    {"id":{"name":"sfx_minami_tp","path":"sounds/sfx_minami_tp/sfx_minami_tp.yy",},},
     {"id":{"name":"sfx_minami_wins","path":"sounds/sfx_minami_wins/sfx_minami_wins.yy",},},
     {"id":{"name":"sfx_minami","path":"sounds/sfx_minami/sfx_minami.yy",},},
     {"id":{"name":"sfx_parry","path":"sounds/sfx_parry/sfx_parry.yy",},},

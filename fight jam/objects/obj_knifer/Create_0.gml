@@ -84,13 +84,11 @@ function create_butterflies(margin){
 		}
 	}
 }
-function teleport(deltax,deltay=0)
+function teleport(deltax,deltay=0,gain=1)
 {
 	var _mask_prev = mask_index;
 	mask_index = sprite_index;
 	var _shift = dir;
-	//if(input.is_pressed(INPUT.right) and !input.is_pressed(INPUT.left)) _shift += 0.5;
-	//if(!input.is_pressed(INPUT.right) and input.is_pressed(INPUT.left)) _shift -= 0.5;
 	
 	deltax *= _shift
 	
@@ -113,6 +111,8 @@ function teleport(deltax,deltay=0)
 	create_butterflies(15);
 	
 	mask_index = _mask_prev;
+	
+	play_sfx(sfx_minami_tp,,,[1.2,1.7],gain*0.4)
 }
 function combo_break(){
 	change_state(STATES.teleport);	
@@ -199,7 +199,7 @@ arr_state_functions[STATES.special] = function(){
 	
 	if(reached_frame(2)){
 		update_dir();
-		teleport(400);
+		teleport(400,,1.5);
 		image_index++;
 	}
 	

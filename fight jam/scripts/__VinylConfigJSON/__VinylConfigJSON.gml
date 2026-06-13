@@ -163,9 +163,13 @@ global.VinylConfigJSON = [
 		gain: 2,
 	},
 	
-		{
+	{
 		sound: sfx_correct,
 		gain: 2,
-	}
+	},
 	
+	{
+		sound: sfx_minami_tp,
+		gain: 2,
+	}
 ];
