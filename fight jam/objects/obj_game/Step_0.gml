@@ -1,5 +1,16 @@
 switch(state){
 	
+	#region rebinds
+	
+	case GAME_STATES.keybinds:
+	
+	//go back
+	if(keyboard_check_pressed(vk_escape))
+		room_trans(rm_menu);		
+	
+	break;
+	
+	#endregion
 	#region menu
 	
 	case GAME_STATES.menu:
@@ -63,6 +74,10 @@ switch(state){
 		//tutorial
 		if(keyboard_check_pressed(ord("T")))
 			instance_create_depth(0,0,0,obj_tutorial);
+			
+		//keybinds
+		if(keyboard_check_pressed(ord("I")))
+			room_trans(rm_rebind);
 		
 		//unlock grape
 		if(string_ends_with(keyboard_string,"grape") and !is_graped_unlocked)

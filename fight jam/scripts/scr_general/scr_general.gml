@@ -86,3 +86,12 @@ function room_trans(rm)
 		trans_prec = 0;	//double check
 	}
 }
+function string_pad(str_left, str_right, L) {
+    var combined_len = string_length(str_left) + string_length(str_right);
+    var spaces = L - combined_len;
+    var padding = "";
+    repeat (spaces) {
+        padding += " ";
+    }
+    return str_left + padding + str_right;
+}

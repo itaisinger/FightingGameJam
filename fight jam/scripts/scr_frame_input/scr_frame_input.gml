@@ -16,7 +16,6 @@ enum INPUT{
 	echo,
 }
 
-
 function FrameInput(P1) constructor{
 	
 	try{
@@ -63,7 +62,117 @@ function FrameInput(P1) constructor{
 	function is_just_pressed(_input) { 
 		    return arr[_input] >= 3;
 		}
-
 }
 
+//default binds
+global.keybinds[INPUT.left]		= [ord("A"),vk_left,	"left"]
+global.keybinds[INPUT.right]	= [ord("D"),vk_right,	"right"]
+global.keybinds[INPUT.up]		= [ord("W"),vk_up,		"up"]
+global.keybinds[INPUT.down]		= [ord("S"),vk_down,	"down"]
+global.keybinds[INPUT.light]	= [ord("J"),vk_numpad4,	"light"]
+global.keybinds[INPUT.heavy]	= [ord("K"),vk_numpad5,	"heavy"]
+global.keybinds[INPUT.dodge]	= [ord("L"),vk_numpad6,	"dodge"]
+global.keybinds[INPUT.echo]		= [vk_lshift,vk_numpad0,"echo"]
 
+//input keys names
+for(var i = 0; i < 256; i++)
+{
+    global.keys_names[i] = "Unknown";
+}
+global.keys_names[vk_escape] = "Escape";
+global.keys_names[vk_f1] = "F1";
+global.keys_names[vk_f2] = "F2";
+global.keys_names[vk_f3] = "F3";
+global.keys_names[vk_f4] = "F4";
+global.keys_names[vk_f5] = "F5";
+global.keys_names[vk_f6] = "F6";
+global.keys_names[vk_f7] = "F7";
+global.keys_names[vk_f8] = "F8";
+global.keys_names[vk_f9] = "F9";
+global.keys_names[vk_f10] = "F10";
+global.keys_names[vk_f11] = "F11";
+global.keys_names[vk_f12] = "F12";
+global.keys_names[vk_pause] = "Pause";
+global.keys_names[192] = "Tilde(~)";
+global.keys_names[ord("1")] = "1";
+global.keys_names[ord("2")] = "2";
+global.keys_names[ord("3")] = "3";
+global.keys_names[ord("4")] = "4";
+global.keys_names[ord("5")] = "5";
+global.keys_names[ord("6")] = "6";
+global.keys_names[ord("7")] = "7";
+global.keys_names[ord("8")] = "8";
+global.keys_names[ord("9")] = "9";
+global.keys_names[ord("0")] = "0";
+global.keys_names[189] = "Dash(-)";
+global.keys_names[187] = "Equals(=)";
+global.keys_names[vk_backspace] = "Backspace";
+global.keys_names[ord("A")] = "A";
+global.keys_names[ord("B")] = "B";
+global.keys_names[ord("C")] = "C";
+global.keys_names[ord("D")] = "D";
+global.keys_names[ord("E")] = "E";
+global.keys_names[ord("F")] = "F";
+global.keys_names[ord("G")] = "G";
+global.keys_names[ord("H")] = "H";
+global.keys_names[ord("I")] = "I";
+global.keys_names[ord("J")] = "J";
+global.keys_names[ord("K")] = "K";
+global.keys_names[ord("L")] = "L";
+global.keys_names[ord("M")] = "M";
+global.keys_names[ord("N")] = "N";
+global.keys_names[ord("O")] = "O";
+global.keys_names[ord("P")] = "P";
+global.keys_names[ord("Q")] = "Q";
+global.keys_names[ord("R")] = "R";
+global.keys_names[ord("S")] = "S";
+global.keys_names[ord("T")] = "T";
+global.keys_names[ord("U")] = "U";
+global.keys_names[ord("V")] = "V";
+global.keys_names[ord("W")] = "W";
+global.keys_names[ord("X")] = "X";
+global.keys_names[ord("Y")] = "Y";
+global.keys_names[ord("Z")] = "Z";
+global.keys_names[219] = "L Bracket([)";
+global.keys_names[221] = "R Bracket(])";
+global.keys_names[220] = "Backslash(\\)";
+global.keys_names[20] = "Capslock";
+global.keys_names[186] = "Semi-Colon(;)";
+global.keys_names[222] = "Apostrophe(')";
+global.keys_names[vk_enter] = "Enter";
+global.keys_names[vk_lshift] = "L Shift";
+global.keys_names[vk_rshift] = "R Shift";
+global.keys_names[vk_lcontrol] = "L Control";
+global.keys_names[vk_rcontrol] = "R Control";
+global.keys_names[vk_lalt] = "L Alt";
+global.keys_names[vk_ralt] = "R Alt";
+global.keys_names[188] = "Comma(,)";
+global.keys_names[190] = "Period(.)";
+global.keys_names[191] = "Slash(/)";
+global.keys_names[vk_space] = "Spacebar";
+global.keys_names[93] = "Apps";
+global.keys_names[vk_insert] = "Insert";
+global.keys_names[vk_home] = "Home";
+global.keys_names[vk_pageup] = "Page Up";
+global.keys_names[vk_delete] = "Delete";
+global.keys_names[vk_end] = "End";
+global.keys_names[vk_pagedown] = "Page Down";
+global.keys_names[111] = "Numpad Slash(/)";
+global.keys_names[106] = "Numpad Asterisk(*)";
+global.keys_names[109] = "Numpad Dash(-)";
+global.keys_names[vk_numpad0] = "Numpad 0";
+global.keys_names[vk_numpad1] = "Numpad 1";
+global.keys_names[vk_numpad2] = "Numpad 2";
+global.keys_names[vk_numpad3] = "Numpad 3";
+global.keys_names[vk_numpad4] = "Numpad 4";
+global.keys_names[vk_numpad5] = "Numpad 5";
+global.keys_names[vk_numpad6] = "Numpad 6";
+global.keys_names[vk_numpad7] = "Numpad 7";
+global.keys_names[vk_numpad8] = "Numpad 8";
+global.keys_names[vk_numpad9] = "Numpad 9";
+global.keys_names[110] = "Numpad Period(.)";
+global.keys_names[107] = "Numpad Plus(+)";
+global.keys_names[vk_left] = "Left Arrow";
+global.keys_names[vk_right] = "Right Arrow";
+global.keys_names[vk_up] = "Up Arrow";
+global.keys_names[vk_down] = "Down Arrow";

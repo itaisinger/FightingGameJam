@@ -35,6 +35,7 @@ enum GAME_STATES{
 	menu,
 	match,
 	over,
+	keybinds,
 }
 
 //menu

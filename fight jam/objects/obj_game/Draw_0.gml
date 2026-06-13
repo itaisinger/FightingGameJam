@@ -66,5 +66,10 @@ switch(room)
 		
 		
 	break;
+	#region keybinds
+	case rm_rebind:
+	
+	break;
+	#endregion
 	
 }
