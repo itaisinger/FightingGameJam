@@ -69,14 +69,23 @@ function FrameInput(P1) constructor{
 }
 
 //default binds
-global.keybinds[INPUT.left]		= [ord("A"),vk_left,	"left"]
-global.keybinds[INPUT.right]	= [ord("D"),vk_right,	"right"]
-global.keybinds[INPUT.up]		= [ord("W"),vk_up,		"up"]
-global.keybinds[INPUT.down]		= [ord("S"),vk_down,	"down"]
-global.keybinds[INPUT.light]	= [ord("J"),vk_numpad4,	"light"]
-global.keybinds[INPUT.heavy]	= [ord("K"),vk_numpad5,	"heavy"]
-global.keybinds[INPUT.dodge]	= [ord("L"),vk_numpad6,	"dodge"]
-global.keybinds[INPUT.echo]		= [vk_lshift,vk_numpad0,"echo"]
+global.def_keybinds[INPUT.left]		= [ord("A"),vk_left,	"left"]
+global.def_keybinds[INPUT.right]	= [ord("D"),vk_right,	"right"]
+global.def_keybinds[INPUT.up]		= [ord("W"),vk_up,		"up"]
+global.def_keybinds[INPUT.down]		= [ord("S"),vk_down,	"down"]
+global.def_keybinds[INPUT.light]	= [ord("J"),vk_numpad4,	"light"]
+global.def_keybinds[INPUT.heavy]	= [ord("K"),vk_numpad5,	"heavy"]
+global.def_keybinds[INPUT.dodge]	= [ord("L"),vk_numpad6,	"dodge"]
+global.def_keybinds[INPUT.echo]		= [vk_lshift,vk_numpad0,"echo"]
+
+global.user_keybinds[INPUT.left]	= [ord("A"),vk_left,	"left"]
+global.user_keybinds[INPUT.right]	= [ord("D"),vk_right,	"right"]
+global.user_keybinds[INPUT.up]		= [ord("W"),vk_up,		"up"]
+global.user_keybinds[INPUT.down]	= [ord("S"),vk_down,	"down"]
+global.user_keybinds[INPUT.light]	= [ord("J"),vk_numpad4,	"light"]
+global.user_keybinds[INPUT.heavy]	= [ord("K"),vk_numpad5,	"heavy"]
+global.user_keybinds[INPUT.dodge]	= [ord("L"),vk_numpad6,	"dodge"]
+global.user_keybinds[INPUT.echo]	= [vk_lshift,vk_numpad0,"echo"]
 
 //input keys names
 function get_key_name(key)

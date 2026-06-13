@@ -1,38 +1,48 @@
 var _input = [];
 _input[0] = new FrameInput(true);
 _input[1] = new FrameInput(false);
-var _binds = global.keybinds;
+var _binds = global.user_keybinds;
 
+select_yoff = approach(select_yoff, 1, 0)//wave(-select_yoffmax,select_yoffmax,3));
 
-select_yoff[0] = approach(select_yoff[0], 1, wave(-select_yoffmax,select_yoffmax,3));
-select_yoff[1] = approach(select_yoff[1], 1, wave(-select_yoffmax,select_yoffmax,3));
-
-for(var i=0; i < 2; i++)
+if(is_choosing and keyboard_lastkey != vk_nokey)
 {
-	if(is_choosing[i])
-	{
-	
-	}
-	else
-	{
-		if(_input[i].is_pressed(INPUT.down_press))
-		{	
-			select_yoff[i] = select_yoffmax;
-			index[i]++;
-			if(index[i] >= INPUT.max)
-				index[i] = 0;
-			_bind = _binds[index[i]];
-		}
-		if(_input[i].is_pressed(INPUT.up_press))
-		{	
-			select_yoff[i] = select_yoffmax;
-			index[i]--;
-			if(index[i] < 0)
-				index[i] = INPUT.max-1;
-			_bind = _binds[index[i]];
-		}
-		
-		if(_input[i].is_pressed(INPUT.up_press))
-			is_choosing[i] = !is_choosing[i];
-	}
+	_binds[index][is_p1] = keyboard_lastkey;
+	is_choosing = false;
 }
+else
+{
+	//down
+	if(_input[0].is_pressed(INPUT.down_press) or _input[1].is_pressed(INPUT.down_press))
+	{	
+		select_yoff = select_yoffmax;
+		index++;
+		if(index >= INPUT.max)
+			index = 0;
+		_bind = _binds[index];
+	}
+	//up
+	if(_input[0].is_pressed(INPUT.up_press) or _input[1].is_pressed(INPUT.up_press))
+	{	
+		select_yoff = select_yoffmax;
+		index--;
+		if(index < 0)
+			index = INPUT.max-1;
+		_bind = _binds[index];
+	}
+	//switch player
+	if(_input[0].is_pressed(INPUT.right_press) or _input[1].is_pressed(INPUT.right_press) or _input[0].is_pressed(INPUT.left_press) or _input[1].is_pressed(INPUT.left_press))
+	{
+		is_p1 = !is_p1;
+		select_yoff = select_yoffmax;
+	}
+	
+	//choose
+	if(_input[0].is_pressed(INPUT.light) or _input[1].is_pressed(INPUT.light))
+		is_choosing = true;
+	
+	//reset
+	if(_input[0].is_pressed(INPUT.heavy) or _input[1].is_pressed(INPUT.heavy))
+		_binds[index][is_p1] = global.def_keybinds[index][is_p1];
+}
+keyboard_lastkey = vk_nokey;

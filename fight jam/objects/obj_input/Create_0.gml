@@ -13,14 +13,13 @@ axis=[0,0];
 buffer_amount = 5;
 
 //binds
-
-keybinds[INPUT.left]	= [ord("A"),vk_left,	"left"]
-keybinds[INPUT.right]	= [ord("D"),vk_right,	"right"]
-keybinds[INPUT.up]		= [ord("W"),vk_up,		"up"]
-keybinds[INPUT.down]	= [ord("S"),vk_down,	"down"]
-keybinds[INPUT.light]	= [ord("J"),vk_numpad4,	"light"]
-keybinds[INPUT.heavy]	= [ord("K"),vk_numpad5,	"heavy"]
-keybinds[INPUT.dodge]	= [ord("L"),vk_numpad6,	"dodge"]
-keybinds[INPUT.echo]	= [vk_lshift,vk_numpad0,"echo"]
+keybinds[INPUT.left]	= global.user_keybinds[INPUT.left]
+keybinds[INPUT.right]	= global.user_keybinds[INPUT.right]
+keybinds[INPUT.up]		= global.user_keybinds[INPUT.up]
+keybinds[INPUT.down]	= global.user_keybinds[INPUT.down]
+keybinds[INPUT.light]	= global.user_keybinds[INPUT.light]
+keybinds[INPUT.heavy]	= global.user_keybinds[INPUT.heavy]
+keybinds[INPUT.dodge]	= global.user_keybinds[INPUT.dodge]
+keybinds[INPUT.echo]	= global.user_keybinds[INPUT.echo]
 
 
