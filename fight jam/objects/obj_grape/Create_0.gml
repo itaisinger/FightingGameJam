@@ -8,6 +8,8 @@ grav *= 0.7;
 jumpforce_y *= 1;
 jumpforce_x *= 0.7;
 
+frog_remain = 0;
+
 name = "GRAPE"
 win_sfx = sfx_grape_wins;
 
@@ -37,6 +39,9 @@ states_sprites[STATES.right]		= spr_grape_sign_right;
 states_sprites[STATES.up]			= spr_grape_sign_up;
 states_sprites[STATES.down]			= spr_grape_sign_down;
 states_sprites[STATES.special_ex]	= spr_grape_explosion;
+states_sprites[STATES.frog]			= spr_frog;
+states_sprites[STATES.frog_jump]	= spr_frog_air;
+states_sprites[STATES.frog_attack]	= spr_frog_attack;
 
 hurtbox = hurtbox_grape_idle;
 states_hurtboxes =array_create(STATES.max,-1);
@@ -54,7 +59,7 @@ states_hurtboxes[STATES.dead]		= hurtbox_grape_dead;
 states_hurtboxes[STATES.parry]		= hurtbox_grape_parry;
 states_hurtboxes[STATES.teleport]	= hurtbox_grape_tp;
 states_hurtboxes[STATES.special]	= hurtbox_grape_special;
-states_hurtboxes[STATES.air_special]	= hurtbox_grape_special;
+states_hurtboxes[STATES.air_special]= hurtbox_grape_special;
 states_hurtboxes[STATES.land]		= hurtbox_grape_land;
 states_hurtboxes[STATES.air_light]	= hurtbox_grape_air_light;
 states_hurtboxes[STATES.air_heavy]	= hurtbox_grape_air_heavy_start;
@@ -65,6 +70,9 @@ states_hurtboxes[STATES.right]		= hurtbox_grape_idle;
 states_hurtboxes[STATES.up]			= hurtbox_grape_idle;
 states_hurtboxes[STATES.down]		= hurtbox_grape_idle;
 states_hurtboxes[STATES.special_ex]	= hurtbox_grape_explosion;
+states_hurtboxes[STATES.frog]		= hurtbox_frog;
+states_hurtboxes[STATES.frog_jump]	= hurtbox_frog_air;
+states_hurtboxes[STATES.frog_attack]= hurtbox_frog_attack;
 mask_index = spr_grape_idle
 
 /// ATTACKS DATA (overrided in different characters)
@@ -76,6 +84,7 @@ hitbox_data[STATES.air_heavy2]	= new HitboxData(hitbox_grape_air_heavy3,4,30,10,
 hitbox_data[STATES.air_heavy3]	= new HitboxData(hitbox_grape_air_heavy3,4,70,10,4,6,0,0,false);
 hitbox_data[STATES.special_ex]	= new HitboxData(hitbox_grape_explosion,12,70,13,2,8,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_grape_parry,1,100,180,3,3,1,false,true);
+hitbox_data[STATES.frog_attack]	= new HitboxData(hitbox_frog_attack,1,0,1,0,0,0,false,false);
 inst_hitbox = noone;	//saves the currently active hitbox.
 
 //magic
@@ -445,6 +454,75 @@ arr_state_functions[STATES.special_ex] = function(){
 	}
 	
 }
+arr_state_functions[STATES.frog] = function(){
+	
+	shadow_w = 0.5;
+	
+	frog_remain--;
+	
+	if(frog_remain <= 0)
+	{
+		change_state(STATES.idle);
+	}
+	
+	yadd = 0;
+	xadd = approach(xadd,ground_fric,0);
+	
+	var _dir = sign(input.is_pressed(INPUT.right) - input.is_pressed(INPUT.left));
+	if(input.is_pressed(INPUT.up) or _dir != 0)
+	{
+		change_state(STATES.frog_jump);
+		yadd -= jumpforce_y * 0.4;
+		xadd = jumpforce_x * _dir;
+		dir_locked = true;
+	}
+	
+	if(input.is_pressed(INPUT.light) or input.is_pressed(INPUT.heavy))
+	{
+		change_state(STATES.frog_attack);
+	}
+}
+arr_state_functions[STATES.frog_attack] = function(){
+
+	shadow_w = 0.5;
+
+	frog_remain--;
+	
+	if(frog_remain <= 0)
+	{
+		change_state(STATES.idle);
+	}
+	
+	yadd = 0;
+	xadd = approach(xadd,ground_fric,0);
+	
+	if(anim_done)
+	{
+		change_state(STATES.frog);
+	}
+}
+arr_state_functions[STATES.frog_jump] = function(){
+	
+	dir_locked = true;
+	shadow_w = 0.5;
+
+	frog_remain--;
+	
+	if(frog_remain <= 0)
+	{
+		change_state(STATES.air);
+	}
+	
+	yadd += grav*0.5;
+	xadd = approach(xadd,air_fric * 0.6,0);
+	
+	image_index = yadd > 0;
+	
+	if(is_grounded())
+	{
+		change_state(STATES.frog);
+	}
+}
 
 enum SIGILS{
 	up,
@@ -466,6 +544,7 @@ arr_spells[1] = new Spell(STATES.special2,		[SIGILS.down, SIGILS.right])
 arr_spells[2] = new Spell(STATES.special3,		[SIGILS.up, SIGILS.right])
 arr_spells[3] = new Spell(STATES.special4,		[SIGILS.down, SIGILS.down])
 arr_spells[4] = new Spell(STATES.special_ex,	[SIGILS.right, SIGILS.left, SIGILS.down, SIGILS.up])
+arr_spells[5] = new Spell(turn_to_frog,			[SIGILS.right, SIGILS.left, SIGILS.up, SIGILS.down])
 
 //duplicate spells for turnaround
 var _l = array_length(arr_spells);
@@ -528,7 +607,8 @@ function cast_sigil(_dir)
 			else if(array_length(_spell.sigils) == s+1)
 			{
 				dir = _spell.dir;
-				change_state(_spell.state);
+				if(_spell.state == turn_to_frog) method(self,_spell.state)();
+				else change_state(_spell.state);
 				return;
 			}
 		}
@@ -540,4 +620,8 @@ function restart_state(_state) {
     // force same-state transition to count as changed
     state_prev = -1;
     state_changed = true;
+}
+function turn_to_frog(){
+	frog_remain = room_speed * 8;
+	change_state(is_grounded() ? STATES.frog : STATES.frog_jump);
 }

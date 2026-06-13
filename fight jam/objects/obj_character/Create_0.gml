@@ -84,6 +84,9 @@ enum STATES{
 	down,
 	air_heavy3,
 	special_ex,
+	frog,
+	frog_jump,
+	frog_attack,
 	
 	max,
 	
