@@ -946,6 +946,7 @@
     {"id":{"name":"vfx_run_hand","path":"sprites/vfx_run_hand/vfx_run_hand.yy",},},
     {"id":{"name":"vfx_run_handdrawn_small_1","path":"sprites/vfx_run_handdrawn_small_1/vfx_run_handdrawn_small_1.yy",},},
     {"id":{"name":"vfx_run_handdrawn_small","path":"sprites/vfx_run_handdrawn_small/vfx_run_handdrawn_small.yy",},},
+    {"id":{"name":"vfx_run_white","path":"sprites/vfx_run_white/vfx_run_white.yy",},},
     {"id":{"name":"vfx_run","path":"sprites/vfx_run/vfx_run.yy",},},
     {"id":{"name":"vfx_running_smoke","path":"sprites/vfx_running_smoke/vfx_running_smoke.yy",},},
   ],
