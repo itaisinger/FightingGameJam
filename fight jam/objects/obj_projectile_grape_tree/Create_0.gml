@@ -12,3 +12,5 @@ hitpause = 4;
 knockback_x = 6;
 knockback_y = 7;
 is_launcher = true;
+
+create_vfx(x,y,vfx_tree_spawn,3,3);

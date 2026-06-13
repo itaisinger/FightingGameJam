@@ -955,6 +955,7 @@
     {"id":{"name":"vfx_run_white","path":"sprites/vfx_run_white/vfx_run_white.yy",},},
     {"id":{"name":"vfx_run","path":"sprites/vfx_run/vfx_run.yy",},},
     {"id":{"name":"vfx_running_smoke","path":"sprites/vfx_running_smoke/vfx_running_smoke.yy",},},
+    {"id":{"name":"vfx_tree_spawn","path":"sprites/vfx_tree_spawn/vfx_tree_spawn.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
