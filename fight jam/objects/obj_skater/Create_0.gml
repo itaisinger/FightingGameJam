@@ -73,7 +73,7 @@ hitbox_data[STATES.light]		= new HitboxData(hitbox_skate_light,4,25,5,3,5,0,0,fa
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_skate_heavy,8,80,15,5,9,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_skate_special,9,40,10,6,7,0,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_skate_air_light,4,25,5,3.5,7,0,0,false,pogo);
-hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_skate_air_heavy,12,40,10,3,5,0,0,false);
+hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_skate_air_heavy,12,40,10,3,5,0,0,false,,,sfx_skater_heavy2);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_skate_parry,1,30,130,3,5,1,0,true);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_skate_air_special,2,10,20,5,5,0,1,false,,1.5);
 
