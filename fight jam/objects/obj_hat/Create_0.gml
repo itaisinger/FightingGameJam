@@ -5,7 +5,8 @@ event_inherited();
 xadd = 0;
 yadd = 0;
 grounded = false;
+spd_mult = 1;
 
-grav = 0.1;
-air_fric = 0.1;
-ground_fric = 0.15;
+grav = 0.08;
+air_fric = 0.13;
+ground_fric = 0.2;

@@ -187,11 +187,7 @@ arr_state_functions[STATES.dead] = function(){
 		_inst.floor_y = floor_y
 		
 		//hat
-		_inst = instance_create_depth(x,y - sprite_height/2,depth,obj_hat);
-		_inst.xadd = xadd;
-		_inst.yadd = min(yadd/2,-3);
-		_inst.floor_y = floor_y
-		_inst.is_echo = is_echo
+		create_hat();
 	}
 	
 	if(is_grounded())
@@ -662,4 +658,15 @@ function restart_state(_state) {
 function turn_to_frog(){
 	frog_remain = room_speed * 8;
 	change_state(is_grounded() ? STATES.frog : STATES.frog_jump);
+	var _inst = create_hat();
+	_inst.spd_mult = 0.4;
+}
+function create_hat()
+{
+	var _inst = instance_create_depth(x,y - sprite_height/2,depth,obj_hat);
+	_inst.xadd = xadd;
+	_inst.yadd = min(yadd/2,-3);
+	_inst.floor_y = floor_y
+	_inst.is_echo = is_echo
+	return _inst;
 }

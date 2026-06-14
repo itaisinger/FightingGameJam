@@ -6,7 +6,7 @@ if(step_delay_remain > 0)
 }
 
 grounded = place_meeting(x,y+1,obj_floor);
-var _max_spd = 10;
+var _max_spd = 9 * spd_mult;
 
 if(grounded){
 	xadd = approach(xadd, ground_fric, 0);
@@ -14,13 +14,15 @@ if(grounded){
 }
 else
 {
+	var _spd = 0.2;
 	if(yadd > 0)
 		xadd += wave(-0.4,0.4,5,0);
+		//xadd += _spd * (wave(-0.4,0.4,5,0) > 0 ? 1 : -1);
 	else
 		xadd = approach(xadd, air_fric, 0); 
-	xadd = clamp(xadd,-_max_spd,_max_spd);
 	yadd = yadd + grav;
 }
+xadd = clamp(xadd,-_max_spd,_max_spd);
 
 /// COL
 
