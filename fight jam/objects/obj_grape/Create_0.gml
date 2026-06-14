@@ -174,6 +174,44 @@ arr_state_functions[STATES.parry] = function()
 	
 	
 }
+arr_state_functions[STATES.dead] = function(){
+	
+	if(state_changed){
+		
+		//wand
+		var _inst = instance_create_depth(x + dir*5, y - sprite_height/2,depth,obj_wand);
+		_inst.xadd = abs(xadd+2)*-1;
+		_inst.yadd = min(yadd*1.3,-3);
+		_inst.is_echo = is_echo;
+		_inst.apply_phy(-1,1.2)
+		_inst.floor_y = floor_y
+		
+		//hat
+		_inst = instance_create_depth(x,y - sprite_height/2,depth,obj_hat);
+		_inst.xadd = xadd;
+		_inst.yadd = min(yadd/2,-3);
+		_inst.floor_y = floor_y
+		_inst.is_echo = is_echo
+	}
+	
+	if(is_grounded())
+	{
+		xadd = approach(xadd,slide_fric,0);
+		yadd = 0;
+		image_index = image_number-0.1;
+	}
+	else
+	{
+		xadd = approach(xadd,air_fric*0.8,0);
+		yadd += stun_grav*0.8	
+		image_index = min(image_index,image_number-1.1 - 1*(yadd<0));
+	}
+	
+	if(anim_done){
+		image_index = image_number-0.1;
+		image_speed = 0;
+	}
+}
 
 lighthit = false
 arr_state_functions[STATES.air_light] = function(){
