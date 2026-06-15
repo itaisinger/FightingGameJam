@@ -82,7 +82,7 @@ switch(state){
 		//unlock grape
 		if(!is_graped_unlocked)
 		{
-			if(string_ends_with(keyboard_string,"grape"))
+			if(string_ends_with(keyboard_string,"grape") or string_ends_with(keyboard_string,"ערשפק"))
 			{
 				is_graped_unlocked = true;
 				chosen_characters[0] = CHARACTERS.grape;
@@ -91,10 +91,10 @@ switch(state){
 			}
 			// hitmarks when aproaching grape
 			if (!variable_instance_exists(id, "grape_prefixes")){
-			    grape_prefixes = ["g", "gr", "gra", "grap", "grape"];
-			
-				grape_pitches = {"g":1,"gr":1.5,"gra":0.5,"grap":0.9,"grape":2}
-			    last_grape_prefix = ""; }
+			    grape_prefixes = ["g", "gr", "gra", "grap", "grape", "ע", "ער", "ערש", "ערשפ", "ערשפק"];
+				grape_pitches = {"g":1,"gr":1.5,"gra":0.5,"grap":0.9,"grape":2, "ע":1,"ער":1.5,"ערש":0.5,"ערשפ":0.9,"ערשפק":2}
+			    last_grape_prefix = ""; 
+			}
 			var current_prefix = "";
 			for (var i = 0; i < array_length(grape_prefixes); i++)
 			{
@@ -104,9 +104,9 @@ switch(state){
 				}
 			}
 			
-			if (current_prefix != "" && current_prefix != last_grape_prefix){
-				if(playingsfx !=0){stop_sfx(playingsfx)}
-				playingsfx=play_sfx(sfx_correct,,,grape_pitches[$current_prefix],);
+			if (current_prefix != "" && (current_prefix != last_grape_prefix or keyboard_check_pressed(ord("G")))){
+				if(playingsfx != 0) stop_sfx(playingsfx)
+				playingsfx = play_sfx(sfx_correct,,,grape_pitches[$current_prefix],);
 			}
 			last_grape_prefix = current_prefix;
 		}
