@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"sfx_skater_heavy2",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":7.2644897,
+  "exportDir":"",
+  "name":"sfx_skater_heavy2",
+  "parent":{
+    "name":"done",
+    "path":"folders/Sounds/sfx/dvir sfx/done.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sfx_skater_heavy2.wav",
+  "volume":1.0,
+}
