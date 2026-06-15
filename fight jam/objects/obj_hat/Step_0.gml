@@ -29,7 +29,7 @@ xadd = clamp(xadd,-_max_spd,_max_spd);
 //push out of floor
 while (place_meeting(x,y,obj_floor))
 	y--;
-		
+
 //push out of walls
 while (place_meeting(x,y,obj_wall)){
 	var _wall = instance_place(x,y,obj_wall)
