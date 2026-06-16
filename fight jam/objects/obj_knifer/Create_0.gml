@@ -67,8 +67,9 @@ hitbox_data[STATES.light2]		= new HitboxData(hitbox_knifer_light_2,6,45,5,1,8,0,
 hitbox_data[STATES.heavy]		= new HitboxData(hitbox_knifer_heavy,9,90,4,9,4.5,0,1,false);
 hitbox_data[STATES.special]		= new HitboxData(hitbox_knifer_special,2,20,7,3,3,0,0,false,,1);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_knifer_air_light,4,40,5,3,4,0,0,false,	function(){yadd = -4});
-hitbox_data[STATES.air_light2]	= new HitboxData(hitbox_knifer_air_light_2,3,30,5,3,4,0,0,false,function(){yadd = -4});
-hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_knifer_air_heavy,4,80,10,5,5,0,0,false,,1.2);
+hitbox_data[STATES.air_light2]	= new HitboxData(hitbox_knifer_air_light_2,6,30,5,3,4,0,0,false,function(){yadd = -4});
+hitbox_data[STATES.air_heavy]	= new HitboxData(hitbox_knifer_air_heavy,3,30,10,5,5,0,0,false,,1.5);
+hitbox_data[STATES.air_heavy2]	= new HitboxData(hitbox_knifer_air_heavy,5,80,10,5,-8,0,0,false,,1.2);
 hitbox_data[STATES.air_special]	= new HitboxData(hitbox_knifer_air_special,3,15,4,1,3,0,0,false,,1);
 hitbox_data[STATES.air_special2]= new HitboxData(hitbox_knifer_air_special,8,30,7,-8.5,6,0,0,false);
 hitbox_data[STATES.parry]		= new HitboxData(hitbox_knifer_parry,1,100,180,3,3,1,false,true);
@@ -378,7 +379,7 @@ arr_state_functions[STATES.air_light] = function(){
 	
 	xadd = approach(xadd,air_fric,0);
 	yadd += grav;
-
+	
 	//link to heavy
 	if(image_index >= 2 and input.is_pressed(INPUT.heavy)){
 		change_state(STATES.air_heavy);
@@ -387,6 +388,10 @@ arr_state_functions[STATES.air_light] = function(){
 	
 	//link to light 2
 	if(image_index >= 2 and input.is_pressed(INPUT.light)){
+		
+		if(is_hit_success())
+			xadd += dir * 3;
+		
 		change_state(STATES.air_light2);
 	}
 	
@@ -489,9 +494,6 @@ arr_state_functions[STATES.dead] = function(){
 }
 arr_state_functions[STATES.air_heavy] = function(){
 	
-	//scalex = 0.9;
-	//scaley = 0.9;
-	
 	if(state_changed)
 	{
 		yadd = -jumpforce_y/2;
@@ -507,9 +509,16 @@ arr_state_functions[STATES.air_heavy] = function(){
 		xadd = 9*dir
 	}
 	
-	if(floor(image_index) != floor(image_index_prev) and image_index < 5)// and floor(image_index)%2 == 0)
+	//multi hit
+	if(floor(image_index) != floor(image_index_prev) and image_index > 3 and image_index < 5)
 	{
 		create_hitbox(hitbox_data[STATES.air_heavy]);
+		inst_hitbox.image_index = image_index;
+	}
+	//spike
+	if(floor(image_index) != floor(image_index_prev) and image_index > 5 and image_index < 6)
+	{
+		create_hitbox(hitbox_data[STATES.air_heavy2]);
 		inst_hitbox.image_index = image_index;
 	}
 	
