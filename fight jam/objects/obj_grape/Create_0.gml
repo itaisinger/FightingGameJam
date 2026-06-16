@@ -7,6 +7,7 @@ walkspd -= 1.7;
 grav *= 0.7;
 jumpforce_y *= 1;
 jumpforce_x *= 0.7;
+fly_mult = 1;
 
 frog_remain = 0;
 
@@ -254,6 +255,7 @@ arr_state_functions[STATES.air_heavy] = function(){
 	
 	if(state_changed)
 	{
+		__yadd_prev = yadd;
 		yadd = -4;
 		xadd = -2*dir;
 	}
@@ -261,10 +263,12 @@ arr_state_functions[STATES.air_heavy] = function(){
 	//transition to air_special
 	if(state_count <= special_trans_grace_length && input.is_pressed(INPUT.special))
 	{
+		yadd = __yadd_prev;
 		change_state(STATES.air_special);
 	}
 
 	yadd += grav;
+	__yadd_prev += grav;
 	xadd = approach(xadd, air_fric, 0);
 	
 	//continue
@@ -413,12 +417,15 @@ arr_state_functions[STATES.special3] = function(){
 		if(n==1) play_sfx(wind_3_crunched)
 		__grav_mult = 0;
 		
-		yadd -= 4;
-		
+		var _yprev = yadd;
+		if(fly_mult > 0.01) 
+			yadd = lerp(yadd,-4,fly_mult);
+		fly_mult = approach(fly_mult,0.2,0);
 		if(is_grounded()){
 			yadd -= 6;
 		}
-		
+		//log(string(_yprev) + " -> " + string(yadd));
+
 		xadd = 15*dir;
 		jump_traj_x = xadd;
 		create_vfx(x, y, air_burst_1, dir, 1);
@@ -478,15 +485,14 @@ arr_state_functions[STATES.special_ex] = function(){
 		if(state_changed)
 		{
 			yadd -= 1;
-			xadd += dir;
+			xadd += 2*dir;
 		}
 		
-		xadd = approach(xadd,slide_fric,0);
+		xadd = approach(xadd,air_fric,0);
 		yadd += grav;
 
 		image_index = min(image_index, 1.7);
-	}
-	
+	}	
 }
 arr_state_functions[STATES.frog] = function(){
 	
@@ -577,8 +583,8 @@ arr_spells[0] = new Spell(STATES.special1,		[SIGILS.left, SIGILS.left])
 arr_spells[1] = new Spell(STATES.special2,		[SIGILS.down, SIGILS.right])
 arr_spells[2] = new Spell(STATES.special3,		[SIGILS.up, SIGILS.right])
 arr_spells[3] = new Spell(STATES.special4,		[SIGILS.down, SIGILS.down])
-arr_spells[4] = new Spell(STATES.special_ex,	[SIGILS.right, SIGILS.left, SIGILS.down, SIGILS.up])
-arr_spells[5] = new Spell(turn_to_frog,			[SIGILS.right, SIGILS.left, SIGILS.up, SIGILS.down])
+arr_spells[4] = new Spell(STATES.special_ex,	[SIGILS.right, SIGILS.left, SIGILS.up, SIGILS.down])
+arr_spells[5] = new Spell(turn_to_frog,			[SIGILS.right, SIGILS.left, SIGILS.down, SIGILS.up])
 
 //duplicate spells for turnaround
 var _l = array_length(arr_spells);
