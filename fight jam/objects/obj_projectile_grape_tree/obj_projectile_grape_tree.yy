@@ -12,6 +12,7 @@
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"propertyId":{"name":"hurtbox_spr","path":"objects/obj_projectile/obj_projectile.yy",},"resource":{"name":"hitbox_grape_tree","path":"sprites/hitbox_grape_tree/hitbox_grape_tree.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"hitbox_grape_tree",},
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"propertyId":{"name":"hitbox_spr","path":"objects/obj_projectile/obj_projectile.yy",},"resource":{"name":"hitbox_grape_tree","path":"sprites/hitbox_grape_tree/hitbox_grape_tree.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"hitbox_grape_tree",},
+    {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"obj_projectile","path":"objects/obj_projectile/obj_projectile.yy",},"propertyId":{"name":"death_vfx","path":"objects/obj_projectile/obj_projectile.yy",},"resource":{"name":"vfx_ice_explosion","path":"sprites/vfx_ice_explosion/vfx_ice_explosion.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"-1",},
   ],
   "parent":{
     "name":"projectiles",

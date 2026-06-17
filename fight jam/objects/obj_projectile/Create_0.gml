@@ -54,7 +54,7 @@ function start(){
 }
 function destroy(){
 	instance_destroy();
-	create_vfx(x,y,death_vfx,image_xscale,image_yscale);
+	if(death_vfx != -1) create_vfx(x,y,death_vfx,image_xscale,image_yscale);
 }
 parry = function()
 {

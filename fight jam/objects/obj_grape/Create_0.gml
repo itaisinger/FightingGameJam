@@ -666,6 +666,9 @@ function turn_to_frog(){
 	change_state(is_grounded() ? STATES.frog : STATES.frog_jump);
 	var _inst = create_hat();
 	_inst.spd_mult = 0.4;
+	_inst.depth = depth-2;
+	var _vfx = create_vfx(x,y,vfx_grape_disappeaer,2,2);
+	_vfx.depth = depth-1;
 }
 function create_hat()
 {

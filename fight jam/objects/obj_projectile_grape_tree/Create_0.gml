@@ -6,6 +6,7 @@ yadd = 0;
 image_yscale = 5;
 image_xscale = 2;
 mask_index = hurtbox_spr;
+death_vfx = -1;
 
 life = room_speed * 2;
 sfx = play_sfx(vines_climbing_done)
