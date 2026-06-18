@@ -15,9 +15,14 @@ name = "GRAPE"
 win_sfx = sfx_grape_wins;
 
 //part
-part_sys = part_system_create(part_magic);
-part_emitter = part_system_get_info(part_sys).emitters[0].ind
-part_system_depth(part_sys,depth+1);
+part_active = part_system_create(part_magic_active);
+part_passive = part_system_create(part_magic_passive);
+emitter_active = part_system_get_info(part_active).emitters[0].ind;
+emitter_passive = part_system_get_info(part_passive).emitters[0].ind;
+part_system_depth(part_passive,depth+1);
+part_system_depth(part_active,depth-1);
+
+part_emitter_enable(part_active,emitter_active,false);
 
 states_sprites = array_create(STATES.max,-1);
 states_sprites[STATES.idle]			= spr_grape_idle;
@@ -352,6 +357,7 @@ arr_state_functions[STATES.special] = function(){
 	{
 		arr_sigils = [];
 		jump_traj_x = 0;
+		part_emitter_enable(part_active,emitter_active,true);
 	}
 
     xadd = lerp(xadd, 0, 0.06);
