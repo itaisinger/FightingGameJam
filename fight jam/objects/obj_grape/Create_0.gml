@@ -14,6 +14,11 @@ frog_remain = 0;
 name = "GRAPE"
 win_sfx = sfx_grape_wins;
 
+//part
+part_sys = part_system_create(part_magic);
+part_emitter = part_system_get_info(part_sys).emitters[0].ind
+part_system_depth(part_sys,depth+1);
+
 states_sprites = array_create(STATES.max,-1);
 states_sprites[STATES.idle]			= spr_grape_idle;
 states_sprites[STATES.jump_squat]	= spr_grape_jump_squat;
