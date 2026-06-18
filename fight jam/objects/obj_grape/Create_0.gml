@@ -95,7 +95,7 @@ mask_index = spr_grape_idle
 /// ATTACKS DATA (overrided in different characters)
 hitbox_data = array_create(STATES.max,-1)
 hitbox_data[STATES.light]		= new HitboxData(hitbox_grape_light,4,45,5,3,4,0,0,false);
-hitbox_data[STATES.heavy]		= new HitboxData(hitbox_grape_heavy,8,100,15,5,9,0,1,false);
+hitbox_data[STATES.heavy]		= new HitboxData(hitbox_grape_heavy,8,100,15,4.5,10,0,1,false);
 hitbox_data[STATES.air_light]	= new HitboxData(hitbox_grape_air_light,5,60,5,3,7,0,0,false);
 hitbox_data[STATES.air_heavy2]	= new HitboxData(hitbox_grape_air_heavy3,4,30,10,2,5,0,0,false);
 hitbox_data[STATES.air_heavy3]	= new HitboxData(hitbox_grape_air_heavy3,4,70,10,4,6,0,0,false);
@@ -134,7 +134,7 @@ for(var i=0; i < STATES.max; i++){
 arr_state_functions[STATES.light] = function(){
 
 	if(state_changed){
-		xadd += dir * 2.0;
+		xadd += dir * 3.0;
 	}
 	
 	xadd = approach(xadd,slide_fric,0);
@@ -158,7 +158,7 @@ arr_state_functions[STATES.light] = function(){
 arr_state_functions[STATES.heavy] = function(){
 	
 	if(state_changed){
-		xadd += dir * 2;
+		xadd += dir * 3.2;
 		
 	}
 	
