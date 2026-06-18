@@ -14,15 +14,25 @@ frog_remain = 0;
 name = "GRAPE"
 win_sfx = sfx_grape_wins;
 
-//part
+//particles
 part_active = part_system_create(part_magic_active);
 part_passive = part_system_create(part_magic_passive);
-emitter_active = part_system_get_info(part_active).emitters[0].ind;
-emitter_passive = part_system_get_info(part_passive).emitters[0].ind;
-part_system_depth(part_passive,depth+1);
-part_system_depth(part_active,depth-1);
+var _info_active = part_system_get_info(part_active);
+var _info_passive = part_system_get_info(part_passive);
+emitter_active = _info_active.emitters[0].ind;
+emitter_passive = _info_passive.emitters[0].ind;
+part_type_active = _info_active.emitters[0].parttype.ind;
+part_type_passive = _info_passive.emitters[0].parttype.ind;
+part_number_active = _info_active.emitters[0].number;
+part_number_passive = _info_passive.emitters[0].number;
 
-part_emitter_enable(part_active,emitter_active,false);
+part_system_depth(part_passive,depth-1);
+part_system_depth(part_active,depth+1);
+
+part_system_automatic_update(part_active,false)
+part_system_automatic_update(part_passive,false)
+
+part_set_enabled(1,0);
 
 states_sprites = array_create(STATES.max,-1);
 states_sprites[STATES.idle]			= spr_grape_idle;
@@ -45,10 +55,6 @@ states_sprites[STATES.air_heavy]	= spr_grape_air_heavy_start;
 states_sprites[STATES.air_heavy2]	= spr_grape_air_heavy2;
 states_sprites[STATES.air_heavy3]	= spr_grape_air_heavy3;
 states_sprites[STATES.air_special]	= spr_grape_special;
-states_sprites[STATES.left]			= spr_grape_sign_left;
-states_sprites[STATES.right]		= spr_grape_sign_right;
-states_sprites[STATES.up]			= spr_grape_sign_up;
-states_sprites[STATES.down]			= spr_grape_sign_down;
 states_sprites[STATES.special_ex]	= spr_grape_explosion;
 states_sprites[STATES.frog]			= spr_frog;
 states_sprites[STATES.frog_jump]	= spr_frog_air;
@@ -357,7 +363,7 @@ arr_state_functions[STATES.special] = function(){
 	{
 		arr_sigils = [];
 		jump_traj_x = 0;
-		part_emitter_enable(part_active,emitter_active,true);
+		part_set_enabled(1,1);
 	}
 
     xadd = lerp(xadd, 0, 0.06);
@@ -368,10 +374,8 @@ arr_state_functions[STATES.special] = function(){
 		change_state(STATES.air);
 	}
 	
-	if(anim_done)
-	{
-		image_speed = 0;
-	}
+	if(sprite_index != states_sprites[state])
+		image_index = min(image_index,image_number-0.7);
 	
 	//input sign
     if(input.is_pressed(INPUT.up_press))
@@ -389,6 +393,7 @@ arr_state_functions[STATES.special] = function(){
 arr_state_functions[STATES.air_special] = arr_state_functions[STATES.special];
 ///// ice
 arr_state_functions[STATES.special1] = function(){
+		
 		yadd += grav * 0.8;
 		xadd = approach(xadd,air_fric * 0.8, 0);
 		//if(state_changed){play_sfx(sfx_ice_spawn)}
@@ -496,7 +501,7 @@ arr_state_functions[STATES.special_ex] = function(){
 		if(state_changed)
 		{
 			yadd -= 1;
-			xadd += 2*dir;
+			xadd += 3*dir;
 		}
 		
 		xadd = approach(xadd,air_fric,0);
@@ -660,6 +665,7 @@ function cast_sigil(_dir)
 				dir = _spell.dir;
 				if(_spell.state == turn_to_frog) method(self,_spell.state)();
 				else change_state(_spell.state);
+				part_set_enabled(1,1);
 				return;
 			}
 		}
@@ -689,4 +695,23 @@ function create_hat()
 	_inst.floor_y = floor_y
 	_inst.is_echo = is_echo
 	return _inst;
+}
+function part_set_enabled(is_active=1,is_enabled=1)
+{
+	var _system = is_active ? part_active : part_passive;
+	var _emitter = is_active ? emitter_active : emitter_passive;
+	var _part = is_active ? part_type_active : part_type_passive;
+	var _number = is_active ? part_number_active : part_number_passive;
+	part_emitter_enable(_system,_emitter,is_enabled)
+	
+	if(is_enabled)
+	{
+		part_emitter_stream(_system,_emitter,_part,_number)
+	}
+	else
+	{
+		part_emitter_clear(_system,_emitter);
+	}
+	
+
 }
