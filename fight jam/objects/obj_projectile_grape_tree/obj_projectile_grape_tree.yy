@@ -40,8 +40,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_grape_tree",
-    "path":"sprites/spr_grape_tree/spr_grape_tree.yy",
+    "name":"spr_grape_tree_large",
+    "path":"sprites/spr_grape_tree_large/spr_grape_tree_large.yy",
   },
   "spriteMaskId":null,
   "visible":true,

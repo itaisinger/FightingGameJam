@@ -3,8 +3,8 @@ event_inherited();
 hp = 5;
 xadd = 0;
 yadd = 0;
-image_yscale = 5;
-image_xscale = 2;
+//image_yscale = 5;
+//image_xscale = 2;
 mask_index = hurtbox_spr;
 death_vfx = -1;
 
