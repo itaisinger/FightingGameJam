@@ -698,20 +698,23 @@ function create_hat()
 }
 function part_set_enabled(is_active=1,is_enabled=1)
 {
-	var _system = is_active ? part_active : part_passive;
-	var _emitter = is_active ? emitter_active : emitter_passive;
-	var _part = is_active ? part_type_active : part_type_passive;
-	var _number = is_active ? part_number_active : part_number_passive;
-	part_emitter_enable(_system,_emitter,is_enabled)
-	
-	if(is_enabled)
-	{
-		part_emitter_stream(_system,_emitter,_part,_number)
-	}
-	else
-	{
-		part_emitter_clear(_system,_emitter);
-	}
-	
+	try{
+		var _system = is_active ? part_active : part_passive;
+		var _emitter = is_active ? emitter_active : emitter_passive;
+		var _part = is_active ? part_type_active : part_type_passive;
+		var _number = is_active ? part_number_active : part_number_passive;
+		part_emitter_enable(_system,_emitter,is_enabled)
 
+	
+		if(is_enabled)
+		{
+			part_emitter_stream(_system,_emitter,_part,_number)
+		}
+		else
+		{
+			part_emitter_clear(_system,_emitter);
+		}
+	
+	}
+	catch(e){log("======= GRAPE PARTICLES CRASHED!!!")}
 }
