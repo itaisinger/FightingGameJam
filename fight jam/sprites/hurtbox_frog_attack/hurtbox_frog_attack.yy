@@ -29,8 +29,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"sprites",
-    "path":"folders/Sprites/fighters/fighter grape/sprites.yy",
+    "name":"hurtboxes",
+    "path":"folders/Sprites/fighters/fighter grape/hurtboxes.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

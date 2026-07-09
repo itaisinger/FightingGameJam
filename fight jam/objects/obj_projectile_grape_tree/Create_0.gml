@@ -13,8 +13,13 @@ sfx = play_sfx(vines_climbing_done)
 
 create_vfx(x,y,vfx_tree_spawn,3,3);
 
-data = new HitboxData(hitbox_spr,3,60,3,0,9,0,0,0,,1);
+data = new HitboxData(hitbox_spr,5,60,3,0,9,0,0,0,,1);
 parry = function(){
 	life = life_max;
 	is_p1 = !is_p1;
+}
+
+function reached_frame(index) //return true if this is the first frame that we reached this sub image.
+{
+	return (floor(image_index) == index and floor(image_index_prev) < index)
 }

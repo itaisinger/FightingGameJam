@@ -50,7 +50,6 @@ function start(){
 	inst_hitbox.parent = self;
 	inst_hitbox.dir = dir;
 	inst_hitbox.loop = 1;
-
 }
 function destroy(){
 	instance_destroy();
