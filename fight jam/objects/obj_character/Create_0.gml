@@ -935,4 +935,3 @@ function create_projectile(_projectile_obj, _xoff=0, _yoff=-sprite_height/2) {
 	
     return _p;
 }
-
