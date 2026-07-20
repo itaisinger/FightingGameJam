@@ -82,7 +82,7 @@ switch(state){
 		//unlock grape
 		if(!is_graped_unlocked)
 		{
-			if(string_ends_with(keyboard_string,"grape") or string_ends_with(keyboard_string,"ערשפק"))
+			if(string_ends_with(string_lower(keyboard_string),"grape") or string_ends_with(keyboard_string,"ערשפק"))
 			{
 				is_graped_unlocked = true;
 				chosen_characters[0] = CHARACTERS.grape;
@@ -98,7 +98,7 @@ switch(state){
 			var current_prefix = "";
 			for (var i = 0; i < array_length(grape_prefixes); i++)
 			{
-				if (string_ends_with(keyboard_string, grape_prefixes[i]))
+				if (string_ends_with(string_lower(keyboard_string), grape_prefixes[i]))
 				{
 				    current_prefix = grape_prefixes[i];
 				}

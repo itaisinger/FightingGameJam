@@ -5,6 +5,3 @@ controllers
 
 //bugs
 minami special after image sometimes doesnt work good
-
-grape clone crashes particles smt
-grape turn off particles when he dies
