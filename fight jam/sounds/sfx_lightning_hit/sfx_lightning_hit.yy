@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"spyke_lightning2",
+  "%Name":"sfx_lightning_hit",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":2.3650568,
+  "duration":1.2129478,
   "exportDir":"",
-  "name":"spyke_lightning2",
+  "name":"sfx_lightning_hit",
   "parent":{
     "name":"sprites",
     "path":"folders/Sprites/fighters/fighter spyke/sprites.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"spyke_lightning2.wav",
+  "soundFile":"sfx_lightning_hit.ogg",
   "volume":1.0,
 }

@@ -1,4 +1,4 @@
-/// @description collide and register hits
+/// @description parry
 if(is_parry)
 {
 	var _cols = ds_list_create();

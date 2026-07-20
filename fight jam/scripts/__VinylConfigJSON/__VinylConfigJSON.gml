@@ -164,6 +164,11 @@ global.VinylConfigJSON = [
 	},
 	
 	{
+		sound: sfx_lightning_hit,
+		gain: 2.5,
+	},
+	
+	{
 		sound: sfx_correct,
 		gain: 2,
 	},

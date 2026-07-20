@@ -3,13 +3,8 @@ sound effects for attacks
 consider better particles using pixel fx designer
 controllers
 
-//must
-color each player
-
 //bugs
 minami special after image sometimes doesnt work good
 
-
 grape clone crashes particles smt
 grape turn off particles when he dies
-SPYKE SPECIAL SFX
