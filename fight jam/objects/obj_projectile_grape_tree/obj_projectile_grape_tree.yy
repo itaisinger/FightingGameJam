@@ -39,7 +39,7 @@
     {"x":192.0,"y":512.0,},
     {"x":0.0,"y":512.0,},
   ],
-  "physicsStartAwake":true,
+  "physicsStartAwake":false,
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

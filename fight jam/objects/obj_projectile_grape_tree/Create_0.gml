@@ -7,6 +7,7 @@ yadd = 0;
 //image_xscale = 2;
 mask_index = hurtbox_spr;
 death_vfx = -1;
+phy_active = false;
 
 life = room_speed * 2;
 sfx = play_sfx(vines_climbing_done)
@@ -23,3 +24,4 @@ function reached_frame(index) //return true if this is the first frame that we r
 {
 	return (floor(image_index) == index and floor(image_index_prev) < index)
 }
+

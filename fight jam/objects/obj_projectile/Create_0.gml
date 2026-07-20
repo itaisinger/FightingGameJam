@@ -17,6 +17,8 @@ hp = 1;
 xadd = 10;
 yadd = 0;
 
+phy_active = false;
+
 //hitbox checks for these.
 jumpforce_y = 0;
 function is_grounded(){return false;} 

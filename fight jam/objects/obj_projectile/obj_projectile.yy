@@ -27,7 +27,7 @@
   "physicsSensor":false,
   "physicsShape":1,
   "physicsShapePoints":[],
-  "physicsStartAwake":true,
+  "physicsStartAwake":false,
   "properties":[
     {"$GMObjectProperty":"v2","%Name":"hurtbox_spr","filters":[
         "GMSprite",
