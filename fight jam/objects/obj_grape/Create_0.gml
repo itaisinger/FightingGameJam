@@ -25,6 +25,7 @@ part_type_active = _info_active.emitters[0].parttype.ind;
 part_type_passive = _info_passive.emitters[0].parttype.ind;
 part_number_active = _info_active.emitters[0].number;
 part_number_passive = _info_passive.emitters[0].number;
+part_destroyed = false;
 
 part_system_depth(part_passive,depth-1);
 part_system_depth(part_active,depth+1);
@@ -698,18 +699,24 @@ function create_hat()
 }
 function part_set_enabled(is_active=1,is_enabled=1)
 {
+	if(part_destroyed) return;
+	
 	var _system = is_active ? part_active : part_passive;
 	var _emitter = is_active ? emitter_active : emitter_passive;
 	var _part = is_active ? part_type_active : part_type_passive;
 	var _number = is_active ? part_number_active : part_number_passive;
-	part_emitter_enable(_system,_emitter,is_enabled)
 	
-	if(is_enabled)
-	{
-		part_emitter_stream(_system,_emitter,_part,_number)
+	try{
+		part_emitter_enable(_system,_emitter,is_enabled)
+	
+		if(is_enabled)
+		{
+			part_emitter_stream(_system,_emitter,_part,_number)
+		}
+		else
+		{
+			part_emitter_clear(_system,_emitter);
+		}
 	}
-	else
-	{
-		part_emitter_clear(_system,_emitter);
-	}
+	catch(e){log("grape crash");}
 }
