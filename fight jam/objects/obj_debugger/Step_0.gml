@@ -1,7 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if(live_call()) return live_result;
-if(keyboard_check_pressed(ord("B"))) active = !active;
+if(keyboard_check_pressed(vk_escape)) active = !active;
 
 
 if(active){
